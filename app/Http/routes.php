@@ -15,8 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('api/result/all', 'ResultController@all');
+Route::get('results', 'ResultController@index');
 
-Route::get('api/result/latest', 'ResultController@latest');
+Route::get('results/create', 'ResultController@create');
 
-Route::get('api/result/{id}', 'ResultController@getById');
+Route::post('results', 'ResultController@store');
+
+Route::get('api/results/all', 'ResultController@all');
+
+Route::get('api/results/latest', 'ResultController@latest');
+
+Route::get('api/results/{id}', 'ResultController@getById');
+
+

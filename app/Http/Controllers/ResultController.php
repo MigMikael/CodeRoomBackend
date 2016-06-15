@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Result;
 use App\Http\Requests;
 
 class ResultController extends Controller
 {
+    public function index()
+    {
+        $results = Result::all();
+        
+        return view('results.index')->with('results', $results);
+    }
+    
     public function all()
     {
         $allResult = [];
@@ -34,7 +41,7 @@ class ResultController extends Controller
         $result = Result::find($id);
 
         if (is_null($result)) {
-            abort();
+            abort(404);
         }
 
         $final_json = self::convertToJson($result);
@@ -45,36 +52,61 @@ class ResultController extends Controller
     public function convertToJson($result)
     {
         $json = [];
-        $classes = explode(":", $result['class']);
-        $json['name'] = $classes[0];
+        $classes = explode('|', $result['class']);
+        $attributes = explode('|', $result['attribute']);
+        $methods = explode('|', $result['method']);
+        $tmp = [];
+        $tmp['class'] = [];
+        $i = 0;
+        foreach ($classes as $class) {
+            $tmp2 = explode(':', $class);
+            $tmp3['name'] = $tmp2[0];
 
-        $attrubutes = explode(";", $result['attribute']);
-        $allAttribute = [];
-        foreach ($attrubutes as $attrubute) {
-            $tmp = explode(":", $attrubute);
-            $tmp2 = [];
-            $tmp2['name'] = $tmp[0];
-            $tmp2['status'] = $tmp[1];
-            array_push($allAttribute, $tmp2);
+            //$tmp3['attribute'] = $attributes[$i];
+            $tmp4 = explode(';', $attributes[$i]);
+            $attribute = [];
+            foreach ($tmp4 as $itme) {
+                $tmp5 = explode(':', $itme);
+                $tmp6 = [];
+                $tmp6['name'] = $tmp5[0];
+                $tmp6['status'] = $tmp5[1];
+                array_push($attribute, $tmp6);
+            }
+            $tmp3['attribute'] = $attribute;
+
+            //$tmp3['method'] = $methods[$i];
+            $tmp4 = explode(';', $methods[$i]);
+            $method = [];
+            foreach ($tmp4 as $tem) {
+                $tmp5 = explode(':', $tem);
+                $tmp6 = [];
+                $tmp6['name'] = $tmp5[0];
+                $tmp6['status'] = $tmp5[1];
+                array_push($method, $tmp6);
+            }
+            $tmp3['method'] = $method;
+
+            $tmp3['status'] = $tmp2[1];
+            array_push($tmp['class'], $tmp3);
+
+            $i++;
         }
-        $json['attribute'] = $allAttribute;
+        $json['result'] = $tmp;
 
-        $methods = explode(";", $result['method']);
-        $allMethod = [];
-        foreach ($methods as $method) {
-            $tmp = explode(":", $method);
-            $tmp2 = [];
-            $tmp2['name'] = $tmp[0];
-            $tmp2['status'] = $tmp[1];
-            array_push($allMethod, $tmp2);
-        }
-        $json['method'] = $allMethod;
+        return $json;
+    }
 
-        $json['status'] = $classes[1];
+    public function create()
+    {
+        return view('results.create');
+    }
 
-        $final_json = [];
-        $final_json['class'] = $json;
+    public function store()
+    {
+        $input = Request::all();
 
-        return $final_json;
+        Result::create($input);
+
+        return redirect('results');
     }
 }

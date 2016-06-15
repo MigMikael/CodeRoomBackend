@@ -14,6 +14,7 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('prob_id');
             $table->text('class');
             $table->text('attribute');
             $table->text('method');
