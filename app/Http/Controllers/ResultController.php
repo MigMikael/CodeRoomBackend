@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use App\Http\Requests\AddResultRequest;
 use App\Result;
 use App\Http\Requests;
 
@@ -101,9 +101,10 @@ class ResultController extends Controller
         return view('results.create');
     }
 
-    public function store()
+    public function store(AddResultRequest $request)    // laravel will tricker validation before execute method
     {
-        $input = Request::all();
+        //$input = Request::all();      //use facade
+        $input = $request->all();       //use validation class
 
         Result::create($input);
 
