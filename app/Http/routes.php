@@ -23,7 +23,7 @@ Route::post('results', 'ResultController@store');
 
 Route::get('api/results/all', 'ResultController@all');
 
-Route::get('api/results/latest', 'ResultController@latest');
+Route::get('api/results/latest', 'ResultController@latest', ['middleware' => 'cors']);
 
 Route::get('api/results/{id}', 'ResultController@getById');
 

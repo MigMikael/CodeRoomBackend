@@ -8,11 +8,32 @@ use App\Http\Requests;
 
 class ResultController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('cors');
+    }
+
     public function index()
     {
         $results = Result::all();
         
         return view('results.index')->with('results', $results);
+    }
+
+    public function create()
+    {
+        return view('results.create');
+    }
+
+    public function store(AddResultRequest $request)    // laravel will tricker validation before execute method
+    {
+        //$input = Request::all();      //use facade
+        $input = $request->all();       //use validation class
+
+        Result::create($input);
+
+        return redirect('results');
     }
     
     public function all()
@@ -94,20 +115,5 @@ class ResultController extends Controller
         $json['result'] = $tmp;
 
         return $json;
-    }
-
-    public function create()
-    {
-        return view('results.create');
-    }
-
-    public function store(AddResultRequest $request)    // laravel will tricker validation before execute method
-    {
-        //$input = Request::all();      //use facade
-        $input = $request->all();       //use validation class
-
-        Result::create($input);
-
-        return redirect('results');
     }
 }
