@@ -15,16 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('submissions', 'SubmissionController@index');
+
+Route::get('submissions/create', 'SubmissionController@create');
+
+Route::post('submissions', 'SubmissionController@store');
+
+
 Route::get('results', 'ResultController@index');
 
 Route::get('results/create', 'ResultController@create');
 
 Route::post('results', 'ResultController@store');
 
-Route::get('api/results/all', 'ResultController@all');
 
-Route::get('api/results/latest', 'ResultController@latest', ['middleware' => 'cors']);
+//Route::get('api/results/latest', 'ResultController@latest', ['middleware' => 'cors']);
 
-Route::get('api/results/{id}', 'ResultController@getById');
+
+Route::get('api/results/{user_id}/latest', 'ResultController@latestResult', ['middleware' => 'cors']);
+
+Route::get('api/results/{user_id}/all', 'ResultController@allResult', ['middleware' => 'cors']);
 
 

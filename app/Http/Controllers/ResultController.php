@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddResultRequest;
 use App\Result;
+use App\Submission;
 use App\Http\Requests;
 
 class ResultController extends Controller
@@ -35,35 +36,44 @@ class ResultController extends Controller
 
         return redirect('results');
     }
-    
-    public function all()
-    {
-        $allResult = [];
-        $results = Result::all();
 
-        foreach($results as $result) {
-            $final_json = self::convertToJson($result);
-            array_push($allResult, $final_json);
+    public function latestResult($user_id)
+    {
+        $submission = Submission::where('user_id', '=', $user_id)->get()->last();
+
+        if (is_null($submission)) {
+            abort(404);
         }
+
+        $results = Result::where('submission_id', '=', $submission->id)->get();
+
+        return $results;
+    }
+    
+    public function allResult($user_id)
+    {
+        $submissions = Submission::where('user_id', '=', $user_id)->get();
+
+        if (is_null($submissions)) {
+            abort(404);
+        }
+
+        $allResult = [];
+        foreach ($submissions as $submission) {
+            $result = Result::where('submission_id', '=', $submission->id)->orderBy('submission_id', 'desc')->get();    // orderBy has no effect here
+            array_push($allResult, $result);
+        }
+
         return $allResult;
     }
 
-    public function latest()
+
+
+
+
+    /*public function latest()
     {
         $result = Result::all()->last();
-
-        $final_json = self::convertToJson($result);
-
-        return $final_json;
-    }
-
-    public function getById($id)
-    {
-        $result = Result::find($id);
-
-        if (is_null($result)) {
-            abort(404);
-        }
 
         $final_json = self::convertToJson($result);
 
@@ -115,5 +125,5 @@ class ResultController extends Controller
         $json['result'] = $tmp;
 
         return $json;
-    }
+    }*/
 }
