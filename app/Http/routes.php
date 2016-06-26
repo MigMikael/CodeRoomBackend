@@ -51,3 +51,13 @@ Route::get('api/results/{user_id}/latest', 'ResultController@latestResult', ['mi
 Route::get('api/results/{user_id}/all', 'ResultController@allResult', ['middleware' => 'cors']);
 
 Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis', ['middleware' => 'cors']);
+
+
+
+Route::post('api/problems_analysis', 'ProblemAnalysisController@keep');
+
+/*
+
+http://localhost:8888/api/problems_analysis
+
+*/
