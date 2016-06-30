@@ -43,6 +43,13 @@ Route::get('problems_analysis/create', 'ProblemAnalysisController@create');
 Route::post('problems_analysis', 'ProblemAnalysisController@store');
 
 
+Route::get('problemfile', 'ProblemFileController@index');
+
+Route::get('problemfile/get/{filename}', ['as' => 'getfile', 'uses' => 'ProblemFileController@get']);
+
+Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileController@add']);
+
+
 //Route::get('api/results/latest', 'ResultController@latest', ['middleware' => 'cors']);
 
 
