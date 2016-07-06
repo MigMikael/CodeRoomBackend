@@ -14,11 +14,12 @@
         <h5><strong>Method : </strong>{{ $problem_analysis->method }}</h5>
         <h5><strong>Method Score : </strong>{{ $problem_analysis->method_score }}</h5>
         <h5><strong>Code : </strong>{{ $problem_analysis->code }}</h5>
+        <a href="{{ url('problem_analysis/'.$problem_analysis->prob_id.'/edit') }}" class="btn btn-success">Edit</a>
         <hr>
     @endforeach
 
     <h2>
-        <a href="{{ url('problems_analysis/create') }}">add new demo result</a>
+        <a href="{{ url('problem_analysis/create') }}" class="btn btn-primary">add new demo result</a>
     </h2>
 
-@stop
+@endsection

@@ -3,7 +3,7 @@
 @section('content')
     <h1>Add new Problem Analysis (Demo)</h1>
     <hr>
-    {!! Form::open(['url'=>'problems_analysis']) !!}
+    {!! Form::open(['url'=>'problem_analysis']) !!}
 
         <div class="form-group">
             {!! Form::label('prob_id', 'ProblemID :') !!}
@@ -45,4 +45,4 @@
         </div>
 
     {!! Form::close() !!}
-@stop
+@endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProblemAnalysis;
 use Request;
+use Log;
 use App\Http\Requests;
 
 class ProblemAnalysisController extends Controller
@@ -29,19 +30,47 @@ class ProblemAnalysisController extends Controller
         return redirect('problems_analysis');
     }
 
+    public function edit($prob_id)
+    {
+        $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get()->last();
+
+        return view('problems_analysis.edit')->with('problem_analysis', $problem_analysis);
+    }
+
+    public function update($prob_id)
+    {
+        $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get()->last();
+
+        $input = Request::getContent();
+
+        $json = json_decode($input, true);
+
+        /*$problem_analysis->where('prob_id', $problem_analysis->prob_id)
+            ->update(array(
+                'class' => $json['class'],
+                'package' => $json['package'],
+                'enclose' => $json['enclose'],
+                'attribute' => $json['attribute'],
+                'method' => $json['method'],
+                'code' => $json['code']
+            ));*/
+
+        return $input;
+    }
+
     public function keep()
     {
-        $input = Request::all();
-        
-        //var_dump($input);
+        $input = Request::getContent();
 
-        //$prob_id = $input['prob_id'];
+        $json = json_decode($input, true);
 
-        $classes = $input['class'];
+        //$prob_id = $json['prob_id'];
+
+        $classes = $json['class'];
 
         $data = [];
 
-        foreach ($classes as $class) {
+        foreach ((array)$classes as $class) {
             //$data['prob_id'] = $prob_id;
             $data['class'] = $class['modifier'].';'.$class['name'];
             $data['enclose'] = $class['enclose'];
@@ -78,6 +107,14 @@ class ProblemAnalysisController extends Controller
 
             ProblemAnalysis::create($data);
         }
+    }
+
+    public function test()
+    {
+        $input = Request::getContent();
+        $json = json_decode($input);
+        
+        Log::info('#### '.$json->class[0]->name.' ####');
     }
     
     public function latestAnalysis()

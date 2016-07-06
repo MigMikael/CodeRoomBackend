@@ -36,11 +36,17 @@ Route::get('problems/create', 'ProblemController@create');
 Route::post('problems', 'ProblemController@store');
 
 
-Route::get('problems_analysis', 'ProblemAnalysisController@index');
+/*Route::get('problems_analysis', 'ProblemAnalysisController@index');
 
 Route::get('problems_analysis/create', 'ProblemAnalysisController@create');
 
+Route::get('problems_analysis/{id}', 'ProblemAnalysisController@show');
+
 Route::post('problems_analysis', 'ProblemAnalysisController@store');
+
+Route::get('problems_analysis/{id}/edit', 'ProblemAnalysisController@edit');*/
+
+Route::resource('problem_analysis', 'ProblemAnalysisController');
 
 
 Route::get('problemfile', 'ProblemFileController@index');
@@ -61,7 +67,7 @@ Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnal
 
 
 
-Route::post('api/problems_analysis', 'ProblemAnalysisController@keep');
+Route::post('api/problems_analysis', 'ProblemAnalysisController@test');
 
 /*
 
