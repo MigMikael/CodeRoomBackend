@@ -70,7 +70,7 @@ class ProblemAnalysisController extends Controller
 
         $data = [];
 
-        foreach ((array)$classes as $class) {
+        foreach ($classes as $class) {
             //$data['prob_id'] = $prob_id;
             $data['class'] = $class['modifier'].';'.$class['name'];
             $data['enclose'] = $class['enclose'];
