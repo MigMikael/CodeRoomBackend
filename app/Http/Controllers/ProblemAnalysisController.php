@@ -41,7 +41,7 @@ class ProblemAnalysisController extends Controller
     {
         $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get()->last();
 
-        $input = Request::getContent();
+        $input = Request::all();
 
         $json = json_decode($input, true);
 
@@ -112,11 +112,25 @@ class ProblemAnalysisController extends Controller
     public function test()
     {
         $input = Request::getContent();
-        $json = json_decode($input);
-        
-        Log::info('#### '.$json->class[0]->name.' ####');
+        $s = urldecode($input); // class={:modifier=>"public", :name=>"test", :attribute=>[{:datatype=>"int", :name=>"x"}]}
+        $json = json_decode($s);
+
+        /*$str = '{
+                    "type": "donut",
+                    "name": "Cake",
+                    "toppings": [
+                        { "id": "5002", "type": "Glazed" },
+                        { "id": "5006", "type": "Chocolate with Sprinkles" },
+                        { "id": "5004", "type": "Maple" }
+                    ]
+                }';
+        $json = json_decode($str);*/
+
+        Log::info('#### INPUT #### '.$input.' ####');
+        Log::info('#### STRING #### '.$s.' ####');
+        Log::info('#### JSON #### '.$json->type.' ####');
     }
-    
+
     public function latestAnalysis()
     {
         $problem_analysis = ProblemAnalysis::all()->last();

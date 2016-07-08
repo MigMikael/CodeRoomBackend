@@ -6,6 +6,7 @@ use App\Http\Requests\AddResultRequest;
 use App\Result;
 use App\Submission;
 use App\Http\Requests;
+use Log;
 
 class ResultController extends Controller
 {
@@ -46,6 +47,8 @@ class ResultController extends Controller
         }
 
         $results = Result::where('submission_id', '=', $submission->id)->get();
+
+        Log::info('#### '.$results.' ####');
 
         return $results;
     }
