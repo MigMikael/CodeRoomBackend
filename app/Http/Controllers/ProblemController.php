@@ -35,7 +35,6 @@ class ProblemController extends Controller
         $result= $res->getBody();
         $json = json_decode($result);
         
-
         Log::info('#### POST Data #### '.$json->class[0]->name.' ####');
     }
 }
