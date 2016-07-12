@@ -58,57 +58,6 @@ class ProblemAnalysisController extends Controller
         return $input;
     }
 
-    public function keep()
-    {
-        $input = Request::getContent();
-
-        $json = json_decode($input, true);
-
-        //$prob_id = $json['prob_id'];
-
-        $classes = $json['class'];
-
-        $data = [];
-
-        foreach ($classes as $class) {
-            //$data['prob_id'] = $prob_id;
-            $data['class'] = $class['modifier'].';'.$class['name'];
-            $data['enclose'] = $class['enclose'];
-
-            $attributes = $class['attribute'];
-            $count = 1;
-            foreach ($attributes as $attribute) {
-                $data['attribute'] = $count.';'
-                    .$attribute['modifier'].';'
-                    .$attribute['datatype'].';'
-                    .$attribute['name'].'|';
-
-                $count++;
-            }
-
-            $methods = $class['method'];
-            $count = 1;
-            foreach ($methods as $method) {
-                $data['method'] = $count.';'
-                    .$method['modifier'].';'
-                    .$method['returntype'].';'
-                    .$method['name'].';'
-                    .'(';
-
-                $params = $method['params'];
-                foreach ($params as $param) {
-                    $data['method'] .= $param['datatype_params'].';'
-                        .$param['name_params'].'|';
-                }
-                $data['method'] .= ')';
-
-                $count++;
-            }
-
-            ProblemAnalysis::create($data);
-        }
-    }
-
     public function latestAnalysis()
     {
         $problem_analysis = ProblemAnalysis::all()->last();
@@ -122,5 +71,23 @@ class ProblemAnalysisController extends Controller
 
         //var_dump($json);
         return $json;
+    }
+
+    public function getByID($prob_id)
+    {
+        $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get();
+
+        $json = [];
+
+        for ($i = 0 ; $i < sizeof($problem_analysis); $i++) {
+            $json[$i]['prob_id'] = $problem_analysis[$i]->prob_id;
+            $json[$i]['class'] = $problem_analysis[$i]->class;
+            $json[$i]['package'] = $problem_analysis[$i]->package;
+            $json[$i]['attribute'] = $problem_analysis[$i]->attribute;
+            $json[$i]['method'] = $problem_analysis[$i]->method;
+        }
+
+
+        return \GuzzleHttp\json_encode($json);
     }
 }

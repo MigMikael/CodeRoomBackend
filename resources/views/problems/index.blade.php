@@ -5,12 +5,12 @@
     <hr>
 
     @foreach($problems as $problem)
-
+        <h5>{{ $problem->name }}</h5>
         <hr>
     @endforeach
 
     <h2>
-        <a href="{{ url('problems/create') }}" class="btn btn-primary">add new demo result</a>
+        <a href="{{ url('problems/create') }}" class="btn btn-primary">new demo problem</a>
     </h2>
 
 @endsection

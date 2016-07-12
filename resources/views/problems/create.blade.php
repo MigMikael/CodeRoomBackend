@@ -10,9 +10,15 @@
             {!! Form::open(['url'=>'problems']) !!}
 
             <div class="form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col">
-                {!! Form::text('name', null, ['class' => 'form-control mdl-textfield__input']) !!}
+                {!! Form::text('prob_id', null, ['class' => 'form-control mdl-textfield__input']) !!}
 
-                <label for="name" class="mdl-textfield__label">Problem Name</label>
+                <label for="prob_id" class="mdl-textfield__label">Problem ID</label>
+            </div>
+
+            <div class="form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col">
+                {!! Form::text('filename', null, ['class' => 'form-control mdl-textfield__input']) !!}
+
+                <label for="filename" class="mdl-textfield__label">Problem Name</label>
             </div>
 
             <div class="form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col">

@@ -33,7 +33,7 @@ Route::get('problems', 'ProblemController@index');
 
 Route::get('problems/create', 'ProblemController@create');
 
-Route::post('problems', 'ProblemController@store');
+Route::post('problems', 'ProblemController@store', ['middleware' => 'cors']);
 
 
 /*Route::get('problems_analysis', 'ProblemAnalysisController@index');
@@ -65,9 +65,7 @@ Route::get('api/results/{user_id}/all', 'ResultController@allResult', ['middlewa
 
 Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis', ['middleware' => 'cors']);
 
-
-
-Route::post('api/problems_analysis', 'ProblemAnalysisController@test');
+Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById', ['middleware' => 'cors']);
 
 /*
 

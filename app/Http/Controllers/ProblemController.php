@@ -24,19 +24,19 @@ class ProblemController extends Controller
 
     public function create()
     {
-        //self::sendProblem();
         return view('problems.create');
     }
 
     public function store()
     {
-        $input = Request::all();
+        $input_id = Request::get('prob_id');
+        $input_filename = Request::get('filename');
+        $input_package = Request::get('package');
+        $input_code = Request::get('code');
 
-        $json = self::sendProblem($input);
+        Log::info('#### INPUT Data #### '.$input_filename.' ####');
 
-        //Problem::create($input);
-
-        //return redirect('problems');
+        $json = self::sendProblem($input_id, $input_filename, $input_package, $input_code);
 
         Log::info('#### RESPONSE Data #### '.$json['class'][0]['name'].' ####');
 
@@ -70,11 +70,11 @@ class ProblemController extends Controller
                     .$method['name'].';'
                     .'(';
 
-                /*$params = $method['params'];
-                foreach ($params as $param) {
-                    $data['method'] .= $param['datatype_params'].';'
-                        .$param['name_params'].'|';
-                }*/
+                //$params = $method['params'];
+                //foreach ($params as $param) {
+                //    $data['method'] .= $param['datatype_params'].';'
+                //        .$param['name_params'].'|';
+                //}
                 $data['method'] .= ')';
 
                 $count++;
@@ -85,16 +85,18 @@ class ProblemController extends Controller
         }
         Log::info('#### STATUS #### '. 'Finish' .' ####');
         
-        return redirect('problem_analysis');
+        //return redirect('problem_analysis');
+        return "success na kub";
     }
 
-    public function sendProblem($input)
+    public function sendProblem($input_id ,$input_filename, $input_package, $input_code)
     {
         $client = new Client();
-        $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => '26']]);
+        $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => $input_id, 'filename' => $input_filename, 'package' => $input_package, 'code' => $input_code]]);
+
+        //$res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => '32']]);
         $result = $res->getBody();
         $json = json_decode($result, true);
-
         return $json;
     }
 }
