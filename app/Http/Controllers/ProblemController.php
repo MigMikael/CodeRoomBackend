@@ -7,8 +7,6 @@ use App\ProblemAnalysis;
 use Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Storage;
-use PhpParser\Node\Scalar\MagicConst\File;
 
 use GuzzleHttp\Client;
 use Log;
