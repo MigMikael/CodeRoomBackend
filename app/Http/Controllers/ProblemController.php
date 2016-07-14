@@ -31,17 +31,31 @@ class ProblemController extends Controller
         $input_filename = Request::get('filename');
         $input_package = Request::get('package');
         $input_code = Request::get('code');
-
         Log::info('#### INPUT Data #### '.$input_filename.' ####');
 
-        $json = self::sendProblem($input_id, $input_filename, $input_package, $input_code);
+        $analyzeResult_json = self::analyzeProblem($input_id, $input_filename, $input_package, $input_code);
+        self::keepProblemAnalysis($analyzeResult_json);
+        $problemAnalysis_json = self::getProblemAnalysis($input_id);
 
-        Log::info('#### RESPONSE Data #### '.$json['class'][0]['name'].' ####');
+        return \GuzzleHttp\json_encode($problemAnalysis_json);
+    }
 
-        $classes = $json['class'];
-        $prob_id = $json['prob_id'];
+    public function analyzeProblem($input_id ,$input_filename, $input_package, $input_code)
+    {
+        $client = new Client();
+        $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => $input_id, 'filename' => $input_filename, 'package' => $input_package, 'code' => $input_code]]);
+        $result = $res->getBody();
+        $json = json_decode($result, true);
+
+        Log::info('#### STATUS #### '. 'Analyze Problem' .' ####');
+        return $json;
+    }
+
+    public function keepProblemAnalysis($analyzeResult_json)
+    {
+        $classes = $analyzeResult_json['class'];
+        $prob_id = $analyzeResult_json['prob_id'];
         $data = [];
-        $count_class = 0;
 
         foreach ($classes as $class) {
             $data['prob_id'] = $prob_id;
@@ -67,34 +81,32 @@ class ProblemController extends Controller
                     .$method['return_type'].';'
                     .$method['name'].';'
                     .'(';
-
                 //$params = $method['params'];
                 //foreach ($params as $param) {
                 //    $data['method'] .= $param['datatype_params'].';'
                 //        .$param['name_params'].'|';
                 //}
                 $data['method'] .= ')';
-
                 $count++;
             }
-            $count_class++;
             ProblemAnalysis::create($data);
-            Log::info('#### COUNT CLASS #### '. $count_class .' ####');
         }
-        Log::info('#### STATUS #### '. 'Finish' .' ####');
-        
-        //return redirect('problem_analysis');
-        return "success na kub";
+        Log::info('#### STATUS #### '. 'Keep Problem Analysis' .' ####');
     }
 
-    public function sendProblem($input_id ,$input_filename, $input_package, $input_code)
+    public function getProblemAnalysis($prob_id)
     {
-        $client = new Client();
-        $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => $input_id, 'filename' => $input_filename, 'package' => $input_package, 'code' => $input_code]]);
+        $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get();
+        $json = [];
 
-        //$res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => '32']]);
-        $result = $res->getBody();
-        $json = json_decode($result, true);
+        for ($i = 0 ; $i < sizeof($problem_analysis); $i++) {
+            $json[$i]['prob_id'] = $problem_analysis[$i]->prob_id;
+            $json[$i]['class'] = $problem_analysis[$i]->class;
+            $json[$i]['package'] = $problem_analysis[$i]->package;
+            $json[$i]['attribute'] = $problem_analysis[$i]->attribute;
+            $json[$i]['method'] = $problem_analysis[$i]->method;
+        }
+        Log::info('#### STATUS #### '. 'Get Problem Analysis' .' ####');
         return $json;
     }
 }

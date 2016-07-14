@@ -76,7 +76,6 @@ class ProblemAnalysisController extends Controller
     public function getByID($prob_id)
     {
         $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get();
-
         $json = [];
 
         for ($i = 0 ; $i < sizeof($problem_analysis); $i++) {
@@ -86,8 +85,6 @@ class ProblemAnalysisController extends Controller
             $json[$i]['attribute'] = $problem_analysis[$i]->attribute;
             $json[$i]['method'] = $problem_analysis[$i]->method;
         }
-
-
         return \GuzzleHttp\json_encode($json);
     }
 }
