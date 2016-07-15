@@ -14,4 +14,8 @@ class Problem extends Model {
 		return $this->hasMany('ProblemAnalysis');
 	}
 
+    protected $fillable = [
+        'name',
+        'code'
+    ];
 }

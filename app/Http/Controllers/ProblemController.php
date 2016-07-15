@@ -13,6 +13,10 @@ use Log;
 
 class ProblemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('cors');
+    }
     public function index()
     {
         $problems = Problem::all();
@@ -27,11 +31,19 @@ class ProblemController extends Controller
 
     public function store()
     {
-        $input_id = Request::get('prob_id');
         $input_filename = Request::get('filename');
         $input_package = Request::get('package');
         $input_code = Request::get('code');
         Log::info('#### INPUT Data #### '.$input_filename.' ####');
+
+        $problem_data = [];
+        $problem_data['name'] = $input_filename;
+        $problem_data['code'] = $input_code;
+        Problem::create($problem_data);
+        Log::info('#### STATUS #### '. 'Keep Problem' .' ####');
+
+        $problem = Problem::all()->last();
+        $input_id = $problem->id;
 
         $analyzeResult_json = self::analyzeProblem($input_id, $input_filename, $input_package, $input_code);
         self::keepProblemAnalysis($analyzeResult_json);
@@ -40,7 +52,7 @@ class ProblemController extends Controller
         return \GuzzleHttp\json_encode($problemAnalysis_json);
     }
 
-    public function analyzeProblem($input_id ,$input_filename, $input_package, $input_code)
+    public function analyzeProblem($input_id, $input_filename, $input_package, $input_code)
     {
         $client = new Client();
         $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => $input_id, 'filename' => $input_filename, 'package' => $input_package, 'code' => $input_code]]);

@@ -9,6 +9,10 @@ use App\Http\Requests;
 
 class ProblemAnalysisController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('cors');
+    }
     public function index()
     {
         $problems_analysis = ProblemAnalysis::all();
