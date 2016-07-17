@@ -55,7 +55,12 @@ class ProblemController extends Controller
     public function analyzeProblem($input_id, $input_filename, $input_package, $input_code)
     {
         $client = new Client();
-        $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => ['prob_id' => $input_id, 'filename' => $input_filename, 'package' => $input_package, 'code' => $input_code]]);
+        $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => [
+            'prob_id' => $input_id,
+            'filename' => $input_filename,
+            'package' => $input_package,
+            'code' => $input_code]
+        ]);
         $result = $res->getBody();
         $json = json_decode($result, true);
 

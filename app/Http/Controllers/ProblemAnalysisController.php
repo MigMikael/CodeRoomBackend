@@ -73,7 +73,6 @@ class ProblemAnalysisController extends Controller
         $json['package'] = $problem_analysis->package;
         $json['code'] = $problem_analysis->code;
 
-        //var_dump($json);
         return $json;
     }
 
@@ -90,5 +89,16 @@ class ProblemAnalysisController extends Controller
             $json[$i]['method'] = $problem_analysis[$i]->method;
         }
         return \GuzzleHttp\json_encode($json);
+    }
+
+    public function keepScore()
+    {
+        $ps = ProblemAnalysis::where('prob_id', '=', 3);
+
+        $str = "Hello".$ps['class'];
+        /*foreach ($ps as $p){
+            $str .= $p->class;
+        }*/
+        return $str;
     }
 }
