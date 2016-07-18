@@ -93,12 +93,17 @@ class ProblemAnalysisController extends Controller
 
     public function keepScore()
     {
-        $ps = ProblemAnalysis::where('prob_id', '=', 3);
+        $problems_score = Request::all();
 
-        $str = "Hello".$ps['class'];
-        /*foreach ($ps as $p){
-            $str .= $p->class;
-        }*/
-        return $str;
+        foreach ($problems_score as $problem_score) {
+            $problem_analysis = ProblemAnalysis::where('prob_id', '=', $problem_score['prob_id'])
+                ->where('class', '=', $problem_score['class'])
+                ->update([
+                    'attribute_score' => $problem_score['attribute_score'],
+                    'method_score' => $problem_score['method_score']
+                ]);
+            Log::info('#### Keep Score #### '. $problem_analysis->name.' '. $problem_analysis->attribute_score .' ####');
+        }
+        Log::info('#### Keep Score #### '. 'Finish Keep Score' .' ####');
     }
 }
