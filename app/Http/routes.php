@@ -48,7 +48,7 @@ Route::get('problems_analysis/{id}/edit', 'ProblemAnalysisController@edit');*/
 
 Route::resource('problem_analysis', 'ProblemAnalysisController');
 
-Route::get('api/problem_analysis/score', 'ProblemAnalysisController@keepScore');
+Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore', ['middleware' => 'cors']);
 
 
 Route::get('problemfile', 'ProblemFileController@index');
