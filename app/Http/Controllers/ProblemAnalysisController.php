@@ -95,9 +95,43 @@ class ProblemAnalysisController extends Controller
     {
         $p = Request::all();
 
-        ProblemAnalysis::where('prob_id', '=', $p['prob_id'])
-                                            ->where('class', '=', $p['class'])
-                                            ->update(['attribute_score' => $p['attribute_score'], 'method_score' => $p['method_score']]);
+        for ($i = 0; $i < sizeof($p); $i++) {
+            $prob_id = $p[$i]['prob_id'];
+            Log::info('##### '. $prob_id);
+            $class = '';
+            for ($j = 0; $j < sizeof($p[$i]['class']); $j++) {
+                $class .= $p[$i]['class'][$j];
+                if($j != sizeof($p[$i]['class']) - 1 ) {
+                    $class .= ';';
+                }
+            }
+            Log::info('##### '. $class);
+            $attribute_score = '';
+            for ($j = 0; $j < sizeof($p[$i]['attribute']); $j++) {
+                $attribute_score .= ($j + 1);
+                $attribute_score .= ';';
+                $attribute_score .= $p[$i]['attribute'][$j][3];
+                if($j != sizeof($p[$i]['attribute']) - 1) {
+                    $attribute_score .= '|';
+                }
+            }
+            Log::info('##### '. $attribute_score);
+            $method_score = '';
+            for ($j = 0; $j < sizeof($p[$i]['method']); $j++) {
+                $method_score .= ($j + 1);
+                $method_score .= ';';
+                $method_score .= $p[$i]['method'][$j][4];
+                if($j != sizeof($p[$i]['method']) -1) {
+                    $method_score .= '|';
+                }
+            }
+            Log::info('##### '. $method_score);
+
+            ProblemAnalysis::where('prob_id', '=', $prob_id)
+                ->where('class', '=', $class)
+                ->update(['attribute_score' => $attribute_score, 'method_score' => $method_score]);
+        }
+
         return 'success';
     }
 }
