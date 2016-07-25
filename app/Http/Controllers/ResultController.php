@@ -10,11 +10,6 @@ use Log;
 
 class ResultController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('cors');
-    }
-
     public function index()
     {
         $results = Result::all();

@@ -13,10 +13,6 @@ use Log;
 
 class ProblemController extends Controller
 {
-    /*public function __construct()
-    {
-        $this->middleware('cors');
-    }*/
     public function index()
     {
         $problems = Problem::all();

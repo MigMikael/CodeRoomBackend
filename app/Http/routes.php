@@ -16,58 +16,40 @@ Route::get('/', function () {
 });
 
 Route::get('submissions', 'SubmissionController@index');
-
 Route::get('submissions/create', 'SubmissionController@create');
-
 Route::post('submissions', 'SubmissionController@store');
 
 
 Route::get('results', 'ResultController@index');
-
 Route::get('results/create', 'ResultController@create');
-
 Route::post('results', 'ResultController@store');
 
 
 Route::get('problems', 'ProblemController@index');
-
 Route::get('problems/create', 'ProblemController@create');
-
-Route::post('problems', 'ProblemController@store', ['middleware' => 'cors']);
+Route::post('problems', 'ProblemController@store');
 
 
 /*Route::get('problems_analysis', 'ProblemAnalysisController@index');
-
 Route::get('problems_analysis/create', 'ProblemAnalysisController@create');
-
 Route::get('problems_analysis/{id}', 'ProblemAnalysisController@show');
-
 Route::post('problems_analysis', 'ProblemAnalysisController@store');
-
 Route::get('problems_analysis/{id}/edit', 'ProblemAnalysisController@edit');*/
-
 Route::resource('problem_analysis', 'ProblemAnalysisController');
-
-Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore', ['middleware' => 'cors']);
+Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
 
 
 Route::get('problemfile', 'ProblemFileController@index');
-
 Route::get('problemfile/get/{filename}', ['as' => 'getfile', 'uses' => 'ProblemFileController@get']);
-
 Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileController@add']);
 
 
-//Route::get('api/results/latest', 'ResultController@latest', ['middleware' => 'cors']);
+Route::get('api/results/{user_id}/latest', 'ResultController@latestResult')->middleware(['cors']);
 
 
-Route::get('api/results/{user_id}/latest', 'ResultController@latestResult', ['middleware' => 'cors']);
-
-Route::get('api/results/{user_id}/all', 'ResultController@allResult', ['middleware' => 'cors']);
-
-Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis', ['middleware' => 'cors']);
-
-Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById', ['middleware' => 'cors']);
+Route::get('api/results/{user_id}/all', 'ResultController@allResult');
+Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis');
+Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
 
 /*
 
