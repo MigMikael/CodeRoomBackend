@@ -10,6 +10,8 @@ use App\Http\Requests;
 
 use GuzzleHttp\Client;
 use Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProblemController extends Controller
 {

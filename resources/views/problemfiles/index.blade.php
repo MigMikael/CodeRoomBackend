@@ -12,9 +12,9 @@
             @foreach($problemFiles as $problemFile)
                 <div class="col-md-2">
                     <div class="thumbnail">
-                        <img src="{{route('getfile', $problemFile->filename)}}" alt="ALT NAME" class="img-responsive" />
+                        <img src="{{route('getfile', str_replace('.','_',$problemFile->filename))}}" alt="ALT NAME" class="img-responsive" />
                         <div class="caption">
-                            <p>{{$problemFile->original_filename}}</p>
+                            <p>{{$problemFile->filename}}</p>
                         </div>
                     </div>
                 </div>
