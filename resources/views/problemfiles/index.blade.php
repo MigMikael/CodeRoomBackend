@@ -6,15 +6,19 @@
         <input type="submit">
     </form>
 
-    <h1> Pictures list</h1>
+    <h1> File list</h1>
     <div class="row">
         <ul class="thumbnails">
             @foreach($problemFiles as $problemFile)
                 <div class="col-md-2">
                     <div class="thumbnail">
-                        <img src="{{route('getfile', str_replace('.','_',$problemFile->filename))}}" alt="ALT NAME" class="img-responsive" />
+                        @if($problemFile->mime == 'application/zip')
+                            <img src="../zipfilelogo.jpg" alt="ALT NAME" class="img-responsive" />
+                        @else
+                            <img src="{{route('getfile', str_replace('.','_',$problemFile->filename))}}" alt="ALT NAME" class="img-responsive" />
+                        @endif
                         <div class="caption">
-                            <p>{{$problemFile->filename}}</p>
+                            <p>{{$problemFile->original_filename}}</p>
                         </div>
                     </div>
                 </div>

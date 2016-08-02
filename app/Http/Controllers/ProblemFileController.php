@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProblemFile;
+use Chumper\Zipper\Zipper;
 use Request;
 use Log;
 use Illuminate\Http\Response;
@@ -32,13 +33,31 @@ class ProblemFileController extends Controller
 
         $problemFile->save();
 
+        /*$dirname = substr($problemFile->original_filename,0,4);
+        Storage::disk('public')->makeDirectory($dirname);
+        $dest = storage_path();
+        $dest .= 'app/public/'.$dirname.'/';
+        Log::info('#### dest '.$dest);*/
+
+        $dirname = $problemFile->id.'-'.$problemFile->original_filename;
+
+        Storage::disk('public')->makeDirectory($dirname);
+        $dest = storage_path() . '/app/public/' . $dirname .'/';
+        Log::info('#### dest '.$dest);
+
+        $path = storage_path('app/public/'.$problemFile->filename);
+        Log::info('#### path '.$path);
+
+        $zipper = new \Chumper\Zipper\Zipper;
+        $zipper->make($path)->extractTo($dest);
+        Log::info('#### extract complete');
+
         return redirect('problemfile');
     }
 
     public function get($filename)
     {
         $filename = str_replace('_','.',$filename);
-        Log::info('#### Change Filename '.$filename);
 
         $problemFile = ProblemFile::where('filename', '=', $filename)->firstOrFail();
         $file = Storage::disk('public')->get($problemFile->filename);
