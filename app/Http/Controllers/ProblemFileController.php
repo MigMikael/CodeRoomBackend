@@ -33,12 +33,6 @@ class ProblemFileController extends Controller
 
         $problemFile->save();
 
-        /*$dirname = substr($problemFile->original_filename,0,4);
-        Storage::disk('public')->makeDirectory($dirname);
-        $dest = storage_path();
-        $dest .= 'app/public/'.$dirname.'/';
-        Log::info('#### dest '.$dest);*/
-
         $dirname = $problemFile->id.'-'.$problemFile->original_filename;
 
         Storage::disk('public')->makeDirectory($dirname);
