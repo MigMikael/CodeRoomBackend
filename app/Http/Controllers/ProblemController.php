@@ -32,7 +32,10 @@ class ProblemController extends Controller
         $input_filename = Request::get('filename');
         $input_package = Request::get('package');
         $input_code = Request::get('code');
+        $input_file = Request::get('filefield');
         Log::info('#### INPUT Data #### '.$input_filename.' ####');
+
+        self::keepProblemFile($input_file);
 
         $problem_data = [];
         $problem_data['name'] = $input_filename;
@@ -96,11 +99,11 @@ class ProblemController extends Controller
                     .$method['return_type'].';'
                     .$method['name'].';'
                     .'(';
-                //$params = $method['params'];
-                //foreach ($params as $param) {
-                //    $data['method'] .= $param['datatype_params'].';'
-                //        .$param['name_params'].'|';
-                //}
+                /*$params = $method['params'];
+                foreach ($params as $param) {
+                    $data['method'] .= $param['datatype_params'].';'
+                        .$param['name_params'].'|';
+                }*/
                 $data['method'] .= ')';
                 $count++;
             }

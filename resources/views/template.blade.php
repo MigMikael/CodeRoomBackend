@@ -33,8 +33,10 @@
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">CodeRoomBackend</span>
             <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="{{ url('/') }}"><strong>Home</strong></a>
                 <a class="mdl-navigation__link" href="{{ url('problems') }}">Problem</a>
                 <a class="mdl-navigation__link" href="{{ url('problem_analysis') }}">ProblemAnalysis</a>
+                <a class="mdl-navigation__link" href="{{ url('problemfile') }}">ProblemFile</a>
                 <a class="mdl-navigation__link" href="{{ url('submissions') }}">Submission</a>
                 <a class="mdl-navigation__link" href="{{ url('results') }}">Result</a>
             </nav>
