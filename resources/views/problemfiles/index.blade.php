@@ -41,6 +41,7 @@
                         @endif
                         <div class="caption">
                             <p>{{$problemFile->original_filename}}</p>
+                            <a href="{{route('getfile', str_replace('.','_',$problemFile->filename))}}">Download</a>
                         </div>
                     </div>
                 </div>

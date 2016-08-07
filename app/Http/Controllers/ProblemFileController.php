@@ -9,7 +9,7 @@ use Log;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use GuzzleHttp\Client;
+use App\Problem;
 
 class ProblemFileController extends Controller
 {
@@ -22,37 +22,37 @@ class ProblemFileController extends Controller
 
     public function add()
     {
-        Log::info('#### add file');
+        Log::info('#### 1 add file');
+        $input_filename = Request::get('filename');
+        $input_package = Request::get('package');
         $file = Request::file('filefield');
+
         $extension = $file->getClientOriginalExtension();
         Storage::disk('public')->put($file->getFilename().'.'.$extension, File::get($file));
         $problemFile = new ProblemFile();
         $problemFile->mime = $file->getClientMimeType();
         $problemFile->original_filename = $file->getClientOriginalName();
         $problemFile->filename = $file->getFilename().'.'.$extension;
-
         $problemFile->save();
 
-        $dirname = $problemFile->id.'-'.$problemFile->original_filename;
+        $dirname = $problemFile->id;
 
         Storage::disk('public')->makeDirectory($dirname);
         $dest = storage_path() . '/app/public/' . $dirname .'/';
-        Log::info('#### dest '.$dest);
+        Log::info('#### 2 dest '.$dest);
 
         $path = storage_path('app/public/'.$problemFile->filename);
-        Log::info('#### path '.$path);
+        Log::info('#### 3 path '.$path);
 
         $zipper = new Zipper();
         $zipper->make($path)->extractTo($dest);
-        Log::info('#### extract complete');
+        Log::info('#### 4 extract complete');
 
-        $input_filename = Request::get('filename');
-        $input_package = Request::get('package');
+        $id = ProblemFile::all()->last()->id;
+        $code = Storage::disk('public')->get('/' . $dirname . '/' . $input_filename);
+        $res = self::keepProblem($id, $input_filename, $input_package, $code);
 
-        self::testGetFile($dirname, $input_filename);
-        //self::keepProblem($input_filename, $input_package);
-
-        return redirect('problemfile');
+        return $res;
     }
 
     public function get($filename)
@@ -65,26 +65,29 @@ class ProblemFileController extends Controller
         return (new Response($file, 200))->header('Content-Type', $problemFile->mime);
     }
 
-    public function keepProblem($input_filename, $input_package)
+    public function keepProblem($id, $input_filename, $input_package, $code)
     {
-        $filename = $input_filename . '.java';
-        Storage::disk('public')->get($filename);
-        $client = new Client();
-        $client->request('POST' ,'localhost:8888/problems',['json' => [
+        $args = array(
+            'id' => $id,
             'filename' => $input_filename,
             'package' => $input_package,
-            'code' =>'']
-        ]);
+            'code' => $code
+        );
+        $request = Request::create('problems', 'POST', $args);
+        $res = app()->handle($request);
+        Log::info('#### 5 Send Problem Complete');
+        return $res;
     }
 
-    public function testGetFile($dirname, $input_filename)
+    public function getQuestion($prob_id)
     {
-        $filename = $input_filename . '.java';
-        $pathToFile = storage_path() . '/app/public/' . $dirname .'/';
-        Log::info('#### Path to File'. $pathToFile);
-        $files = Storage::disk('public')->files($pathToFile);
+        $problem = Problem::where('id', '=', $prob_id)->firstOrFail();
+        $filename = $problem->name;
+        $pdf_name = explode('.', $filename)[0];
+        $pdf_name = $pdf_name . '.pdf';
+        Log::info('#### Get File');
+        $file = Storage::disk('public')->get('/'. $prob_id . '/' . $pdf_name);
 
-
-        Log::info('#### File');
+        return (new Response($file, 200))->header('Content-Type', 'application/pdf');
     }
 }

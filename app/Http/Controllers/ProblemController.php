@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Problem;
 use App\ProblemAnalysis;
 use Request;
-
 use App\Http\Requests;
-
 use GuzzleHttp\Client;
 use Log;
 use Illuminate\Support\Facades\Storage;
@@ -32,10 +30,7 @@ class ProblemController extends Controller
         $input_filename = Request::get('filename');
         $input_package = Request::get('package');
         $input_code = Request::get('code');
-        $input_file = Request::get('filefield');
         Log::info('#### INPUT Data #### '.$input_filename.' ####');
-
-        self::keepProblemFile($input_file);
 
         $problem_data = [];
         $problem_data['name'] = $input_filename;
