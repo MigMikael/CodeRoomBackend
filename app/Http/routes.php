@@ -45,6 +45,9 @@ Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileControl
 Route::get('problemfile/getQuestion/{prob_id}', 'ProblemFileController@getQuestion');
 
 
+Route::resource('course', 'CourseController');
+
+
 Route::get('api/results/{user_id}/latest', 'ResultController@latestResult')->middleware(['cors']);
 
 
