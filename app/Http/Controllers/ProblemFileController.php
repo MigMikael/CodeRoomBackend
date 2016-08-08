@@ -16,7 +16,6 @@ class ProblemFileController extends Controller
     public function index()
     {
         $problemFiles = ProblemFile::all();
-        
         return view('problemfiles.index')->with('problemFiles', $problemFiles);
     }
 

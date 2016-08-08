@@ -12,7 +12,6 @@ class ProblemAnalysisController extends Controller
     public function index()
     {
         $problems_analysis = ProblemAnalysis::all();
-        
         return view('problems_analysis.index')->with('problems_analysis', $problems_analysis);
     }
 
@@ -24,16 +23,13 @@ class ProblemAnalysisController extends Controller
     public function store()
     {
         $input = Request::all();
-
         ProblemAnalysis::create($input);
-
         return redirect('problems_analysis');
     }
 
     public function edit($prob_id)
     {
         $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get()->last();
-
         return view('problems_analysis.edit')->with('problem_analysis', $problem_analysis);
     }
 
@@ -63,7 +59,6 @@ class ProblemAnalysisController extends Controller
         $problem_analysis = ProblemAnalysis::all()->last();
 
         $json = [];
-
         $json['prob_id'] = $problem_analysis->prob_id;
         $json['class'] = $problem_analysis->class;
         $json['package'] = $problem_analysis->package;

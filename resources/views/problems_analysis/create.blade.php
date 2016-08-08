@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-    <h1>Add new Problem Analysis (Demo)</h1>
+    <h1>Create Problem Analysis (Demo)</h1>
     <hr>
     {!! Form::open(['url'=>'problem_analysis']) !!}
 

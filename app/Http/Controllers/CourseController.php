@@ -2,11 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Course;
+use Request;
 
 use App\Http\Requests;
 
 class CourseController extends Controller
 {
+    public function index()
+    {
+        $courses = Course::all();
+        return view('course.index')->with('courses', $courses);
+    }
 
+    public function create()
+    {
+        return view('course.create');
+    }
+
+    public function store()
+    {
+        $input = Request::all();
+        Course::create($input);
+        return redirect('course');
+    }
 }
