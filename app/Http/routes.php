@@ -48,6 +48,9 @@ Route::get('problemfile/getQuestion/{prob_id}', 'ProblemFileController@getQuesti
 Route::resource('course', 'CourseController');
 
 
+Route::resource('lesson', 'LessonController');
+
+
 Route::get('api/results/{user_id}/latest', 'ResultController@latestResult')->middleware(['cors']);
 
 
