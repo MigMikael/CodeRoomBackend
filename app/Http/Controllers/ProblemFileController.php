@@ -23,7 +23,8 @@ class ProblemFileController extends Controller
     {
         Log::info('#### 1 add file');
         $input_filename = Request::get('filename');
-        $input_package = Request::get('package');
+        //$input_package = Request::get('package');
+        $input_package = 'default package';
         $file = Request::file('filefield');
 
         $extension = $file->getClientOriginalExtension();
@@ -88,5 +89,10 @@ class ProblemFileController extends Controller
         $file = Storage::disk('public')->get('/'. $prob_id . '/' . $pdf_name);
 
         return (new Response($file, 200))->header('Content-Type', 'application/pdf');
+    }
+
+    public function test()
+    {
+        return view('test');
     }
 }
