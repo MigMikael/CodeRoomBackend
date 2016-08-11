@@ -19,6 +19,11 @@ class ProblemFileController extends Controller
         return view('problemfiles.index')->with('problemFiles', $problemFiles);
     }
 
+    public function create()
+    {
+        return view('problemfiles.create');
+    }
+
     public function add()
     {
         Log::info('#### 1 add file');

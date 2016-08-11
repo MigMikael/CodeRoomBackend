@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Backend</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="My portfolio website with Material Design Lite.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -23,15 +28,26 @@
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation -->
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">index</a>
-                    <a class="mdl-navigation__link" href="">create</a>
-                    <a class="mdl-navigation__link" href="">edit</a>
-                    <a class="mdl-navigation__link" href="">delete</a>
+                    @if (Auth::guest())
+                        <a class="mdl-navigation__link" href="{{ url('/login') }}">Login</a>
+                        <a class="mdl-navigation__link" href="{{ url('/register') }}">Register</a>
+                    @else
+                        <a class="mdl-navigation__link" href="#">{{ Auth::user()->name }}</a>
+                        <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+
+                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                            for="demo-menu-lower-right">
+                            <a href="{{ url('/logout') }}"><li class="mdl-menu__item">Logout</li></a>
+                            <li disabled class="mdl-menu__item">Disabled Action</li>
+                        </ul>
+                    @endif
                 </nav>
             </div>
         </header>
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">CodeRoomBackend</span>
+            <span class="mdl-layout-title">Model List</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="{{ url('/') }}"><strong>Home</strong></a>
                 <a class="mdl-navigation__link" href="{{ url('problems') }}">Problem</a>
@@ -41,10 +57,26 @@
                 <a class="mdl-navigation__link" href="{{ url('lesson') }}">Lesson</a>
                 <a class="mdl-navigation__link" href="{{ url('submissions') }}">Submission</a>
                 <a class="mdl-navigation__link" href="{{ url('results') }}">Result</a>
+                <hr>
+                @if (Auth::guest())
+                    <a class="mdl-navigation__link" href="{{ url('/login') }}">Login</a>
+                    <a class="mdl-navigation__link" href="{{ url('/register') }}">Register</a>
+                @else
+                    <a class="mdl-navigation__link" href="#">{{ Auth::user()->name }}</a>
+                    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        for="demo-menu-lower-right">
+                        <a href="{{ url('/logout') }}"><li class="mdl-menu__item">Logout</li></a>
+                        <li disabled class="mdl-menu__item">Disabled Action</li>
+                    </ul>
+                @endif
             </nav>
         </div>
         <main class="mdl-layout__content">
-            <div class="page-content">
+            <div class="mdl-grid  page-max-width">
                 @yield('content')
             </div>
         </main>

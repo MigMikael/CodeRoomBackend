@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('first');
+    return view('welcome');
 });
 
 Route::get('submissions', 'SubmissionController@index');
@@ -40,6 +40,7 @@ Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
 
 
 Route::get('problemfile', 'ProblemFileController@index');
+Route::get('problemfile/create', 'ProblemfileController@create');
 Route::get('problemfile/get/{filename}', ['as' => 'getfile', 'uses' => 'ProblemFileController@get']);
 Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileController@add']);
 Route::get('problemfile/getQuestion/{prob_id}', 'ProblemFileController@getQuestion');
@@ -63,3 +64,6 @@ Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById
 http://localhost:8888/api/problems_analysis
 
 */
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

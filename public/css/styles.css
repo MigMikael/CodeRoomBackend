@@ -2,17 +2,16 @@ body {
     background: #ECEFF1;
 }
 
-.page-content {
-    padding-right: 5%;
-    padding-left: 5%;
-    padding-top: 5%;
+.page-max-width {
+    max-width: 1200px;
+    margin-left: 7%;
+    margin-top: 1%;
 }
 
 .demo-card-event.mdl-card {
     width: 256px;
     height: 256px;
     background: #3E4EB8;
-    margin: 1%;
 }
 .demo-card-event > .mdl-card__actions {
     border-color: rgba(255, 255, 255, 0.2);
@@ -36,4 +35,26 @@ body {
 .demo-card-event > .mdl-card__actions,
 .demo-card-event > .mdl-card__actions > .mdl-button {
     color: #fff;
+}
+
+img.article-image {
+    width: 100%;
+    height: auto;
+}
+
+.center {
+    text-align: center;
+    border: 3px solid green;
+}
+
+.right {
+    text-align: right;
+}
+
+.mdl-textfield {
+    width: 100%;
+}
+
+.big-card {
+    padding: 20px;
 }
