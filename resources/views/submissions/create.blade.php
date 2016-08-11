@@ -1,44 +1,43 @@
 @extends('template')
 
 @section('content')
-    <h1>Add new Submission (Demo)</h1>
-    <hr>
-    {!! Form::open(['url'=>'submissions']) !!}
-
-        <div class="form-group">
-            {!! Form::label('user_id', 'UserID : ') !!}
-
-            {!! Form::text('user_id', null,['class' => 'form-control', 'placeholder' => '07560550']) !!}
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp big-card">
+        <div class="center">
+            <h1>Create Submission</h1>
         </div>
 
-        <div class="form-group">
-            {!! Form::label('prob_id', 'ProblemID : ') !!}
+        <br>
 
-            {!! Form::text('prob_id', null,['class' => 'form-control', 'placeholder' => '1']) !!}
-        </div>
+        {!! Form::open(['url'=>'submissions']) !!}
 
-        <div class="form-group">
-            {!! Form::label('sub_num', 'Submit Number : ') !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('user_id', 'UserID : ', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('user_id', null,['class' => 'mdl-textfield__input', 'placeholder' => '07560550']) !!}
+            </div>
 
-            {!! Form::text('sub_num', null,['class' => 'form-control', 'placeholder' => '1']) !!}
-        </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('prob_id', 'ProblemID : ', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('prob_id', null,['class' => 'mdl-textfield__input', 'placeholder' => '1']) !!}
+            </div>
 
-        <!-- time -->
-        <div class="form-group">
-            {!! Form::label('time', 'Time : ') !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('sub_num', 'Submit Number : ', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('sub_num', null,['class' => 'mdl-textfield__input', 'placeholder' => '1']) !!}
+            </div>
 
-            {!! Form::input('date','time', date('Y-m-d'),['class' => 'form-control']) !!}
-        </div>
+            <!-- time -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('time', 'Time : ', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::input('date','time', date('Y-m-d'),['class' => 'mdl-textfield__input']) !!}
+            </div>
 
-        <div class="form-group">
-            {!! Form::label('code', 'Code : ') !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('code', 'Code : ', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::textarea('code', null,['class' => 'mdl-textfield__input', 'placeholder' => 'paste your demo code here']) !!}
+            </div>
 
-            {!! Form::textarea('code', null,['class' => 'form-control', 'placeholder' => 'paste your demo code here']) !!}
-        </div>
-
-        <div class="form-group">
             {!! Form::submit('Add Submission', ['class'=>'btn btn-success form-control']) !!}
-        </div>
 
-    {!! Form::close() !!}
+        {!! Form::close() !!}
+    </div>
 @stop

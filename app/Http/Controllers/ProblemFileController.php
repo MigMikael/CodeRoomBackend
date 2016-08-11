@@ -95,9 +95,4 @@ class ProblemFileController extends Controller
 
         return (new Response($file, 200))->header('Content-Type', 'application/pdf');
     }
-
-    public function test()
-    {
-        return view('test');
-    }
 }

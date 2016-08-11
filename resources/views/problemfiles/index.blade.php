@@ -5,7 +5,7 @@
         <h1>All ProblemFile</h1>
     </div>
     @foreach($problemFiles as $problemFile)
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet demo-card-event mdl-card mdl-shadow--2dp">
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp">
             <div class="mdl-card__media">
                 @if($problemFile->mime == 'application/zip')
                     <img src="../zipfilelogo.jpg" alt="Zip File Image" class="article-image" border="0"/>

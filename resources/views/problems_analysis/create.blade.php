@@ -1,48 +1,44 @@
 @extends('template')
 
 @section('content')
-    <h1>Create Problem Analysis (Demo)</h1>
-    <hr>
-    {!! Form::open(['url'=>'problem_analysis']) !!}
-
-        <div class="form-group">
-            {!! Form::label('prob_id', 'ProblemID :') !!}
-
-            {!! Form::text('prob_id', null, ['class' => 'form-control', 'placeholder' => '1']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('class', 'ClassName :') !!}
-
-            {!! Form::text('class', null, ['class' => 'form-control', 'placeholder' => 'Your Class Name']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('package', 'PackageName :') !!}
-
-            {!! Form::text('package', null, ['class' => 'form-control', 'placeholder' => 'Your Package Name']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('enclose', 'Enclose :') !!}
-
-            {!! Form::text('enclose', null, ['class' => 'form-control', 'placeholder' => 'Parent Class']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('attribute', 'Attribute :') !!}
-
-            {!! Form::text('attribute', null, ['class' => 'form-control', 'placeholder' => 'All Attribute']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('method', 'Method :') !!}
-
-            {!! Form::text('method', null, ['class' => 'form-control', 'placeholder' => 'All Method']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('code', 'Code :') !!}
-
-            {!! Form::textarea('code', null, ['class' => 'form-control', 'placeholder' => 'Paste Your Code Here']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::submit('Add Problem Analysis', ['class'=>'btn btn-success form-control']) !!}
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp big-card">
+        <div class="center">
+            <h1>Create Problem Analysis</h1>
         </div>
 
-    {!! Form::close() !!}
+        <br>
+
+        {!! Form::open(['url'=>'problem_analysis']) !!}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('prob_id', 'ProblemID :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('prob_id', null, ['class' => 'mdl-textfield__input']) !!}
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('class', 'ClassName :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('class', null, ['class' => 'mdl-textfield__input']) !!}
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('package', 'PackageName :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('package', null, ['class' => 'mdl-textfield__input']) !!}
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('enclose', 'Enclose :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('enclose', null, ['class' => 'mdl-textfield__input']) !!}
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('attribute', 'Attribute :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('attribute', null, ['class' => 'mdl-textfield__input']) !!}
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('method', 'Method :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('method', null, ['class' => 'mdl-textfield__input']) !!}
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::label('code', 'Code :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::textarea('code', null, ['class' => 'mdl-textfield__input']) !!}
+            </div>
+            {!! Form::submit('Add Problem Analysis', ['class'=>'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent']) !!}
+        {!! Form::close() !!}
+    </div>
+
 @endsection
