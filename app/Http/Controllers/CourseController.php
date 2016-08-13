@@ -9,6 +9,11 @@ use App\Http\Requests;
 
 class CourseController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth', ['except' => ['index']]);
+    }
+
     public function index()
     {
         $courses = Course::all();
