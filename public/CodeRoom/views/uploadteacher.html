@@ -1,0 +1,119 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid container-main">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"><p>CODE ROOM</p></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">SIGN UP</a></li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+
+</nav>
+
+
+<div class="row container-main whitebackgroud" style="padding: 20px 10px" >
+    <div class="col-md-12" ng-show="isFormproblem">
+        <form name="myForm">
+            <div class="row">
+                <div class="col-md-12" style="margin-bottom: 15px">
+                    <label>ProblemName</label>
+                    <input type="text" class="form-control" placeholder="Filename" ng-model="filename">
+
+                </div>
+                <div class="col-md-12" style="margin-bottom: 15px">
+                    <label>Package</label>
+                    <input type="text" class="form-control" placeholder="Package" ng-model="package">
+
+                </div>
+                <div class="col-md-12" style="margin-bottom: 15px">
+
+                    <button class="btn-uploadfile-teacher" type="file" ngf-select ng-model="filefield" name="filefield" accept=".zip">Select Files</button>{{filefield.name}}
+
+                </div>
+
+
+            </div>
+            <div class="col-md-11" style="padding:0;margin-top: 20px">
+
+                    <div class="progress-main" style="border-top: none;margin: 0;padding: 0;float: right" ng-show="filefield.progress >= 0">
+                        <div class="progress">
+                            <div class="progress-bar" style="width: {{filefield.progress}}%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div class="current-work">
+                            {{filefield.progress}}%
+                        </div>
+                    </div>
+
+            </div>
+            <div class="col-md-1">
+                <button style="background-color: #00897B;color: white;border: none;border-radius: 0;margin: 0;float: right;padding: 10px;outline: none" type="submit" value="sumit" ng-disabled="!myForm.$valid" ng-click="uploadFiles(filefield)" class="btn btn-default">Submit</button>
+
+            </div>
+        </form>
+        <p>{{ message }}</p>
+
+    </div>
+    <div class="col-md-12" ng-show="isRequirment" >
+        {{ calculatePoint }}
+        <div class="col-md-offset-10">Point: {{totolPoint}}</div>
+        <form ng-submit="submitRequirment()">
+
+            <div class="panel panel-default" ng-repeat="x in requirment">
+                <!-- Default panel contents -->
+                <div class="panel-heading">{{x.class[1]}}</div>
+                <table class="table" >
+
+                    <tr>
+                        <th>Modifier</th>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Paramiter</th>
+                        <th>Point</th>
+                    </tr>
+                    <tr ng-repeat="y in x.attribute">
+                        <td>{{ y[0] }}</td>
+                        <td>{{ y[1] }}</td>
+                        <td>{{ y[2] }}</td>
+                        <td></td>
+                        <td><input ng-model="y[3]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+
+                    </tr>
+
+                    <tr ng-repeat="y in x.method">
+                        <td>{{ y[0] }}</td>
+                        <td>{{ y[1] }}</td>
+                        <td>{{ y[2] }}</td>
+                        <td>{{ y[3] }}</td>
+                        <td><input ng-model="y[4]" onkeypress='return event.charCode >= 46 && event.charCode <= 57 || event.charCode==46'></td>
+
+                    </tr>
+                </table>
+
+            </div>
+
+
+            <div class="col-md-3 col-md-offset-10">
+                <button type="submit" value="sumit" class="btn btn-default">Submit</button>
+            </div>
+            <p>{{ message2 }}</p>
+        </form>
+        {{ requirment | json }}
+        <br>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+

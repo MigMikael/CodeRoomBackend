@@ -31,4 +31,10 @@ class CourseController extends Controller
         Course::create($input);
         return redirect('course');
     }
+
+    public function getAll()
+    {
+        $courses = Course::all();
+        return $courses;
+    }
 }

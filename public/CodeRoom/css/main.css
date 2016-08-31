@@ -1,0 +1,788 @@
+body {
+  background-color: #EEEEEE;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  display: block;
+  box-sizing: border-box;
+}
+
+nav p {
+  text-align: center; }
+
+.navbar{
+  border: 0;
+  margin-bottom: 0px;
+}
+.navbar-default{
+  background-image: none;
+  border-radius: 0px;
+  background-color: #00897B;
+  height: 35px;
+  box-shadow: none;
+    z-index: 4;
+}
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+.navbar-collapse {
+    padding: 0;
+}
+.container-main{
+
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 960px;
+    min-width: 200px;
+}
+.navbar-default .navbar-brand{
+  color: #ffffff;
+  line-height: 18px;
+ }
+.navbar-default .navbar-nav>li>a{
+  color: #ffffff;
+  line-height: 18px;
+
+}
+.navbar-right{
+  margin: 0;
+}
+
+
+.whitebackgroud {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.marginheader {
+  margin-top: 30px; }
+
+.footer {
+  font-size: small;
+  padding: 20px;
+  background-color: #00897B;
+  color: #ffffff;
+}
+
+.btn-login {
+
+  width: 100%;
+  height: 60px;
+  margin-right: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: large;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 0px;
+  opacity: 1;
+  letter-spacing: .1em;
+  color: white;
+  background-color: #00897B; }
+
+.btn-login:hover {
+  opacity: 0.8;
+}
+
+.form-group{
+  margin-bottom: 0px;
+}
+.form-control{
+  height: 60px;
+}
+.form-horizontal .form-group{
+  margin: 0;
+}
+.form-group .has-success .form-control{
+  border: 1px solid #445561;
+  border-radius: 0;
+  border-bottom: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.form-control-feedback{
+  line-height: 60px;
+}
+
+.loginicon {
+  width: 100%;
+  height: 45px;
+  border-radius: 0;
+  border: 0px;
+  background-color: white;
+  color: #445561;
+  opacity: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loginicon i {
+  color: #445561;
+  margin-right: 5px;
+}
+
+.loginicon:hover {
+  opacity: 0.8;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin-top: 30px;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: white;
+  color: #445561;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-decoration: none;
+}
+.form .main-form{
+  margin: 0px;
+  padding: 15px 15px 0 15px;
+  color:#00897B;
+  font-size: 18px;
+  font-weight: 100;
+}
+.form .main-form i{
+  color: #445561;
+  margin-right: 10px;
+  font-size: 30px;
+}
+.form .top-point{
+  border-top: 1px solid rgba(0,0,0,0.3);
+  padding: 15px 15px 0 15px;
+  color:#00897B;
+  font-size: 15px;
+  font-weight: 100;
+}
+.form .top-point i{
+  color: #445561;
+  margin-right: 10px;
+  font-size: 15px;
+}
+.form .imgForm{
+  width: 100%;
+  height: 250px;
+  border: 0px;
+  padding: 0
+}
+
+.form:hover {
+  top:-15px;
+}
+
+/*CSS index*/
+/*css student*/
+.progress-main{
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 20px 10px 20px 10px;
+}
+.progress-main .progress {
+  width: 85%;
+  height: 6px;
+  float: left;
+  background-color: lightgray;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 0;
+}
+
+.progress-main .progress .progress-bar{
+  background-image: none;
+  background-color: #00897B;
+}
+.progress-main .current-work{
+  width: 15%;
+  float: left;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 200;
+  padding-left: 5px;
+  line-height: 8px;
+  color: #00897B;
+}
+
+.custom-search-input{
+  padding: 3px;
+  border: solid 2px #445561;
+  border-radius: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.custom-search-input input {
+  border: 0;
+  box-shadow: none;
+}
+.custom-search-input input:focus{
+  outline: none;
+}
+.custom-search-input input:focus *:focus{
+  outline: none;
+}
+
+
+.custom-search-input .glyphicon-search{
+  font-size: 25px;
+}
+span .icon-search {
+  margin-right: 12px;
+}
+
+.card-class{
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin-top: 30px;
+  position: relative;
+
+  overflow: hidden;
+  background-color: white;
+  color: #445561;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-class .imgcard{
+  width: 100%;
+  height: 250px;
+  border: 0px;
+
+  padding: 0
+
+}
+.overlay {
+  width:100%;
+  height:100%;
+  opacity:0;
+  display: inline;
+  position: absolute;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+}
+.card-class:hover .overlay{
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+.card-class:hover .overlay .btn-viewcourse{
+  position: absolute;
+  opacity: 1;
+
+}
+.btn-viewcourse{
+  position: absolute;
+  opacity: 0;
+  top:105px;
+  left: 20px;
+
+  padding:7px 10px;
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+}
+.btn-viewcourse:hover{
+  background-color: #00897B;
+}
+.card-class:hover .overlay .btn-addcourse{
+  position: absolute;
+  opacity: 1;
+
+}
+.btn-addcourse {
+  position: absolute;
+  opacity: 0;
+
+  top:105px;
+  left: 155px;
+  text-align: center;
+  font-size: 15px;
+  padding:7px 10px 7px 10px;
+  display: block;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+
+}
+.btn-addcourse:hover{
+  background-color: #00897B;
+}
+/*css student*/
+/*css CoursePage*/
+
+.header-profile-chapter{
+
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+.header-profile-chapter img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  width: 300px;
+  height: 250px;
+}
+
+.form-btn-profile-chapter{
+  display: block;
+  background-color: #EEEEEE;
+  text-align: center;
+  width: 100%;
+  height: 45px;
+
+}
+.btn-changeview{
+
+  background-color: #cccccc;
+  padding: 20px 20px;
+  text-align: center;
+  font-size: 20px;
+  color: #445561;
+  text-decoration: none;
+  border: none;
+}
+.btn-changeview-active{
+  background-color: #ffffff;
+  padding: 20px 20px;
+  text-align: center;
+  font-size: 20px;
+  color: #445561;
+  text-decoration: none;
+  border: none;
+
+}
+
+.main-profile-chapter{
+  background-color: #ffffff;
+  border: 0;
+
+}
+.main-profile-chapter a{
+  color: #445561;
+  text-decoration: none;
+}
+.block-coursepage{
+  padding: 20px 0;
+  height: 100%;
+  text-align: center;
+  border-left: 1px solid rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+.block-coursepage h3{
+  margin: 0;
+}
+.block-coursepage:hover{
+  background: #00897B;
+  color: #ffffff;
+  border: none;
+}
+
+
+.chapter{
+  display: block;
+  height: 150px;
+  border: 0px;
+  margin-top: 3px;
+  line-height: 100px;
+  background-color: #ffffff;
+  vertical-align: middle;
+  overflow: hidden;
+  padding: 20px 30px 20px 30px;
+  color: #445561;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.chapter p{
+  display: inline;
+}
+.chapter .current-progrees{
+  border: 0;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  float: left;
+  font-size: 20px;
+  font-weight: 100;
+  background-color: #00897B;
+  color: #ffffff;
+  margin-right: 80px;
+  text-align: center;
+}
+
+.chapter:hover{
+  background-color: #00897B;
+  color: #ffffff;
+}
+.chapter:hover .current-progrees{
+  background-color: #ffffff;
+  color: #00897B;
+}
+
+.card-publish{
+  display: block;
+  height: 150px;
+  border: 0px;
+  margin-top: 15px;
+  background-color: #ffffff;
+  vertical-align: middle;
+  overflow: hidden;
+  color: #445561;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-publish .headder-card-publish{
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.card-publish .headder-card-publish h3{
+  margin: 0;
+  display: inline;
+}
+.card-publish .main-card-publish{
+  width: 100%;
+  padding: 10px 15px;
+}
+/*css CoursePage*/
+/*css Upload*/
+.page-uploadstudents {
+    height: 100vh;
+    width:  100vw;
+    background-color: #445561;
+    overflow: hidden;
+}
+
+#main {
+    transition: margin-left .5s;
+
+}
+.slide-nav{
+    width: 0;
+    height: 100%;
+    position: fixed;
+    display: block;
+    z-index: 10;
+    top: 0;
+    left:0;
+    background-color: #cccccc;
+    transition: 0.5s;
+}
+.slide-nav .header-slide-nav{
+  width: 100%;
+  display: block;
+  height: 200px;
+  padding: 15px 20px;
+
+}
+.slide-nav .main-slide-nav{
+    width: 100%;
+    max-height: 95%;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.slide-nav .main-slide-nav a{
+  padding: 15px 20px;
+  display: block;
+  background-color: #00897B;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  font-size: 15px;
+  font-weight: 100;
+}
+
+
+.slide-nav .main-slide-nav a:hover{
+  background-color: #445561;
+  color: #ffffff;
+}
+
+.slide-nav .main-slide-nav a .popover-detail{
+    left: 335px;
+    top:200px;
+    width:400px;
+    height: 420px;
+    position: absolute;
+    display: none;
+    z-index: 12;
+    background-color: #ffffff;
+    color: #445561;
+
+    padding: 15px 20px;
+}
+.slide-nav .main-slide-nav a:hover .popover-detail{
+  display: block;
+}
+
+.slide-nav .main-slide-nav a:hover .popover-detail table.table tr th,
+.slide-nav .main-slide-nav a:hover .popover-detail table.table tr td{
+    border: 0;
+
+}
+.container-upload{
+    padding: 0 20px;
+}
+.nav-upload{
+    background-color: #ffffff;
+    z-index: 4;
+    height: 50px;
+    width: 100%;
+}
+.nav-upload .container-upload .hbg-upload{
+    width: 10%;
+    display: inline;
+}
+.nav-upload .container-upload .hbg-upload a{
+    line-height: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    color: #445561;
+}
+.nav-upload .container-upload .hbg-upload a.btn-hbg-uoload{
+    padding: 10px 10px;
+    background-color: #445561;
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+.nav-upload .container-upload .hbg-upload a.btn-hbg-uoload:hover{
+    opacity: 1;
+
+}
+.nav-upload .container-upload .back-course{
+    width: 77%;
+    display: inline;
+    position: absolute;
+}
+.nav-upload .container-upload .back-course a{
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    color: #445561;
+    cursor: pointer;
+    text-transform: uppercase;
+
+}
+
+
+.nav-upload .container-upload .btn-uploadfile{
+    width: 35%;
+    max-height: 50px;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+.nav-upload .container-upload .btn-uploadfile  button{
+  text-decoration: none;
+  cursor: pointer;
+
+  border: none;
+  outline: none;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  display: inline;
+  margin-right: 15px;
+}
+.nav-upload .container-upload .btn-uploadfile button.select-files{
+  background-color: red;
+  color: white;
+}
+.nav-upload .container-upload .btn-uploadfile  button.select-files:hover{
+  background-color: #00897B;
+}
+.nav-upload .container-upload .btn-uploadfile button.submit{
+  background-color: #445561;
+  color: white;
+}
+
+.nav-upload .container-upload .btn-uploadfile  p{
+    line-height: 50px;
+    color: #445561;
+    font-size: small;
+    display: inline;
+    margin-right: 15px;
+}
+.nav-upload .container-upload .alert-upload{
+    width: 45%;
+    height: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+
+
+}
+.nav-upload .container-upload .alert-upload p{
+    font-size: 20px;
+    line-height: 50px;
+    display: inline;
+    padding: 0 2px;
+
+}
+.nav-upload .container-upload .alert-upload p.massage-success{
+    color: #00897B;
+
+}
+.nav-upload .container-upload .alert-upload p.massage-fail{
+    color: red;
+
+}
+.nav-upload .container-upload .ace-upload .alert button{
+    outline: none;
+}
+.nav-upload .container-upload .progress-btn-next{
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.nav-upload .container-upload .progress-btn-next  a{
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px;
+  display: inline;
+  text-transform: uppercase;
+  line-height: 50px;
+
+}
+.nav-upload .container-upload .progress-btn-next  a.next-upload{
+  background-color: #445561;
+  color: #FFFFFF;
+
+}
+
+.main-uploadstudents{
+    width: 100%;
+    height: 83.9%;
+    margin: 0;
+    display: block;
+
+}
+
+.main-uploadstudents .iframe-upload{
+    width: 45%;
+    height: 100%;
+    margin: 0;
+    padding: 40px 20px 10px 20px;
+    float: left;
+
+}
+.main-uploadstudents .iframe-upload iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+
+}
+
+.main-uploadstudents .ace-upload{
+    width: 55%;
+    height: 98.2%;
+    margin: 0;
+    padding: 10px 20px 10px 0;
+    float: left;
+    overflow: hidden;
+}
+.main-uploadstudents .ace-upload .nav-aceupload{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 30px;
+
+
+}
+.main-uploadstudents .ace-upload .nav-aceupload a{
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: #00897B;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline;
+
+}
+.main-uploadstudents .ace-upload .nav-aceupload a:hover{
+   background-color: #EEEEEE;
+ }
+.main-uploadstudents .ace-upload .nav-aceupload a.actrive{
+    background-color: #EEEEEE;
+}
+.main-uploadstudents .ace-upload .ace_editor {
+    width: 100%;
+    height: 100%;
+    border: 0;
+
+
+
+}
+
+/*css Upload*/
+/*css Profile*/
+
+.header-profile{
+  width: 100%;
+  height: 325px;
+  border: 0;
+}
+.header-profile img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 275px;
+  height: 225px;
+}
+.block-profile{
+  color: #445561;
+  background: #ffffff;
+  height: 100%;
+  text-align: center;
+  border-left: 1px solid rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 0;
+
+}
+.block-profile:hover{
+  color: #ffffff;
+  background-color: #00897B;
+  border: none;
+}
+
+/*css TeacherUpload*/
+
+.btn-uploadfile-teacher{
+  border: 0;
+  margin-right: 20px;
+  background-color: red;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  padding: 10px;
+  outline: none;
+}
+.btn-uploadfile-teacher:hover{
+  background-color: #00897B;
+}
+
+

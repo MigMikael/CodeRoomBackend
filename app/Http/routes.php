@@ -15,21 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => 'auth'], function ()
-{
-    Route::resource('problems', 'ProblemController');
-    Route::resource('problem_analysis', 'ProblemAnalysisController');
-    Route::resource('course', 'CourseController');
-    Route::resource('lesson', 'LessonController');
-    Route::resource('submissions', 'SubmissionController');
-    Route::resource('results', 'ResultController');
 
-    Route::get('problemfile', 'ProblemFileController@index');
-    Route::get('problemfile/create', 'ProblemFileController@create');
-    Route::get('problemfile/get/{filename}', ['as' => 'getfile', 'uses' => 'ProblemFileController@get']);
-    Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileController@add']);
-    Route::get('problemfile/getQuestion/{prob_id}', 'ProblemFileController@getQuestion');
-});
+Route::resource('problems', 'ProblemController');
+Route::resource('problem_analysis', 'ProblemAnalysisController');
+Route::resource('course', 'CourseController');
+Route::resource('lesson', 'LessonController');
+Route::resource('submissions', 'SubmissionController');
+Route::resource('results', 'ResultController');
+Route::resource('student', 'StudentController');
+Route::resource('student_course', 'StudentCourseController');
+
+
+Route::get('problemfile', 'ProblemFileController@index');
+Route::get('problemfile/create', 'ProblemFileController@create');
+Route::get('problemfile/get/{filename}', ['as' => 'getfile', 'uses' => 'ProblemFileController@get']);
+Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileController@add']);
+Route::get('problemfile/getQuestion/{prob_id}', 'ProblemFileController@getQuestion');
 
 
 Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
@@ -41,8 +42,6 @@ Route::get('api/results/{user_id}/latest', 'ResultController@latestResult')->mid
 Route::get('api/results/{user_id}/all', 'ResultController@allResult');
 Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis');
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
-
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
+Route::get('api/course', 'CourseController@getAll');
+Route::get('api/lesson/{course_id}', 'LessonController@getById');

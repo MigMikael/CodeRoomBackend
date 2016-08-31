@@ -1,0 +1,167 @@
+
+<div id="main" class="page-uploadstudents">
+
+    <div id="mySidenav" class="slide-nav">
+
+        <div class="header-slide-nav">
+
+        </div>
+        <div class="main-slide-nav">
+            <a>1.IF-ELSE
+                <div class="popover-detail">
+
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th style="text-align: center;">check</th>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </a>
+
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+            <a>2.FOR
+                <div class="popover-detail">
+                    hello2
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
+    <nav class="nav-upload">
+        <div class="container-upload">
+            <div class="hbg-upload">
+                <a class="btn-hbg-uoload" ng-click="openNav()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  1.IF-ELSE</a>
+            </div>
+            <div class="back-course">
+                <a> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Comprogramming II</a>
+            </div>
+
+        </div>
+    </nav>
+    <div class="main-uploadstudents">
+        <div class="iframe-upload">
+            <iframe  src="compro1_midterm_lab_2556_1.pdf"></iframe>
+        </div>
+        <div class="ace-upload">
+            <div class="nav-aceupload">
+                <a>Java</a>
+                <a>Js</a>
+                <a>AngularJS</a>
+            </div>
+            <div ui-ace="{
+            useWrapMode : true,
+            showGutter: false,
+            theme:'twilight',
+            mode: 'xml',
+            firstLineNumber: 5,
+            onLoad: aceLoaded,
+            onChange: aceChanged
+            }"></div>
+
+        </div>
+    </div>
+
+    <nav class="nav-upload">
+        <div class="container-upload">
+
+            <div class="alert-upload">
+                <p class="massage-fail">Fail Class Wood</p>
+                <p class="massage-success">Success</p>
+            </div>
+            <div class="btn-uploadfile">
+                <button class="select-files" type="file" ngf-select ng-model="file" name="file" accept=".zip">Select Files</button>
+                <p>{{file.name}}</p>
+
+                <button class="submit" type="submit" value="sumit" ng-click="uploadFiles(file)">SUBMIT</button>
+
+            </div>
+            <div class="progress-btn-next">
+                <div class="progress-main" style="border-top: none;margin: 0;padding: 0;width: 70%;padding-top: 20px;float: left" ng-show="file.progress >= 0">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: {{filefield.progress}}%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+
+                </div>
+                <a class="next-upload">Next</a>
+            </div>
+        </div>
+
+
+
+
+    </nav>
+
+
+</div>

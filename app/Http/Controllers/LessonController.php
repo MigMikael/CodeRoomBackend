@@ -26,4 +26,10 @@ class LessonController extends Controller
         Lesson::create($input);
         return redirect('lesson');
     }
+
+    public function getById($course_id)
+    {
+        $lessons = Lesson::where('course_id', '=', $course_id)->get();
+        return $lessons;
+    }
 }
