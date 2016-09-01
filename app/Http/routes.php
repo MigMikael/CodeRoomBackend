@@ -24,7 +24,7 @@ Route::resource('submissions', 'SubmissionController');
 Route::resource('results', 'ResultController');
 Route::resource('student', 'StudentController');
 Route::resource('student_course', 'StudentCourseController');
-
+Route::resource('announcement', 'AnnouncementController');
 
 Route::get('problemfile', 'ProblemFileController@index');
 Route::get('problemfile/create', 'ProblemFileController@create');

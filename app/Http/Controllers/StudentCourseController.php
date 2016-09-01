@@ -39,7 +39,7 @@ class StudentCourseController extends Controller
     {
         $studentCourses = StudentCourse::where('student_id', '=', $student_id)->get();
         foreach ($studentCourses as $studentCourse) {
-            Log::info('#### student course id '. $studentCourse['course_id']);
+            //Log::info('#### student course id '. $studentCourse['course_id']);
             $course = Course::where('id', '=', $studentCourse['course_id'])->first();
             $studentCourse['course_name'] = $course['name'];
         }

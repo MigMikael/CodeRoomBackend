@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Lesson;
 use Request;
-
+use Log;
 use App\Http\Requests;
 
 class LessonController extends Controller
@@ -29,7 +30,9 @@ class LessonController extends Controller
 
     public function getById($course_id)
     {
+        $course = Course::where('id', '=', $course_id)->first();
         $lessons = Lesson::where('course_id', '=', $course_id)->get();
-        return $lessons;
+        $course['lessons'] = $lessons;
+        return $course;
     }
 }
