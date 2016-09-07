@@ -6,7 +6,12 @@
         <h1>All Lesson</h1>
     </div>
     @foreach($lessons as $lesson)
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet demo-card-event mdl-card mdl-shadow--2dp">
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp
+                @if($lesson->status == 'true')
+                    demo-card-event
+                @else
+                    demo-card-event2
+            @endif">
             <div class="mdl-card__title mdl-card--expand">
                 <h4>{{ $lesson->name }}</h4><br>
             </div>

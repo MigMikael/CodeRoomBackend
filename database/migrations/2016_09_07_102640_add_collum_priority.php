@@ -24,7 +24,7 @@ class AddCollumPriority extends Migration
      */
     public function down()
     {
-        Schema::table('problem', function (Blueprint $table) {
+        Schema::table('announcement', function (Blueprint $table) {
             $table->dropColumn('priority');
         });
     }

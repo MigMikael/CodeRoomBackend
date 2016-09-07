@@ -17,8 +17,8 @@ class CourseController extends Controller
 
     public function index()
     {
-        $course = DB::table('course')->where('id', '4')->first();;
-        Log::info('#### '.$course->name);
+        //$course = DB::table('course')->where('id', '4')->first();;
+        //Log::info('#### '.$course->name);
         $courses = Course::all();
         return view('course.index')->with('courses', $courses);
     }
