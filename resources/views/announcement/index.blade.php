@@ -10,8 +10,9 @@
                 <h4>{{ $announcement->title }}</h4><br>
             </div>
             <div class="mdl-card__supporting-text">
-                {{ $announcement->content }}<br>
-                {{ $announcement->course_id }}<br>
+                Content: {{ $announcement->content }}<br>
+                Course_id: {{ $announcement->course_id }}<br>
+                Priority: {{ $announcement->priority }}<br>
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="">

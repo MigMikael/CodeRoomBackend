@@ -12,6 +12,7 @@ class Announcement extends Model
     protected $fillable = [
         'course_id',
         'title',
-        'content'
+        'content',
+        'priority'
     ];
 }

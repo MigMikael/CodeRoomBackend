@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Announcement;
 use App\Course;
 use App\Lesson;
 use Request;
@@ -31,8 +32,10 @@ class LessonController extends Controller
     public function getById($course_id)
     {
         $course = Course::where('id', '=', $course_id)->first();
-        $lessons = Lesson::where('course_id', '=', $course_id)->get();
+        $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();
+        $announcements = Announcement::where('course_id', '=', $course_id)->get();
         $course['lessons'] = $lessons;
+        $course['announcement'] = $announcements;
         return $course;
     }
 }

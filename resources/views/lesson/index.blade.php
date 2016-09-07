@@ -12,7 +12,9 @@
             </div>
             <div class="mdl-card__supporting-text">
                 ID: {{ $lesson->id }}<br>
-                Course ID: {{ $lesson->course_id }}
+                Course ID: {{ $lesson->course_id }}<br>
+                Status: {{ $lesson->status }}<br>
+                Order: {{ $lesson->order }}<br>
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="">
