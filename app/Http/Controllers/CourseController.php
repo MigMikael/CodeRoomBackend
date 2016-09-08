@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Announcement;
 use App\Course;
+use App\Lesson;
+use App\StudentCourse;
+use App\StudentLesson;
 use Request;
 use Log;
 use DB;
@@ -39,5 +43,35 @@ class CourseController extends Controller
     {
         $courses = Course::all();
         return $courses;
+    }
+
+    public function getDetail($course_id, $student_id)
+    {
+        $course = Course::where('id', '=', $course_id)->first();
+        $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();
+        $announcements = Announcement::where('course_id', '=', $course_id)->get();
+
+        $student_course = StudentCourse::where([
+            ['student_id', '=', $student_id],
+            ['course_id', '=', $course_id]
+        ])->first();
+        $student_course_id = $student_course->id;
+
+        $lessons_progress = StudentLesson::where('student_course_id', '=', $student_course_id)->get();
+        $size = sizeof($lessons_progress);
+
+        for ($i = 0; $i < sizeof($lessons); $i++){
+            if($size > 0) {
+                $lessons[$i]['progress'] = $lessons_progress[$i]['progress'];
+            }else{
+                $lessons[$i]['progress'] = 0;
+            }
+            $size--;
+        }
+
+        $course['lessons'] = $lessons;
+        $course['announcement'] = $announcements;
+
+        return $course;
     }
 }

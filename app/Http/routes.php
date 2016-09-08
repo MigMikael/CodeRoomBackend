@@ -42,6 +42,7 @@ Route::get('api/results/{user_id}/latest', 'ResultController@latestResult')->mid
 Route::get('api/results/{user_id}/all', 'ResultController@allResult');
 Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis');
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
+
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
-Route::get('api/course', 'CourseController@getAll');
-Route::get('api/lesson/{course_id}', 'LessonController@getById');
+Route::get('api/course/all', 'CourseController@getAll');
+Route::get('api/course/{course_id}/{student_id}', 'CourseController@getDetail');
