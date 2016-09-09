@@ -21,8 +21,6 @@ class CourseController extends Controller
 
     public function index()
     {
-        //$course = DB::table('course')->where('id', '4')->first();;
-        //Log::info('#### '.$course->name);
         $courses = Course::all();
         return view('course.index')->with('courses', $courses);
     }
@@ -49,6 +47,7 @@ class CourseController extends Controller
     {
         $course = Course::where('id', '=', $course_id)->first();
         $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();
+        $lessonNum = Lesson::where('course_id', '=', $course_id)->orderBy('order')->count();
         $announcements = Announcement::where('course_id', '=', $course_id)->get();
 
         $student_course = StudentCourse::where([
@@ -69,6 +68,7 @@ class CourseController extends Controller
             $size--;
         }
 
+        $course['lesson_num'] = $lessonNum;
         $course['lessons'] = $lessons;
         $course['announcement'] = $announcements;
 

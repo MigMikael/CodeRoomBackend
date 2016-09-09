@@ -26,6 +26,7 @@ class ProblemFileController extends Controller
 
     public function add()
     {
+        //Todo rewrite add method
         Log::info('#### 1 add file');
         $input_filename = Request::get('filename');
         //$input_package = Request::get('package');

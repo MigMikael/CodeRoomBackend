@@ -84,6 +84,7 @@ class ProblemAnalysisController extends Controller
 
     public function keepScore()
     {
+        //Todo rewrite this
         $p = Request::all();
 
         for ($i = 0; $i < sizeof($p); $i++) {

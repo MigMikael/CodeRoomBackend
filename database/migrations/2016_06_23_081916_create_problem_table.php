@@ -23,7 +23,7 @@ class CreateProblemTable extends Migration {
 			$table->string('prerequiresite', 500);
 			$table->boolean('avail')->default(false);
 			$table->string('ready', 10)->default('unready');
-			$table->binary('code');
+			$table->text('code');
 			$table->string('token', 21)->default('1/1');
 			$table->timestamps();
 		});
