@@ -7,8 +7,8 @@
     @foreach($problemFiles as $problemFile)
         <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp">
             <div class="mdl-card__media">
-                @if($problemFile->mime == 'application/zip')
-                    <img src="../zipfilelogo.jpg" alt="Zip File Image" class="article-image" border="0"/>
+                @if($problemFile->mime == 'application/zip'|| $problemFile->mime == 'application/x-zip-compressed')
+                    <img src="{{ URL::asset('zipfilelogo.jpg') }}" alt="Zip File Image" class="article-image" border="0"/>
                 @else
                     <img src="{{route('getfile', str_replace('.','_',$problemFile->filename))}}" alt="Actual Image" class="article-image" border="0"/>
                 @endif

@@ -46,3 +46,4 @@ Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/course/all', 'CourseController@getAll');
 Route::get('api/course/{course_id}/{student_id}', 'CourseController@getDetail');
+Route::get('api/lesson/problem/{lesson_id}', 'LessonController@getProblem');

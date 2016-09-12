@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html":"^5.2",
         "guzzlehttp/guzzle": "~6.0",
-        "chumper/zipper": "^0.6.1"
+        "chumper/zipper": "^0.6.1",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
