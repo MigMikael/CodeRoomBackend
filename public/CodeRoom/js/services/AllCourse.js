@@ -1,12 +1,13 @@
 /**
  * Created by thanadej on 8/31/2016 AD.
  */
-app.factory('allcourse', ['$http', function($http) {
-    return $http.get('/api/course')
-        .success(function(data) {
-            return data;
-        })
-        .error(function(err) {
-            return err;
-        });
-}]);
+
+app.factory('allcourse', function($http) {
+    var urlBase = "/api/course/all";
+    var AllCourseDataOp = {};
+
+    AllCourseDataOp.getAllCourse = function () {
+        return $http.get(urlBase);
+    };
+    return AllCourseDataOp;
+});

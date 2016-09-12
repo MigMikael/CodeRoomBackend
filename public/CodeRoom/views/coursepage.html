@@ -15,7 +15,7 @@
 <div class="header-profile-chapter">
     <div class="container-main">
         <img src="image/Thanadej.jpg" >
-        <h2 style="text-align: center;margin: 0">Comprogramming II</h2>
+        <h2 style="text-align: center;margin: 0">{{course.name}}</h2>
     </div>
 
 
@@ -24,8 +24,8 @@
     margin: 0 auto;
     max-width: 960px;
     min-width: 200px;">
-    <a href="#/coursepage" ng-click="setActive(0)" ng-class="{'btn-changeview-active' : isProfilecourse}" class="btn-changeview">Profile Course</a>
-    <a href="#/coursepage" ng-click="setActive(1)" ng-class="{'btn-changeview-active' : isProfileyouself}" class="btn-changeview">Profile Youself</a>
+    <a  ng-click="setActive(0)" ng-class="{'btn-changeview-active' : isProfilecourse}" class="btn-changeview">Profile Course</a>
+    <a  ng-click="setActive(1)" ng-class="{'btn-changeview-active' : isProfileyouself}" class="btn-changeview">Profile Youself</a>
 </div>
 
 <div class="main-profile-chapter" ng-show="isProfilecourse">
@@ -33,11 +33,11 @@
         <div class="row container-main" style="margin: 30px auto">
             <a href="#">
                 <div class="block-coursepage col-md-4 " style="border-right: none">
-                    <h3>Pinyo Taeprasartsit</h3>
+                    <h3>{{course.instructor}}</h3>
                 </div>
             </a>
             <div class="col-md-4 block-coursepage" style="border: none">
-                <h3>20 Chapter</h3>
+                <h3>20 Lesson</h3>
             </div>
             <div class="col-md-4 block-coursepage" style="border-left: none">
                 <h3>30 point</h3>
@@ -65,106 +65,68 @@
 <div class="container-main">
     <div class="row" style="margin-bottom: 20px">
         <div class="col-md-8" style="padding: 0">
-            <div class="row" style="margin: 0">
-                <div class="col-md-12" style="padding: 0">
-                    <h4>UNIT 1: IF-ELSE</h4>
-                    <div class="chapter">
-                        <div class="current-progrees">
-                            20%
-                        </div>
-                        <p>Lesson: IF-ELSE</p>
-                    </div>
-                </div>
+            <h3>Lesson</h3>
+            <div class="row" style="margin: 0" ng-repeat="lesson in course.lessons">
+                <span ng-show="lesson.status=='true'">
+                    <a ui-sref="problem({lesson_id : lesson.id})">
+                        <div class="col-md-12" style="padding: 0" >
 
-                <div class="col-md-12 marginheader" style="padding: 0">
-                    <h4>UNIT 2: WHILE LOOP</h4>
-                    <div class="chapter">
-                        <div class="current-progrees">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        </div>
-                        <p>Lesson: WHILE LOOP</p>
-                    </div>
-                    <div class="chapter">
-                        <div class="current-progrees">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        </div>
-                        <p>Quiz: WHILE LOOP</p>
+                            <div class="chapter">
+                                <div class="current-progrees">
+                                    {{lesson.progress}}%
+                                </div>
+                                <p>{{lesson.name}}</p>
+                            </div>
 
-                    </div>
-                </div>
 
-                <div class="col-md-12 marginheader" style="padding: 0">
-                    <h4>UNIT 3: ARRAY I</h4>
-                    <div class="chapter">
-                        <div class="current-progrees">
-                            55%
                         </div>
-                        <p>Lesson: Array</p>
-                    </div>
-                </div>
+                    </a>
 
+                </span>
+
+            </div>
+            <h3>Quiz</h3>
+            <div class="row" style="margin: 0" ng-repeat="lesson in course.lessons">
+
+                <span ng-show="lesson.status=='false'">
+                    <a ui-sref="problem({lesson_id : lesson.id})">
+                        <div class="col-md-12" style="padding: 0" >
+
+                            <div class="chapter">
+                                <div class="current-progrees">
+                                    {{lesson.progress}}%
+                                </div>
+                                <p>{{lesson.name}}</p>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </span>
             </div>
         </div>
         <div class="col-md-4" >
-            <div class="row" style="margin-top: 24px" >
-                <div class="col-md-12">
-                    <div class="card-publish" style="border-left: 10px solid red;">
+            <h3>News</h3>
+            <div class="row" style="margin: 0" ng-repeat="announ in course.announcement">
+
+                <div class="col-md-12" style="padding: 0">
+
+                    <div class="card-publish" ng-class="{'card-publish-priority-1': announ.priority== 1,'card-publish-priority-2': announ.priority == 2,'card-publish-priority-3': announ.priority == 3}">
                         <div class="headder-card-publish">
-                            <h3>This is headder</h3>
+                            <h3>{{announ.title}}</h3>
                         </div>
                         <div class="main-card-publish">
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
+                            <p style="display: inline">{{announ.content}}</p>
 
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="card-publish" style="border-left: 10px solid green;">
-                        <div class="headder-card-publish">
-                            <h3>This is headder</h3>
-                        </div>
-                        <div class="main-card-publish">
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
 
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-md-12">
-                    <div class="card-publish" style="border-left: 10px solid yellow;">
-                        <div class="headder-card-publish">
-                            <h3>This is headder</h3>
-                        </div>
-                        <div class="main-card-publish">
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
-                            <p style="display: inline">This is main</p>
 
-                        </div>
-                    </div>
-                </div>
             </div>
-
         </div>
     </div>
 </div>
+

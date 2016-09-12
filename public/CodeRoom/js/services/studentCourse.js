@@ -1,12 +1,13 @@
 /**
  * Created by thanadej on 8/31/2016 AD.
  */
-app.factory('studentcourse', ['$http', function($http) {
-    return $http.get('/api/student_course/07560550')
-        .success(function(data) {
-            return data;
-        })
-        .error(function(err) {
-            return err;
-        });
-}]);
+
+app.factory('studentcourse', function($http) {
+    var urlBase = "/api/student_course/";
+    var StudentCourseDataOp = {};
+
+    StudentCourseDataOp.getStudentCourse = function (student_code) {
+        return $http.get(urlBase+student_code);
+    };
+    return StudentCourseDataOp;
+});

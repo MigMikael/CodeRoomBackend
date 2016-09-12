@@ -221,6 +221,7 @@ nav p {
 .custom-search-input input {
   border: 0;
   box-shadow: none;
+  
 }
 .custom-search-input input:focus{
   outline: none;
@@ -353,6 +354,7 @@ span .icon-search {
   text-align: center;
   font-size: 20px;
   color: #445561;
+  cursor: pointer;
   text-decoration: none;
   border: none;
 }
@@ -398,7 +400,7 @@ span .icon-search {
   display: block;
   height: 150px;
   border: 0px;
-  margin-top: 3px;
+  margin-bottom: 15px;
   line-height: 100px;
   background-color: #ffffff;
   vertical-align: middle;
@@ -437,12 +439,21 @@ span .icon-search {
   display: block;
   height: 150px;
   border: 0px;
-  margin-top: 15px;
+  margin-bottom: 15px;
   background-color: #ffffff;
   vertical-align: middle;
   overflow: hidden;
   color: #445561;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-publish-priority-1{
+  border-left: 5px solid red;
+}
+.card-publish-priority-2{
+  border-left: 5px solid yellow;
+}
+.card-publish-priority-3{
+  border-left: 5px solid green;
 }
 .card-publish .headder-card-publish{
   width: 100%;

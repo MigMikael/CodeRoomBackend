@@ -1,35 +1,49 @@
-var app = angular.module("CodeRoom", ['ngRoute','ngFileUpload','ui.ace']);
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/home',{
+var app = angular.module("CodeRoom", ['ui.router','ngFileUpload','ui.ace']);
+app.config(function($stateProvider, $urlRouterProvider) {
+
+
+    $urlRouterProvider.otherwise('/home');
+
+    $stateProvider
+        .state('home', {
+            url: '/home',
             controller: "homeController",
             templateUrl: "views/home.html"
         })
-        .when('/coursepage', {
-            controller: "coursePageController",
-            templateUrl: "views/coursepage.html"
-        })
-        .when('/coursepage2', {
-            templateUrl: "views/coursepage2.html"
-        })
-        .when('/students', {
+        .state('students', {
+            url: '/students',
             controller: 'studentController',
             templateUrl: 'views/students.html'
         })
-        .when('/upload',{
+        .state('course', {
+            url: '/course/:course_id',
+            controller: "coursePageController",
+            templateUrl: "views/coursepage.html",
+
+
+        })
+        .state('coursepage2', {
+            url: '/coursepage2',
+            templateUrl: "views/coursepage2.html"
+        })
+
+        .state('problem', {
+            url: '/problem/:lesson_id',
             controller: 'uploadController',
             templateUrl: 'views/upload.html'
         })
-        .when('/profile',{
+        .state('/profile', {
+            url: '/profile',
             controller: 'profileController',
             templateUrl: 'views/profile.html'
         })
-        .when('/teacheruploadproblem',{
+        .state('uploadproblem', {
+            url: '/uploadproblem',
             controller: 'uploadTeacherController',
             templateUrl: 'views/uploadteacher.html'
-        })
-        .otherwise({
-            redirectTo: '/home'
         });
 
 });
+
+
+
