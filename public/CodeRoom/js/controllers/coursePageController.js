@@ -15,7 +15,7 @@ app.controller('coursePageController',function($scope,mycourse,$stateParams,$roo
             $scope.isProfileyouself = true;
         }
     };
-//jdsflkajlfkjaldskfals
+//jdsflkajlfkjaldskfals afsafasdfasfsdf
 
     
     function getCourse() {
