@@ -8,8 +8,7 @@ use Request;
 use App\Http\Requests;
 use GuzzleHttp\Client;
 use Log;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
+
 
 class ProblemController extends Controller
 {
@@ -82,19 +81,20 @@ class ProblemController extends Controller
 
             $attributes = $class['attribute'];
             $count = 1;
+            $data['attribute'] = '';
             foreach ($attributes as $attribute) {
-                $data['attribute'] = $count.';'
+                $data['attribute'] .= $count.';'
                     .$attribute['modifier'].';'
                     .$attribute['datatype'].';'
                     .$attribute['name'].'|';
-
                 $count++;
             }
 
             $methods = $class['method'];
             $count = 1;
+            $data['method'] = '';
             foreach ($methods as $method) {
-                $data['method'] = $count.';'
+                $data['method'] .= $count.';'
                     .$method['modifier'].';'
                     .$method['return_type'].';'
                     .$method['name'].';'

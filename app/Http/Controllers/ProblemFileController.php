@@ -29,8 +29,7 @@ class ProblemFileController extends Controller
         //Todo rewrite add method
         Log::info('#### 1 add file');
         $input_filename = Request::get('filename');
-        //$input_package = Request::get('package');
-        $input_package = 'default package';
+        $input_package = Request::get('package');
         $file = Request::file('filefield');
 
         $extension = $file->getClientOriginalExtension();
@@ -44,10 +43,10 @@ class ProblemFileController extends Controller
         $dirname = $problemFile->id;
 
         Storage::disk('public')->makeDirectory($dirname);
-        $dest = storage_path() . '/app/public/' . $dirname .'/';
+        $dest = storage_path() . '\\app\\public\\' . $dirname .'\\';
         Log::info('#### 2 dest '.$dest);
 
-        $path = storage_path('app/public/'.$problemFile->filename);
+        $path = storage_path('app\\public\\'.$problemFile->filename);
         Log::info('#### 3 path '.$path);
 
         $zipper = new Zipper();
@@ -55,7 +54,7 @@ class ProblemFileController extends Controller
         Log::info('#### 4 extract complete');
 
         $id = ProblemFile::all()->last()->id;
-        $code = Storage::disk('public')->get('/' . $dirname . '/' . $input_filename);
+        $code = Storage::disk('public')->get('\\' . $dirname . '\\' . $input_filename . '.java');
         $res = self::keepProblem($id, $input_filename, $input_package, $code);
 
         return $res;
