@@ -4,24 +4,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
     $scope.isFormproblem = true;
     $scope.isRequirment = false;
     $scope.requirment = [];
-    $scope.teacherRequirement = [
-        {
-            prob_id:"5",
-            class:"public;HandleWood",
-            package:"",
-            attribute:"1;default;int;price|2;private;int;totolprice",
-            method:"1;public;void;calculatePrice();(int price,double rate)|2;public;void;setPrice();(int price)|",
-
-        },
-        {
-            prob_id:"5",
-            class:"public;Wood",
-            package:"",
-            attribute:"1;default;int;price|",
-            method:"1;public;void;calculatePrice();()|",
-
-        }
-    ];
+    $scope.teacherRequirement;
 
 
     var setShow = function(){
@@ -89,13 +72,15 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
     //upload
     $scope.uploadFiles = function(file) {
         file.upload = Upload.upload({
-            url: 'https://posttestserver.com/post.php',
-            data: {filename: $scope.filename,pacekage: $scope.package, file: file},
+            url: '/problemfile/add',
+            data: {filename: $scope.filename,pacekage: $scope.package, filefield: file},
         });
 
         file.upload.then(function (response) {
             $timeout(function () {
+                setShow();
                 file.result = response.data;
+                $scope.teacherRequirement = response.data;
                 console.log(response.data);
                 console.log(file.name);
             });
@@ -138,7 +123,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
         }
     };
     $scope.submitRequirment = function(){
-        var res = $http.post('http://posttestserver.com/post.php', $scope.requirment);
+        var res = $http.post('/problem_analysis/score', $scope.requirment);
         res.success(function(data, status, headers, config) {
             $scope.message2 = data;
             setShow();

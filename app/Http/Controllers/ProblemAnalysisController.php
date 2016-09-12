@@ -85,7 +85,7 @@ class ProblemAnalysisController extends Controller
     public function keepScore()
     {
         //Todo rewrite this
-        $p = Request::all();
+        /*$p = Request::all();
 
         for ($i = 0; $i < sizeof($p); $i++) {
             $prob_id = $p[$i]['prob_id'];
@@ -122,7 +122,7 @@ class ProblemAnalysisController extends Controller
             ProblemAnalysis::where('prob_id', '=', $prob_id)
                 ->where('class', '=', $class)
                 ->update(['attribute_score' => $attribute_score, 'method_score' => $method_score]);
-        }
+        }*/
 
         return 'success';
     }
