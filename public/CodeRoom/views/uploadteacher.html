@@ -58,7 +58,7 @@
 
     </div>
     <div class="col-md-12" ng-show="isRequirment" >
-        {{ calculatePoint }}
+        {{calcuratePoint()}}
         <div class="col-md-offset-10">Point: {{totolPoint}}</div>
         <form ng-submit="submitRequirment()">
 
@@ -74,7 +74,7 @@
                         <th>Paramiter</th>
                         <th>Point</th>
                     </tr>
-                    <tr ng-repeat="y in x.attribute">
+                    <tr ng-repeat="y in x.attribute" style="background-color: #eee">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
                         <td>{{ y[2] }}</td>
