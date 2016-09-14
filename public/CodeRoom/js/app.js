@@ -1,4 +1,4 @@
-var app = angular.module("CodeRoom", ['ui.router','ngFileUpload','ui.ace']);
+var app = angular.module("CodeRoom", ['ui.router','ngFileUpload']);
 app.config(function($stateProvider, $urlRouterProvider) {
 
 

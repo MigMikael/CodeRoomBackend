@@ -12,20 +12,7 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
         }
         $scope.isNav = !$scope.isNav;
     };
-    $scope.lesson;
-    //getLesson();
 
-    function getLesson() {
-
-        lesson.getLesson()
-            .success(function (data) {
-                $scope.lesson = data;
-            })
-            .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
-            });
-
-    }
 
 
     //respont from p'man
@@ -63,27 +50,45 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
             for(var j in $scope.test[i]){
                 if(j==="class"){
                     var splitClass = $scope.test[i][j].split(';');
-                    if(splitClass[1]==="false"){
+                    if(splitClass[1]==="null"){
+                        $scope.alert = "Don't have Class "+splitClass[0];
+                        return;
+                    }
+                    else if(splitClass[1]==="false"){
                         $scope.alert = "Fail Class "+splitClass[0];
                         return;
                     }
                 }else if(j==="package"){
                     var splitPackage = $scope.test[i][j].split(';');
-                    if(splitPackage[1]==="false"){
+                    if(splitPackage[1]==="null"){
+                        $scope.alert = "Don't have Package "+splitClass[0];
+                        return;
+                    }
+                    else if(splitPackage[1]==="false"){
                         $scope.alert = "Fail Package "+splitPackage[0];
                         return;
                     }
                 }else if(j==="enclose"){
                 var splitEnclose = $scope.test[i][j].split(';');
-                if(splitEnclose[1]==="false"){
-                    $scope.alert = "Fail Enclose "+splitEnclose[0];
-                    return;
-                }
+                    if(splitEnclose[1]==="null"){
+                        $scope.alert = "Don't have Enclose "+splitEnclose[0];
+                        return;
+                    }
+                    else if(splitEnclose[1]==="false"){
+                        $scope.alert = "Fail Enclose "+splitEnclose[0];
+                        return;
+                    }
+
+
                 }else if(j==="attribute"){
                     var splitAttribute = $scope.test[i][j].split('|');
                     for(var z in splitAttribute){
                        var subSplitattribute = splitAttribute[z].split(';');
-                        if(subSplitattribute[1]==="false"){
+                        if(subSplitattribute[1]==="null"){
+                            $scope.alert = "Don't have Attribute "+subSplitattribute[0];
+                            return;
+                        }
+                        else if(subSplitattribute[1]==="false"){
                             $scope.alert = "Fail Attribute "+subSplitattribute[0];
                             return;
                         }
@@ -92,7 +97,11 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
                     var splitMethod = $scope.test[i][j].split('|');
                     for(var z in splitMethod){
                         var subSplitmethod = splitMethod[z].split(';');
-                        if(subSplitmethod[1]==="false"){
+                        if(subSplitmethod[1]==="null"){
+                            $scope.alert = "Fail Method "+subSplitmethod[0];
+                            return;
+                        }
+                        else if(subSplitmethod[1]==="false"){
                             $scope.alert = "Fail Method "+subSplitmethod[0];
                             return;
                         }
@@ -101,7 +110,7 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
             }
         }
         if($scope.alert===""){
-            $scope.alert = "Success"
+            $scope.alert = "Complete"
             return;
         }
         return;

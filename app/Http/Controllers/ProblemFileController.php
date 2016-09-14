@@ -30,6 +30,7 @@ class ProblemFileController extends Controller
         Log::info('#### 1 add file');
         $input_filename = Request::get('filename');
         $input_package = Request::get('package');
+        $input_lesson_id = Request::get('lesson_id');
         $file = Request::file('filefield');
 
         $extension = $file->getClientOriginalExtension();
@@ -55,7 +56,7 @@ class ProblemFileController extends Controller
 
         $id = ProblemFile::all()->last()->id;
         $code = Storage::disk('public')->get('\\' . $dirname . '\\' . $input_filename . '.java');
-        $res = self::keepProblem($id, $input_filename, $input_package, $code);
+        $res = self::keepProblem($id, $input_filename, $input_package, $input_lesson_id, $code);
 
         return $res;
     }
@@ -70,12 +71,13 @@ class ProblemFileController extends Controller
         return (new Response($file, 200))->header('Content-Type', $problemFile->mime);
     }
 
-    public function keepProblem($id, $input_filename, $input_package, $code)
+    public function keepProblem($id, $input_filename, $input_package, $input_lesson_id, $code)
     {
         $args = array(
             'id' => $id,
             'filename' => $input_filename,
             'package' => $input_package,
+            'lesson_id' => $input_lesson_id,
             'code' => $code
         );
         $request = Request::create('problems', 'POST', $args);

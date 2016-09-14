@@ -1,4 +1,4 @@
-app.controller('uploadController', ['$scope','$http','Upload','$timeout',function($scope, $http, Upload, $timeout) {
+app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,$rootScope) {
     $scope.isNav = false;
     $scope.isAlert = false;
 
@@ -14,63 +14,83 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
         $scope.isNav = !$scope.isNav;
     };
 
+    //ace
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/eclipse");
+    editor.getSession().setMode("ace/mode/java");
 
-    $scope.test =
-        [
-            {
-                submission_id: "4",
-                class: "Wood;true",
-                package: "default package;true",
-                enclose: "HandleWood;false",
-                attribute: "1;true|2;true|3;true",
-                attribute_score: "1;10|2;10|3;10",
-                method: "1;true|2;true|3;true|4;true|5;true|6;true",
-                method_score: "1;10|2;0;|3;0|4;10|5;10|6;0",
-                created_at: "2016-06-23 17:56:56",
-                updated_at: "2016-06-23 17:56:56"
-            },
-            {
-                submission_id: "4",
-                class: "HandleWood;true",
-                package: "default package;true",
-                enclose: "none",
-                attribute: "1;true|2;false",
-                attribute_score: "1;10|2;10",
-                method: "1;true",
-                method_score: "1;10",
-                created_at: "2016-06-23 18:02:43",
-                updated_at: "2016-06-23 18:02:43"
-            }
-        ];
+
+    $scope.lesson;
+    $scope.prob_id;
+    //getLesson();
+
+    function getLesson() {
+
+        lesson.getLesson($stateParams.lesson_id)
+            .success(function (data) {
+                $scope.lesson = data;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+
+    };
 
     $scope.checkPropriety = function(){
-        $scope.alert = "";
+        $scope.alert = {
+            massage:"",
+            status:""
+        };
         for(var i in $scope.test){
             for(var j in $scope.test[i]){
                 if(j==="class"){
                     var splitClass = $scope.test[i][j].split(';');
-                    if(splitClass[1]==="false"){
-                        $scope.alert = "Fail Class "+splitClass[0];
+                    if(splitClass[1]==="null"){
+                        $scope.alert.massage = "Don't Have Class "+splitClass[0];
+                        $scope.alert.status = splitClass[1];
+                        return;
+                    }
+                    else if(splitClass[1]==="false"){
+                        $scope.alert.massage = "Fail Class "+splitClass[0];
+                        $scope.alert.status = splitClass[1];
                         return;
                     }
                 }else if(j==="package"){
                     var splitPackage = $scope.test[i][j].split(';');
-                    if(splitPackage[1]==="false"){
-                        $scope.alert = "Fail Package "+splitPackage[0];
+                    if(splitPackage[1]==="null"){
+                        $scope.alert.massage = "Don't have Package "+splitPackage[0];
+                        $scope.alert.status = splitPackage[1];
+                        return;
+                    }
+                    else if(splitPackage[1]==="false"){
+                        $scope.alert.massage = "Fail Package "+splitPackage[0];
+                        $scope.alert.status = splitPackage[1];
                         return;
                     }
                 }else if(j==="enclose"){
                 var splitEnclose = $scope.test[i][j].split(';');
-                if(splitEnclose[1]==="false"){
-                    $scope.alert = "Fail Enclose "+splitEnclose[0];
-                    return;
-                }
+                    if(splitEnclose[1]==="null"){
+                        $scope.alert.massage = "Don't Enclose "+splitEnclose[0];
+                        $scope.alert.status = splitEnclose[1];
+                        return;
+                    }
+                    else if(splitEnclose[1]==="false"){
+                        $scope.alert.massage = "Fail Enclose "+splitEnclose[0];
+                        $scope.alert.status = splitEnclose[1];
+                        return;
+                    }
                 }else if(j==="attribute"){
                     var splitAttribute = $scope.test[i][j].split('|');
                     for(var z in splitAttribute){
                        var subSplitattribute = splitAttribute[z].split(';');
-                        if(subSplitattribute[1]==="false"){
-                            $scope.alert = "Fail Attribute "+subSplitattribute[0];
+                        if(subSplitattribute[1]==="null"){
+                            $scope.alert.massage = "Don't have Attribute "+subSplitattribute[0];
+                            $scope.alert.status = subSplitattribute[1];
+                            return;
+                        }
+                        else if(subSplitattribute[1]==="false"){
+                            $scope.alert.massage = "Fail Attribute "+subSplitattribute[0];
+                            $scope.alert.status = subSplitattribute[1];
                             return;
                         }
                     }
@@ -78,16 +98,23 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
                     var splitMethod = $scope.test[i][j].split('|');
                     for(var z in splitMethod){
                         var subSplitmethod = splitMethod[z].split(';');
-                        if(subSplitmethod[1]==="false"){
-                            $scope.alert = "Fail Method "+subSplitmethod[0];
+                        if(subSplitmethod[1]==="null"){
+                            $scope.alert.massage = "Don't have Method "+subSplitmethod[0];
+                            $scope.alert.status = subSplitmethod[1];
+                            return;
+                        }
+                        else if(subSplitmethod[1]==="false"){
+                            $scope.alert.massage = "Fail Method "+subSplitmethod[0];
+                            $scope.alert.status = subSplitmethod[1];
                             return;
                         }
                     }
                 }
             }
         }
-        if($scope.alert===""){
-            $scope.alert = "Success"
+        if($scope.alert.massage===""||$scope.alert.status===""){
+            $scope.alert.massage = "Complete"
+            $scope.alert.status = "complete"
             return;
         }
         return;
@@ -172,7 +199,21 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
             file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     };
+    $scope.submitProblem = function(){
+        var dataSubmitproblem = {
+
+        };
+        var res = $http.post('/problem_analysis/score', {user_id:$rootScope.student_id,prob_id:"",code:$scope.code});
+        res.success(function(data, status, headers, config) {
+            $scope.message2 = data;
+            setShow();
+
+        });
+        res.error(function(data, status, headers, config) {
+            alert( "failure message: " + JSON.stringify({data: data}));
+        });
+    };
 
 
-}]);
+});
 

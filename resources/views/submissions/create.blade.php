@@ -20,18 +20,6 @@
                 {!! Form::text('prob_id', null,['class' => 'mdl-textfield__input', 'placeholder' => '1']) !!}
             </div>
 
-            {{--Todo remove this input--}}
-            {{--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                {!! Form::label('sub_num', 'Submit Number : ', ['class' => 'mdl-textfield__label']) !!}
-                {!! Form::text('sub_num', null,['class' => 'mdl-textfield__input', 'placeholder' => '1']) !!}
-            </div>--}}
-
-            <!-- time -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                {{--{!! Form::label('time', 'Time : ', ['class' => 'mdl-textfield__label']) !!}--}}
-                {!! Form::date('time', \Carbon\Carbon::now()) !!}
-            </div>
-
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::label('code', 'Code : ', ['class' => 'mdl-textfield__label']) !!}
                 {!! Form::textarea('code', null,['class' => 'mdl-textfield__input', 'placeholder' => 'paste your demo code here']) !!}

@@ -7,12 +7,10 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
     $scope.teacherRequirement;
 
 
-
     var setShow = function(){
         $scope.isFormproblem = !$scope.isFormproblem;
         $scope.isRequirment = !$scope.isRequirment;
     };
-
 
     var showRequirement = function(){
         var countMethod = 0;
@@ -71,12 +69,33 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
             );
         }
     };
+    //upload
+    $scope.uploadFiles = function(file) {
+        
+        file.upload = Upload.upload({
+            url: '/problemfile/add',
+            data: {filename: $scope.filename,pacekage: $scope.package, lesson_id: $scope.lesson_id,filefield: file},
+        });
 
-
+        file.upload.then(function (response) {
+            $timeout(function () {
+                setShow();
+                file.result = response.data;
+                $scope.teacherRequirement = response.data;
+                showRequirement();
+            });
+        }, function (response) {
+            if (response.status > 0)
+                $scope.errorMsg = response.status + ': ' + response.data;
+        }, function (evt) {
+            // Math.min is to fix IE which reports 200% sometimes
+            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+    };
 
     $scope.calcuratePoint = function(){
+    $scope.totolPoint =0;
 
-        $scope.totolPoint =0;
         for(var i in $scope.requirment){
             for(var j in $scope.requirment[i]){
                 //console.log($scope.requirment[i][j]);
@@ -100,39 +119,9 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
 
                     }
                 }
-
             }
         }
     };
-
-    //upload
-    $scope.uploadFiles = function(file) {
-
-        file.upload = Upload.upload({
-            url: '/problemfile/add',
-            data: {filename: $scope.filename,pacekage: $scope.package, filefield: file},
-        });
-
-        file.upload.then(function (response) {
-            $timeout(function () {
-
-                file.result = response.data;
-                $scope.teacherRequirement = response.data;
-
-                setShow();
-                showRequirement();
-
-            });
-        }, function (response) {
-            if (response.status > 0)
-                $scope.errorMsg = response.status + ': ' + response.data;
-        }, function (evt) {
-            // Math.min is to fix IE which reports 200% sometimes
-            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-        });
-    };
-
-
     $scope.submitRequirment = function(){
         var res = $http.post('/problem_analysis/score', $scope.requirment);
         res.success(function(data, status, headers, config) {
@@ -144,6 +133,9 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
             alert( "failure message: " + JSON.stringify({data: data}));
         });
     };
+
+
+
 
 
 

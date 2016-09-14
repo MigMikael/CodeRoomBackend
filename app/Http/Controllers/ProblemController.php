@@ -33,11 +33,13 @@ class ProblemController extends Controller
     {
         $input_filename = Request::get('filename');
         $input_package = Request::get('package');
+        $input_lesson_id = Request::get('lesson_id');
         $input_code = Request::get('code');
         Log::info('#### INPUT Data #### '.$input_filename.' ####');
 
         $problem_data = [];
         $problem_data['name'] = $input_filename;
+        $problem_data['lesson_id'] = $input_lesson_id;
         $problem_data['code'] = $input_code;
         Problem::create($problem_data);
         Log::info('#### STATUS #### '. 'Keep Problem' .' ####');
@@ -115,16 +117,6 @@ class ProblemController extends Controller
     public function getProblemAnalysis($prob_id)
     {
         $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get();
-        $json = [];
-
-        for ($i = 0 ; $i < sizeof($problem_analysis); $i++) {
-            $json[$i]['prob_id'] = $problem_analysis[$i]->prob_id;
-            $json[$i]['class'] = $problem_analysis[$i]->class;
-            $json[$i]['package'] = $problem_analysis[$i]->package;
-            $json[$i]['attribute'] = $problem_analysis[$i]->attribute;
-            $json[$i]['method'] = $problem_analysis[$i]->method;
-        }
-        Log::info('#### STATUS #### '. 'Get Problem Analysis' .' ####');
-        return $json;
+        return $problem_analysis;
     }
 }

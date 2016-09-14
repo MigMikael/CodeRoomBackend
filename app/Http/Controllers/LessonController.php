@@ -33,7 +33,9 @@ class LessonController extends Controller
     public function getProblem($lesson_id)
     {
         $problems = Problem::where('lesson_id', '=', $lesson_id)->get();
-        $problems->code = '';
+        foreach ($problems as $problem){
+            $problem->code = '';
+        }
         return $problems;
     }
 }

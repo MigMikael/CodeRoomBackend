@@ -1,5 +1,5 @@
 
-<div id="main" class="page-uploadstudents">
+<div id="main" class="page-uploadstudents" >
 
     <div id="mySidenav" class="slide-nav">
 
@@ -28,71 +28,87 @@
                 </div>
             </a>
 
-            <a>2.FOR
+            <a>1.IF-ELSE
                 <div class="popover-detail">
-                    hello2
+
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th style="text-align: center;">check</th>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                        </tr>
+
+                    </table>
                 </div>
             </a>
-            <a>2.FOR
+            <a>1.IF-ELSE
                 <div class="popover-detail">
-                    hello2
+
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th style="text-align: center;">check</th>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                        </tr>
+
+                    </table>
                 </div>
             </a>
-            <a>2.FOR
+            <a>1.IF-ELSE
                 <div class="popover-detail">
-                    hello2
+
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th style="text-align: center;">check</th>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                        </tr>
+
+                    </table>
                 </div>
             </a>
-            <a>2.FOR
+            <a>1.IF-ELSE
                 <div class="popover-detail">
-                    hello2
+
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th style="text-align: center;">check</th>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        </tr>
+                        <tr>
+                            <td>current</td>
+                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                        </tr>
+
+                    </table>
                 </div>
             </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
-            <a>2.FOR
-                <div class="popover-detail">
-                    hello2
-                </div>
-            </a>
+
         </div>
 
     </div>
@@ -116,28 +132,17 @@
         <div class="ace-upload">
             <div class="nav-aceupload">
                 <a>Java</a>
-                <a>Js</a>
-                <a>AngularJS</a>
             </div>
-            <div ui-ace="{
-            useWrapMode : true,
-            showGutter: false,
-            theme:'twilight',
-            mode: 'xml',
-            firstLineNumber: 5,
-            onLoad: aceLoaded,
-            onChange: aceChanged
-            }"></div>
+            <div id="editor" ng-model="code"></div>
 
         </div>
     </div>
 
     <nav class="nav-upload">
         <div class="container-upload">
-
+            <!--DON'T TEST(ยังไม่ได้ลอง)-->
             <div class="alert-upload">
-                <p class="massage-fail">Fail Class Wood</p>
-                <p class="massage-success">Success</p>
+                <p ng-class="{'massage-fail': alert.status == 'null'|| alert.status == 'false','massage-success': alert.status == 'complete'}" class="massage-fail">{{alert.massage}}</p>
             </div>
             <div class="btn-uploadfile">
                 <button class="select-files" type="file" ngf-select ng-model="file" name="file" accept=".zip">Select Files</button>

@@ -2,7 +2,10 @@
     <div class="container-fluid container-main">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><p>CODE ROOM</p></a>
+
+            <a class="navbar-brand" href="#">
+                <img style="" alt="Brand" src="image/coderoom.png">
+            </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -23,8 +26,12 @@
                 <div class="col-md-4" ng-repeat="my_course in my_courses">
                     <a ui-sref="course({course_id : my_course.course_id})" style="text-decoration: none">
                         <div class="form">
+                            <div class="imgForm">
+                                <img src="image/java.png">
+                            </div>
 
-                            <img src="image/Thanadej.jpg" class="imgForm">
+
+
                             <div class="main-form">
                                 <p><i class="fa fa-book" aria-hidden="true"></i>{{my_course.course_name}}</p>
 

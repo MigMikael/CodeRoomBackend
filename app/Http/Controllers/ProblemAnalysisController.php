@@ -34,6 +34,7 @@ class ProblemAnalysisController extends Controller
         return view('problems_analysis.edit')->with('problem_analysis', $problem_analysis);
     }
 
+    //Todo finish this method
     public function update($prob_id)
     {
         $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get()->last();
@@ -71,16 +72,7 @@ class ProblemAnalysisController extends Controller
     public function getByID($prob_id)
     {
         $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get();
-        $json = [];
-
-        for ($i = 0 ; $i < sizeof($problem_analysis); $i++) {
-            $json[$i]['prob_id'] = $problem_analysis[$i]->prob_id;
-            $json[$i]['class'] = $problem_analysis[$i]->class;
-            $json[$i]['package'] = $problem_analysis[$i]->package;
-            $json[$i]['attribute'] = $problem_analysis[$i]->attribute;
-            $json[$i]['method'] = $problem_analysis[$i]->method;
-        }
-        return \GuzzleHttp\json_encode($json);
+        return $problem_analysis;
     }
 
     public function keepScore()
