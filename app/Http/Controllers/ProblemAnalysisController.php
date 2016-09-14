@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProblemAnalysis;
+use App\ProblemStructureScore;
 use Request;
 use Log;
 use App\Http\Requests;
@@ -84,8 +85,7 @@ class ProblemAnalysisController extends Controller
 
     public function keepScore()
     {
-        //Todo rewrite this
-        /*$p = Request::all();
+        $p = Request::all();
 
         for ($i = 0; $i < sizeof($p); $i++) {
             $prob_id = $p[$i]['prob_id'];
@@ -119,10 +119,13 @@ class ProblemAnalysisController extends Controller
             }
             Log::info('##### '. $method_score);
 
-            ProblemAnalysis::where('prob_id', '=', $prob_id)
-                ->where('class', '=', $class)
-                ->update(['attribute_score' => $attribute_score, 'method_score' => $method_score]);
-        }*/
+            $data = [];
+            $data['attribute'] = $attribute_score;
+            $data['method'] = $method_score;
+
+            ProblemStructureScore::create($data);
+            Log::info('##### Keep Problem Structure Score');
+        }
 
         return 'success';
     }
