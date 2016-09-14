@@ -44,33 +44,60 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
         ];
 
     $scope.checkPropriety = function(){
-        $scope.alert = "";
+        $scope.alert = {
+            massage:"",
+            status:""
+        };
         for(var i in $scope.test){
             for(var j in $scope.test[i]){
                 if(j==="class"){
                     var splitClass = $scope.test[i][j].split(';');
-                    if(splitClass[1]==="false"){
-                        $scope.alert = "Fail Class "+splitClass[0];
+                    if(splitClass[1]==="null"){
+                        $scope.alert.massage = "Don't Have Class "+splitClass[0];
+                        $scope.alert.status = splitClass[1];
+                        return;
+                    }
+                    else if(splitClass[1]==="false"){
+                        $scope.alert.massage = "Fail Class "+splitClass[0];
+                        $scope.alert.status = splitClass[1];
                         return;
                     }
                 }else if(j==="package"){
                     var splitPackage = $scope.test[i][j].split(';');
-                    if(splitPackage[1]==="false"){
-                        $scope.alert = "Fail Package "+splitPackage[0];
+                    if(splitPackage[1]==="null"){
+                        $scope.alert.massage = "Don't have Package "+splitPackage[0];
+                        $scope.alert.status = splitPackage[1];
+                        return;
+                    }
+                    else if(splitPackage[1]==="false"){
+                        $scope.alert.massage = "Fail Package "+splitPackage[0];
+                        $scope.alert.status = splitPackage[1];
                         return;
                     }
                 }else if(j==="enclose"){
                 var splitEnclose = $scope.test[i][j].split(';');
-                if(splitEnclose[1]==="false"){
-                    $scope.alert = "Fail Enclose "+splitEnclose[0];
-                    return;
-                }
+                    if(splitEnclose[1]==="null"){
+                        $scope.alert.massage = "Don't Enclose "+splitEnclose[0];
+                        $scope.alert.status = splitEnclose[1];
+                        return;
+                    }
+                    else if(splitEnclose[1]==="false"){
+                        $scope.alert.massage = "Fail Enclose "+splitEnclose[0];
+                        $scope.alert.status = splitEnclose[1];
+                        return;
+                    }
                 }else if(j==="attribute"){
                     var splitAttribute = $scope.test[i][j].split('|');
                     for(var z in splitAttribute){
                        var subSplitattribute = splitAttribute[z].split(';');
-                        if(subSplitattribute[1]==="false"){
-                            $scope.alert = "Fail Attribute "+subSplitattribute[0];
+                        if(subSplitattribute[1]==="null"){
+                            $scope.alert.massage = "Don't have Attribute "+subSplitattribute[0];
+                            $scope.alert.status = subSplitattribute[1];
+                            return;
+                        }
+                        else if(subSplitattribute[1]==="false"){
+                            $scope.alert.massage = "Fail Attribute "+subSplitattribute[0];
+                            $scope.alert.status = subSplitattribute[1];
                             return;
                         }
                     }
@@ -78,16 +105,23 @@ app.controller('uploadController', ['$scope','$http','Upload','$timeout',functio
                     var splitMethod = $scope.test[i][j].split('|');
                     for(var z in splitMethod){
                         var subSplitmethod = splitMethod[z].split(';');
-                        if(subSplitmethod[1]==="false"){
-                            $scope.alert = "Fail Method "+subSplitmethod[0];
+                        if(subSplitmethod[1]==="null"){
+                            $scope.alert.massage = "Don't have Method "+subSplitmethod[0];
+                            $scope.alert.status = subSplitmethod[1];
+                            return;
+                        }
+                        else if(subSplitmethod[1]==="false"){
+                            $scope.alert.massage = "Fail Method "+subSplitmethod[0];
+                            $scope.alert.status = subSplitmethod[1];
                             return;
                         }
                     }
                 }
             }
         }
-        if($scope.alert===""){
-            $scope.alert = "Success"
+        if($scope.alert.massage===""||$scope.alert.status===""){
+            $scope.alert.massage = "Complete"
+            $scope.alert.status = "complete"
             return;
         }
         return;

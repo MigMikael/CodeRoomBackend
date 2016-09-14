@@ -2,7 +2,10 @@
     <div class="container-fluid container-main">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><p>CODE ROOM</p></a>
+
+            <a class="navbar-brand" href="#">
+                <img style="" alt="Brand" src="image/coderoom.png">
+            </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
@@ -29,6 +32,11 @@
 
                 </div>
                 <div class="col-md-12" style="margin-bottom: 15px">
+                    <label>Lesson_id</label>
+                    <input type="text" class="form-control" placeholder="Lesson_id" ng-model="lesson_id">
+
+                </div>
+                <div class="col-md-12" style="margin-bottom: 15px">
 
                     <button class="btn-uploadfile-teacher" type="file" ngf-select ng-model="filefield" name="filefield" accept=".zip">Select Files</button>{{filefield.name}}
 
@@ -50,7 +58,7 @@
 
             </div>
             <div class="col-md-1">
-                <button style="background-color: #00897B;color: white;border: none;border-radius: 0;margin: 0;float: right;padding: 10px;outline: none" type="submit" value="sumit" ng-disabled="!myForm.$valid" ng-click="uploadFiles(filefield)" class="btn btn-default">Submit</button>
+                <button style="background-color: #00897B;color: white;border: none;border-radius: 0;margin: 0;float: right;padding: 10px;outline: none" type="submit" value="sumit" ng-disabled="!myForm.$valid" ng-click="uploadFiles(filefield)" class="btn btn-default">SUBMIT</button>
 
             </div>
         </form>
@@ -64,17 +72,16 @@
 
             <div class="panel panel-default" ng-repeat="x in requirment">
                 <!-- Default panel contents -->
-                <div class="panel-heading">{{x.class[1]}}</div>
+                <div class="panel-heading" style="background-color:#204056;color: white">{{ x.class[1]}}</div>
                 <table class="table" >
-
-                    <tr>
+                    <tr style="background-color: white;color: black">
                         <th>Modifier</th>
                         <th>Type</th>
                         <th>Name</th>
                         <th>Paramiter</th>
                         <th>Point</th>
                     </tr>
-                    <tr ng-repeat="y in x.attribute" style="background-color: #eee">
+                    <tr ng-repeat="y in x.attribute" style="background-color: #acb4bc;color: black">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
                         <td>{{ y[2] }}</td>
@@ -83,7 +90,7 @@
 
                     </tr>
 
-                    <tr ng-repeat="y in x.method">
+                    <tr ng-repeat="y in x.method" style="background-color: #a5b3b9;color: black">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
                         <td>{{ y[2] }}</td>
@@ -97,7 +104,7 @@
 
 
             <div class="col-md-3 col-md-offset-10">
-                <button type="submit" value="sumit" class="btn btn-default">Submit</button>
+                <button  style="background-color: #00897B;color: white;border: none;border-radius: 0;margin: 0;float: right;padding: 10px;outline: none" type="submit" value="sumit" class="btn btn-default">SUBMIT</button>
             </div>
             <p>{{ message2 }}</p>
         </form>

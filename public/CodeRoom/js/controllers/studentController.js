@@ -2,7 +2,7 @@ app.controller('studentController', function($scope, $http,$rootScope, studentco
     $scope.my_courses;
     $scope.all_courses;
     $scope.have_courses = [];
-    $rootScope.student_id = '07570497';
+    $rootScope.student_id = '07560550';
     getStudentCourse();
     getAllCourse();
 
