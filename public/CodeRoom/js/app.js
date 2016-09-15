@@ -32,6 +32,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'uploadController',
             templateUrl: 'views/upload.html'
         })
+
+
         .state('/profile', {
             url: '/profile',
             controller: 'profileController',

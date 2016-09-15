@@ -1,4 +1,4 @@
-app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,$rootScope) {
+app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,getimageproblem,$rootScope) {
     $scope.isNav = false;
     $scope.isAlert = false;
 
@@ -29,6 +29,7 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
         lesson.getLesson($stateParams.lesson_id)
             .success(function (data) {
                 $scope.lesson = data;
+                checkSucsessproblem();
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -36,6 +37,27 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
     };
 
+
+
+    function checkSucsessproblem(){
+        $scope.prob_id;
+
+    }
+
+    function getImageproblem() {
+
+        getimageproblem.getImageproblem($scope.prob_id)
+            .success(function (data) {
+                $scope.img_problem = data;
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+
+    };
+
+
+    //checkrespont
     $scope.checkPropriety = function(){
         $scope.alert = {
             massage:"",
@@ -119,8 +141,8 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
         }
         return;
     };
-    //ace
 
+    //demo mutiple ace
     $scope.Model = {
         Scripting: []
     };
@@ -156,26 +178,7 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
     };
 
-    $scope.onLoad2 = function() {
-        $scope.Model = {
-            Scripting: [
-                "(function () {",
-                "    angular.module('ui.blur', [])",
-                "        .directive('ngBlurValidation', [ function () {",
-                "            return {",
-                "                restrict: 'A',",
-                "                link: function (scope, element, attributes, form) {",
-                "                    element.on('blur', function(){",
-                "                        element.valid();",
-                "                    });",
-                "                }",
-                "            };",
-                "        }]);",
-                "})();"
-            ]
-        }
-        //$scope.$apply()
-    };
+
 
 
     //upload
