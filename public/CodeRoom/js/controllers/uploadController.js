@@ -230,13 +230,13 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
     };
     $scope.submitProblem = function(){
         var dataSubmitproblem = {
-
+            user_id:$rootScope.student_id,
+            prob_id:$scope.prob_id,
+            code:$scope.code,
         };
-        var res = $http.post('/problem_analysis/score', {user_id:$rootScope.student_id,prob_id:"",code:$scope.code});
+        
+        var res = $http.post('/problem_analysis/score', dataSubmitproblem);
         res.success(function(data, status, headers, config) {
-            $scope.message2 = data;
-            setShow();
-
         });
         res.error(function(data, status, headers, config) {
             alert( "failure message: " + JSON.stringify({data: data}));

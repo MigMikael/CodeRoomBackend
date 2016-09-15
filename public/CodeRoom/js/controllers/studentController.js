@@ -10,9 +10,10 @@ app.controller('studentController', function($scope, $http,$rootScope, studentco
         //$stateParams.student_code
         studentcourse.getStudentCourse($rootScope.student_id)
             .success(function (data) {
+
                 $scope.my_courses = data;
                 for(var i in $scope.my_courses){
-                    $scope.have_courses.push($scope.my_courses[i].id);
+                    $scope.have_courses.push($scope.my_courses[i].course_id);
                 }
 
 
