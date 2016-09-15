@@ -19,6 +19,11 @@
                 <label for="package" class="mdl-textfield__label">Package Name</label>
             </div>
 
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {!! Form::text('lesson_id', null, ['class' => 'form-control mdl-textfield__input']) !!}
+                <label for="lesson_id" class="mdl-textfield__label">Lesson_id</label>
+            </div>
+
             {!! Form::file('filefield') !!}
 
             <br>

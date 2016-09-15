@@ -16,6 +16,7 @@ class Problem extends Model {
 
     protected $fillable = [
         'name',
-        'code'
+        'code',
+        'lesson_id'
     ];
 }
