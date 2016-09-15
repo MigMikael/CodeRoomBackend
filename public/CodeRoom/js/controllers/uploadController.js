@@ -19,7 +19,7 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
     editor.setTheme("ace/theme/eclipse");
     editor.getSession().setMode("ace/mode/java");
 
-
+    $scope.course_name = $stateParams.course_name;
     $scope.lesson;
     $scope.prob_id;
     //getLesson();

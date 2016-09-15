@@ -28,7 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state('problem', {
-            url: '/problem/:lesson_id',
+            url: '/problem/:course_name/:lesson_id',
             controller: 'uploadController',
             templateUrl: 'views/upload.html'
         })
