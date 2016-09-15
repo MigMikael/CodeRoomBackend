@@ -45,7 +45,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                         }
                     }
                 }else if(y==="method"){
-                    var methods = $scope.teacherRequirement[x][y].split('|');
+                    var methods = $scope.teacherRequirement[x][y].split('()');
                     for(method in methods){
                         var submethods = methods[method].split(';');
                         //console.log(methods[method]);
@@ -82,6 +82,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                 setShow();
                 file.result = response.data;
                 $scope.teacherRequirement = response.data;
+                console.log($scope.teacherRequirement);
                 showRequirement();
             });
         }, function (response) {

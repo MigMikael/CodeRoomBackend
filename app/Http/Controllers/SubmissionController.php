@@ -141,7 +141,7 @@ class SubmissionController extends Controller
                     $s = explode(";", $total_scores[$j])[1];
                     $current_score .= $problem_analysis_attribute[$j].';'.$s.'|';
                 }else{
-
+                    // Todo Handle this
                 }
             }
             Log::info('#### Current Score '.$current_score);
