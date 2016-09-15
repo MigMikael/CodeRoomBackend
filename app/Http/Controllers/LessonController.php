@@ -32,10 +32,21 @@ class LessonController extends Controller
 
     public function getProblem($lesson_id)
     {
+
         $problems = Problem::where('lesson_id', '=', $lesson_id)->get();
+        $problem_list = [];
+        $problem_list['problem'] = [];
         foreach ($problems as $problem){
-            $problem->code = '';
+            $item = [];
+            $item['prob_id'] = $problem->id;
+            $item['name'] = $problem->name;
+            $item['timelimit'] = $problem->timelimit;
+            $item['memorylimit'] = $problem->memorylimit;
+            $item['lesson_id'] = $problem->lesson_id;
+            array_push($problem_list['problem'], $item);
         }
-        return $problems;
+        $lesson_name = Lesson::where('id', '=', $lesson_id)->value('name');
+        $problem_list['lesson_name'] = $lesson_name;
+        return $problem_list;
     }
 }

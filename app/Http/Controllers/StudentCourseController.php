@@ -42,6 +42,7 @@ class StudentCourseController extends Controller
             //Log::info('#### student course id '. $studentCourse['course_id']);
             $course = Course::where('id', '=', $studentCourse['course_id'])->first();
             $studentCourse['course_name'] = $course['name'];
+            $studentCourse['image'] = $course['image'];
         }
         return $studentCourses;
     }
