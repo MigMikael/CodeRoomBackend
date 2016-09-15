@@ -234,8 +234,8 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
             prob_id:$scope.prob_id,
             code:$scope.code,
         };
-        
-        var res = $http.post('/problem_analysis/score', dataSubmitproblem);
+
+        var res = $http.post('/submissions', dataSubmitproblem);
         res.success(function(data, status, headers, config) {
         });
         res.error(function(data, status, headers, config) {
