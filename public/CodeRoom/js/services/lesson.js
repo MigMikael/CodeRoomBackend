@@ -6,9 +6,8 @@ app.factory('lesson', function($http) {
     var LessonDataOp = {};
 
     LessonDataOp.getLesson = function (lesson_id) {
-        //console.log(urlBase+lesson_id);
+        console.log(urlBase+lesson_id);
         return $http.get(urlBase+lesson_id);
     };
-
     return LessonDataOp;
 });

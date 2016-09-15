@@ -181,7 +181,7 @@ nav p {
 .form .imgForm {
   width: 100%;
   height: 250px;
-  background-color: #204056;
+
   border: 0px;
 }
 .form .imgForm img{
@@ -520,14 +520,16 @@ span .icon-search {
   height: 60px;
   display: block;
   color: white;
-  padding: 10px 20px;
-  font-size: 25px;
+  padding: 15px 15px;
+  font-size: 20px;
+
 }
 .slide-nav .header-slide-nav .lesson-name{
   width: 100%;
   height: 100%;
   float: left;
   overflow-x: hidden;
+  overflow-y: hidden;
   text-transform: uppercase;
 
 }
@@ -543,6 +545,7 @@ span .icon-search {
 .slide-nav .main-slide-nav a{
   padding: 15px 20px;
   display: block;
+  cursor: pointer;
   background-color: #acb4bc;
 
   color: #ffffff;

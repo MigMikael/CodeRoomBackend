@@ -4,111 +4,33 @@
     <div id="mySidenav" class="slide-nav">
 
         <div class="header-slide-nav">
-            <div class="lesson-name">Lesson name</div>
+            <div class="lesson-name">{{lesson_data.lesson_name}}</div>
 
         </div>
         <div class="main-slide-nav">
-            <a ui-sref="{problem_id: }">1.IF-ELSE
-                <div class="popover-detail">
+            <span ng-repeat="lesson in lesson_data.problem">
+                <a ng-click="changeProblem(lesson.prob_id)">{{lesson.name}}
+                    <div class="popover-detail">
 
-                    <table class="table">
-                        <tr>
-                            <th>Name</th>
-                            <th style="text-align: center;">check</th>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        </tr>
+                        <table class="table">
+                            <tr>
+                                <th>Name</th>
+                                <th style="text-align: center;">check</th>
+                            </tr>
+                            <tr>
+                                <td>current</td>
+                                <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                            </tr>
+                            <tr>
+                                <td>current</td>
+                                <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                            </tr>
 
-                    </table>
-                </div>
-            </a>
+                        </table>
+                    </div>
+                </a>
+            </span>
 
-            <a>1.IF-ELSE
-                <div class="popover-detail">
-
-                    <table class="table">
-                        <tr>
-                            <th>Name</th>
-                            <th style="text-align: center;">check</th>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        </tr>
-
-                    </table>
-                </div>
-            </a>
-            <a>1.IF-ELSE
-                <div class="popover-detail">
-
-                    <table class="table">
-                        <tr>
-                            <th>Name</th>
-                            <th style="text-align: center;">check</th>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        </tr>
-
-                    </table>
-                </div>
-            </a>
-            <a>1.IF-ELSE
-                <div class="popover-detail">
-
-                    <table class="table">
-                        <tr>
-                            <th>Name</th>
-                            <th style="text-align: center;">check</th>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        </tr>
-
-                    </table>
-                </div>
-            </a>
-            <a>1.IF-ELSE
-                <div class="popover-detail">
-
-                    <table class="table">
-                        <tr>
-                            <th>Name</th>
-                            <th style="text-align: center;">check</th>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                        </tr>
-                        <tr>
-                            <td>current</td>
-                            <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                        </tr>
-
-                    </table>
-                </div>
-            </a>
 
         </div>
 
@@ -118,7 +40,7 @@
     <nav class="nav-upload">
         <div class="container-upload">
             <div class="hbg-upload">
-                <a class="btn-hbg-uoload" ng-click="openNav()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  1.IF-ELSE</a>
+                <a class="btn-hbg-uoload" ng-click="openNav()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> IF-ELSE</a>
             </div>
             <div class="back-course">
                 <a> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>{{ course_name }}</a>
@@ -128,7 +50,7 @@
     </nav>
     <div class="main-uploadstudents">
         <div class="iframe-upload">
-            <iframe  src="compro1_midterm_lab_2556_1.pdf"></iframe>
+            <iframe  ngf-src="pdf_problem"></iframe>
         </div>
         <div class="ace-upload">
             <div class="nav-aceupload">

@@ -27,8 +27,8 @@ app.controller('studentController', function($scope, $http,$rootScope, studentco
         //$stateParams.student_code
         allcourse.getAllCourse()
             .success(function (data) {
-
-                $scope.all_courses = $scope.deleteDataredundancy(data);
+                console.log(data);
+                $scope.all_courses = deleteDataredundancy(data);
 
 
             })
@@ -38,7 +38,7 @@ app.controller('studentController', function($scope, $http,$rootScope, studentco
 
     }
 
-    $scope.deleteDataredundancy = function(course){
+    var deleteDataredundancy = function(course){
         var demo_course = course;
         for(var i in $scope.have_courses){
             for(var y in demo_course){

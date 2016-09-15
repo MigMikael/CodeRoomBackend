@@ -1,4 +1,4 @@
-app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,getimageproblem,$rootScope) {
+app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,getPDFproblem,$rootScope) {
     $scope.isNav = false;
     $scope.isAlert = false;
 
@@ -20,16 +20,38 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
     editor.getSession().setMode("ace/mode/java");
 
     $scope.course_name = $stateParams.course_name;
-    $scope.lesson;
-    $scope.prob_id;
-    //getLesson();
+    $scope.prob_id = 1;
+    getLesson();
+    $scope.lesson_data1 = {
+        problem:[
+            {
+                prob_id: 1,
+                name: "IF",
+                timelimit: 1,
+                memorylimit: 32,
+                lesson_id: 15
+            },
+            {
+                prob_id: 2,
+                name: "IF-ELSE",
+                timelimit: 1,
+                memorylimit: 32,
+                lesson_id: 15
+            }
+        ],
+        lesson_name: "คำสั่งเดียว คำสั่งเงือนไข และชุดคำสั่ง"
+    };
+
+
+
 
     function getLesson() {
 
         lesson.getLesson($stateParams.lesson_id)
             .success(function (data) {
-                $scope.lesson = data;
-                checkSucsessproblem();
+                $scope.lesson_data = data;
+                //console.log($scope.lesson_data);
+                //checkSucsessproblem();
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -37,22 +59,26 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
     };
 
-
-
     function checkSucsessproblem(){
-        $scope.prob_id;
 
-    }
 
-    function getImageproblem() {
+    };
 
-        getimageproblem.getImageproblem($scope.prob_id)
-            .success(function (data) {
-                $scope.img_problem = data;
+    function getPDFproblem() {
+
+        getPDFproblem().getPDFproblem($scope.prob_id)
+            .success(function (data){
+                $scope.pdf_problem = data;
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
+
+    };
+    $scope.changeProblem = function(problem_id){
+        $scope.prob_id = problem_id;
+        openNav();
+        getPDFproblem();
 
     };
 
