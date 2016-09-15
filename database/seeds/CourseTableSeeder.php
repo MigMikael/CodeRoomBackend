@@ -15,6 +15,7 @@ class CourseTableSeeder extends Seeder
         DB::table('course')->insert([
             'name' => 'Computer Programming I',
             'instructor' => 'Pinyo Taeprasartsit',
+            'image' => 'http://localhost:8000/api/course/image/'. str_replace('.','_','c.png'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -22,6 +23,7 @@ class CourseTableSeeder extends Seeder
         DB::table('course')->insert([
             'name' => 'Computer Programming II',
             'instructor' => 'Pinyo Taeprasartsit',
+            'image' => 'http://localhost:8000/api/course/image/'. str_replace('.','_','java.png'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -29,6 +31,7 @@ class CourseTableSeeder extends Seeder
         DB::table('course')->insert([
             'name' => 'Data Structures',
             'instructor' => 'Sethalat Rodhetbhai',
+            'image' => 'http://localhost:8000/api/course/image/'. str_replace('.','_','datastruct.png'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -36,13 +39,7 @@ class CourseTableSeeder extends Seeder
         DB::table('course')->insert([
             'name' => 'Object Oriented Software Development',
             'instructor' => 'Orawan Chaowalit',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
-
-        DB::table('course')->insert([
-            'name' => '',
-            'instructor' => 'Orawan Chaowalit',
+            'image' => 'http://localhost:8000/api/course/image/'. str_replace('.','_','oosd.png'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

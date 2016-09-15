@@ -7,10 +7,12 @@ use App\Course;
 use App\Lesson;
 use App\StudentCourse;
 use App\StudentLesson;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
 use Request;
 use Log;
 use DB;
-use App\Http\Requests;
 
 class CourseController extends Controller
 {
@@ -32,9 +34,30 @@ class CourseController extends Controller
 
     public function store()
     {
-        $input = Request::all();
-        Course::create($input);
+        $input_name = Request::get('name');
+        $input_instructor = Request::get('instructor');
+        $file = Request::file('photo');
+
+        Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
+
+        $image_path = 'http://localhost:8000/api/course/image/'. str_replace('.','_',$file->getClientOriginalName());
+        Log::info('#### '.$image_path);
+
+        $course_data = [];
+        $course_data['name'] = $input_name;
+        $course_data['instructor'] = $input_instructor;
+        $course_data['image'] = $image_path;
+        Course::create($course_data);
         return redirect('course');
+    }
+
+    public function getCourseImage($name)
+    {
+        $name = str_replace('_','.',$name);
+        Log::info('#### '.$name);
+        $file = Storage::disk('public')->get($name);
+        //Todo change content type
+        return (new Response($file, 200))->header('Content-Type', 'image/png');
     }
 
     public function getAll()

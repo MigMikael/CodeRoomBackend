@@ -5,6 +5,7 @@
         <h1>All Course</h1>
     </div>
     @foreach($courses as $course)
+        <img src="{{ $course->image }}" alt="">
         <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet demo-card-event mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title mdl-card--expand">
                 <h4>{{ $course->name }}</h4><br>

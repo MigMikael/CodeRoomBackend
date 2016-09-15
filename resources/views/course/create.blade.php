@@ -8,7 +8,7 @@
 
         <br>
 
-        {!! Form::open(['url' => 'course']) !!}
+        {!! Form::open(['url' => 'course', 'files' => true]) !!}
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::label('name', 'Name :', ['class' => 'mdl-textfield__label']) !!}
                 {!! Form::text('name', null, ['class' => 'mdl-textfield__input']) !!}
@@ -18,6 +18,10 @@
                 {!! Form::label('instructor', 'Instructor :', ['class' => 'mdl-textfield__label']) !!}
                 {!! Form::text('instructor', null, ['class' => 'mdl-textfield__input']) !!}
             </div>
+
+            {!! Form::file('photo') !!}
+
+            <br>
 
             {!! Form::submit('add',['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent']) !!}
         {!! Form::close() !!}
