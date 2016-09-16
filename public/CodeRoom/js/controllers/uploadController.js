@@ -50,6 +50,8 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
         lesson.getLesson($stateParams.lesson_id)
             .success(function (data) {
                 $scope.lesson_data = data;
+                console.log($rootScope.student_id);
+                getPDFproblem();
                 //console.log($scope.lesson_data);
                 //checkSucsessproblem();
             })
@@ -68,6 +70,7 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
         getPDFproblem().getPDFproblem($scope.prob_id)
             .success(function (data){
+
                 $scope.pdf_problem = data;
             })
             .error(function (error) {
@@ -228,12 +231,15 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
             file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     };
+
     $scope.submitProblem = function(){
+        console.log($rootScope.student_id);
         var dataSubmitproblem = {
-            user_id:$rootScope.student_id,
-            prob_id:$scope.prob_id,
-            code:$scope.code,
+            user_id: $rootScope.student_id,
+            prob_id: $scope.prob_id,
+            code: editor.getValue(),
         };
+        console.log(dataSubmitproblem);
 
         var res = $http.post('/submissions', dataSubmitproblem);
         res.success(function(data, status, headers, config) {

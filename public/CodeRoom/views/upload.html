@@ -50,13 +50,13 @@
     </nav>
     <div class="main-uploadstudents">
         <div class="iframe-upload">
-            <iframe  ngf-src="pdf_problem"></iframe>
+            <iframe  src="pdf_problem"></iframe>
         </div>
         <div class="ace-upload">
             <div class="nav-aceupload">
                 <a>Java</a>
             </div>
-            <div id="editor" ng-model="code"></div>
+            <div id="editor"></div>
 
         </div>
     </div>
@@ -71,7 +71,7 @@
                 <button class="select-files" type="file" ngf-select ng-model="file" name="file" accept=".zip">Select Files</button>
                 <p>{{file.name}}</p>
 
-                <button class="submit" type="submit" value="sumit" ng-click="uploadFiles(file)">SUBMIT</button>
+                <button class="submit" type="submit" value="sumit" ng-click="submitProblem()">SUBMIT</button>
 
             </div>
             <div class="progress-btn-next">
