@@ -26,8 +26,8 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
 
 
-    //getLesson();
-    $scope.lesson_data = {
+    getLesson();
+    $scope.lesson_data1 = {
         problem:[
             {
                 prob_id: 1,
