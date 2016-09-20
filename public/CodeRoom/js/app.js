@@ -1,4 +1,4 @@
-var app = angular.module("CodeRoom", ['ui.router','ngFileUpload']);
+var app = angular.module("CodeRoom", ['ui.router','ngFileUpload','ngStorage']);
 app.config(function($stateProvider, $urlRouterProvider) {
 
 
@@ -10,16 +10,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: "homeController",
             templateUrl: "views/home.html"
         })
-        .state('students', {
-            url: '/students',
-            controller: 'studentController',
-            templateUrl: 'views/students.html'
+        .state('dashboard', {
+            url: '/dashboard',
+            controller: 'dashboardController',
+            templateUrl: 'views/dashboard.html'
         })
         .state('course', {
-            url: '/course/:course_id',
+            url: '/:course_name/:course_id',
             controller: "coursePageController",
             templateUrl: "views/coursepage.html",
-
 
         })
         .state('coursepage2', {

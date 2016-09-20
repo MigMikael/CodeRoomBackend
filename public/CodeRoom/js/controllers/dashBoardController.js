@@ -1,14 +1,19 @@
-app.controller('studentController', function($scope, $http,$rootScope, studentcourse,allcourse,$stateParams) {
+app.controller('dashboardController', function($scope, $http,$rootScope, studentcourse,allcourse,$stateParams,$localStorage) {
     $scope.my_courses;
     $scope.all_courses;
     $scope.have_courses = [];
-    $rootScope.student_id = '07560550';
+
     getStudentCourse();
     getAllCourse();
+    setUser();
+
+    function setUser(){
+        $localStorage.student_id = '07560550';
+    }
 
     function getStudentCourse() {
         //$stateParams.student_code
-        studentcourse.getStudentCourse($rootScope.student_id)
+        studentcourse.getStudentCourse($localStorage.student_id)
             .success(function (data) {
 
                 $scope.my_courses = data;

@@ -1,7 +1,7 @@
 /**
  * Created by thanadej on 7/1/2016 AD.
  */
-app.controller('coursePageController',function($scope,mycourse,$stateParams,$rootScope) {
+app.controller('coursePageController',function($scope,mycourse,$stateParams,$rootScope,$localStorage) {
     $scope.course;
     getCourse();
     $scope.isProfilecourse = true;
@@ -19,7 +19,8 @@ app.controller('coursePageController',function($scope,mycourse,$stateParams,$roo
 
     
     function getCourse() {
-        mycourse.getMycourse($rootScope.student_id,$stateParams.course_id)
+        console.log($localStorage.student_id);
+        mycourse.getMycourse($localStorage.student_id,$stateParams.course_id)
             .success(function (data) {
                 $scope.course = data;
                 console.log($scope.course);

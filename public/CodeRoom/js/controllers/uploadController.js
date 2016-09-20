@@ -1,4 +1,4 @@
-app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,getPDFproblem,$rootScope) {
+app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,getPDFproblem,$rootScope,$localStorage) {
     $scope.isNav = false;
     $scope.isAlert = false;
 
@@ -21,8 +21,13 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
     $scope.course_name = $stateParams.course_name;
     $scope.prob_id = 1;
-    getLesson();
-    $scope.lesson_data1 = {
+    $localStorage.lesson_id = $stateParams.lesson_id;
+
+
+
+
+    //getLesson();
+    $scope.lesson_data = {
         problem:[
             {
                 prob_id: 1,
@@ -47,10 +52,9 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
     function getLesson() {
 
-        lesson.getLesson($stateParams.lesson_id)
+        lesson.getLesson($localStorage.lesson_id)
             .success(function (data) {
                 $scope.lesson_data = data;
-                console.log($rootScope.student_id);
                 getPDFproblem();
                 //console.log($scope.lesson_data);
                 //checkSucsessproblem();
@@ -220,8 +224,7 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
         file.upload.then(function (response) {
             $timeout(function () {
                 file.result = response.data;
-                console.log(response.data);
-                console.log(file.name);
+
             });
         }, function (response) {
             if (response.status > 0)
@@ -233,9 +236,9 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
     };
 
     $scope.submitProblem = function(){
-        console.log($rootScope.student_id);
+
         var dataSubmitproblem = {
-            user_id: $rootScope.student_id,
+            user_id: $localStorage.student_id,
             prob_id: $scope.prob_id,
             code: editor.getValue(),
         };
