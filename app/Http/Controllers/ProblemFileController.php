@@ -89,7 +89,7 @@ class ProblemFileController extends Controller
     {
         $problem = Problem::where('id', '=', $prob_id)->firstOrFail();
         $filename = $problem->name;
-        $pdf_name = explode('.', $filename)[0];
+        $pdf_name = $filename;
         $pdf_name = $pdf_name . '.pdf';
         Log::info('#### Get File');
         $file = Storage::disk('public')->get('/'. $prob_id . '/' . $pdf_name);

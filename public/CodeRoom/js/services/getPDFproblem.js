@@ -2,7 +2,8 @@
  * Created by thanadej on 9/15/2016 AD.
  */
 app.factory('getPDFproblem', function($http) {
-    var urlBase = "api/problemfile/getQuestion/";
+    var urlBase = "/problemfile/getQuestion/";
+
     var PDFProblemDataOp = {};
 
     PDFProblemDataOp.getPDFproblem = function (problem_id) {

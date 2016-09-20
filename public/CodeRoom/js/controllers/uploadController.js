@@ -1,4 +1,4 @@
-app.controller('uploadController',function($scope, $http, Upload, $timeout,$stateParams,lesson,getPDFproblem,$rootScope,$localStorage) {
+app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout,$stateParams,lesson,getPDFproblem,$rootScope,$localStorage) {
     $scope.isNav = false;
     $scope.isAlert = false;
 
@@ -74,8 +74,10 @@ app.controller('uploadController',function($scope, $http, Upload, $timeout,$stat
 
         getPDFproblem().getPDFproblem($scope.prob_id)
             .success(function (data){
+                var file = new Blob([data], {type: 'application/pdf'});
+                var fileURL = URL.createObjectURL(file);
+                $scope.pdf_problem =  $sce.trustAsResourceUrl(fileURL);
 
-                $scope.pdf_problem = data;
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
