@@ -111,8 +111,11 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
         lesson.getLesson($localStorage.lesson_id)
             .success(function (data) {
                 $scope.lesson = data;
-                //checkSucsessproblem();
+                setProblem(2);
                 manageData();
+
+                //checkSucsessproblem();
+
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -201,7 +204,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
     };
 
-    setProblem(3);
+
 
     function setProblem(prob_id){
         for(i in $scope.lesson.problem){

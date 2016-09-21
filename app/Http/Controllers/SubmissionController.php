@@ -117,6 +117,8 @@ class SubmissionController extends Controller
         $problem_analysis = ProblemAnalysis::where('prob_id', '=', $input_probId)->get();
         $results = Result::where('submission_id', '=', $submission_id)->get();
 
+        $real_score = [];
+
         for($i = 0; $i < sizeof($problem_analysis); $i++) {
             $score = [];
 
@@ -175,13 +177,14 @@ class SubmissionController extends Controller
             $score['method'] = $current_score;
 
             ResultStructureScore::create($score);
+            array_push($real_score, $score);
         }
 
         $score = [];
         $score['problem_analysis'] = $problem_analysis;
         $score['results'] = $results;
 
-        return $score;
+        return $real_score;
     }
 
 }
