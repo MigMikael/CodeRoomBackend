@@ -1,4 +1,4 @@
-app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout,$stateParams,lesson,getPDFproblem,$rootScope,$localStorage) {
+app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout,$stateParams,lesson,$rootScope,$localStorage) {
     $scope.isNav = false;
     $scope.isAlert = false;
 
@@ -20,32 +20,88 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
     editor.getSession().setMode("ace/mode/java");
 
     $scope.course_name = $stateParams.course_name;
-    $scope.prob_id = 1;
+
     $localStorage.lesson_id = $stateParams.lesson_id;
 
 
 
 
     getLesson();
-    $scope.lesson_data1 = {
-        problem:[
+
+    $scope.lesson1 = {
+        lesson_name: "บทนำเกี่ยวกับคอมพิวเตอร์และการโปรแกรม",
+        problem: [
             {
-                prob_id: 1,
-                name: "IF",
-                timelimit: 1,
-                memorylimit: 32,
-                lesson_id: 15
+            prob_id: 2,
+            name: "Test",
+            timelimit: 1,
+            memorylimit: 32,
+            lesson_id: 1,
+            problemfile: "http://localhost:8000/problemfile/getQuestion/2",
+            problemAnalysis: [
+                {
+                class: "null;null",
+                class_score: 0,
+                package: "default package",
+                package_score: 0,
+                enclose: "null",
+                enclose_score: 0,
+                attribute: "1;private;String;man|2;private;String;au|",
+                attribute_score: "1;30|2;30",
+                method: "1;default;void;test_print;()2;public;void;printV1;()",
+                method_score: "1;20|2;20"
+                },
+                {
+                class: "default;Chair",
+                class_score: 0,
+                package: "default package",
+                package_score: 0,
+                enclose: "Test",
+                enclose_score: 0,
+                attribute: "1;default;int;x|",
+                attribute_score: "1;50",
+                method: "",
+                method_score: ""
+                }
+            ]
             },
             {
-                prob_id: 2,
-                name: "IF-ELSE",
-                timelimit: 1,
-                memorylimit: 32,
-                lesson_id: 15
-            }
-        ],
-        lesson_name: "คำสั่งเดียว คำสั่งเงือนไข และชุดคำสั่ง"
+            prob_id: 3,
+            name: "Test",
+            timelimit: 1,
+            memorylimit: 32,
+            lesson_id: 1,
+            problemfile: "http://localhost:8000/problemfile/getQuestion/3",
+            problemAnalysis: [
+                {
+                class: "null;null",
+                class_score: 0,
+                package: "default package",
+                package_score: 0,
+                enclose: "null",
+                enclose_score: 0,
+                attribute: "1;private;String;man|2;private;String;au|",
+                attribute_score: "1;25|2;25",
+                method: "1;default;void;test_print;()2;public;void;printV1;()",
+                method_score: "1;70|2;70"
+                },
+                {
+                class: "default;Chair",
+                class_score: 0,
+                package: "default package",
+                package_score: 0,
+                enclose: "Test",
+                enclose_score: 0,
+                attribute: "1;default;int;x|",
+                attribute_score: "1;10",
+                method: "",
+                method_score: ""
+                }
+            ]
+        }
+        ]
     };
+
 
 
 
@@ -54,41 +110,109 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
         lesson.getLesson($localStorage.lesson_id)
             .success(function (data) {
-                $scope.lesson_data = data;
-                getPDFproblem();
-                //console.log($scope.lesson_data);
+                $scope.lesson = data;
                 //checkSucsessproblem();
+                manageData();
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
 
     };
+
+
+    function manageData(){
+        $scope.problems = [];
+
+        for(i in $scope.lesson.problem){
+
+            var class1 = [];
+
+            for(j in $scope.lesson.problem[i].problemAnalysis){
+                var arrayAttibute = [];
+                var arrayMethod = [];
+
+                var splitClass = $scope.lesson.problem[i].problemAnalysis[j].class.split(";");
+                splitClass.push($scope.lesson.problem[i].problemAnalysis[j].class_score);
+
+
+
+                var setPackage = [];
+                setPackage.push($scope.lesson.problem[i].problemAnalysis[j].package);
+                setPackage.push($scope.lesson.problem[i].problemAnalysis[j].package_score);
+
+                //console.log(setPackage);
+
+                var setEnclose = [];
+                setEnclose.push($scope.lesson.problem[i].problemAnalysis[j].enclose);
+                setEnclose.push($scope.lesson.problem[i].problemAnalysis[j].enclose_score);
+
+
+                var splitAttribute1 = $scope.lesson.problem[i].problemAnalysis[j].attribute.split("|");
+                var splitAttribute1_score = $scope.lesson.problem[i].problemAnalysis[j].attribute_score.split("|");
+                for(var z in splitAttribute1){
+                    if(splitAttribute1[z]!== ""){
+                        var splitAttribute2 = splitAttribute1[z].split(";");
+                        var splitAttribute2_score = splitAttribute1_score[z].split(";");
+                        splitAttribute2.push(splitAttribute2_score[1]);
+                        //console.log(splitAttribute2);
+                        arrayAttibute.push(splitAttribute2);
+                    }
+                }
+
+
+                var splitMethod1 = $scope.lesson.problem[i].problemAnalysis[j].method.split("()");
+                var splitMethod1_socre = $scope.lesson.problem[i].problemAnalysis[j].method_score.split("|");
+                for(var z in splitMethod1){
+                    if(splitMethod1[z]!== ""){
+                        var splitMethod2 = splitMethod1[z].split(";");
+                        splitMethod2.pop();
+                        //console.log(splitMethod2)
+                        var splitMethod2_score = splitMethod1_socre[z].split(";");
+                        splitMethod2.push(splitMethod2_score[1]);
+                        arrayMethod.push(splitMethod2);
+                    }
+
+                }
+                class1.push({
+                    constructer:splitClass,
+                    package:setPackage,
+                    enclose:setEnclose,
+                    attributes:arrayAttibute,
+                    methods:arrayMethod
+                })
+
+            }
+            //console.log(class1);
+            $scope.problems.push({
+                prob_id:$scope.lesson.problem[i].prob_id,
+                prob_name:$scope.lesson.problem[i].name,
+                manyClass:class1,
+            });
+
+
+        }
+        console.log($scope.problems);
+
+    }
 
     function checkSucsessproblem(){
 
 
     };
 
-    function getPDFproblem() {
+    setProblem(3);
 
-        getPDFproblem().getPDFproblem($scope.prob_id)
-            .success(function (data){
-                var file = new Blob([data], {type: 'application/pdf'});
-                var fileURL = URL.createObjectURL(file);
-                $scope.pdf_problem =  $sce.trustAsResourceUrl(fileURL);
-
-            })
-            .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
-            });
-
-    };
-    $scope.changeProblem = function(problem_id){
-        $scope.prob_id = problem_id;
-        openNav();
-        getPDFproblem();
-
+    function setProblem(prob_id){
+        for(i in $scope.lesson.problem){
+            if(prob_id===$scope.lesson.problem[i].prob_id){
+                $localStorage.prob_id = $scope.lesson.problem[i].prob_id;
+                $scope.probInpage = $scope.lesson.problem[i];
+                $scope.probInpage.order = parseInt(i)+1;
+                //console.log($scope.probInpage);
+                break;
+            }
+        }
     };
 
 
@@ -241,13 +365,14 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
         var dataSubmitproblem = {
             user_id: $localStorage.student_id,
-            prob_id: $scope.prob_id,
+            prob_id: $localStorage.prob_id,
             code: editor.getValue(),
         };
         console.log(dataSubmitproblem);
 
         var res = $http.post('/submissions', dataSubmitproblem);
         res.success(function(data, status, headers, config) {
+
         });
         res.error(function(data, status, headers, config) {
             alert( "failure message: " + JSON.stringify({data: data}));

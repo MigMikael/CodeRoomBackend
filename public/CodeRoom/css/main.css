@@ -568,9 +568,7 @@ span .icon-search {
     position: absolute;
     display: none;
     z-index: 12;
-    background-color: #ffffff;
-    color: #204056;
-
+    background-color: #eeeeee;
     padding: 15px 20px;
 }
 .slide-nav .main-slide-nav a:hover .popover-detail{
@@ -603,6 +601,9 @@ span .icon-search {
     padding: 10px 0px;
     text-transform: uppercase;
     color: #204056;
+}
+.nav-upload .container-upload .hbg-upload a span{
+  margin-right: 7px;
 }
 .nav-upload .container-upload .hbg-upload a.btn-hbg-uoload{
     padding: 10px 10px;

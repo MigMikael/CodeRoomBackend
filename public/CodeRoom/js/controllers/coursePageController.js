@@ -19,7 +19,7 @@ app.controller('coursePageController',function($scope,mycourse,$stateParams,$roo
 
     
     function getCourse() {
-        console.log($localStorage.student_id);
+        
         mycourse.getMycourse($localStorage.student_id,$stateParams.course_id)
             .success(function (data) {
                 $scope.course = data;

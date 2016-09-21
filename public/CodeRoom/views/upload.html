@@ -4,26 +4,53 @@
     <div id="mySidenav" class="slide-nav">
 
         <div class="header-slide-nav">
-            <div class="lesson-name">{{lesson_data.lesson_name}}</div>
+            <div class="lesson-name">{{lesson.lesson_name}}</div>
 
         </div>
         <div class="main-slide-nav">
-            <span ng-repeat="lesson in lesson_data.problem">
-                <a ng-click="changeProblem(lesson.prob_id)">{{lesson.name}}
+            <span ng-repeat="problem in problems">
+                <a ng-click="setProblem(problem.prob_id)">{{problem.prob_name}}
                     <div class="popover-detail">
-
-                        <table class="table">
-                            <tr>
+                        <table class="table" ng-repeat="class in problem.manyClass">
+                            <tr style="background-color: #204056">
+                                <th>Modifier</th>
+                                <th>Type</th>
                                 <th>Name</th>
-                                <th style="text-align: center;">check</th>
+                                <th>Point</th>
                             </tr>
-                            <tr>
-                                <td>current</td>
-                                <td style="text-align: center"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                            <tr style="background-color: white;color: #204056">
+                                <td>{{class.constructer[0]}}</td>
+                                <td></td>
+                                <td>{{class.constructer[1]}}</td>
+
+                                <td>0/{{class.constructer[2]}}</td>
                             </tr>
-                            <tr>
-                                <td>current</td>
-                                <td style="text-align: center"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                            <tr style="background-color: #acb4bc;color: black" >
+                                <td></td>
+                                <td></td>
+                                <td>{{class.package[0]}}</td>
+                                <td>0/{{class.package[1]}}</td>
+                            </tr>
+                            <tr style="background-color: #5F8493;color: black" >
+                                <td></td>
+                                <td></td>
+                                <td>{{class.enclose[0]}}</td>
+
+                                <td>0/{{class.enclose[1]}}</td>
+                            </tr>
+                            <tr style="background-color: white;color: #204056" ng-repeat="attribute in class.attributes">
+                                <td>{{attribute[1]}}</td>
+                                <td>{{attribute[2]}}</td>
+                                <td>{{attribute[3]}}</td>
+
+                                <td>0/{{attribute[4]}}</td>
+                            </tr>
+                            <tr style="background-color: #204056;color: white" ng-repeat="method in class.methods">
+                                <td>{{method[1]}}</td>
+                                <td>{{method[2]}}</td>
+                                <td>{{method[3]}}</td>
+
+                                <td>0/{{method[4]}}</td>
                             </tr>
 
                         </table>
@@ -40,7 +67,7 @@
     <nav class="nav-upload">
         <div class="container-upload">
             <div class="hbg-upload">
-                <a class="btn-hbg-uoload" ng-click="openNav()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> IF-ELSE</a>
+                <a class="btn-hbg-uoload" ng-click="openNav()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  {{probInpage.order}}.{{probInpage.name}}</a>
             </div>
             <div class="back-course">
                 <a> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>{{ course_name }}</a>
@@ -50,7 +77,7 @@
     </nav>
     <div class="main-uploadstudents">
         <div class="iframe-upload">
-            <iframe src="pdf_problem"></iframe>
+            <iframe ngf-src="probInpage.problemfile"></iframe>
         </div>
         <div class="ace-upload">
             <div class="nav-aceupload">
