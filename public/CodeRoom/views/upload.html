@@ -9,7 +9,7 @@
         </div>
         <div class="main-slide-nav">
             <span ng-repeat="problem in problems">
-                <a ng-click="setProblem(problem.prob_id)">{{problem.prob_name}}
+                <a ng-click="setProblemView(problem.prob_id)">{{problem.prob_name}}
                     <div class="popover-detail">
                         <table class="table" ng-repeat="class in problem.manyClass">
                             <tr style="background-color: #204056">
@@ -43,14 +43,14 @@
                                 <td>{{attribute[2]}}</td>
                                 <td>{{attribute[3]}}</td>
 
-                                <td>0/{{attribute[4]}}</td>
+                                <td>{{attribute[4]}}/{{attribute[5]}}</td>
                             </tr>
                             <tr style="background-color: #204056;color: white" ng-repeat="method in class.methods">
                                 <td>{{method[1]}}</td>
                                 <td>{{method[2]}}</td>
                                 <td>{{method[3]}}</td>
 
-                                <td>0/{{method[4]}}</td>
+                                <td>{{method[4]}}/{{method[5]}}</td>
                             </tr>
 
                         </table>
@@ -67,7 +67,7 @@
     <nav class="nav-upload">
         <div class="container-upload">
             <div class="hbg-upload">
-                <a class="btn-hbg-uoload" ng-click="openNav()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  {{probInpage.order}}.{{probInpage.name}}</a>
+                <a class="btn-hbg-uoload" ng-click="openNavView()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  {{probInpage.order}}.{{probInpage.name}}</a>
             </div>
             <div class="back-course">
                 <a> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>{{ course_name }}</a>

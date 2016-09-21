@@ -2,7 +2,18 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
     $scope.isNav = false;
     $scope.isAlert = false;
 
-    $scope.openNav = function(){
+     function openNav(){
+        if($scope.isNav){
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+
+        }else {
+            document.getElementById("mySidenav").style.width = "350px";
+            document.getElementById("main").style.marginLeft = "350px";
+        }
+        $scope.isNav = !$scope.isNav;
+    };
+    $scope.openNavView  = function(){
         if($scope.isNav){
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginLeft= "0";
@@ -26,80 +37,125 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
 
 
-    getLesson();
+    //getLesson();
 
-    $scope.lesson1 = {
-        lesson_name: "บทนำเกี่ยวกับคอมพิวเตอร์และการโปรแกรม",
+    $scope.lesson = {
+        lesson_name: "Array",
         problem: [
             {
-            prob_id: 2,
-            name: "Test",
+            prob_id: 4,
+            name: "Runners",
             timelimit: 1,
             memorylimit: 32,
-            lesson_id: 1,
-            problemfile: "http://localhost:8000/problemfile/getQuestion/2",
+            lesson_id: 7,
+            problemfile: "http://localhost:8000/problemfile/getQuestion/4",
             problemAnalysis: [
                 {
                 class: "null;null",
                 class_score: 0,
-                package: "default package",
+                package: "",
                 package_score: 0,
                 enclose: "null",
                 enclose_score: 0,
                 attribute: "1;private;String;man|2;private;String;au|",
-                attribute_score: "1;30|2;30",
+                attribute_score: "1;5|2;5",
                 method: "1;default;void;test_print;()2;public;void;printV1;()",
-                method_score: "1;20|2;20"
+                method_score: "1;10|2;10",
+                student_attribute_score: "1;5|2;5|",
+                student_method_score: "1;10|2;10|"
                 },
                 {
                 class: "default;Chair",
                 class_score: 0,
-                package: "default package",
+                package: "",
+                package_score: 0,
+                enclose: "Test",
+                enclose_score: 0,
+                attribute: "1;default;int;x|",
+                attribute_score: "1;20",
+                method: "",
+                method_score: "",
+                student_attribute_score: "1;20|",
+                student_method_score: "1;0|"
+                }
+            ]
+            }, {
+            prob_id: 5,
+            name: "Runners",
+            timelimit: 1,
+            memorylimit: 32,
+            lesson_id: 7,
+            problemfile: "http://localhost:8000/problemfile/getQuestion/5",
+            problemAnalysis: [{
+                class: "null;null",
+                class_score: 0,
+                package: "",
+                package_score: 0,
+                enclose: "null",
+                enclose_score: 0,
+                attribute: "1;private;String;man|2;private;String;au|",
+                attribute_score: "1;44|2;55",
+                method: "1;default;void;test_print;()2;public;void;printV1;()",
+                method_score: "1;66|2;77",
+                student_attribute_score: "1;44|2;55|",
+                student_method_score: "1;66|2;77|"
+            }, {
+                class: "default;Chair",
+                class_score: 0,
+                package: "",
                 package_score: 0,
                 enclose: "Test",
                 enclose_score: 0,
                 attribute: "1;default;int;x|",
                 attribute_score: "1;50",
                 method: "",
-                method_score: ""
-                }
-            ]
-            },
-            {
-            prob_id: 3,
-            name: "Test",
+                method_score: "",
+                student_attribute_score: "1;50|",
+                student_method_score: ""
+            }]
+        }, {
+            prob_id: 6,
+            name: "Runners",
             timelimit: 1,
             memorylimit: 32,
-            lesson_id: 1,
-            problemfile: "http://localhost:8000/problemfile/getQuestion/3",
-            problemAnalysis: [
-                {
+            lesson_id: 7,
+            problemfile: "http://localhost:8000/problemfile/getQuestion/6",
+            problemAnalysis: [{
                 class: "null;null",
                 class_score: 0,
-                package: "default package",
+                package: "",
                 package_score: 0,
                 enclose: "null",
                 enclose_score: 0,
-                attribute: "1;private;String;man|2;private;String;au|",
-                attribute_score: "1;25|2;25",
-                method: "1;default;void;test_print;()2;public;void;printV1;()",
-                method_score: "1;70|2;70"
-                },
-                {
-                class: "default;Chair",
+                attribute: "1;static;int;round|2;static;float;time|",
+                attribute_score: "1;10|2;10",
+                method: "1;public;void;printTest;()",
+                method_score: "1;20|",
+                student_attribute_score: "1;0|2;0|",
+                student_method_score: "1;20|"
+            }, {
+                class: "default;Runner",
                 class_score: 0,
-                package: "default package",
+                package: "",
                 package_score: 0,
-                enclose: "Test",
+                enclose: "Runners",
                 enclose_score: 0,
-                attribute: "1;default;int;x|",
-                attribute_score: "1;10",
+                attribute: "",
+                attribute_score: "",
                 method: "",
-                method_score: ""
-                }
-            ]
-        }
-        ]
+                method_score: "",
+                student_attribute_score: "",
+                student_method_score: ""
+            }]
+        }, {
+            prob_id: 7,
+            name: "Runners",
+            timelimit: 1,
+            memorylimit: 32,
+            lesson_id: 7,
+            problemfile: "http://localhost:8000/problemfile/getQuestion/7",
+            problemAnalysis: []
+        }]
     };
 
 
@@ -111,8 +167,8 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
         lesson.getLesson($localStorage.lesson_id)
             .success(function (data) {
                 $scope.lesson = data;
-                setProblem(2);
-                manageData();
+
+
 
                 //checkSucsessproblem();
 
@@ -124,6 +180,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
     };
 
 
+    manageData();
     function manageData(){
         $scope.problems = [];
 
@@ -153,12 +210,14 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
                 var splitAttribute1 = $scope.lesson.problem[i].problemAnalysis[j].attribute.split("|");
                 var splitAttribute1_score = $scope.lesson.problem[i].problemAnalysis[j].attribute_score.split("|");
+                var splitAttribute1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_attribute_score.split("|");
                 for(var z in splitAttribute1){
-                    if(splitAttribute1[z]!== ""){
+                    if(splitAttribute1[z]!== "" && splitAttribute1_score_student[z]!==""){
                         var splitAttribute2 = splitAttribute1[z].split(";");
+                        var splitAttribute2_score_student = splitAttribute1_score_student[z].split(";");
+                        splitAttribute2.push(splitAttribute2_score_student[1]);
                         var splitAttribute2_score = splitAttribute1_score[z].split(";");
                         splitAttribute2.push(splitAttribute2_score[1]);
-                        //console.log(splitAttribute2);
                         arrayAttibute.push(splitAttribute2);
                     }
                 }
@@ -166,13 +225,16 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
                 var splitMethod1 = $scope.lesson.problem[i].problemAnalysis[j].method.split("()");
                 var splitMethod1_socre = $scope.lesson.problem[i].problemAnalysis[j].method_score.split("|");
+                var splitMethod1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_method_score.split("|");
                 for(var z in splitMethod1){
-                    if(splitMethod1[z]!== ""){
+                    if(splitMethod1[z] !== "" && splitMethod1_score_student[z] !== ""){
                         var splitMethod2 = splitMethod1[z].split(";");
                         splitMethod2.pop();
-                        //console.log(splitMethod2)
+                        var splitMethod2_score_student = splitMethod1_score_student[z].split(";");
+                        splitMethod2.push(splitMethod2_score_student[1]);
                         var splitMethod2_score = splitMethod1_socre[z].split(";");
                         splitMethod2.push(splitMethod2_score[1]);
+                        //console.log(splitMethod2);
                         arrayMethod.push(splitMethod2);
                     }
 
@@ -184,7 +246,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                     attributes:arrayAttibute,
                     methods:arrayMethod
                 })
-
+            //console.log(class1);
             }
             //console.log(class1);
             $scope.problems.push({
@@ -195,28 +257,63 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
 
         }
-        console.log($scope.problems);
-
+        //console.log($scope.problems);
+        checkSucsessproblem($scope.problems);
     }
-
-    function checkSucsessproblem(){
-
-
-    };
-
-
 
     function setProblem(prob_id){
         for(i in $scope.lesson.problem){
             if(prob_id===$scope.lesson.problem[i].prob_id){
                 $localStorage.prob_id = $scope.lesson.problem[i].prob_id;
                 $scope.probInpage = $scope.lesson.problem[i];
+
                 $scope.probInpage.order = parseInt(i)+1;
-                //console.log($scope.probInpage);
+                console.log($scope.probInpage);
                 break;
             }
         }
     };
+    $scope.setProblemView = function(prob_id){
+        for(i in $scope.lesson.problem){
+            if(prob_id===$scope.lesson.problem[i].prob_id){
+                $localStorage.prob_id = $scope.lesson.problem[i].prob_id;
+                $scope.probInpage = $scope.lesson.problem[i];
+                $scope.probInpage.order = parseInt(i)+1;
+                //console.log($scope.probInpage);
+                openNav();
+                break;
+            }
+        }
+
+    };
+
+    function checkSucsessproblem(data){
+
+        for(i in data){
+            for(j in data[i].manyClass){
+
+                for(z in data[i].manyClass[j].attributes){
+                    if(data[i].manyClass[j].attributes[z][4] !== data[i].manyClass[j].attributes[z][5]){
+                      setProblem(data[i].prob_id);
+                        console.log(data[i].prob_id);
+                        return;
+                    }
+                }
+                for(z in data[i].manyClass[j].methods){
+                    if(data[i].manyClass[j].methods[z][4] !== data[i].manyClass[j].methods[z][5]){
+                        setProblem(data[i].prob_id);
+                        return;
+                    }
+                }
+
+            }
+        }
+
+    };
+
+
+
+
 
 
     //checkrespont

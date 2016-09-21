@@ -128,6 +128,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
         res.success(function(data, status, headers, config) {
             $scope.message2 = data;
             setShow();
+            location.reload();
 
         });
         res.error(function(data, status, headers, config) {
