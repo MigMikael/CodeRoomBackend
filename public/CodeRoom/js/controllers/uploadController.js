@@ -37,9 +37,9 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
 
 
-    //getLesson();
+    getLesson();
 
-    $scope.lesson = {
+    $scope.lesson1 = {
         lesson_name: "Array",
         problem: [
             {
@@ -167,7 +167,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
         lesson.getLesson($localStorage.lesson_id)
             .success(function (data) {
                 $scope.lesson = data;
-
+                manageData();
 
 
                 //checkSucsessproblem();
@@ -180,7 +180,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
     };
 
 
-    manageData();
+
     function manageData(){
         $scope.problems = [];
 
