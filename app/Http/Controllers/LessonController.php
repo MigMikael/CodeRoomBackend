@@ -35,7 +35,6 @@ class LessonController extends Controller
 
     public function getProblem($lesson_id)
     {
-
         $problems = Problem::where('lesson_id', '=', $lesson_id)->get();
 
         $problem_list = [];
@@ -71,8 +70,8 @@ class LessonController extends Controller
                 $realStructure['method'] = $structure->method;
                 $realStructure['method_score'] = $teacherScore->method;
                 if($studentScore == null){
-                    $realStructure['student_attribute_score'] = 0;
-                    $realStructure['student_method_score'] = 0;
+                    $realStructure['student_attribute_score'] = '0';
+                    $realStructure['student_method_score'] = '0';
                 }else{
                     // 1;private;String;man;5|2;private;String;au;5|
                     $temps = explode('|',$studentScore->attribute);

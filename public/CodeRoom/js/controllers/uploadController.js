@@ -111,7 +111,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                 method: "",
                 method_score: "",
                 student_attribute_score: "1;50|",
-                student_method_score: ""
+                student_method_score: "0"
             }]
         }, {
             prob_id: 6,
@@ -157,7 +157,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
             problemAnalysis: []
         }]
     };
-
+    //manageData()
 
 
 
@@ -210,12 +210,22 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
                 var splitAttribute1 = $scope.lesson.problem[i].problemAnalysis[j].attribute.split("|");
                 var splitAttribute1_score = $scope.lesson.problem[i].problemAnalysis[j].attribute_score.split("|");
-                var splitAttribute1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_attribute_score.split("|");
+                var splitAttribute1_score_student;
+                if($scope.lesson.problem[i].problemAnalysis[j].student_attribute_score === "0"){
+                    splitAttribute1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_attribute_score;
+                }else{
+                    splitAttribute1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_attribute_score.split("|");
+                }
                 for(var z in splitAttribute1){
                     if(splitAttribute1[z]!== "" && splitAttribute1_score_student[z]!==""){
                         var splitAttribute2 = splitAttribute1[z].split(";");
-                        var splitAttribute2_score_student = splitAttribute1_score_student[z].split(";");
-                        splitAttribute2.push(splitAttribute2_score_student[1]);
+                        if(splitAttribute1_score_student === "0"){
+                            splitAttribute2.push(splitAttribute1_score_student);
+                        }else{
+                            var splitAttribute2_score_student  = splitAttribute1_score_student[z].split(";");
+                            splitAttribute2.push(splitAttribute2_score_student[1]);
+                        }
+
                         var splitAttribute2_score = splitAttribute1_score[z].split(";");
                         splitAttribute2.push(splitAttribute2_score[1]);
                         arrayAttibute.push(splitAttribute2);
@@ -225,13 +235,25 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
                 var splitMethod1 = $scope.lesson.problem[i].problemAnalysis[j].method.split("()");
                 var splitMethod1_socre = $scope.lesson.problem[i].problemAnalysis[j].method_score.split("|");
-                var splitMethod1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_method_score.split("|");
+                var splitMethod1_score_student;
+                if($scope.lesson.problem[i].problemAnalysis[j].student_method_score === "0"){
+                    splitMethod1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_method_score;
+                }else{
+                    splitMethod1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_method_score.split("|");
+                }
+
                 for(var z in splitMethod1){
                     if(splitMethod1[z] !== "" && splitMethod1_score_student[z] !== ""){
                         var splitMethod2 = splitMethod1[z].split(";");
                         splitMethod2.pop();
-                        var splitMethod2_score_student = splitMethod1_score_student[z].split(";");
-                        splitMethod2.push(splitMethod2_score_student[1]);
+
+
+                        if(splitMethod1_score_student==="0"){
+                            splitMethod2.push(splitMethod1_score_student);
+                        }else{
+                            var splitMethod2_score_student = splitMethod1_score_student[z].split(";");
+                            splitMethod2.push(splitMethod2_score_student[1]);
+                        }
                         var splitMethod2_score = splitMethod1_socre[z].split(";");
                         splitMethod2.push(splitMethod2_score[1]);
                         //console.log(splitMethod2);

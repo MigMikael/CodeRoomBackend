@@ -144,6 +144,7 @@ class SubmissionController extends Controller
                     $current_score .= $problem_analysis_attribute[$j].';'.$s.'|';
                 }else{
                     // Todo Handle this
+                    $current_score .= $problem_analysis_attribute[$j].';0|';
                 }
             }
             Log::info('#### Current Score '.$current_score);
@@ -171,6 +172,8 @@ class SubmissionController extends Controller
                 if($problem_analysis_method[$j] == $results_method[$j]) {
                     $s = explode(";", $total_scores[$j])[1];
                     $current_score .= $problem_analysis_method[$j].';'.$s.'|';
+                }else{
+                    $current_score .= $problem_analysis_method[$j].';0|';
                 }
             }
             Log::info('#### Current Score '.$current_score);
