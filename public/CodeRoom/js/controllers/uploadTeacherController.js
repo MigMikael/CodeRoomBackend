@@ -60,7 +60,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                 else if(y==="class"){
                     var classs = $scope.teacherRequirement[x][y].split(';');
                     //console.log("Class "+classs[0]+" "+classs[1]);
-                    objClass = ["Class",classs[0],classs[1],""];
+                    objClass = ["Class",classs[0],classs[1],classs[2],""];
 
 
                 }
@@ -120,7 +120,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
         
         file.upload = Upload.upload({
             url: '/problemfile/add',
-            data: {filename: $scope.filename,pacekage: $scope.package, lesson_id: $scope.lesson_id,filefield: file},
+            data: {filename: $scope.filename,package: $scope.package, lesson_id: $scope.lesson_id,filefield: file},
         });
         
         file.upload.then(function (response) {
@@ -147,11 +147,11 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
             for(var j in $scope.requirment[i]){
                 //console.log($scope.requirment[i][j]);
                 if(j==="class"){
-                   if($scope.requirment[i][j][3]===""){
+                   if($scope.requirment[i][j][4]===""){
                        $scope.totolPoint = $scope.totolPoint;
 
                    }else{
-                       $scope.totolPoint += parseFloat($scope.requirment[i][j][3]);
+                       $scope.totolPoint += parseFloat($scope.requirment[i][j][4]);
                    }
                 }
                 else if(j==="package"){

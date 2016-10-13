@@ -112,6 +112,7 @@ class ProblemAnalysisController extends Controller
             Log::info('##### '. $method_score);
 
             $data = [];
+            // Todo keep score
             $data['attribute'] = $attribute_score;
             $data['method'] = $method_score;
 

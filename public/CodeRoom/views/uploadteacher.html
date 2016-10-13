@@ -72,11 +72,12 @@
 
             <div class="panel panel-default" ng-repeat="x in requirment">
                 <!-- Default panel contents -->
-                <div class="panel-heading" style="background-color:#204056;color: white">{{ x.class[2]}}</div>
+                <div class="panel-heading" style="background-color:#204056;color: white">{{ x.class[3]}}</div>
                 <table class="table" >
                     <tr style="background-color: white;color: black">
                         <th>Type</th>
                         <th>Modifier</th>
+                        <th>Final&Static</th>
                         <th>DataType</th>
                         <th>Name</th>
                         <th>Parameter</th>
@@ -85,14 +86,16 @@
                     <tr style="background-color: #acb4bc;color: black" >
                         <td>{{x.class[0]}}</td>
                         <td>{{x.class[1]}}</td>
+                        <td>{{x.class[2] }}</td>
                         <td></td>
-                        <td>{{x.class[2]}}</td>
+                        <td>{{x.class[3]}}</td>
                         <td></td>
-                        <td><input ng-model="x.class[3]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td><input ng-model="x.class[4]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
                     <tr style="background-color: #acb4bc;color: black" >
                         <td>{{x.package[0]}}</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td>{{x.package[1]}}</td>
@@ -104,6 +107,7 @@
                         <td>{{x.encolse[0]}}</td>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td>{{x.encolse[1]}}</td>
                         <td></td>
                         <td><input ng-model="x.enclose[2]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
@@ -113,6 +117,7 @@
                     <tr ng-repeat="y in x.attribute" style="background-color: #acb4bc;color: black">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
+                        <td></td>
                         <td>{{ y[2] }}</td>
                         <td>{{ y[3] }}</td>
                         <td></td>
@@ -123,6 +128,7 @@
                     <tr ng-repeat="y in x.method" style="background-color: #acb4bc;color: black">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
+                        <td></td>
                         <td>{{ y[2] }}</td>
                         <td>{{ y[3] }}</td>
                         <td>{{ y[4] }}</td>

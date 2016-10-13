@@ -48,8 +48,9 @@ class ProblemController extends Controller
         $input_id = $problem->id;
 
         $analyzeResult_json = self::analyzeProblem($input_id, $input_filename, $input_package, $input_code);
-        self::keepProblemAnalysis($analyzeResult_json);
+        self::keepProblemAnalysis($analyzeResult_json, $input_package);
         $problemAnalysis_json = self::getProblemAnalysis($input_id);
+        //Log::info('#### '. $problemAnalysis_json);
 
         return \GuzzleHttp\json_encode($problemAnalysis_json);
     }
@@ -66,20 +67,34 @@ class ProblemController extends Controller
         $result = $res->getBody();
         $json = json_decode($result, true);
 
+        Log::info('#### '. $res->getBody());
         Log::info('#### STATUS #### '. 'Analyze Problem' .' ####');
         return $json;
     }
 
-    public function keepProblemAnalysis($analyzeResult_json)
+    public function keepProblemAnalysis($analyzeResult_json, $input_package)
     {
-        $classes = $analyzeResult_json['class'];
+        Log::info('#### '. $input_package);
         $prob_id = $analyzeResult_json['prob_id'];
+        $classes = $analyzeResult_json['class'];
         $data = [];
 
         foreach ($classes as $class) {
             $data['prob_id'] = $prob_id;
-            $data['class'] = $class['modifier'].';'.$class['name'];
+            $data['class'] = $class['modifier'].';'.$class['static_required'].';'.$class['name'];
+            $data['package'] = $input_package;
             $data['enclose'] = $class['enclose'];
+
+            $constructors = $class['constructure'];
+            $count = 1;
+            $data['constructor'] = '';
+            foreach ($constructors as $constructor) {
+                $data['constructor'] .= $count.';'
+                    .$constructor['modifier'].';'
+                    .$constructor['datatype'].';'
+                    .$constructor['name'].'|';
+                $count++;
+            }
 
             $attributes = $class['attribute'];
             $count = 1;
@@ -101,12 +116,12 @@ class ProblemController extends Controller
                     .$method['return_type'].';'
                     .$method['name'].';'
                     .'(';
-                /*$params = $method['params'];
+                $params = $method['params'];
                 foreach ($params as $param) {
-                    $data['method'] .= $param['datatype_params'].';'
-                        .$param['name_params'].'|';
-                }*/
-                $data['method'] .= ')';
+                    $data['method'] .= $param['datatype'].' '
+                        .$param['name'].', ';
+                }
+                $data['method'] .= ')|';
                 $count++;
             }
             ProblemAnalysis::create($data);
