@@ -70,6 +70,8 @@ class SubmissionController extends Controller
         $json = json_decode($result, true);
 
         Log::info('#### STATUS #### 2 Analyze Submission ####');
+        Log::info('#### '. $res->getBody());
+
         return $json;
     }
 
