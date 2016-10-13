@@ -117,28 +117,28 @@
                     <tr ng-repeat="y in x.attribute" style="background-color: #acb4bc;color: black">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
-                        <td></td>
                         <td>{{ y[2] }}</td>
                         <td>{{ y[3] }}</td>
+                        <td>{{ y[4] }}</td>
                         <td></td>
-                        <td><input ng-model="y[4]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td><input ng-model="y[5]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
 
                     <tr ng-repeat="y in x.method" style="background-color: #acb4bc;color: black">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
-                        <td></td>
                         <td>{{ y[2] }}</td>
                         <td>{{ y[3] }}</td>
                         <td>{{ y[4] }}</td>
-                        <td><input ng-model="y[5]" onkeypress='return event.charCode >= 46 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td>{{ y[5] }}</td>
+                        <td><input ng-model="y[6]" onkeypress='return event.charCode >= 46 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
                 </table>
 
             </div>
-            <button  style="background-color: #00897B;color: white;border: none;border-radius: 0;margin: 0;padding: 10px;outline: none" type="submit" value="sumit" class="btn btn-default">SUBMIT</button>
+            <button  style="background-color: #00897B;color: white;border: none;border-radius: 0;margin: 0;padding: 10px;outline: none;float: right" type="submit" value="sumit" class="btn btn-default">SUBMIT</button>
 
 
         </form>

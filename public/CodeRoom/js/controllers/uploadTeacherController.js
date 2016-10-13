@@ -9,10 +9,10 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
         {
         "id": 9,
         "prob_id": 5,
-        "class": "public;Runners",
+        "class": "public;static;Runners",
         "package": "default package",
         "enclose": "null",
-        "attribute": "1;default;int;round|2;default;float;time|",
+        "attribute": "1;default;static;int;round|2;default;static;float;time|",
         "method": "1;public;void;printTest;()|",
         "created_at": "2016-10-13 12:27:10",
         "updated_at": "2016-10-13 12:27:10",
@@ -21,11 +21,11 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
         {
         "id": 10,
         "prob_id": 5,
-        "class": "default;Runner",
+        "class": "default;null;Runner",
         "package": "default package",
         "enclose": "Runners",
-        "attribute": "1;default;int;no|2;default;int;speed|3;default;float;wasteTime|4;default;float;totalTime|",
-        "method": "1;public;int;getNo;()|2;public;void;setNo;()|3;public;int;getSpeed;()|4;public;void;setSpeed;()|5;public;float;getWasteTime;()|6;public;void;setWasteTime;()|7;public;float;getTotalTime;()|8;public;void;setTotalTime;()|",
+        "attribute": "1;default;static;int;no|2;default;int;speed|3;default;float;wasteTime|4;default;float;totalTime|",
+        "method": "1;public;static;int;getNo;()|2;public;void;setNo;()|3;public;int;getSpeed;()|4;public;void;setSpeed;()|5;public;float;getWasteTime;()|6;public;void;setWasteTime;()|7;public;float;getTotalTime;()|8;public;void;setTotalTime;()|",
         "created_at": "2016-10-13 12:27:10",
         "updated_at": "2016-10-13 12:27:10",
         "code": ""
@@ -80,7 +80,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                         //console.log(attributes[attribute]);
                         if(attributes[attribute]!== ""){
                            // console.log("Attribute "+subattributes[1]+" "+subattributes[2]+" "+subattributes[3]);
-                            objAttribute.push(["Attribute",subattributes[1],subattributes[2],subattributes[3],""]);
+                            objAttribute.push(["Attribute",subattributes[1],subattributes[2],subattributes[3],subattributes[4],""]);
 
                         }
                     }
@@ -91,7 +91,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                         //console.log(methods[method]);
                         if(methods[method]!== ""){
                             //console.log("Method "+submethods[1]+" "+submethods[2]+" "+submethods[3]+" "+submethods[4]);
-                            objMethod.push(["Method",submethods[1],submethods[2],submethods[3],submethods[4],""]) ;
+                            objMethod.push(["Method",submethods[1],submethods[2],submethods[3],submethods[4],submethods[5],""]) ;
 
                         }
                     }
@@ -176,19 +176,19 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                 else if(j==="attribute"){
                     for(var z in $scope.requirment[i][j]){
                         //console.log($scope.requirment[i][j][z]);
-                        if($scope.requirment[i][j][z][4]===""){
+                        if($scope.requirment[i][j][z][5]===""){
                             $scope.totolPoint = $scope.totolPoint;
                         }else {
-                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][4]);
+                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][5]);
                         }
 
                     }
                 }else if(j==="method"){
                     for(var z in $scope.requirment[i][j]){
-                        if($scope.requirment[i][j][z][5]===""){
+                        if($scope.requirment[i][j][z][6]===""){
                             $scope.totolPoint = $scope.totolPoint;
                         }else {
-                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][5]);
+                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][6]);
                         }
 
                     }
