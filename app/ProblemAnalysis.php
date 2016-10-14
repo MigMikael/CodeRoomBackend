@@ -23,7 +23,8 @@ class ProblemAnalysis extends Model {
 		'attribute_score',
 		'method',
 		'method_score',
-		'code'
+		'code',
+        'constructor'
 	];
 
 }

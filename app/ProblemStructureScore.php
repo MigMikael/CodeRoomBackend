@@ -15,5 +15,6 @@ class ProblemStructureScore extends Model
         'enclose',
         'attribute',
         'method',
+        'constructor'
     ];
 }

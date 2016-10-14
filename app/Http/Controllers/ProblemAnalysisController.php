@@ -82,19 +82,21 @@ class ProblemAnalysisController extends Controller
         for ($i = 0; $i < sizeof($p); $i++) {
             $prob_id = $p[$i]['prob_id'];
             Log::info('##### '. $prob_id);
-            $class = '';
-            for ($j = 0; $j < sizeof($p[$i]['class']); $j++) {
+            $class = $p[$i]['class'][4];
+            $package = $p[$i]['package'][2];
+            $enclose = $p[$i]['enclose'][2];
+            /*for ($j = 0; $j < sizeof($p[$i]['class']); $j++) {
                 $class .= $p[$i]['class'][$j];
                 if($j != sizeof($p[$i]['class']) - 1 ) {
                     $class .= ';';
                 }
-            }
+            }*/
             Log::info('##### '. $class);
             $attribute_score = '';
             for ($j = 0; $j < sizeof($p[$i]['attribute']); $j++) {
                 $attribute_score .= ($j + 1);
                 $attribute_score .= ';';
-                $attribute_score .= $p[$i]['attribute'][$j][3];
+                $attribute_score .= $p[$i]['attribute'][$j][5];
                 if($j != sizeof($p[$i]['attribute']) - 1) {
                     $attribute_score .= '|';
                 }
@@ -104,7 +106,7 @@ class ProblemAnalysisController extends Controller
             for ($j = 0; $j < sizeof($p[$i]['method']); $j++) {
                 $method_score .= ($j + 1);
                 $method_score .= ';';
-                $method_score .= $p[$i]['method'][$j][4];
+                $method_score .= $p[$i]['method'][$j][6];
                 if($j != sizeof($p[$i]['method']) -1) {
                     $method_score .= '|';
                 }
@@ -112,7 +114,9 @@ class ProblemAnalysisController extends Controller
             Log::info('##### '. $method_score);
 
             $data = [];
-            // Todo keep score
+            $data['class'] = $class;
+            $data['package'] = $package;
+            $data['enclose'] = $enclose;
             $data['attribute'] = $attribute_score;
             $data['method'] = $method_score;
 
