@@ -43,8 +43,8 @@
       <file leaf-file-name="uploadTeacherController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadTeacherController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15100671">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.55369127">
+              <caret line="141" column="15" selection-start-line="141" selection-start-column="15" selection-end-line="141" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -53,8 +53,8 @@
       <file leaf-file-name="uploadteacher.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/uploadteacher.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.708333">
-              <caret line="143" column="15" selection-start-line="143" selection-start-column="15" selection-end-line="143" selection-end-column="15" />
+            <state vertical-scroll-proportion="-16.958334">
+              <caret line="122" column="29" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -749,12 +749,6 @@
       <workItem from="1476215969582" duration="401000" />
       <workItem from="1476354853365" duration="1342000" />
     </task>
-    <task id="LOCAL-00006" summary="Communicate with Evaluator">
-      <created>1467367317913</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1467367317913</updated>
-    </task>
     <task id="LOCAL-00007" summary="Communicate with Evaluator">
       <created>1467802351261</created>
       <option name="number" value="00007" />
@@ -1043,7 +1037,13 @@
       <option name="project" value="LOCAL" />
       <updated>1476367375670</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="update uploadteacher (Final&amp;static class attribute method)">
+      <created>1476373119144</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1476373119144</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1059,7 +1059,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="716" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="716" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20468278" sideWeight="0.5088282" order="4" side_tool="true" content_ui="tabs" />
@@ -1098,7 +1098,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="change view using google-mdl layout" />
     <MESSAGE value="change all view using google-mdl layout" />
     <MESSAGE value="add angular Web Submission and make Student controller" />
     <MESSAGE value="add announcement controller" />
@@ -1123,7 +1122,8 @@
     <MESSAGE value="show score in submission api" />
     <MESSAGE value="fix bug show submission score" />
     <MESSAGE value="update uploadteacher (enclose package class)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update uploadteacher (enclose package class)" />
+    <MESSAGE value="update uploadteacher (Final&amp;static class attribute method)" />
+    <option name="LAST_COMMIT_MESSAGE" value="update uploadteacher (Final&amp;static class attribute method)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1242,8 +1242,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/uploadteacher.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.708333">
-          <caret line="143" column="15" selection-start-line="143" selection-start-column="15" selection-end-line="143" selection-end-column="15" />
+        <state vertical-scroll-proportion="-16.958334">
+          <caret line="122" column="29" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -1258,8 +1258,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadTeacherController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15100671">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.55369127">
+          <caret line="141" column="15" selection-start-line="141" selection-start-column="15" selection-end-line="141" selection-end-column="15" />
           <folding />
         </state>
       </provider>

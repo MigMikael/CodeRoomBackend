@@ -9,11 +9,11 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
         {
         "id": 9,
         "prob_id": 5,
-        "class": "public;static;Runners",
+        "class": "public;null;Runners",
         "package": "default package",
         "enclose": "null",
         "attribute": "1;default;static;int;round|2;default;static;float;time|",
-        "method": "1;public;void;printTest;()|",
+        "method": "1;public;null;void;printTest;()|",
         "created_at": "2016-10-13 12:27:10",
         "updated_at": "2016-10-13 12:27:10",
         "code": ""
@@ -24,14 +24,14 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
         "class": "default;null;Runner",
         "package": "default package",
         "enclose": "Runners",
-        "attribute": "1;default;static;int;no|2;default;int;speed|3;default;float;wasteTime|4;default;float;totalTime|",
-        "method": "1;public;static;int;getNo;()|2;public;void;setNo;()|3;public;int;getSpeed;()|4;public;void;setSpeed;()|5;public;float;getWasteTime;()|6;public;void;setWasteTime;()|7;public;float;getTotalTime;()|8;public;void;setTotalTime;()|",
+        "attribute": "1;default;static;int;no|2;default;null;int;speed|3;default;null;float;wasteTime|4;default;null;float;totalTime|",
+        "method": "1;public;static;int;getNo;()|2;public;null;void;setNo;()|3;public;null;int;getSpeed;()|4;public;null;void;setSpeed;()|5;public;null;float;getWasteTime;()|6;public;null;void;setWasteTime;()|7;public;null;float;getTotalTime;()|8;public;null;void;setTotalTime;()|",
         "created_at": "2016-10-13 12:27:10",
         "updated_at": "2016-10-13 12:27:10",
         "code": ""
         }
     ];
-    */
+     */
 
 
     var setShow = function(){
@@ -60,6 +60,9 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                 else if(y==="class"){
                     var classs = $scope.teacherRequirement[x][y].split(';');
                     //console.log("Class "+classs[0]+" "+classs[1]);
+                    if(classs[1]==="null"){
+                        classs[1] = "-";
+                    }
                     objClass = ["Class",classs[0],classs[1],classs[2],""];
 
 
@@ -68,7 +71,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                     objEnclose = ["Enclose",$scope.teacherRequirement[x][y],""];
                 }
                 else if(y==="package") {
-                    objPackage = ["Pacage",$scope.teacherRequirement[x][y],""];
+                    objPackage = ["Package",$scope.teacherRequirement[x][y],""];
                 }
                 else if(y==="constructor") {
 
@@ -80,6 +83,9 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                         //console.log(attributes[attribute]);
                         if(attributes[attribute]!== ""){
                            // console.log("Attribute "+subattributes[1]+" "+subattributes[2]+" "+subattributes[3]);
+                            if(subattributes[2]==="null"){
+                                subattributes[2] = "-";
+                            }
                             objAttribute.push(["Attribute",subattributes[1],subattributes[2],subattributes[3],subattributes[4],""]);
 
                         }
@@ -91,6 +97,9 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                         //console.log(methods[method]);
                         if(methods[method]!== ""){
                             //console.log("Method "+submethods[1]+" "+submethods[2]+" "+submethods[3]+" "+submethods[4]);
+                            if(submethods[2]==="null"){
+                                submethods[2] = "-";
+                            }
                             objMethod.push(["Method",submethods[1],submethods[2],submethods[3],submethods[4],submethods[5],""]) ;
 
                         }
