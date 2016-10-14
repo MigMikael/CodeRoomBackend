@@ -5,34 +5,34 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
     $scope.isRequirment = false;
     $scope.requirment = [];
     $scope.teacherRequirement;
-    /*$scope.teacherRequirement = [
-        {
-        "id": 9,
-        "prob_id": 5,
+    /*$scope.teacherRequirement =[{
+        "id": 1,
+        "prob_id": 1,
         "class": "public;null;Runners",
         "package": "default package",
         "enclose": "null",
         "attribute": "1;default;static;int;round|2;default;static;float;time|",
         "method": "1;public;null;void;printTest;()|",
-        "created_at": "2016-10-13 12:27:10",
-        "updated_at": "2016-10-13 12:27:10",
-        "code": ""
-        },
+        "created_at": "2016-10-14 16:02:51",
+        "updated_at": "2016-10-14 16:02:51",
+        "code": "",
+        "constructor": ""
+    },
         {
-        "id": 10,
-        "prob_id": 5,
+        "id": 2,
+        "prob_id": 1,
         "class": "default;null;Runner",
         "package": "default package",
         "enclose": "Runners",
-        "attribute": "1;default;static;int;no|2;default;null;int;speed|3;default;null;float;wasteTime|4;default;null;float;totalTime|",
-        "method": "1;public;static;int;getNo;()|2;public;null;void;setNo;()|3;public;null;int;getSpeed;()|4;public;null;void;setSpeed;()|5;public;null;float;getWasteTime;()|6;public;null;void;setWasteTime;()|7;public;null;float;getTotalTime;()|8;public;null;void;setTotalTime;()|",
-        "created_at": "2016-10-13 12:27:10",
-        "updated_at": "2016-10-13 12:27:10",
-        "code": ""
-        }
+        "attribute": "1;default;null;int;no|2;default;null;int;speed|3;default;null;float;wasteTime|4;default;null;float;totalTime|",
+        "method": "1;public;null;int;getNo;()|2;public;null;void;setNo;(int no, )|3;public;null;int;getSpeed;()|4;public;null;void;setSpeed;(int speed, )|5;public;null;float;getWasteTime;()|6;public;null;void;setWasteTime;(float wasteTime, )|7;public;null;float;getTotalTime;()|8;public;null;void;setTotalTime;(float totalTime, )|",
+        "created_at": "2016-10-14 16:02:51",
+        "updated_at": "2016-10-14 16:02:51",
+        "code": "",
+        "constructor": "1;public;Runner;(int no, int speed, float wasteTime, )|"
+    }
     ];
-     */
-
+    */
 
     var setShow = function(){
         $scope.isFormproblem = !$scope.isFormproblem;
@@ -74,15 +74,21 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                     objPackage = ["Package",$scope.teacherRequirement[x][y],""];
                 }
                 else if(y==="constructor") {
-
+                    var constructors = $scope.teacherRequirement[x][y].split('|');
+                    for(constructor in constructors){
+                        var subconstructors = constructors[constructor].split(';');
+                        if(subconstructors[0]!==""){
+                            objConstructor.push(["Constructor",subconstructors[1],subconstructors[2],subconstructors[3],""]);
+                        }
+                    }
                 }
                 else if(y==="attribute"){
                     var attributes = $scope.teacherRequirement[x][y].split('|');
                     for(attribute in attributes){
                         var subattributes = attributes[attribute].split(';');
                         //console.log(attributes[attribute]);
-                        if(attributes[attribute]!== ""){
-                           // console.log("Attribute "+subattributes[1]+" "+subattributes[2]+" "+subattributes[3]);
+                        if(subattributes[0]!== ""){
+                            //console.log("Attribute "+subattributes[1]+" "+subattributes[2]+" "+subattributes[3]);
                             if(subattributes[2]==="null"){
                                 subattributes[2] = "-";
                             }
@@ -95,7 +101,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                     for(method in methods){
                         var submethods = methods[method].split(';');
                         //console.log(methods[method]);
-                        if(methods[method]!== ""){
+                        if(submethods[0]!==""){
                             //console.log("Method "+submethods[1]+" "+submethods[2]+" "+submethods[3]+" "+submethods[4]);
                             if(submethods[2]==="null"){
                                 submethods[2] = "-";
@@ -120,7 +126,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                 }
             );
         }
-        console.log($scope.requirment);
+        //console.log($scope.requirment);
     };
     //upload
     $scope.uploadFiles = function(file) {
@@ -137,7 +143,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                 setShow();
                 file.result = response.data;
                 $scope.teacherRequirement = response.data;
-                console.log($scope.teacherRequirement);
+                //console.log($scope.teacherRequirement);
                 showRequirement();
             });
         }, function (response) {
@@ -180,7 +186,14 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                     }
                 }
                 else if(j==="constructor"){
+                    for(var z in $scope.requirment[i][j]){
+                        if($scope.requirment[i][j][z][4]===""){
+                            $scope.totolPoint = $scope.totolPoint;
+                        }else {
+                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][4]);
+                        }
 
+                    }
                 }
                 else if(j==="attribute"){
                     for(var z in $scope.requirment[i][j]){
