@@ -91,8 +91,14 @@ class ProblemController extends Controller
             foreach ($constructors as $constructor) {
                 $data['constructor'] .= $count.';'
                     .$constructor['modifier'].';'
-                    .$constructor['datatype'].';'
-                    .$constructor['name'].'|';
+                    .$constructor['name'].';'
+                    .'(';
+                $params = $constructor['params'];
+                foreach ($params as $param){
+                    $data['constructor'] .= $param['datatype'].' '
+                        .$param['name'].', ';
+                }
+                $data['constructor'] .= ')|';
                 $count++;
             }
 
@@ -102,6 +108,7 @@ class ProblemController extends Controller
             foreach ($attributes as $attribute) {
                 $data['attribute'] .= $count.';'
                     .$attribute['modifier'].';'
+                    .$attribute['static_required'].';'
                     .$attribute['datatype'].';'
                     .$attribute['name'].'|';
                 $count++;
@@ -113,6 +120,7 @@ class ProblemController extends Controller
             foreach ($methods as $method) {
                 $data['method'] .= $count.';'
                     .$method['modifier'].';'
+                    .$method['static_required'].';'
                     .$method['return_type'].';'
                     .$method['name'].';'
                     .'(';
