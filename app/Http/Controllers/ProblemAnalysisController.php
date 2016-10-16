@@ -85,13 +85,8 @@ class ProblemAnalysisController extends Controller
             $class = $p[$i]['class'][4];
             $package = $p[$i]['package'][2];
             $enclose = $p[$i]['enclose'][2];
-            /*for ($j = 0; $j < sizeof($p[$i]['class']); $j++) {
-                $class .= $p[$i]['class'][$j];
-                if($j != sizeof($p[$i]['class']) - 1 ) {
-                    $class .= ';';
-                }
-            }*/
             Log::info('##### '. $class);
+
             $attribute_score = '';
             for ($j = 0; $j < sizeof($p[$i]['attribute']); $j++) {
                 $attribute_score .= ($j + 1);
@@ -102,6 +97,18 @@ class ProblemAnalysisController extends Controller
                 }
             }
             Log::info('##### '. $attribute_score);
+
+            $constructor_score = '';
+            for ($j = 0; $j < sizeof($p[$i]['constructor']); $j++) {
+                $constructor_score .= ($j + 1);
+                $constructor_score .= ';';
+                $constructor_score .= $p[$i]['constructor'][$j][4];
+                if($j != sizeof($p[$i]['constructor']) -1) {
+                    $constructor_score .= '|';
+                }
+            }
+            Log::info('##### '. $constructor_score);
+
             $method_score = '';
             for ($j = 0; $j < sizeof($p[$i]['method']); $j++) {
                 $method_score .= ($j + 1);
@@ -118,6 +125,7 @@ class ProblemAnalysisController extends Controller
             $data['package'] = $package;
             $data['enclose'] = $enclose;
             $data['attribute'] = $attribute_score;
+            $data['constructor'] = $constructor_score;
             $data['method'] = $method_score;
 
             ProblemStructureScore::create($data);

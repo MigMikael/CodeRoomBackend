@@ -50,7 +50,7 @@ class ProblemController extends Controller
         $analyzeResult_json = self::analyzeProblem($input_id, $input_filename, $input_package, $input_code);
         self::keepProblemAnalysis($analyzeResult_json, $input_package);
         $problemAnalysis_json = self::getProblemAnalysis($input_id);
-        //Log::info('#### '. $problemAnalysis_json);
+        Log::info('#### Before Send to UI'. $problemAnalysis_json);
 
         return \GuzzleHttp\json_encode($problemAnalysis_json);
     }
