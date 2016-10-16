@@ -37,9 +37,9 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
 
 
-    getLesson();
+    //getLesson();
 
-    $scope.lesson1 = {
+    $scope.lesson = {
         lesson_name: "Array",
         problem: [
             {
@@ -62,7 +62,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                 method: "1;default;void;test_print;()2;public;void;printV1;()",
                 method_score: "1;10|2;10",
                 student_attribute_score: "1;5|2;5|",
-                student_method_score: "1;10|2;10|"
+                student_method_score: "0"
                 },
                 {
                 class: "default;Chair",
@@ -157,7 +157,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
             problemAnalysis: []
         }]
     };
-    //manageData()
+    manageData()
 
 
 
@@ -217,7 +217,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                     splitAttribute1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_attribute_score.split("|");
                 }
                 for(var z in splitAttribute1){
-                    if(splitAttribute1[z]!== "" && splitAttribute1_score_student[z]!==""){
+                    if(splitAttribute1[z]!== ""){
                         var splitAttribute2 = splitAttribute1[z].split(";");
                         if(splitAttribute1_score_student === "0"){
                             splitAttribute2.push(splitAttribute1_score_student);
@@ -233,7 +233,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                 }
 
 
-                var splitMethod1 = $scope.lesson.problem[i].problemAnalysis[j].method.split("()");
+                var splitMethod1 = $scope.lesson.problem[i].problemAnalysis[j].method.split("|");
                 var splitMethod1_socre = $scope.lesson.problem[i].problemAnalysis[j].method_score.split("|");
                 var splitMethod1_score_student;
                 if($scope.lesson.problem[i].problemAnalysis[j].student_method_score === "0"){
@@ -262,7 +262,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
                 }
                 class1.push({
-                    constructer:splitClass,
+                    class:splitClass,
                     package:setPackage,
                     enclose:setEnclose,
                     attributes:arrayAttibute,
