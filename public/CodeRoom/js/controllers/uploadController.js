@@ -37,9 +37,9 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
 
 
-    //getLesson();
+    getLesson();
 
-    $scope.lesson = {
+    $scope.lesson1 = {
         lesson_name: "คําสั่งเดี่ยว คําสั่งเงื่อนไข และชุดคําสั่ง",
         problem: [
             {
@@ -93,7 +93,7 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                 ]
             }
         ]};
-    manageData()
+    //manageData()
 
 
 
