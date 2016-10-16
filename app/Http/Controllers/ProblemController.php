@@ -114,9 +114,9 @@ class ProblemController extends Controller
                 $count++;
             }
 
-            $methods = $class['method'];
             $count = 1;
             $data['method'] = '';
+            $methods = $class['method'];
             foreach ($methods as $method) {
                 $data['method'] .= $count.';'
                     .$method['modifier'].';'

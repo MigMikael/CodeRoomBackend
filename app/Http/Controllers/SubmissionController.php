@@ -61,10 +61,11 @@ class SubmissionController extends Controller
     {
         $client = new Client();
         $res = $client->request('POST', 'http://localhost:3000/api/student/code', ['json' => [
-            'prob_id' => $submission_id,
-            'filename' => 'Test',
-            'package' => 'default package',
-            'code' => $input_code]
+                'prob_id' => $submission_id,
+                'filename' => 'Test',
+                'package' => 'default package',
+                'code' => $input_code
+            ]
         ]);
         $result = $res->getBody();
         $json = json_decode($result, true);
@@ -81,8 +82,26 @@ class SubmissionController extends Controller
         $data = [];
         foreach ($classes as $class) {
             $data['submission_id'] = $submission_id;
-            $data['class'] = $class['modifier'].';'.$class['name'];
+            $data['class'] = $class['modifier'].';'.$class['static_required'].';'.$class['name'];
+            $data['package'] = 'default package'; // Todo change this default package
             $data['enclose'] = $class['enclose'];
+
+            $constructors = $class['constructure'];
+            $count = 1;
+            $data['constructor'] = '';
+            foreach ($constructors as $constructor) {
+                $data['constructor'] .= $count.';'
+                    .$constructor['modifier'].';'
+                    .$constructor['name'].';'
+                    .'(';
+                $params = $constructor['params'];
+                foreach ($params as $param){
+                    $data['constructor'] .= $param['datatype'].' '
+                        .$param['name'].', ';
+                }
+                $data['constructor'] .= ')|';
+                $count++;
+            }
 
             $count = 1;
             $data['attribute'] = '';
@@ -90,6 +109,7 @@ class SubmissionController extends Controller
             foreach ($attributes as $attribute) {
                 $data['attribute'] .= $count.';'
                     .$attribute['modifier'].';'
+                    .$attribute['static_required'].';'
                     .$attribute['datatype'].';'
                     .$attribute['name'].'|';
                 $count++;
@@ -101,11 +121,16 @@ class SubmissionController extends Controller
             foreach ($methods as $method) {
                 $data['method'] .= $count.';'
                     .$method['modifier'].';'
+                    .$method['static_required'].';'
                     .$method['return_type'].';'
                     .$method['name'].';'
                     .'(';
-
-                $data['method'] .= ')';
+                $params = $method['params'];
+                foreach ($params as $param) {
+                    $data['method'] .= $param['datatype'].' '
+                        .$param['name'].', ';
+                }
+                $data['method'] .= ')|';
                 $count++;
             }
 
@@ -123,6 +148,33 @@ class SubmissionController extends Controller
 
         for($i = 0; $i < sizeof($problem_analysis); $i++) {
             $score = [];
+
+            $problem_analysis_class = $problem_analysis[$i]['class'];
+            $results_class = $results[$i]['class'];
+            $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('class');
+            if($problem_analysis_class == $results_class){
+                $score['class'] = $problem_structure_score;
+            }
+
+            $problem_analysis_package = $problem_analysis[$i]['package'];
+            $results_package = $results[$i]['package'];
+            $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('package');
+            if($problem_analysis_package == $results_package){
+                $score['package'] = $problem_structure_score;
+            }
+
+            $problem_analysis_enclose = $problem_analysis[$i]['enclose'];
+            $results_enclose = $results[$i]['enclose'];
+            $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('enclose');
+            if($problem_analysis_enclose == $results_enclose){
+                $score['enclose'] = $problem_structure_score;
+            }
+            /*  Todo continue this
+                1. Test Submit Student Code
+                2. Check if Evaluator is correct
+                3. Check if this method is correct
+                4. Try send score to web submission
+            */
 
             $problem_analysis_attribute = explode("|", $problem_analysis[$i]['attribute']);
             $results_attribute = explode("|", $results[$i]['attribute']);
@@ -153,12 +205,37 @@ class SubmissionController extends Controller
             $score['attribute'] = $current_score;
 
 
+            $problem_analysis_constructor = explode("|", $problem_analysis[$i]['constructor']);
+            $results_constructor = explode("|", $results[$i]['constructor']);
+            $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('constructor');
+            $total_scores = explode("|", $problem_structure_score);
+            //maybe it contain empty string remove it!!!
+            if(($key = array_search("", $problem_analysis_constructor)) !== false) {
+                unset($problem_analysis_constructor[$key]);
+            }
+            if(($key = array_search("", $results_constructor)) !== false) {
+                unset($results_constructor[$key]);
+            }
+            $current_score = '';
+            for ($j = 0; $j < sizeof($problem_analysis_constructor); $j++) {
+                Log::info('#### Teacher Constructor '.$problem_analysis_constructor[$j]);
+                Log::info('#### Student Constructor '.$results_constructor[$j]);
+                Log::info('#### Score Constructor '.$total_scores[$j]);
+                if($problem_analysis_constructor[$j] == $results_constructor[$j]) {
+                    $s = explode(";", $total_scores[$j])[1];
+                    $current_score .= $problem_analysis_constructor[$j].';'.$s.'|';
+                }else{
+                    $current_score .= $problem_analysis_constructor[$j].';0|';
+                }
+            }
+            Log::info('#### Current Score '.$current_score);
+            $score['constructor'] = $current_score;
 
-            $problem_analysis_method = explode("()", $problem_analysis[$i]['method']);
-            $results_method = explode("()", $results[$i]['method']);
+
+            $problem_analysis_method = explode("|", $problem_analysis[$i]['method']);
+            $results_method = explode("|", $results[$i]['method']);
             $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('method');
             $total_scores = explode("|", $problem_structure_score);
-
             //maybe it contain empty string remove it!!!
             if(($key = array_search("", $problem_analysis_method)) !== false) {
                 unset($problem_analysis_method[$key]);
