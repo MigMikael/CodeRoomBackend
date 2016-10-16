@@ -86,42 +86,42 @@
                     <tr style="background-color: #acb4bc;color: black" >
                         <td>{{x.class[0]}}</td>
                         <td>{{x.class[1]}}</td>
-                        <td>{{x.class[2] }}</td>
-                        <td>-</td>
+                        <td>{{x.class[2]}}</td>
                         <td>{{x.class[3]}}</td>
-                        <td>-</td>
-                        <td><input ng-model="x.class[4]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td>{{x.class[4]}}</td>
+                        <td>{{x.class[5]}}</td>
+                        <td><input ng-model="x.class[6]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
                     <tr style="background-color: #acb4bc;color: black" >
                         <td>{{x.package[0]}}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
                         <td>{{x.package[1]}}</td>
-                        <td>-</td>
-                        <td><input ng-model="x.package[2]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td>{{x.package[2]}}</td>
+                        <td>{{x.package[3]}}</td>
+                        <td>{{x.package[4]}}</td>
+                        <td>{{x.package[5]}}</td>
+                        <td><input ng-model="x.package[6]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
                     <tr style="background-color: #acb4bc;color: black" >
                         <td>{{x.encolse[0]}}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
                         <td>{{x.encolse[1]}}</td>
-                        <td>-</td>
-                        <td><input ng-model="x.enclose[2]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td>{{x.encolse[2]}}</td>
+                        <td>{{x.encolse[3]}}</td>
+                        <td>{{x.encolse[4]}}</td>
+                        <td>{{x.encolse[5]}}</td>
+                        <td><input ng-model="x.enclose[6]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
 
                     <tr ng-repeat="y in x.constructor" style="background-color: #acb4bc;color: black" >
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
-                        <td>-</td>
-                        <td>-</td>
                         <td>{{ y[2] }}</td>
                         <td>{{ y[3] }}</td>
-                        <td><input ng-model="y[4]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td>{{ y[4] }}</td>
+                        <td>{{ y[5] }}</td>
+                        <td><input ng-model="y[6]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
 
@@ -131,8 +131,8 @@
                         <td>{{ y[2] }}</td>
                         <td>{{ y[3] }}</td>
                         <td>{{ y[4] }}</td>
-                        <td>-</td>
-                        <td><input ng-model="y[5]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
+                        <td>{{ y[5] }}</td>
+                        <td><input ng-model="y[6]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
 
@@ -154,7 +154,7 @@
         </form>
 
         <br>
-        {{requirment | json}}
+
     </div>
 
 </div>

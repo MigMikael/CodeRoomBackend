@@ -40,123 +40,59 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
     //getLesson();
 
     $scope.lesson = {
-        lesson_name: "Array",
+        lesson_name: "คําสั่งเดี่ยว คําสั่งเงื่อนไข และชุดคําสั่ง",
         problem: [
             {
-            prob_id: 4,
-            name: "Runners",
-            timelimit: 1,
-            memorylimit: 32,
-            lesson_id: 7,
-            problemfile: "http://localhost:8000/problemfile/getQuestion/4",
-            problemAnalysis: [
-                {
-                class: "null;null",
-                class_score: 0,
-                package: "",
-                package_score: 0,
-                enclose: "null",
-                enclose_score: 0,
-                attribute: "1;private;String;man|2;private;String;au|",
-                attribute_score: "1;5|2;5",
-                method: "1;default;void;test_print;()2;public;void;printV1;()",
-                method_score: "1;10|2;10",
-                student_attribute_score: "1;5|2;5|",
-                student_method_score: "0"
-                },
-                {
-                class: "default;Chair",
-                class_score: 0,
-                package: "",
-                package_score: 0,
-                enclose: "Test",
-                enclose_score: 0,
-                attribute: "1;default;int;x|",
-                attribute_score: "1;20",
-                method: "",
-                method_score: "",
-                student_attribute_score: "1;20|",
-                student_method_score: "1;0|"
-                }
-            ]
-            }, {
-            prob_id: 5,
-            name: "Runners",
-            timelimit: 1,
-            memorylimit: 32,
-            lesson_id: 7,
-            problemfile: "http://localhost:8000/problemfile/getQuestion/5",
-            problemAnalysis: [{
-                class: "null;null",
-                class_score: 0,
-                package: "",
-                package_score: 0,
-                enclose: "null",
-                enclose_score: 0,
-                attribute: "1;private;String;man|2;private;String;au|",
-                attribute_score: "1;44|2;55",
-                method: "1;default;void;test_print;()2;public;void;printV1;()",
-                method_score: "1;66|2;77",
-                student_attribute_score: "1;44|2;55|",
-                student_method_score: "1;66|2;77|"
-            }, {
-                class: "default;Chair",
-                class_score: 0,
-                package: "",
-                package_score: 0,
-                enclose: "Test",
-                enclose_score: 0,
-                attribute: "1;default;int;x|",
-                attribute_score: "1;50",
-                method: "",
-                method_score: "",
-                student_attribute_score: "1;50|",
-                student_method_score: "0"
-            }]
-        }, {
-            prob_id: 6,
-            name: "Runners",
-            timelimit: 1,
-            memorylimit: 32,
-            lesson_id: 7,
-            problemfile: "http://localhost:8000/problemfile/getQuestion/6",
-            problemAnalysis: [{
-                class: "null;null",
-                class_score: 0,
-                package: "",
-                package_score: 0,
-                enclose: "null",
-                enclose_score: 0,
-                attribute: "1;static;int;round|2;static;float;time|",
-                attribute_score: "1;10|2;10",
-                method: "1;public;void;printTest;()",
-                method_score: "1;20|",
-                student_attribute_score: "1;0|2;0|",
-                student_method_score: "1;20|"
-            }, {
-                class: "default;Runner",
-                class_score: 0,
-                package: "",
-                package_score: 0,
-                enclose: "Runners",
-                enclose_score: 0,
-                attribute: "",
-                attribute_score: "",
-                method: "",
-                method_score: "",
-                student_attribute_score: "",
-                student_method_score: ""
-            }]
-        }, {
-            prob_id: 7,
-            name: "Runners",
-            timelimit: 1,
-            memorylimit: 32,
-            lesson_id: 7,
-            problemfile: "http://localhost:8000/problemfile/getQuestion/7",
-            problemAnalysis: []
-        }]
-    };
+                prob_id: 1,
+                name: "Runners",
+                timelimit: 1,
+                memorylimit: 32,
+                lesson_id: 15,
+                problemfile: "http://localhost:8000/problemfile/getQuestion/1",
+                problemAnalysis: [
+                    {
+                        class: "public;null;Runners",
+                        class_score: "5",
+                        package: "default package",
+                        package_score: "5",
+                        enclose: "null",
+                        enclose_score: "5",
+                        attribute: "1;default;static;int;round|2;default;static;float;time|",
+                        attribute_score: "1;5|2;5",
+                        constructor: "",
+                        constructor_score: "",
+                        method: "1;public;null;void;printTest;()|",
+                        method_score: "1;5",
+                        student_attribute_score: "0",
+                        student_method_score: "1;5|",
+                        student_constuctor_score : "",
+                        student_class_score: "5",
+                        student_package_score: "5",
+                        student_enclose_score: "5",
+                    },
+                    {
+                        class: "default;null;Runner",
+                        class_score: "5",
+                        package: "default package",
+                        package_score: "5",
+                        enclose: "Runners",
+                        enclose_score: "5",
+                        attribute: "1;default;null;int;no|2;default;null;int;speed|3;default;null;float;wasteTime|4;default;null;float;totalTime|",
+                        attribute_score: "1;5|2;5|3;5|4;5",
+                        constructor: "1;public;Runner;(int no, int speed, float wasteTime, )|",
+                        constructor_score: "1;5|",
+                        method: "1;public;null;int;getNo;()|2;public;null;void;setNo;(int no, )|3;public;null;int;getSpeed;()|4;public;null;void;setSpeed;(int speed, )|5;public;null;float;getWasteTime;()|6;public;null;void;setWasteTime;(float wasteTime, )|7;public;null;float;getTotalTime;()|8;public;null;void;setTotalTime;(float totalTime, )|",
+                        method_score: "1;5|2;5|3;5|4;5|5;5|6;5|7;5|8;5",
+                        student_attribute_score: "0",
+                        student_method_score: "0",
+                        student_constuctor_score : "1;5|",
+                        student_class_score: "5",
+                        student_package_score: "5",
+                        student_enclose_score: "5",
+                    }
+                ]
+            }
+        ]};
     manageData()
 
 
@@ -191,21 +127,57 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
             for(j in $scope.lesson.problem[i].problemAnalysis){
                 var arrayAttibute = [];
                 var arrayMethod = [];
+                var arrayConstructor = [];
 
                 var splitClass = $scope.lesson.problem[i].problemAnalysis[j].class.split(";");
-                splitClass.push($scope.lesson.problem[i].problemAnalysis[j].class_score);
+                if(splitClass[1]==="null"){
+                    splitClass[1] ="-"
+                }
+
+                splitClass1 = ["Class" , splitClass[0],splitClass[1],"-",splitClass[2],"-",$scope.lesson.problem[i].problemAnalysis[j].student_class_score,$scope.lesson.problem[i].problemAnalysis[j].class_score]
+                console.log(splitClass1);
 
 
-
-                var setPackage = [];
-                setPackage.push($scope.lesson.problem[i].problemAnalysis[j].package);
-                setPackage.push($scope.lesson.problem[i].problemAnalysis[j].package_score);
+                var setPackage = ["Package", "-" , "-" , "-" , $scope.lesson.problem[i].problemAnalysis[j].package,"-" , $scope.lesson.problem[i].problemAnalysis[j].student_package_score, $scope.lesson.problem[i].problemAnalysis[j].package_score];
+                //console.log(setPackage);
 
                 //console.log(setPackage);
 
-                var setEnclose = [];
-                setEnclose.push($scope.lesson.problem[i].problemAnalysis[j].enclose);
-                setEnclose.push($scope.lesson.problem[i].problemAnalysis[j].enclose_score);
+
+                var setEnclose = ["Enclose","-","-","-", $scope.lesson.problem[i].problemAnalysis[j].enclose,"-", $scope.lesson.problem[i].problemAnalysis[j].student_enclose_score , $scope.lesson.problem[i].problemAnalysis[j].enclose_score];
+                //console.log(setEnclose);
+
+                var splitConstructor1 = $scope.lesson.problem[i].problemAnalysis[j].constructor.split("|");
+                var splitConstructor1_score = $scope.lesson.problem[i].problemAnalysis[j].constructor_score.split("|");
+                console.log(splitConstructor1_score);
+                var splitConstructor1_score_student;
+                if($scope.lesson.problem[i].problemAnalysis[j].student_constuctor_score === "0"){
+                    splitConstructor1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_constuctor_score;
+
+                }else{
+                    splitConstructor1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_constuctor_score.split("|");
+                }
+                for(var z in splitConstructor1){
+                    if(splitConstructor1[z]!== ""){
+                        var splitConstructor2 = splitConstructor1[z].split(";");
+                        splitConstructor2[0] = "Constructor";
+                        splitConstructor2.splice(2,0,"-");
+                        splitConstructor2.splice(3,0,"-");
+                        //console.log(splitConstructor2);
+                        if(splitConstructor1_score_student === "0"){
+                            splitConstructor2.push(splitConstructor1_score_student);
+                        }else{
+                            var splitConstructor2_score_student  = splitConstructor1_score_student[z].split(";");
+                            splitConstructor2.push(splitConstructor2_score_student[1]);
+                        }
+                        if(splitConstructor1_score[z] !== ""){
+                            var splitConstructor2_score = splitConstructor1_score[z].split(";");
+                            splitConstructor2.push(splitConstructor2_score[1]);
+                        }
+                        arrayConstructor.push(splitConstructor2);
+                       //console.log(splitConstructor2);
+                    }
+                }
 
 
                 var splitAttribute1 = $scope.lesson.problem[i].problemAnalysis[j].attribute.split("|");
@@ -219,6 +191,14 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                 for(var z in splitAttribute1){
                     if(splitAttribute1[z]!== ""){
                         var splitAttribute2 = splitAttribute1[z].split(";");
+
+                        splitAttribute2[0] = "Attribute";
+                        if(splitAttribute2[2]==="null"){
+                            splitAttribute2[2] = "-";
+                        }
+
+                        splitAttribute2.push("-");
+                        //console.log(splitAttribute2);
                         if(splitAttribute1_score_student === "0"){
                             splitAttribute2.push(splitAttribute1_score_student);
                         }else{
@@ -226,45 +206,59 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
                             splitAttribute2.push(splitAttribute2_score_student[1]);
                         }
 
-                        var splitAttribute2_score = splitAttribute1_score[z].split(";");
-                        splitAttribute2.push(splitAttribute2_score[1]);
+                        if(splitAttribute1_score[z] !== ""){
+                            var splitAttribute2_score = splitAttribute1_score[z].split(";");
+                            splitAttribute2.push(splitAttribute2_score[1]);
+                        }
+
                         arrayAttibute.push(splitAttribute2);
+                        //console.log(splitAttribute2);
                     }
                 }
 
-
+                //waite for score students index 6
                 var splitMethod1 = $scope.lesson.problem[i].problemAnalysis[j].method.split("|");
                 var splitMethod1_socre = $scope.lesson.problem[i].problemAnalysis[j].method_score.split("|");
                 var splitMethod1_score_student;
                 if($scope.lesson.problem[i].problemAnalysis[j].student_method_score === "0"){
+
                     splitMethod1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_method_score;
                 }else{
+
                     splitMethod1_score_student = $scope.lesson.problem[i].problemAnalysis[j].student_method_score.split("|");
                 }
 
                 for(var z in splitMethod1){
-                    if(splitMethod1[z] !== "" && splitMethod1_score_student[z] !== ""){
+                    if(splitMethod1[z] !== ""){
                         var splitMethod2 = splitMethod1[z].split(";");
-                        splitMethod2.pop();
-
-
+                        splitMethod2[0] = "Method";
+                        if(splitMethod2[2]==="null"){
+                            splitMethod2[2] = "-";
+                        }
+                        //console.log(splitMethod2);
                         if(splitMethod1_score_student==="0"){
                             splitMethod2.push(splitMethod1_score_student);
                         }else{
                             var splitMethod2_score_student = splitMethod1_score_student[z].split(";");
                             splitMethod2.push(splitMethod2_score_student[1]);
                         }
-                        var splitMethod2_score = splitMethod1_socre[z].split(";");
-                        splitMethod2.push(splitMethod2_score[1]);
+
+                        if(splitMethod1_socre[z] !== ""){
+                            var splitMethod2_score = splitMethod1_socre[z].split(";");
+
+                            splitMethod2.push(splitMethod2_score[1]);
+                        }
                         //console.log(splitMethod2);
+
                         arrayMethod.push(splitMethod2);
                     }
 
                 }
                 class1.push({
-                    class:splitClass,
+                    class:splitClass1,
                     package:setPackage,
                     enclose:setEnclose,
+                    constructors:arrayConstructor,
                     attributes:arrayAttibute,
                     methods:arrayMethod
                 })
@@ -314,15 +308,39 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
         for(i in data){
             for(j in data[i].manyClass){
 
+                if(data[i].manyClass[j].class[5]!==data[i].manyClass[j].class[6]){
+                    setProblem(data[i].prob_id);
+                    console.log(data[i].prob_id);
+                    return;
+                }
+                if(data[i].manyClass[j].enclose[5]!==data[i].manyClass[j].enclose[6]){
+                    setProblem(data[i].prob_id);
+                    console.log(data[i].prob_id);
+                    return;
+                }
+                if(data[i].manyClass[j].package[5]!==data[i].manyClass[j].package[6]){
+                    setProblem(data[i].prob_id);
+                    console.log(data[i].prob_id);
+                    return;
+                }
+
+                for(z in data[i].manyClass[j].constructors){
+                    if(data[i].manyClass[j].constructors[z][5] !== data[i].manyClass[j].constructors[z][6]){
+                        setProblem(data[i].prob_id);
+                        console.log(data[i].prob_id);
+                        return;
+                    }
+                }
+
                 for(z in data[i].manyClass[j].attributes){
-                    if(data[i].manyClass[j].attributes[z][4] !== data[i].manyClass[j].attributes[z][5]){
+                    if(data[i].manyClass[j].attributes[z][5] !== data[i].manyClass[j].attributes[z][6]){
                       setProblem(data[i].prob_id);
                         console.log(data[i].prob_id);
                         return;
                     }
                 }
                 for(z in data[i].manyClass[j].methods){
-                    if(data[i].manyClass[j].methods[z][4] !== data[i].manyClass[j].methods[z][5]){
+                    if(data[i].manyClass[j].methods[z][5] !== data[i].manyClass[j].methods[z][6]){
                         setProblem(data[i].prob_id);
                         return;
                     }

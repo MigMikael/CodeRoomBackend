@@ -63,22 +63,23 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                     if(classs[1]==="null"){
                         classs[1] = "-";
                     }
-                    objClass = ["Class",classs[0],classs[1],classs[2],""];
+
+                    objClass = ["Class",classs[0],classs[1],"-",classs[2],"-",""];
 
 
                 }
                 else if(y==="enclose") {
-                    objEnclose = ["Enclose",$scope.teacherRequirement[x][y],""];
+                    objEnclose = ["Enclose","-","-","-",$scope.teacherRequirement[x][y],"-",""];
                 }
                 else if(y==="package") {
-                    objPackage = ["Package",$scope.teacherRequirement[x][y],""];
+                    objPackage = ["Package","-","-","-",$scope.teacherRequirement[x][y],"-",""];
                 }
                 else if(y==="constructor") {
                     var constructors = $scope.teacherRequirement[x][y].split('|');
                     for(constructor in constructors){
                         var subconstructors = constructors[constructor].split(';');
                         if(subconstructors[0]!==""){
-                            objConstructor.push(["Constructor",subconstructors[1],subconstructors[2],subconstructors[3],""]);
+                            objConstructor.push(["Constructor",subconstructors[1],"-","-",subconstructors[2],subconstructors[3],""]);
                         }
                     }
                 }
@@ -92,7 +93,7 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                             if(subattributes[2]==="null"){
                                 subattributes[2] = "-";
                             }
-                            objAttribute.push(["Attribute",subattributes[1],subattributes[2],subattributes[3],subattributes[4],""]);
+                            objAttribute.push(["Attribute",subattributes[1],subattributes[2],subattributes[3],subattributes[4],"-",""]);
 
                         }
                     }
@@ -162,35 +163,35 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
             for(var j in $scope.requirment[i]){
                 //console.log($scope.requirment[i][j]);
                 if(j==="class"){
-                   if($scope.requirment[i][j][4]===""){
+                   if($scope.requirment[i][j][6]===""){
                        $scope.totolPoint = $scope.totolPoint;
 
                    }else{
-                       $scope.totolPoint += parseFloat($scope.requirment[i][j][4]);
+                       $scope.totolPoint += parseFloat($scope.requirment[i][j][6]);
                    }
                 }
                 else if(j==="package"){
-                    if($scope.requirment[i][j][2]===""){
+                    if($scope.requirment[i][j][6]===""){
                         $scope.totolPoint = $scope.totolPoint;
 
                     }else{
-                        $scope.totolPoint += parseFloat($scope.requirment[i][j][2]);
+                        $scope.totolPoint += parseFloat($scope.requirment[i][j][6]);
                     }
                 }
                 else if(j==="enclose"){
-                    if($scope.requirment[i][j][2]===""){
+                    if($scope.requirment[i][j][6]===""){
                         $scope.totolPoint = $scope.totolPoint;
 
                     }else{
-                        $scope.totolPoint += parseFloat($scope.requirment[i][j][2]);
+                        $scope.totolPoint += parseFloat($scope.requirment[i][j][6]);
                     }
                 }
                 else if(j==="constructor"){
                     for(var z in $scope.requirment[i][j]){
-                        if($scope.requirment[i][j][z][4]===""){
+                        if($scope.requirment[i][j][z][6]===""){
                             $scope.totolPoint = $scope.totolPoint;
                         }else {
-                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][4]);
+                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][6]);
                         }
 
                     }
@@ -198,10 +199,10 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
                 else if(j==="attribute"){
                     for(var z in $scope.requirment[i][j]){
                         //console.log($scope.requirment[i][j][z]);
-                        if($scope.requirment[i][j][z][5]===""){
+                        if($scope.requirment[i][j][z][6]===""){
                             $scope.totolPoint = $scope.totolPoint;
                         }else {
-                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][5]);
+                            $scope.totolPoint += parseFloat($scope.requirment[i][j][z][6]);
                         }
 
                     }

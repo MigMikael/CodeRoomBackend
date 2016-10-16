@@ -493,7 +493,8 @@ span .icon-search {
     height: 100vh;
     width:  100vw;
     background-color: #204056;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
   border-left: 5px solid white;
   border-right: 5px solid white
 }
@@ -551,7 +552,7 @@ span .icon-search {
   font-weight: 100;
   background-color: white;
   color: #204056;
-  margin: 0 5px;
+  margin: 0 2px;
 
 }
 
@@ -562,14 +563,15 @@ span .icon-search {
 
 .slide-nav .main-slide-nav a .popover-detail{
     left: 350px;
-    top:100px;
-    width:400px;
+    top: 100px;
+    width:800px;
     height: 100%;
     position: absolute;
     display: none;
     z-index: 12;
     background-color: #eeeeee;
     padding: 15px 20px;
+    overflow-y: auto;
 }
 .slide-nav .main-slide-nav a:hover .popover-detail{
   display: block;
