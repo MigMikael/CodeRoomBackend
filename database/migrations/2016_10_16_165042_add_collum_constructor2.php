@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCollumConstructor extends Migration
+class AddCollumConstructor2 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class AddCollumConstructor extends Migration
      */
     public function up()
     {
-        Schema::table('problem_analysis', function (Blueprint $table) {
+        Schema::table('result', function (Blueprint $table) {
             $table->text('constructor');
         });
 
-        Schema::table('problem_structure_score', function (Blueprint $table) {
+        Schema::table('result_structure_score', function (Blueprint $table) {
             $table->text('constructor');
         });
     }
@@ -28,11 +28,11 @@ class AddCollumConstructor extends Migration
      */
     public function down()
     {
-        Schema::table('problem_analysis', function (Blueprint $table) {
+        Schema::table('result', function (Blueprint $table) {
             $table->dropColumn('constructor');
         });
 
-        Schema::table('problem_structure_score', function (Blueprint $table) {
+        Schema::table('result_structure_score', function (Blueprint $table) {
             $table->dropColumn('constructor');
         });
     }

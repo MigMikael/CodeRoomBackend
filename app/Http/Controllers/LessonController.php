@@ -67,6 +67,8 @@ class LessonController extends Controller
                 $realStructure['enclose_score'] = $teacherScore->enclose;
                 $realStructure['attribute'] = $structure->attribute;
                 $realStructure['attribute_score'] = $teacherScore->attribute;
+                $realStructure['constructor'] = $structure->constructor;
+                $realStructure['constructor_score'] = $teacherScore->constructor;
                 $realStructure['method'] = $structure->method;
                 $realStructure['method_score'] = $teacherScore->method;
                 if($studentScore == null){
