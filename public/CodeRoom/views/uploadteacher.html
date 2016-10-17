@@ -67,14 +67,15 @@
     </div>
     <div class="col-md-12" ng-show="isRequirment" >
         {{calcuratePoint()}}
-        <div class="col-md-offset-10" style="font-size: 20px">Point: {{totolPoint}}</div>
+        <div style="font-size: 25px;float: right;display: block">Point: {{totolPoint}}</div>
+        <br>
         <form ng-submit="submitRequirment()">
 
             <div class="panel panel-default" ng-repeat="x in requirment">
                 <!-- Default panel contents -->
-                <div class="panel-heading" style="background-color:#204056;color: white">{{ x.class[3]}}</div>
-                <table class="table" >
-                    <tr style="background-color: white;color: black">
+                <div class="panel-heading" style="background-color:#204056;color: white;margin: 0">{{ x.class[4]}}</div>
+                <table class="table">
+                    <tr style="background-color: #acb4bc;color: black;border: 0">
                         <th>Type</th>
                         <th>Modifier</th>
                         <th>Final&Static</th>
@@ -83,7 +84,7 @@
                         <th>Parameter</th>
                         <th>Point</th>
                     </tr>
-                    <tr style="background-color: #acb4bc;color: black" >
+                    <tr style="background-color:#eee;color: black;border: 0" >
                         <td>{{x.class[0]}}</td>
                         <td>{{x.class[1]}}</td>
                         <td>{{x.class[2]}}</td>
@@ -93,7 +94,7 @@
                         <td><input ng-model="x.class[6]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
-                    <tr style="background-color: #acb4bc;color: black" >
+                    <tr style="background-color:#eee;color: black;border: 0" >
                         <td>{{x.package[0]}}</td>
                         <td>{{x.package[1]}}</td>
                         <td>{{x.package[2]}}</td>
@@ -103,7 +104,7 @@
                         <td><input ng-model="x.package[6]" onkeypress='return event.charCode >= 48 && event.charCode <= 57 || event.charCode==46'></td>
 
                     </tr>
-                    <tr style="background-color: #acb4bc;color: black" >
+                    <tr style="background-color:#eee;color: black;border: 0" >
                         <td>{{x.encolse[0]}}</td>
                         <td>{{x.encolse[1]}}</td>
                         <td>{{x.encolse[2]}}</td>
@@ -114,7 +115,7 @@
 
                     </tr>
 
-                    <tr ng-repeat="y in x.constructor" style="background-color: #acb4bc;color: black" >
+                    <tr ng-repeat="y in x.constructor" style="background-color:#eee;color: black;border: 0" >
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
                         <td>{{ y[2] }}</td>
@@ -125,7 +126,7 @@
 
                     </tr>
 
-                    <tr ng-repeat="y in x.attribute" style="background-color: #acb4bc;color: black">
+                    <tr ng-repeat="y in x.attribute" style="background-color:#eee;color: black;border: 0">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
                         <td>{{ y[2] }}</td>
@@ -136,7 +137,7 @@
 
                     </tr>
 
-                    <tr ng-repeat="y in x.method" style="background-color: #acb4bc;color: black">
+                    <tr ng-repeat="y in x.method" style="background-color:#eee;color: black;border: 0;">
                         <td>{{ y[0] }}</td>
                         <td>{{ y[1] }}</td>
                         <td>{{ y[2] }}</td>
