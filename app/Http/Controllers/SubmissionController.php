@@ -71,7 +71,7 @@ class SubmissionController extends Controller
         $json = json_decode($result, true);
 
         Log::info('#### STATUS #### 2 Analyze Submission ####');
-        Log::info('#### '. $res->getBody());
+        Log::info('#### Data From Evaluator : '. $res->getBody());
 
         return $json;
     }
@@ -133,7 +133,6 @@ class SubmissionController extends Controller
                 $data['method'] .= ')|';
                 $count++;
             }
-
             Result::create($data);
         }
         Log::info('#### STATUS #### 3 Keep Result ####');
@@ -154,6 +153,8 @@ class SubmissionController extends Controller
             $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('class');
             if($problem_analysis_class == $results_class){
                 $score['class'] = $problem_structure_score;
+            } else {
+                $score['class'] = "0";
             }
 
             $problem_analysis_package = $problem_analysis[$i]['package'];
@@ -161,6 +162,8 @@ class SubmissionController extends Controller
             $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('package');
             if($problem_analysis_package == $results_package){
                 $score['package'] = $problem_structure_score;
+            } else {
+                $score['package'] = "0";
             }
 
             $problem_analysis_enclose = $problem_analysis[$i]['enclose'];
@@ -168,6 +171,8 @@ class SubmissionController extends Controller
             $problem_structure_score = ProblemStructureScore::where('id', '=', $problem_analysis[$i]->id)->value('enclose');
             if($problem_analysis_enclose == $results_enclose){
                 $score['enclose'] = $problem_structure_score;
+            } else {
+                $score['enclose'] = "0";
             }
             /*  Todo continue this
                 1. Test Submit Student Code
@@ -201,7 +206,7 @@ class SubmissionController extends Controller
                     $current_score .= $problem_analysis_attribute[$j].';0|';
                 }
             }
-            Log::info('#### Current Score '.$current_score);
+            Log::info('#### Current Score Attribute : '.$current_score);
             $score['attribute'] = $current_score;
 
 
@@ -228,7 +233,7 @@ class SubmissionController extends Controller
                     $current_score .= $problem_analysis_constructor[$j].';0|';
                 }
             }
-            Log::info('#### Current Score '.$current_score);
+            Log::info('#### Current Score Constructor : '.$current_score);
             $score['constructor'] = $current_score;
 
 
@@ -255,7 +260,7 @@ class SubmissionController extends Controller
                     $current_score .= $problem_analysis_method[$j].';0|';
                 }
             }
-            Log::info('#### Current Score '.$current_score);
+            Log::info('#### Current Score Method : '.$current_score);
             $score['method'] = $current_score;
 
             ResultStructureScore::create($score);

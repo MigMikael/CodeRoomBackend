@@ -24,6 +24,8 @@ Route::resource('submissions', 'SubmissionController');
 Route::resource('results', 'ResultController');
 Route::resource('student', 'StudentController');
 Route::resource('student_course', 'StudentCourseController');
+Route::resource('teacher', 'TeacherController');
+Route::resource('teacher_course', 'TeacherCourseController');
 Route::resource('announcement', 'AnnouncementController');
 
 Route::get('problemfile', 'ProblemFileController@index');
@@ -48,3 +50,6 @@ Route::get('api/course/all', 'CourseController@getAll');
 Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
 Route::get('api/course/{course_id}/{student_id}', 'CourseController@getDetail');
 Route::get('api/lesson/problem/{lesson_id}', 'LessonController@getProblem');
+
+
+Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');
