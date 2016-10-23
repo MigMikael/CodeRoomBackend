@@ -13,4 +13,8 @@ class Student extends Model
         'student_id',
         'name'
     ];
+
+    public function badges(){
+        return $this->belongsToMany('App\Badge', 'badge_student', 'student_id', 'badge_id');
+    }
 }

@@ -45,6 +45,7 @@ Route::get('api/results/{user_id}/all', 'ResultController@allResult');
 Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis');
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
 
+
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/course/all', 'CourseController@getAll');
 Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
@@ -53,3 +54,7 @@ Route::get('api/lesson/problem/{lesson_id}', 'LessonController@getProblem');
 
 
 Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');
+
+
+Route::get('api/student_badge/{student_id}', 'StudentController@getBadge');
+Route::get('api/badge_student/{badge_id}', 'BadgeController@getStudent');
