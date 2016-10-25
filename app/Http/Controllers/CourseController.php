@@ -7,6 +7,8 @@ use App\Course;
 use App\Lesson;
 use App\StudentCourse;
 use App\StudentLesson;
+use App\Teacher;
+use App\TeacherCourse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
@@ -69,6 +71,16 @@ class CourseController extends Controller
     public function getDetail($course_id, $student_id)
     {
         $course = Course::where('id', '=', $course_id)->first();
+        $courseInstructor = [];
+        $instructorsID = TeacherCourse::where('course_id', '=', $course_id)->pluck('teacher_id');
+
+        foreach ($instructorsID as $instructorID){
+            $teacher = Teacher::find($instructorID);
+            //Log::info('instructor id: '. $teacher->name);
+            array_push($courseInstructor, $teacher->name);
+        }
+        $course['instructor'] = $courseInstructor;
+
         $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();
         $lessonNum = Lesson::where([
             ['course_id', '=', $course_id],

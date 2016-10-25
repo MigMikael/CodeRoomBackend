@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveTimeColume extends Migration
+class CreateTeacherCourseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,11 @@ class RemoveTimeColume extends Migration
      */
     public function up()
     {
-        Schema::table('submission', function (Blueprint $table) {
-            $table->dropColumn('time');
+        Schema::create('teacher_course', function(Blueprint $table) {
+            $table->increments('id');
+            $table->string('teacher_id');
+            $table->string('course_id');
+            $table->timestamps();
         });
     }
 
@@ -24,8 +27,6 @@ class RemoveTimeColume extends Migration
      */
     public function down()
     {
-        Schema::table('submission', function (Blueprint $table) {
-            $table->integer('time');
-        });
+        Schema::drop('teacher_course');
     }
 }

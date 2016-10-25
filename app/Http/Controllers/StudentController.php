@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Request;
-
+use Log;
 use App\Http\Requests;
 
 class StudentController extends Controller
@@ -31,5 +31,15 @@ class StudentController extends Controller
         $input = Request::all();
         Student::create($input);
         return redirect('student');
+    }
+
+    public function getBadge($student_id)
+    {
+        $student = Student::where('student_id', '=', $student_id)->first();
+        Log::info('**** '. $student->name);
+        $badges = $student->badges()->get();
+        foreach ($badges as $badge){
+            Log::info('**** '. $badge->name);
+        }
     }
 }

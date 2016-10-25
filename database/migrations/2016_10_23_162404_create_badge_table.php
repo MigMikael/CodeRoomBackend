@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveTimeColume extends Migration
+class CreateBadgeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,12 @@ class RemoveTimeColume extends Migration
      */
     public function up()
     {
-        Schema::table('submission', function (Blueprint $table) {
-            $table->dropColumn('time');
+        Schema::create('badge', function(Blueprint $table){
+            $table->increments('id');
+            $table->string('name');
+            $table->text('description');
+            $table->text('image');
+            $table->timestamps();
         });
     }
 
@@ -24,8 +28,6 @@ class RemoveTimeColume extends Migration
      */
     public function down()
     {
-        Schema::table('submission', function (Blueprint $table) {
-            $table->integer('time');
-        });
+        Schema::drop('badge');
     }
 }

@@ -58,6 +58,8 @@
                 <a class="mdl-navigation__link" href="{{ url('lesson') }}">Lesson</a>
                 <a class="mdl-navigation__link" href="{{ url('student') }}">Student</a>
                 <a class="mdl-navigation__link" href="{{ url('student_course') }}">StudentCourse</a>
+                <a class="mdl-navigation__link" href="{{ url('teacher') }}">Teacher</a>
+                <a class="mdl-navigation__link" href="{{ url('teacher_course') }}">TeacherCourse</a>
                 <a class="mdl-navigation__link" href="{{ url('submissions') }}">Submission</a>
                 <a class="mdl-navigation__link" href="{{ url('results') }}">Result</a>
                 <hr>
