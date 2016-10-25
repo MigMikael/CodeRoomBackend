@@ -71,7 +71,7 @@
             <h3>Lesson</h3>
             <div class="row" style="margin: 0" ng-repeat="lesson in course.lessons">
                 <span ng-show="lesson.status=='true'">
-                    <a ui-sref="problem({course_name: course.name,lesson_id : lesson.id})">
+                    <a ui-sref="uploadproblme_students({course_name: course.name,lesson_id : lesson.id})">
                         <div class="col-md-12" style="padding: 0" >
 
                             <div class="chapter">
@@ -92,7 +92,7 @@
             <div class="row" style="margin: 0" ng-repeat="lesson in course.lessons">
 
                 <span ng-show="lesson.status=='false'">
-                    <a ui-sref="problem({lesson_id : lesson.id})">
+                    <a ui-sref="uploadproblme_students({lesson_id : lesson.id})">
                         <div class="col-md-12" style="padding: 0" >
 
                             <div class="chapter">

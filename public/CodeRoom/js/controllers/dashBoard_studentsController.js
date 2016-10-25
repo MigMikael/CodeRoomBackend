@@ -1,4 +1,4 @@
-app.controller('dashboardController', function($scope, $http,$rootScope, studentcourse,allcourse,$stateParams,$localStorage) {
+app.controller('dashboard_studentsController', function($scope, $http,$rootScope, studentCourse,allCourse_students,$stateParams,$localStorage) {
     $scope.my_courses;
     $scope.all_courses;
     $scope.have_courses = [];
@@ -12,8 +12,8 @@ app.controller('dashboardController', function($scope, $http,$rootScope, student
     }
 
     function getStudentCourse() {
-        //$stateParams.student_code
-        studentcourse.getStudentCourse($localStorage.student_id)
+
+        studentCourse.getStudentCourse($localStorage.student_id)
             .success(function (data) {
 
                 $scope.my_courses = data;
@@ -28,10 +28,10 @@ app.controller('dashboardController', function($scope, $http,$rootScope, student
             });
 
     }
-    //ตรงนี้ต้องแก้เพราะว่า เราต้องเอาครอสที่เขามีออกด้วย
+
     function getAllCourse() {
         //$stateParams.student_code
-        allcourse.getAllCourse()
+        allCourse_students.getallCourse_students()
             .success(function (data) {
                 console.log(data);
                 $scope.all_courses = deleteDataredundancy(data);

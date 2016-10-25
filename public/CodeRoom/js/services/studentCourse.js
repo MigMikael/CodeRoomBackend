@@ -2,7 +2,7 @@
  * Created by thanadej on 8/31/2016 AD.
  */
 
-app.factory('studentcourse', function($http) {
+app.factory('studentCourse', function($http) {
     var urlBase = "/api/student_course/";
     var StudentCourseDataOp = {};
 

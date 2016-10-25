@@ -1,4 +1,4 @@
-app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout,$stateParams,lesson,$rootScope,$localStorage) {
+app.controller('uploadproblem_studentsController',function($scope, $sce, $http, Upload, $timeout,$stateParams,lesson_students,$rootScope,$localStorage) {
     $scope.isNav = false;
     $scope.isAlert = false;
 
@@ -100,19 +100,15 @@ app.controller('uploadController',function($scope, $sce, $http, Upload, $timeout
 
     function getLesson() {
 
-        lesson.getLesson($localStorage.lesson_id)
+        lesson_students.getlesson_students($localStorage.lesson_id)
             .success(function (data) {
                 $scope.lesson = data;
                 manageData();
-
-
-                //checkSucsessproblem();
-
+               //checkSucsessproblem();
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
-
     };
 
 

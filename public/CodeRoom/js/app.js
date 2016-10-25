@@ -10,38 +10,43 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: "homeController",
             templateUrl: "views/home.html"
         })
-        .state('dashboard', {
-            url: '/dashboard',
-            controller: 'dashboardController',
-            templateUrl: 'views/dashboard.html'
+        //students
+        .state('dashboard_students', {
+            url: '/dashboard_students',
+            controller: 'dashboard_studentsController',
+            templateUrl: 'views/dashboard_students.html'
         })
-        .state('course', {
+
+        .state('coursepage_students', {
             url: '/:course_name/:course_id',
-            controller: "coursePageController",
-            templateUrl: "views/coursepage.html",
+            controller: "coursePage_studentsController",
+            templateUrl: "views/coursepage_students.html",
 
         })
         .state('coursepage2', {
             url: '/coursepage2',
             templateUrl: "views/coursepage2.html"
         })
-
-        .state('problem', {
+        .state('uploadproblme_students', {
             url: '/problem/:course_name/:lesson_id',
-            controller: 'uploadController',
-            templateUrl: 'views/upload.html'
+            controller: 'uploadproblem_studentsController',
+            templateUrl: 'views/uploadproblem_students.html'
         })
-
-
-        .state('/profile', {
+        .state('profile_students', {
             url: '/profile',
             controller: 'profileController',
-            templateUrl: 'views/profile.html'
+            templateUrl: 'views/profile_students.html'
         })
         .state('uploadproblem', {
             url: '/uploadproblem',
             controller: 'uploadTeacherController',
             templateUrl: 'views/uploadteacher.html'
+        })
+        //teacher
+        .state('dashboard_teachers', {
+            url: '/dashboard_teachers',
+            controller: 'dashboard_teachersController',
+            templateUrl: 'views/dashboard_teachers.html'
         });
 
 });
