@@ -9,7 +9,7 @@ app.controller('addLesson_teachersController',function($scope,$stateParams,$http
     };
 
     $scope.addLesson = function(){
-        var res = $http.post('http://posttestserver.com/post.php', $scope.lesson);
+        var res = $http.post('/lesson', $scope.lesson);
 
         res.success(function(data, status, headers, config) {
             $scope.message2 = data;
