@@ -18,7 +18,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state('coursepage_students', {
-            url: '/:course_name/:course_id',
+            url: '/dashboard_students/:course_name/:course_id',
             controller: "coursePage_studentsController",
             templateUrl: "views/coursepage_students.html",
 
@@ -47,6 +47,36 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/dashboard_teachers',
             controller: 'dashboard_teachersController',
             templateUrl: 'views/dashboard_teachers.html'
+        })
+
+        .state('coursepage_teachers', {
+            url: '/dashboard_teachers/:course_name/:course_id',
+            controller: 'coursePage_teachersController',
+            templateUrl: 'views/coursepage_teachers.html'
+        })
+
+        .state('addlesson_teachers', {
+            url: '/addlesson_teachers/:course_id',
+            controller: 'addLesson_teachersController',
+            templateUrl: 'views/addLesson_teachers.html'
+        })
+
+        .state('addquiz_teachers', {
+            url: '/addquiz_teachers/:course_id',
+            controller: 'addQuiz_teachersController',
+            templateUrl: 'views/addQuiz_teachers.html'
+        })
+
+        .state('list_teacherscourse', {
+            url: '/list_teachers',
+            controller: 'list_teachercourseController',
+            templateUrl: 'views/list_teacherscourse.html'
+        })
+
+        .state('uploadproblme_teachers', {
+            url: '/problem/:course_name/:lesson_id',
+            controller: 'uploadproblem_teachersController',
+            templateUrl: 'views/uploadproblem_teachers.html'
         });
 
 });

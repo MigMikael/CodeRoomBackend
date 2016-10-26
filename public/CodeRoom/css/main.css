@@ -82,6 +82,31 @@ nav p {
   color: #ffffff;
 }
 
+.card-alladd-teachers{
+  display: block;
+  height: 150px;
+  border: 0px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  vertical-align: middle;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-alladd-teachers .btn-plus-teachers{
+  display: block;
+  margin: 15px auto;
+  width: 120px;
+  height: 120px;
+  background-color: #00897B;
+  color: #fff;
+  border-radius: 100%;
+  padding: 25px 0 0 0;
+  font-size: 50px;
+  text-decoration: none;
+  text-align: center;
+
+}
+
 .btn-login {
 
   width: 100%;
@@ -156,15 +181,16 @@ nav p {
 }
 .form .main-form{
   margin: 0px;
+  border: 0;
   padding: 15px 15px 0 15px;
   color:#00897B;
   font-size: 18px;
   font-weight: 100;
 }
-.form .main-form i{
+.form .main-form p i{
   color: #445561;
   margin-right: 10px;
-  font-size: 30px;
+
 }
 .form .top-point{
   border-top: 1px solid rgba(0,0,0,0.3);
@@ -181,7 +207,7 @@ nav p {
 .form .imgForm {
   width: 100%;
   height: 250px;
-
+  margin: 0;
   border: 0px;
 }
 .form .imgForm img{

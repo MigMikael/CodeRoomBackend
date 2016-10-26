@@ -16,32 +16,24 @@
 
 </nav>
 
-<!--Class-->
-<div class="container-main">
-    <h2 style="text-align: center">My Course</h2>
-</div>
-<div class="marginheader">
-    <div class="row container-main">
+<!--List Teachers-->
 
-        <div class="col-md-4" ng-repeat="my_course in myTeacher_courses">
-            <a ui-sref="coursepage_teachers({course_name:my_course.course_name,course_id : my_course.course_id})" style="text-decoration: none">
+<div class="container-main marginheader">
+    <h3 style="text-align: center">Teachers</h3>
+
+    <div class="row">
+        <div class="col-md-4">
                 <div class="form">
                     <div class="imgForm">
-                        <img ngf-src="my_course.image">
+                        <img ngf-src="">
                     </div>
                     <div class="main-form">
-                        <p><i class="fa fa-book" aria-hidden="true"></i>{{my_course.course_name}}</p>
+                        <p><i class="fa fa-user fa-lg" aria-hidden="true"></i>{{}}</p>
 
                     </div>
 
                 </div>
-            </a>
-
         </div>
-
-
-
     </div>
-</div>
 
-<!--End Class-->
+</div>
