@@ -1,23 +1,19 @@
 
-app.controller('addLesson_teachersController',function($scope,$stateParams) {
+app.controller('addLesson_teachersController',function($scope,$stateParams,$http) {
 
     $scope.course_id = $stateParams.course_id;
 
-
     $scope.lesson = {
-        name: $scope.name,
         course_id: $scope.course_id,
         status: "true",
-        order: $scope.order
     };
 
     $scope.addLesson = function(){
-
-
-        var res = $http.post('/lesson', $scope.lesson);
+        var res = $http.post('http://posttestserver.com/post.php', $scope.lesson);
 
         res.success(function(data, status, headers, config) {
             $scope.message2 = data;
+
             location.reload();
 
         });
