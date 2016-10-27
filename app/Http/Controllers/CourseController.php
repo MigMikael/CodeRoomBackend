@@ -68,7 +68,7 @@ class CourseController extends Controller
         return $courses;
     }
 
-    public function getDetail($course_id, $student_id)
+    public function getDetailStudent($course_id, $student_id)
     {
         $course = Course::where('id', '=', $course_id)->first();
         $courseInstructor = [];
@@ -116,5 +116,46 @@ class CourseController extends Controller
         $course['announcement'] = $announcements;
 
         return $course;
+    }
+
+    public function getDetailTeacher($course_id, $teacher_id)
+    {
+        $course = Course::where('id', '=', $course_id)->first();
+        $courseInstructor = [];
+        $instructorsID = TeacherCourse::where('course_id', '=', $course_id)->pluck('teacher_id');
+
+        foreach ($instructorsID as $instructorID){
+            $teacher = Teacher::find($instructorID);
+            //Log::info('instructor id: '. $teacher->name);
+            array_push($courseInstructor, $teacher->name);
+        }
+        $course['instructor'] = $courseInstructor;
+
+        $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();
+        $lessonNum = Lesson::where([
+            ['course_id', '=', $course_id],
+            ['status', '=', 'true']
+        ])->orderBy('order')->count();
+        $quizNum = Lesson::where([
+            ['course_id', '=', $course_id],
+            ['status', '=', 'false']
+        ])->orderBy('order')->count();
+        $announcements = Announcement::where('course_id', '=', $course_id)->get();
+
+        $course['lesson_num'] = $lessonNum;
+        $course['quiz_num'] = $quizNum;
+        $course['lessons'] = $lessons;
+        $course['announcement'] = $announcements;
+
+        return $course;
+    }
+
+    public function getBadge($course_id)
+    {
+        $course = Course::find($course_id);
+        Log::info('#### '.$course->name);
+        $badges = $course->badges;
+
+        return $badges;
     }
 }

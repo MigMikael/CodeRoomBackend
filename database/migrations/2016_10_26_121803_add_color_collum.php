@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBadgeTable extends Migration
+class AddColorCollum extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,8 @@ class CreateBadgeTable extends Migration
      */
     public function up()
     {
-        Schema::create('badge', function(Blueprint $table){
-            $table->increments('id');
-            $table->string('name');
-            $table->text('description');
-            $table->integer('image')->unsigned();
-            $table->timestamps();
+        Schema::table('course', function (Blueprint $table){
+            $table->string('color');
         });
     }
 
@@ -28,6 +24,8 @@ class CreateBadgeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('badge');
+        Schema::table('course', function(Blueprint $table){
+            $table->dropColumn('color');
+        });
     }
 }

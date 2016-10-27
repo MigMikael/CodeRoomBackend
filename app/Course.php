@@ -13,4 +13,9 @@ class Course extends Model
         'name',
         'instructor'
     ];
+
+    public function badges()
+    {
+        return $this->hasMany('App\Badge');
+    }
 }

@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 Route::resource('problems', 'ProblemController');
+Route::resource('badge', 'badgeController');
 Route::resource('problem_analysis', 'ProblemAnalysisController');
 Route::resource('course', 'CourseController');
 Route::resource('lesson', 'LessonController');
@@ -49,12 +50,18 @@ Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/course/all', 'CourseController@getAll');
 Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
-Route::get('api/course/{course_id}/{student_id}', 'CourseController@getDetail');
+Route::get('api/student_course/{course_id}/{student_id}', 'CourseController@getDetailStudent');
+Route::get('api/teacher_course/{course_id}/{teacher_id}', 'CourseController@getDetailTeacher');
 Route::get('api/lesson/problem/{lesson_id}', 'LessonController@getProblem');
 
 
 Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');
 
-
+//api for badge achievement
 Route::get('api/student_badge/{student_id}', 'StudentController@getBadge');
 Route::get('api/badge_student/{badge_id}', 'BadgeController@getStudent');
+Route::get('api/course_badge/{course_id}', 'CourseController@getBadge');
+
+// api for generate image
+Route::get('api/image/gen_badge_image/{course_name}/{lesson_name}/{color}', 'ImageController@genBadgeImage');
+Route::get('api/image/{id}', 'ImageController@getImage');

@@ -11,12 +11,18 @@ class Badge extends Model
     protected $fillable = [
         'name',
         'description',
-        'image'
+        'image',
+        'course_id',
     ];
 
     // badge is owned by user
     public function students()
     {
         return $this->belongsToMany('App\Student', 'badge_student', 'badge_id', 'student_id');
+    }
+
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
     }
 }

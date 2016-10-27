@@ -54,6 +54,7 @@
                 <a class="mdl-navigation__link" href="{{ url('problem_analysis') }}">ProblemAnalysis</a>
                 <a class="mdl-navigation__link" href="{{ url('problemfile') }}">ProblemFile</a>
                 <a class="mdl-navigation__link" href="{{ url('course') }}">Course</a>
+                <a class="mdl-navigation__link" href="{{ url('badge') }}">Badge</a>
                 <a class="mdl-navigation__link" href="{{ url('announcement') }}">Announcement</a>
                 <a class="mdl-navigation__link" href="{{ url('lesson') }}">Lesson</a>
                 <a class="mdl-navigation__link" href="{{ url('student') }}">Student</a>

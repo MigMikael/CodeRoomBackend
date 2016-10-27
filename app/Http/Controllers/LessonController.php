@@ -28,9 +28,14 @@ class LessonController extends Controller
 
     public function store()
     {
+        Log::info('#### this is LessonController');
         $input = Request::all();
         Lesson::create($input);
-        return redirect('lesson');
+        $request = Request::create('badge', 'POST', $input);
+        $res = app()->handle($request);
+
+        // Todo it not redriect to lesson/index why?
+        return redirect()->action('LessonController@index');
     }
 
     public function getProblem($lesson_id)
