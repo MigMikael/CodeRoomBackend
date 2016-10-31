@@ -13,6 +13,8 @@ class Badge extends Model
         'description',
         'image',
         'course_id',
+        'type',
+        'criteria',
     ];
 
     // badge is owned by user

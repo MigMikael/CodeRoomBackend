@@ -1,13 +1,31 @@
 @extends('template')
 
 @section('content')
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1210331272313647',
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <div class="mdl-cell mdl-cell--12-col center">
         <h1>All Badges</h1>
     </div>
     @foreach($badges as $badge)
         <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp">
             <div class="mdl-card__media">
-                <img src="{{ url('api/image/'.$badge->image) }}" alt="Zip File Image" class="article-image" border="0"/>
+                <img src="{{ url('api/image/'.$badge->image) }}" alt="Badge Image" class="article-image" border="0"/>
             </div>
             <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text">{{ $badge->name }}</h2>
@@ -16,12 +34,21 @@
                 {{ $badge->description }}
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-                   href="">
-                    Download
-                </a>
+                <div id="{{ $badge->id }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    share
+                </div>
             </div>
         </div>
+        <script>
+            document.getElementById('{{ $badge->id }}').onclick = function() {
+                FB.ui({
+                    method: 'share',
+                    display: 'popup',
+                    href: 'https://developers.facebook.com/docs/sharing/best-practices',
+                    // Todo change above link 
+                }, function(response){});
+            }
+        </script>
     @endforeach
     <div class="mdl-cell mdl-cell--12-col right">
         <a href="{{ url('badge/create') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">

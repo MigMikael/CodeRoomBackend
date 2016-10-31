@@ -30,12 +30,18 @@ class LessonController extends Controller
     {
         Log::info('#### this is LessonController');
         $input = Request::all();
-        Lesson::create($input);
-        $request = Request::create('badge', 'POST', $input);
+        $lesson = Lesson::create($input);
+
+        $request = Request::create('api/gen_lesson_badge', 'POST', $input);
         $res = app()->handle($request);
 
-        // Todo it not redriect to lesson/index why?
-        return redirect()->action('LessonController@index');
+        return $lesson;
+        /* Todo it still lost port when redirect
+        if($res->getContent() == 'gen finish'){
+            return redirect('lesson');
+        }else{
+            return 'fail';
+        }*/
     }
 
     public function getProblem($lesson_id)

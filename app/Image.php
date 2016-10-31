@@ -14,6 +14,7 @@ class Image extends Model
         'width',
         'background_color',
         'foreground_color',
-        'text'
+        'text',
+        'type',
     ];
 }
