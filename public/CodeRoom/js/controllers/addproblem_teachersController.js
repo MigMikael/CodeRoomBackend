@@ -1,38 +1,38 @@
 
-app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout', function($scope, $http, Upload, $timeout) {
+app.controller('addproblem_teachersController', ['$scope','$http','Upload','$timeout', function($scope, $http, Upload, $timeout) {
     $scope.clickShowrequirement = 0;
     $scope.isFormproblem = true;
     $scope.isRequirment = false;
     $scope.requirment = [];
     $scope.teacherRequirement;
     /*$scope.teacherRequirement =[{
-        "id": 1,
-        "prob_id": 1,
-        "class": "public;null;Runners",
-        "package": "default package",
-        "enclose": "null",
-        "attribute": "1;default;static;int;round|2;default;static;float;time|",
-        "method": "1;public;null;void;printTest;()|",
-        "created_at": "2016-10-14 16:02:51",
-        "updated_at": "2016-10-14 16:02:51",
-        "code": "",
-        "constructor": ""
-    },
-        {
-        "id": 2,
-        "prob_id": 1,
-        "class": "default;null;Runner",
-        "package": "default package",
-        "enclose": "Runners",
-        "attribute": "1;default;null;int;no|2;default;null;int;speed|3;default;null;float;wasteTime|4;default;null;float;totalTime|",
-        "method": "1;public;null;int;getNo;()|2;public;null;void;setNo;(int no, )|3;public;null;int;getSpeed;()|4;public;null;void;setSpeed;(int speed, )|5;public;null;float;getWasteTime;()|6;public;null;void;setWasteTime;(float wasteTime, )|7;public;null;float;getTotalTime;()|8;public;null;void;setTotalTime;(float totalTime, )|",
-        "created_at": "2016-10-14 16:02:51",
-        "updated_at": "2016-10-14 16:02:51",
-        "code": "",
-        "constructor": "1;public;Runner;(int no, int speed, float wasteTime, )|"
-    }
-    ];
-    */
+     "id": 1,
+     "prob_id": 1,
+     "class": "public;null;Runners",
+     "package": "default package",
+     "enclose": "null",
+     "attribute": "1;default;static;int;round|2;default;static;float;time|",
+     "method": "1;public;null;void;printTest;()|",
+     "created_at": "2016-10-14 16:02:51",
+     "updated_at": "2016-10-14 16:02:51",
+     "code": "",
+     "constructor": ""
+     },
+     {
+     "id": 2,
+     "prob_id": 1,
+     "class": "default;null;Runner",
+     "package": "default package",
+     "enclose": "Runners",
+     "attribute": "1;default;null;int;no|2;default;null;int;speed|3;default;null;float;wasteTime|4;default;null;float;totalTime|",
+     "method": "1;public;null;int;getNo;()|2;public;null;void;setNo;(int no, )|3;public;null;int;getSpeed;()|4;public;null;void;setSpeed;(int speed, )|5;public;null;float;getWasteTime;()|6;public;null;void;setWasteTime;(float wasteTime, )|7;public;null;float;getTotalTime;()|8;public;null;void;setTotalTime;(float totalTime, )|",
+     "created_at": "2016-10-14 16:02:51",
+     "updated_at": "2016-10-14 16:02:51",
+     "code": "",
+     "constructor": "1;public;Runner;(int no, int speed, float wasteTime, )|"
+     }
+     ];
+     */
 
     var setShow = function(){
         $scope.isFormproblem = !$scope.isFormproblem;
@@ -133,12 +133,12 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
     $scope.uploadFiles = function(file) {
         //setShow();
         //showRequirement();
-        
+
         file.upload = Upload.upload({
             url: '/problemfile/add',
             data: {filename: $scope.filename,package: $scope.package, lesson_id: $scope.lesson_id,filefield: file},
         });
-        
+
         file.upload.then(function (response) {
             $timeout(function () {
                 setShow();
@@ -157,18 +157,18 @@ app.controller('uploadTeacherController', ['$scope','$http','Upload','$timeout',
     };
 
     $scope.calcuratePoint = function(){
-    $scope.totolPoint =0;
+        $scope.totolPoint =0;
 
         for(var i in $scope.requirment){
             for(var j in $scope.requirment[i]){
                 //console.log($scope.requirment[i][j]);
                 if(j==="class"){
-                   if($scope.requirment[i][j][6]===""){
-                       $scope.totolPoint = $scope.totolPoint;
+                    if($scope.requirment[i][j][6]===""){
+                        $scope.totolPoint = $scope.totolPoint;
 
-                   }else{
-                       $scope.totolPoint += parseFloat($scope.requirment[i][j][6]);
-                   }
+                    }else{
+                        $scope.totolPoint += parseFloat($scope.requirment[i][j][6]);
+                    }
                 }
                 else if(j==="package"){
                     if($scope.requirment[i][j][6]===""){

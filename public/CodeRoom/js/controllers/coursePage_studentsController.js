@@ -3,6 +3,7 @@
  */
 app.controller('coursePage_studentsController',function($scope,coursePage_students,$stateParams,$rootScope,$localStorage) {
     $scope.course;
+    $localStorage.course_id_student = $stateParams.course_id;
     getCourse();
     $scope.isProfilecourse = true;
     $scope.isProfileyouself = false;
@@ -17,10 +18,11 @@ app.controller('coursePage_studentsController',function($scope,coursePage_studen
     };
 
 
+
     
     function getCourse() {
 
-        coursePage_students.getcoursePage_students($localStorage.student_id,$stateParams.course_id)
+        coursePage_students.getcoursePage_students($localStorage.student_id,$localStorage.course_id_student)
             .success(function (data) {
                 $scope.course = data;
                 console.log($scope.course);

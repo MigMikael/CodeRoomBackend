@@ -32,67 +32,8 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
 
     $scope.course_name = $stateParams.course_name;
 
-    $localStorage.lesson_id = $stateParams.lesson_id;
-
-
-
-
+    $localStorage.lesson_id_student = $stateParams.lesson_id;
     getLesson();
-
-    $scope.lesson1 = {
-        lesson_name: "คําสั่งเดี่ยว คําสั่งเงื่อนไข และชุดคําสั่ง",
-        problem: [
-            {
-                prob_id: 1,
-                name: "Runners",
-                timelimit: 1,
-                memorylimit: 32,
-                lesson_id: 15,
-                problemfile: "http://localhost:8000/problemfile/getQuestion/1",
-                problemAnalysis: [
-                    {
-                        class: "public;null;Runners",
-                        class_score: "5",
-                        package: "default package",
-                        package_score: "5",
-                        enclose: "null",
-                        enclose_score: "5",
-                        attribute: "1;default;static;int;round|2;default;static;float;time|",
-                        attribute_score: "1;5|2;5",
-                        constructor: "",
-                        constructor_score: "",
-                        method: "1;public;null;void;printTest;()|",
-                        method_score: "1;5",
-                        student_attribute_score: "0",
-                        student_method_score: "1;5|",
-                        student_constuctor_score : "",
-                        student_class_score: "5",
-                        student_package_score: "5",
-                        student_enclose_score: "5",
-                    },
-                    {
-                        class: "default;null;Runner",
-                        class_score: "5",
-                        package: "default package",
-                        package_score: "5",
-                        enclose: "Runners",
-                        enclose_score: "5",
-                        attribute: "1;default;null;int;no|2;default;null;int;speed|3;default;null;float;wasteTime|4;default;null;float;totalTime|",
-                        attribute_score: "1;5|2;5|3;5|4;5",
-                        constructor: "1;public;Runner;(int no, int speed, float wasteTime, )|",
-                        constructor_score: "1;5|",
-                        method: "1;public;null;int;getNo;()|2;public;null;void;setNo;(int no, )|3;public;null;int;getSpeed;()|4;public;null;void;setSpeed;(int speed, )|5;public;null;float;getWasteTime;()|6;public;null;void;setWasteTime;(float wasteTime, )|7;public;null;float;getTotalTime;()|8;public;null;void;setTotalTime;(float totalTime, )|",
-                        method_score: "1;5|2;5|3;5|4;5|5;5|6;5|7;5|8;5",
-                        student_attribute_score: "0",
-                        student_method_score: "0",
-                        student_constuctor_score : "1;5|",
-                        student_class_score: "5",
-                        student_package_score: "5",
-                        student_enclose_score: "5",
-                    }
-                ]
-            }
-        ]};
     //manageData()
 
 
@@ -100,7 +41,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
 
     function getLesson() {
 
-        lesson_students.getlesson_students($localStorage.lesson_id)
+        lesson_students.getlesson_students($localStorage.lesson_id_student)
             .success(function (data) {
                 $scope.lesson = data;
                 manageData();
