@@ -71,15 +71,14 @@ class CourseController extends Controller
     public function getDetailStudent($course_id, $student_id)
     {
         $course = Course::where('id', '=', $course_id)->first();
-        $courseInstructor = [];
-        $instructorsID = TeacherCourse::where('course_id', '=', $course_id)->pluck('teacher_id');
 
+        /*$courseInstructor = [];
+        $instructorsID = TeacherCourse::where('course_id', '=', $course_id)->pluck('teacher_id');
         foreach ($instructorsID as $instructorID){
             $teacher = Teacher::find($instructorID);
-            //Log::info('instructor id: '. $teacher->name);
             array_push($courseInstructor, $teacher->name);
         }
-        $course['instructor'] = $courseInstructor;
+        $course['instructor'] = $courseInstructor;*/
 
         $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();
         $lessonNum = Lesson::where([
@@ -157,5 +156,13 @@ class CourseController extends Controller
         $badges = $course->badges;
 
         return $badges;
+    }
+
+    public function getTeacher($course_id)
+    {
+        $course = Course::find($course_id);
+        $teachers = $course->teachers;
+
+        return $teachers;
     }
 }

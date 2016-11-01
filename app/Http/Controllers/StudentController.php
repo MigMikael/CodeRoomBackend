@@ -28,9 +28,19 @@ class StudentController extends Controller
 
     public function store()
     {
-        $input = Request::all();
-        Student::create($input);
-        return redirect('student');
+        $student = Request::all();
+        $student['image'] = self::getAvatarImage();
+        $student = Student::create($student);
+        return $student;
+    }
+
+    public function getAvatarImage()
+    {
+        $request = Request::create('api/image/gen_user_avatar_image', 'GET');
+        $res = app()->handle($request);
+        $image_id = $res->getContent();
+
+        return $image_id;
     }
 
     public function getBadge($student_id)
@@ -38,8 +48,10 @@ class StudentController extends Controller
         $student = Student::where('student_id', '=', $student_id)->first();
         Log::info('**** '. $student->name);
         $badges = $student->badges()->get();
-        foreach ($badges as $badge){
+        /*foreach ($badges as $badge){
             Log::info('**** '. $badge->name);
-        }
+        }*/
+
+        return $badges;
     }
 }

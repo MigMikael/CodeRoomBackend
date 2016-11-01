@@ -14,6 +14,7 @@
 </head>
 <body>
 
+    <img src="http://localhost:8000/api/image/1" alt="" />
     <script>
         window.fbAsyncInit = function() {
             FB.init({

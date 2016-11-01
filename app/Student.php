@@ -11,10 +11,12 @@ class Student extends Model
 
     protected $fillable = [
         'student_id',
-        'name'
+        'name',
+        'image',
     ];
 
-    public function badges(){
+    public function badges()
+    {
         return $this->belongsToMany('App\Badge', 'badge_student', 'student_id', 'badge_id');
     }
 }

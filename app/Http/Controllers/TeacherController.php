@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Teacher;
 use Request;
-
+use Log;
 use App\Http\Requests;
 
 class TeacherController extends Controller
@@ -27,8 +27,18 @@ class TeacherController extends Controller
 
     public function store()
     {
-        $input = Request::all();
-        Teacher::create($input);
-        return redirect('teacher');
+        $teacher = Request::all();
+        $teacher['image'] = self::getAvatarImage();
+        $teacher = Teacher::create($teacher);
+        return $teacher;
+    }
+
+    public function getAvatarImage()
+    {
+        $request = Request::create('api/image/gen_user_avatar_image', 'GET');
+        $res = app()->handle($request);
+        $image_id = $res->getContent();
+
+        return $image_id;
     }
 }

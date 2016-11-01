@@ -19,6 +19,7 @@ class CreateImageTable extends Migration
             $table->string('background_color');
             $table->string('foreground_color');
             $table->text('text');
+            $table->text('path');
             $table->timestamps();
         });
     }

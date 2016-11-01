@@ -17,6 +17,7 @@ class CreateStudentTable extends Migration
             $table->increments('id');
             $table->string('student_id');
             $table->string('name');
+            $table->integer('image')->unsigned();
             $table->timestamps();
         });
     }

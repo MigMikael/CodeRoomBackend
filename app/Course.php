@@ -18,4 +18,9 @@ class Course extends Model
     {
         return $this->hasMany('App\Badge');
     }
+
+    public function teachers()
+    {
+        return $this->belongsToMany('App\Teacher', 'teacher_course', 'course_id', 'teacher_id');
+    }
 }

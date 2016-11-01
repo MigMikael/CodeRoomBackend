@@ -11,6 +11,12 @@ class Teacher extends Model
 
     protected $fillable = [
         'name',
-        'status'
+        'status',
+        'image',
     ];
+
+    public function courses()
+    {
+        return $this->belongsToMany('App\Course', 'teacher_course', 'teacher_id', 'course_id');
+    }
 }

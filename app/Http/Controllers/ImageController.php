@@ -6,6 +6,7 @@ use App\Image;
 use Illuminate\Http\Request;
 use Log;
 use App\Http\Requests;
+use Identicon;
 
 class ImageController extends Controller
 {
@@ -64,6 +65,23 @@ class ImageController extends Controller
         return $image->id;
     }
 
+    public function genAvatarImage()
+    {
+        Log::info('#### Image Controller');
+        $imageNum = Image::all()->count();
+        $imageNum++;
+        Log::info('#### ImageNum : '.$imageNum);
+        $image = [
+            'height' => 500,
+            'width' => 500,
+            'path' => 'http://localhost:8000/api/image/'.$imageNum,
+            'type' => 'avatar_image'
+        ];
+
+        $image = Image::create($image);
+        return $image->id;
+    }
+
 
     public function getImage($id)
     {
@@ -73,6 +91,12 @@ class ImageController extends Controller
         }
         elseif ($image->type == 'normal_badge'){
             self::drawNormalBadge($image);
+        }
+        elseif ($image->type == 'avatar_image'){
+            header('Content-type: image/png');
+            $identicon = new Identicon\Identicon();
+            $imageData = $identicon->getImageData($image->id, $image->height);
+            return $imageData;
         }
     }
 

@@ -45,7 +45,7 @@
                     method: 'share',
                     display: 'popup',
                     href: 'https://developers.facebook.com/docs/sharing/best-practices',
-                    // Todo change above link 
+                    // Todo change above link
                 }, function(response){});
             }
         </script>

@@ -66,10 +66,14 @@ Route::post('api/gen_lesson_badge', 'BadgeController@genLessonBadge');
 // api for generate image
 Route::get('api/image/gen_lesson_badge_image/{course_name}/{lesson_name}/{color}', 'ImageController@genLessonBadgeImage');
 Route::get('api/image/gen_normal_badge_image/{course_name}/{criteria}/{color}', 'ImageController@genNormalBadgeImage');
+Route::get('api/image/gen_user_avatar_image', 'ImageController@genAvatarImage');
 Route::get('api/image/{id}', 'ImageController@getImage');
 
 
+Route::get('api/course/teacher/{course_id}', 'CourseController@getTeacher');
+
 //api for test
-Route::get('test', function (){
+/*Route::get('test', function (){
     return view('test');
-});
+});*/
+Route::get('test', 'TestController@index');

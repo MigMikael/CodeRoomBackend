@@ -13,43 +13,43 @@ class TeacherCourseTableSeeder extends Seeder
     public function run()
     {
         DB::table('teacher_course')->insert([
-            'teacher_id' => '1',
-            'course_id' => '1',
+            'teacher_id' => 1,
+            'course_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('teacher_course')->insert([
-            'teacher_id' => '1',
-            'course_id' => '2',
+            'teacher_id' => 1,
+            'course_id' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('teacher_course')->insert([
-            'teacher_id' => '2',
-            'course_id' => '1',
+            'teacher_id' => 2,
+            'course_id' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('teacher_course')->insert([
-            'teacher_id' => '3',
-            'course_id' => '2',
+            'teacher_id' => 3,
+            'course_id' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('teacher_course')->insert([
-            'teacher_id' => '4',
-            'course_id' => '3',
+            'teacher_id' => 4,
+            'course_id' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
 
         DB::table('teacher_course')->insert([
-            'teacher_id' => '5',
-            'course_id' => '4',
+            'teacher_id' => 5,
+            'course_id' => 4,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

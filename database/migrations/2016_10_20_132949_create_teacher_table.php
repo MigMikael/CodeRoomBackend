@@ -16,6 +16,7 @@ class CreateTeacherTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('status');
+            $table->integer('image')->unsigned();
             $table->timestamps();
         });
     }

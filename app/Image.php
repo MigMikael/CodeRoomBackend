@@ -16,5 +16,6 @@ class Image extends Model
         'foreground_color',
         'text',
         'type',
+        'path',
     ];
 }
