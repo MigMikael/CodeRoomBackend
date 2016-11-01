@@ -8,7 +8,7 @@ app.controller('list_teachercourseController',function($scope,list_teachersCours
 
     function getTeachersCourse() {
 
-        list_teachers.getList_teacherCourse($localStorage.course_id)
+        list_teachers.getList_teacherCourse($localStorage.course_id_teacher)
             .success(function (data) {
                 $scope.teachers= data;
                 console.log($scope.teachers);

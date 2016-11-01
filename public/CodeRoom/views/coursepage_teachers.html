@@ -73,7 +73,7 @@
             <h3>Lesson</h3>
             <div class="row" style="margin: 0" ng-repeat="lesson in course_teachers.lessons">
                 <span ng-show="lesson.status=='true'">
-                    <a ui-sref="uploadproblme_teachers({course_name: course_teachers.name,lesson_id : lesson.id})">
+                    <a ui-sref="list_problems_teacher({lesson_id : lesson.id})">
                         <div class="col-md-12" style="padding: 0" >
 
                             <div class="chapter">

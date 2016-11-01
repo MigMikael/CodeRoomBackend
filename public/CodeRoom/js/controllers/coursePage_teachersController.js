@@ -1,7 +1,7 @@
 
 app.controller('coursePage_teachersController',function($scope,coursePage_teachers,$stateParams,$rootScope,$localStorage) {
     $scope.course_teachers;
-
+    $localStorage.course_id_teacher = $stateParams.course_id;
     getCourse();
     $scope.isProfilecourse = true;
     $scope.isProfileyouself = false;
@@ -14,7 +14,7 @@ app.controller('coursePage_teachersController',function($scope,coursePage_teache
             $scope.isProfileyouself = true;
         }
     };
-    $localStorage.course_id = $stateParams.course_id;
+
 
 
 
@@ -22,7 +22,7 @@ app.controller('coursePage_teachersController',function($scope,coursePage_teache
 
     function getCourse() {
 
-        coursePage_teachers.getCoursePage_teachers($localStorage.teacher_id,$localStorage.course_id)
+        coursePage_teachers.getCoursePage_teachers($localStorage.teacher_id,$localStorage.course_id_teacher)
             .success(function (data) {
                 $scope.course_teachers = data;
                 console.log($scope.course_teachers);

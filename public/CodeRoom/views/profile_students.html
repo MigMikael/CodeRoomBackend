@@ -16,24 +16,31 @@
 
 </nav>
 
-<div class="header-profile">
-    <div class="container">
-        <img src="image/Thanadej.jpg" >
-        <h2 style="text-align: center;margin: 0">Thanadej Phadtong</h2>
+<div class="header-profile-chapter">
+    <div class="container-main">
+        <img src="image/iconpeople.png" style="border-radius: 4px">
+        <h2 style="text-align: center;margin: 0">{{Name}}</h2>
     </div>
 </div>
 <div class="main-profile-chapter">
     <div class="container">
-        <div class="row marginheader container-main" style="margin-bottom: 30px;margin: 30px auto;">
-                <div class="col-md-6 block-profile" style="border-right: none">
-                    <h2>3</h2>
-                    <small>Skills Completed</small>
+        <div class="row container-main" style="margin: 30px auto">
+            <a href="#">
+                <div class="block-coursepage col-md-4 " style="border-right: none">
+                    <h3>
+                        <i class="fa  fa-users fa-lg" aria-hidden="true" style="margin-right: 10px"/> Teachers
+                    </h3>
                 </div>
-            <div class="col-md-6 block-profile" style="border-left: none">
-                <h2>5</h2>
-                <small>Skills Woking</small>
+            </a>
+            <div class="col-md-4 block-coursepage" style="border: none">
+                <h3>{{course.lesson_num}} Lessons</h3>
+            </div>
+            <div class="col-md-4 block-coursepage" style="border-left: none">
+                <h3>{{course.quiz_num}} Quiz</h3>
             </div>
         </div>
     </div>
 </div>
+
+
 

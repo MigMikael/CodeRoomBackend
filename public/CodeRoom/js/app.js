@@ -37,11 +37,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'profileController',
             templateUrl: 'views/profile_students.html'
         })
-        .state('uploadproblem', {
-            url: '/uploadproblem',
-            controller: 'uploadTeacherController',
-            templateUrl: 'views/uploadteacher.html'
-        })
+
         //teacher
         .state('dashboard_teachers', {
             url: '/dashboard_teachers',
@@ -73,11 +69,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/list_teacherscourse.html'
         })
 
-        .state('uploadproblme_teachers', {
-            url: '/problem/:course_name/:lesson_id',
-            controller: 'uploadproblem_teachersController',
-            templateUrl: 'views/uploadproblem_teachers.html'
-        });
+        .state('list_problems_teacher', {
+            url: '/list_problems_teacher/:lesson_id',
+            controller: 'list_problems_teachercourseController',
+            templateUrl: 'views/list_problems_teachers.html'
+        })
+
+        .state('addproblem_teachers', {
+            url: '/addproblem_teachers',
+            controller: 'addproblem_teachersController',
+            templateUrl: 'views/addproblem_teachers.html'
+        })
+    ;
 
 });
 
