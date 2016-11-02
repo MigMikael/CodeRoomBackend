@@ -15,11 +15,11 @@
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                {!! Form::label('instructor', 'Instructor :', ['class' => 'mdl-textfield__label']) !!}
-                {!! Form::text('instructor', null, ['class' => 'mdl-textfield__input']) !!}
+                {!! Form::label('color', 'Color :', ['class' => 'mdl-textfield__label']) !!}
+                {!! Form::text('color', null, ['class' => 'mdl-textfield__input', 'placeholder' => '240:225:200']) !!}
             </div>
 
-            {!! Form::file('photo') !!}
+            Coures Photo: {!! Form::file('photo') !!}
 
             <br>
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToTeacherCourse extends Migration
+class AddForeignToStudentCourse extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class AddForeignToTeacherCourse extends Migration
      */
     public function up()
     {
-        Schema::table('teacher_course', function (Blueprint $table){
-            $table->foreign('teacher_id')->references('id')->on('teacher');
+        Schema::table('student_course', function (Blueprint $table){
+            $table->foreign('student_id')->references('id')->on('student');
             $table->foreign('course_id')->references('id')->on('course');
         });
     }
@@ -25,9 +25,9 @@ class AddForeignToTeacherCourse extends Migration
      */
     public function down()
     {
-        Schema::table('teacher_course', function (Blueprint $table){
-            $table->dropForeign('teacher_course_teacher_id_foreign');
-            $table->dropForeign('teacher_course_course_id_foreign');
+        Schema::table('student_course', function (Blueprint $table){
+            $table->dropForeign('student_course_student_id_foreign');
+            $table->dropForeign('student_course_course_id_foreign');
         });
     }
 }

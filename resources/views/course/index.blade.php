@@ -16,9 +16,9 @@
                 ID: {{ $course->id }}
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <div class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <a href="{{ url('course/'.$course->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     view
-                </div>
+                </a>
             </div>
         </div>
     @endforeach

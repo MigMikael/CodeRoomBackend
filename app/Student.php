@@ -19,4 +19,9 @@ class Student extends Model
     {
         return $this->belongsToMany('App\Badge', 'badge_student', 'student_id', 'badge_id');
     }
+
+    public function courses()
+    {
+        return $this->belongsToMany('App\Course', 'student_course', 'student_id', 'course_id');
+    }
 }

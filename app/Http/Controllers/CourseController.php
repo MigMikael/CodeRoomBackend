@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel;
 use App\Announcement;
 use App\Course;
 use App\Lesson;
@@ -37,7 +38,6 @@ class CourseController extends Controller
     public function store()
     {
         $input_name = Request::get('name');
-        $input_instructor = Request::get('instructor');
         $file = Request::file('photo');
 
         Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
@@ -47,10 +47,35 @@ class CourseController extends Controller
 
         $course_data = [];
         $course_data['name'] = $input_name;
-        $course_data['instructor'] = $input_instructor;
         $course_data['image'] = $image_path;
         Course::create($course_data);
         return redirect('course');
+    }
+
+    public function show($id)
+    {
+        $course = Course::find($id);
+        $course->students;
+        return view('course.show')->with('course', $course);
+        //return $course;
+    }
+
+    public function addStudentMember()
+    {
+        return view('course.member');
+    }
+
+    public function storeStudentMember()
+    {
+        $course_id = Request::get('course_id');
+        $studentListFile = Request::get('studentList');
+        $fileName = $studentListFile->getClientOriginalName();
+        Storage::disk('public')->put($fileName, File::get($studentListFile));
+
+        /*$file = Storage::disk('public')->get($fileName);
+        $data = Excel::load*/
+
+        Log::info('#### Store File Complete');
     }
 
     public function getCourseImage($name)
@@ -158,7 +183,15 @@ class CourseController extends Controller
         return $badges;
     }
 
-    public function getTeacher($course_id)
+    public function getStudentMember($course_id)
+    {
+        $course = Course::find($course_id);
+        $studentMember = $course->students;
+
+        return $studentMember;
+    }
+
+    public function getTeacherMember($course_id)
     {
         $course = Course::find($course_id);
         $teachers = $course->teachers;

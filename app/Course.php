@@ -11,7 +11,8 @@ class Course extends Model
 
     protected $fillable = [
         'name',
-        'instructor'
+        'image',
+        'color',
     ];
 
     public function badges()
@@ -22,5 +23,10 @@ class Course extends Model
     public function teachers()
     {
         return $this->belongsToMany('App\Teacher', 'teacher_course', 'course_id', 'teacher_id');
+    }
+
+    public function students()
+    {
+        return $this->belongsToMany('App\Student', 'student_course', 'course_id', 'student_id');
     }
 }
