@@ -8,7 +8,7 @@ app.controller('dashboard_studentsController', function($scope, $http,$rootScope
     setUser();
 
     function setUser(){
-        $localStorage.student_id = '07560550';
+        $localStorage.student_id = '07570497';
     }
 
     function getStudentCourse() {

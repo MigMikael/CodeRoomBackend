@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
+    <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="fix bug in Student Course view">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
@@ -53,21 +52,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashBoard_studentsController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashBoard_studentsController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+            <state relative-caret-position="72">
+              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CourseController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CourseController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
+            <state relative-caret-position="1404">
+              <caret line="85" column="57" selection-start-line="85" selection-start-column="57" selection-end-line="85" selection-end-column="57" />
               <folding>
                 <element signature="e#40#61#0#PHP" expanded="true" />
               </folding>
@@ -167,8 +166,8 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StudentCourseController.php" />
-        <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
+        <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js" />
       </list>
     </option>
   </component>
@@ -742,15 +741,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/composer.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/css/main.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/js/app.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/js/controllers/addStudents_teachersController.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/js/controllers/profile_studetnsController.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/views/profile_students.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/views/coursepage_teachers.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/views/listStudent_student.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/views/listStudent_teachers.html</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -758,7 +751,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/CodeRoom/js/services/profile_students.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -1083,14 +1075,7 @@
       <workItem from="1478069066847" duration="5735000" />
       <workItem from="1478080476923" duration="12837000" />
       <workItem from="1478152801450" duration="4711000" />
-      <workItem from="1478160135787" duration="14066000" />
-    </task>
-    <task id="LOCAL-00022" summary="extract zip file upload &amp; store in appropriate folder">
-      <created>1470167581843</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1470167581843</updated>
+      <workItem from="1478160135787" duration="14468000" />
     </task>
     <task id="LOCAL-00023" summary="change first view">
       <created>1470324927606</created>
@@ -1428,11 +1413,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478178058679</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="fix bug in Student Course view">
+      <created>1478179889518</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1478179889518</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="715229000" />
+    <option name="totallyTimeSpent" value="715631000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1506,7 +1498,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="add web submission part and rewrite some Controller" />
     <MESSAGE value="add web submission part and Calculate Student Structure Score" />
     <MESSAGE value="update view upload, uploadcontroller" />
     <MESSAGE value="add getiamgeproblem" />
@@ -1531,7 +1522,8 @@
     <MESSAGE value="add and delete student course from Web Submission" />
     <MESSAGE value="add student profile api" />
     <MESSAGE value="add status to student course" />
-    <option name="LAST_COMMIT_MESSAGE" value="add status to student course" />
+    <MESSAGE value="fix bug in Student Course view" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug in Student Course view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2038,14 +2030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -2056,11 +2040,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
+        <state relative-caret-position="1404">
+          <caret line="85" column="57" selection-start-line="85" selection-start-column="57" selection-end-line="85" selection-end-column="57" />
           <folding>
             <element signature="e#40#61#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
