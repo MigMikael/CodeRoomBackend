@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid container-main">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#">
+                <img style="" alt="Brand" src="image/coderoom.png">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">SIGN UP</a></li>
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+
+</nav>
+
+
+<div style="margin-bottom: 20px">
+    <div class="container-main">
+        <div class="row ">
+            <h3 style="text-align: center">Studens</h3>
+            <div class="col-md-12 marginheader" ng-repeat="student in students" >
+
+                <div class="card-students-list">
+                    <div class="img-card-students-list">
+                        <img src="image/iconpeople.png">
+                    </div>
+                    <div class="description-card-students-list">
+                        <p>{{student.student_id}}</p>
+                        <p>{{student.name}}</p>
+                    </div>
+                    <div class="add-delete-card-students-list">
+                        <span ng-click="deleteStudent(student.student_id)" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="row">
+            <a ui-sref="addstudents_teachers()">
+                <div class="col-md-12">
+                    <div class="card-alladd-teachers">
+                        <div class="btn-plus-teachers"> + </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+
+</div>

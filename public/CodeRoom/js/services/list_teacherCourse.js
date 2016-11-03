@@ -1,6 +1,6 @@
 
 app.factory('list_teachersCourse', function($http) {
-    var urlBase = "api/";//ยังไม่ได้ทำ
+    var urlBase = "api/course/teacher_member/";
     var list_teacherCourse = {};
 
     list_teacherCourse.getList_teacherCourse= function (course_id) {

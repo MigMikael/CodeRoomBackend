@@ -106,6 +106,14 @@ nav p {
   text-align: center;
 
 }
+.card-alladd-teachers:hover{
+  background-color: #00897B;
+  color: white;
+}
+.card-alladd-teachers:hover .btn-plus-teachers{
+  background-color: #fff;
+  color: #00897B;
+}
 
 .btn-login {
 
@@ -517,21 +525,33 @@ span .icon-search {
 /*css Upload*/
 .page-uploadstudents {
     height: 100vh;
-    width:  100vw;
-    background-color: #204056;
-    overflow-y: hidden;
-    overflow-x: hidden;
-  border-left: 5px solid white;
-  border-right: 5px solid white
+    width: 100vw;
+
+  background-color: #204056;
+
+  position: relative;
+
 }
 
 #main {
     transition: margin-left .5s;
 
 }
+
+.hover-slide-nav{
+  width: 100vw;
+  height: 93vh;
+  background-color: rgba(0,0,0,0.1);
+  position: absolute;
+  top:7vh;
+  left: 0;
+  color: white;
+}
+
 .slide-nav{
     width: 0;
     height: 100%;
+    min-height: 100%;
     position: fixed;
     display: block;
     z-index: 10;
@@ -609,59 +629,56 @@ span .icon-search {
 
 }
 .container-upload{
-    padding: 0 20px;
+    padding: 10px 20px 0px 20px;
+
 }
 .nav-upload{
+    display: block;
     background-color: #ffffff;
     z-index: 4;
-    height: 50px;
+    height: 7%;
     width: 100%;
+
 }
 .nav-upload .container-upload .hbg-upload{
-    width: 10%;
-    display: inline;
+  text-align: center!important;
 }
-.nav-upload .container-upload .hbg-upload a{
-    line-height: 50px;
+.nav-upload .container-upload .hbg-upload div a{
+
     text-decoration: none;
     cursor: pointer;
     background-color: #ffffff;
-    padding: 10px 0px;
     text-transform: uppercase;
     color: #204056;
+}
+.nav-upload .container-upload .hbg-upload a{
+
+
+  cursor: pointer;
+  background-color: #ffffff;
+  text-transform: uppercase;
+  color: #204056;
 }
 .nav-upload .container-upload .hbg-upload a span{
   margin-right: 7px;
 }
-.nav-upload .container-upload .hbg-upload a.btn-hbg-uoload{
-    padding: 10px 10px;
+.nav-upload .container-upload .hbg-upload a.btn-hbg-upload{
+  padding: 8px 10px 5px 10px;
+
+  border: 2px solid #204056;
+
+}
+.nav-upload .container-upload .hbg-upload a.btn-hbg-upload:hover{
+
     background-color: #204056;
-    color: #FFFFFF;
-    opacity: 0.9;
+    color: white;
 }
-.nav-upload .container-upload .hbg-upload a.btn-hbg-uoload:hover{
-    opacity: 1;
 
-}
-.nav-upload .container-upload .back-course{
-    width: 77%;
-    display: inline;
-    position: absolute;
-}
-.nav-upload .container-upload .back-course a{
-    display: block;
-    text-align: center;
-    line-height: 50px;
-    color: #204056;
-    cursor: pointer;
-    text-transform: uppercase;
-
-}
 
 
 .nav-upload .container-upload .btn-uploadfile{
     width: 35%;
-    max-height: 50px;
+
     margin: 0;
     padding: 0;
     float: left;
@@ -669,13 +686,13 @@ span .icon-search {
 .nav-upload .container-upload .btn-uploadfile  button{
   text-decoration: none;
   cursor: pointer;
-
+  padding: 5px;
   border: none;
   outline: none;
-  padding: 7px 10px;
+  margin: 0;
   text-transform: uppercase;
-  display: inline;
-  margin-right: 15px;
+  display: inline-block;
+  margin-right: 10px;
 }
 .nav-upload .container-upload .btn-uploadfile button.select-files{
   background-color: red;
@@ -697,7 +714,7 @@ span .icon-search {
     margin-right: 15px;
 }
 .nav-upload .container-upload .alert-upload{
-    width: 45%;
+    width: 44.8%;
     height: 100%;
     float: left;
     margin: 0;
@@ -720,6 +737,7 @@ span .icon-search {
 }
 .nav-upload .container-upload .ace-upload .alert button{
     outline: none;
+
 }
 .nav-upload .container-upload .progress-btn-next{
   width: 20%;
@@ -731,23 +749,27 @@ span .icon-search {
 .nav-upload .container-upload .progress-btn-next  a{
   text-decoration: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 8px 5px;
   display: inline;
   text-transform: uppercase;
-  line-height: 50px;
+
 
 }
 .nav-upload .container-upload .progress-btn-next  a.next-upload{
   background-color: #204056;
   color: #FFFFFF;
 
+
 }
 
 .main-uploadstudents{
     width: 100%;
-    height: 83.9%;
+    height: 85%;
     margin: 0;
     display: block;
+
+
+
 
 }
 
@@ -803,45 +825,103 @@ span .icon-search {
     width: 100%;
     height: 100%;
     border: 0;
+}
 
 
+.main-showBage{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.1);
+  position: absolute;
+  top:0;
+  left: 0;
+  color: white;
+}
+.main-showBage .inside-showBage{
+  width: 35%;
+  height: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: auto;
+  display: block;
+  position: relative;
+  top:10%;
+  background-color: white;
+  z-index: 999999;
+}
+.main-showBage .inside-showBage .badges-students-upload{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+
+  }
+.main-showBage .inside-showBage .badges-students-upload img{
+  width: 100%;
+  height: 250px;
+  display: block;
+}
+
+.main-showBage .inside-showBage .badges-students-upload .name-badge-upload{
+
+  text-align: center;
+  padding: 10px 0;
+  overflow: hidden;
+
+  width: 100%;
+}
+.main-showBage .inside-showBage .badges-students-upload .name-badge-upload p{
+
+  display: inline;
+  color: #204056;
 
 }
 
 /*css Upload*/
 /*css Profile*/
 
-.header-profile{
+.main-show-badges-profile{
+  margin-top: 50px;
   width: 100%;
-  height: 325px;
-  border: 0;
-}
-.header-profile img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 4px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 275px;
-  height: 225px;
-}
-.block-profile{
-  color: #204056;
-  background: #ffffff;
-  height: 100%;
-  text-align: center;
-  border-left: 1px solid rgba(0,0,0,0.2);
-  border-right: 1px solid rgba(0,0,0,0.2);
-  padding: 10px 0;
 
 }
-.block-profile:hover{
-  color: #ffffff;
-  background-color: #00897B;
-  border: none;
+
+.main-show-badges-profile .badges-students-profile{
+  width: 100%;
+  height: 350px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: block;
+
+
 }
+.main-show-badges-profile .badges-students-profile img{
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 0;
+  margin-top: 0;
+  box-shadow: none;
+  display: block;
+}
+
+.main-show-badges-profile .badges-students-profile .name-badge{
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.main-show-badges-profile .badges-students-profile .name-badge h4 {
+  display: inline;
+
+}
+.main-show-badges-profile .badges-students-profile .name-badge p {
+  font-size: 15px;
+  font-weight: 100;
+
+
+}
+
 
 /*css uploadProblem*/
 
@@ -859,3 +939,55 @@ span .icon-search {
 }
 
 /*END CSS uploadProblem*/
+/*css listStudent_teachers*/
+.card-students-list{
+  display: block;
+  height: 120px;
+  border: 0px;
+  margin-bottom: 15px;
+
+  background-color: #ffffff;
+  vertical-align: middle;
+  overflow: hidden;
+  padding: 10px 20px;
+  color: #204056;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-students-list .img-card-students-list{
+  float: left;
+  width: 100px;
+  height: 100px;
+  border: 0;
+  line-height: 100px;
+  padding: 0;
+  display: inline-block;
+  margin-right: 20px;
+}
+.card-students-list .img-card-students-list img{
+  width: 100%;
+  height: 100%;
+}
+.card-students-list .description-card-students-list{
+  width: 70%;
+  height: 120px;
+  display: inline-block;
+  margin-right: 20px;
+}
+.card-students-list .description-card-students-list p{
+  margin-right: 20px;
+  display: inline;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 100px;
+}
+.card-students-list .add-delete-card-students-list{
+  width: 3%;
+  float: right;
+  display: inline-block;
+}
+.card-students-list .add-delete-card-students-list span{
+  font-size: 25px;
+  line-height: 95px;
+}
+
+/*END css listStudent_teachers*/

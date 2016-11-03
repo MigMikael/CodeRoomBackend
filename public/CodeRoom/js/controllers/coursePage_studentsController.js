@@ -4,6 +4,7 @@
 app.controller('coursePage_studentsController',function($scope,coursePage_students,$stateParams,$rootScope,$localStorage) {
     $scope.course;
     $localStorage.course_id_student = $stateParams.course_id;
+    $scope.course_name = $stateParams.course_name;
     getCourse();
     $scope.isProfilecourse = true;
     $scope.isProfileyouself = false;

@@ -38,6 +38,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/profile_students.html'
         })
 
+        .state('liststudent_students', {
+            url: '/liststudent_students',
+            controller: 'liststudent_teachersController',
+            templateUrl: 'views/listStudent_student.html'
+        })
+
         //teacher
         .state('dashboard_teachers', {
             url: '/dashboard_teachers',
@@ -64,7 +70,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state('list_teacherscourse', {
-            url: '/list_teachers',
+            url: '/list_teachers/:course_id',
             controller: 'list_teachercourseController',
             templateUrl: 'views/list_teacherscourse.html'
         })
@@ -79,6 +85,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/addproblem_teachers',
             controller: 'addproblem_teachersController',
             templateUrl: 'views/addproblem_teachers.html'
+        })
+
+        .state('addstudents_teachers', {
+            url: '/addstudents_teachers',
+            controller: 'addstudents_teachersController',
+            templateUrl: 'views/addStudents_teachers.html'
+        })
+        .state('liststudent_teachers', {
+            url: '/liststudent_teachers',
+            controller: 'liststudent_teachersController',
+            templateUrl: 'views/listStudent_teachers.html'
         })
     ;
 

@@ -2,6 +2,7 @@
 app.controller('coursePage_teachersController',function($scope,coursePage_teachers,$stateParams,$rootScope,$localStorage) {
     $scope.course_teachers;
     $localStorage.course_id_teacher = $stateParams.course_id;
+
     getCourse();
     $scope.isProfilecourse = true;
     $scope.isProfileyouself = false;

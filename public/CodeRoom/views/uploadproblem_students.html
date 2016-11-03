@@ -1,13 +1,13 @@
 
-<div id="main" class="page-uploadstudents" >
+<div id="main" class="page-uploadstudents"  >
 
-    <div id="mySidenav" class="slide-nav">
+        <div id="mySidenav" class="slide-nav">
 
-        <div class="header-slide-nav">
-            <div class="lesson-name">{{lesson.lesson_name}}</div>
+            <div class="header-slide-nav">
+                <div class="lesson-name">{{lesson.lesson_name}}</div>
 
-        </div>
-        <div class="main-slide-nav">
+            </div>
+            <div class="main-slide-nav">
             <span ng-repeat="problem in problems">
                 <a ng-click="setProblemView(problem.prob_id)">{{problem.prob_name}}
                     <div class="popover-detail">
@@ -82,19 +82,27 @@
             </span>
 
 
+            </div>
+
         </div>
 
-    </div>
+
 
 
     <nav class="nav-upload">
         <div class="container-upload">
             <div class="hbg-upload">
-                <a class="btn-hbg-uoload" ng-click="openNavView()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  {{probInpage.order}}.{{probInpage.name}}</a>
+                <div style="float: left;">
+                    <a  class="btn-hbg-upload" ng-click="openNavView()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  {{probInpage.order}}.{{probInpage.name}}</a>
+
+                </div>
+                <div style="height: 100%;">
+                    <a> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>{{ course_name }}</a>
+                </div>
+
+
             </div>
-            <div class="back-course">
-                <a> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>{{ course_name }}</a>
-            </div>
+
 
         </div>
     </nav>
@@ -111,8 +119,8 @@
         </div>
     </div>
 
-    <nav class="nav-upload">
-        <div class="container-upload">
+    <nav class="nav-upload" >
+        <div class="container-upload" style="padding-top: 0">
             <!--DON'T TEST(ยังไม่ได้ลอง)-->
             <div class="alert-upload">
                 <p ng-class="{'massage-fail': alert.status == 'null'|| alert.status == 'false','massage-success': alert.status == 'complete'}" class="massage-fail">{{alert.massage}}</p>
@@ -132,7 +140,10 @@
                     </div>
 
                 </div>
-                <a class="next-upload">Next</a>
+                <div style="float: right;padding-top: 10px">
+                    <a class="next-upload">Next</a>
+                </div>
+
             </div>
         </div>
 
@@ -142,4 +153,19 @@
     </nav>
 
 
+<!--
+    <div class="main-showBage">
+        <div class="inside-showBage">
+
+            <div class="badges-students-upload">
+                <img src="image/iconpeople.png">
+
+                <div class="name-badge-upload">
+                    <p>helldfdssadfkasdfl;kasdf;lksad;flkasd;flfksl;asdfasdfsadffsadfsadfo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
 </div>
+

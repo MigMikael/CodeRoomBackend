@@ -34,7 +34,7 @@
 <div class="main-profile-chapter" ng-show="isProfilecourse">
     <div class="container">
         <div class="row container-main" style="margin: 30px auto">
-            <a href="#">
+            <a ui-sref="list_teacherscourse({course_id : course_teachers.id})">
                 <div class="block-coursepage col-md-4 " style="border-right: none">
                     <h3>
                         <i class="fa  fa-users fa-lg" aria-hidden="true" style="margin-right: 10px"/> Teachers
@@ -53,7 +53,7 @@
 <div class="main-profile-chapter" ng-show="isProfileyouself">
     <div class="container">
         <div class="row container-main" style="margin: 30px auto">
-            <a href="#">
+            <a ui-sref="liststudent_students()">
                 <div class="col-md-4 block-coursepage" style="border-right: none">
                     <h3>Friend in Class</h3>
                 </div>
@@ -94,7 +94,7 @@
             <div class="row" style="margin: 0" ng-repeat="lesson in course.lessons">
 
                 <span ng-show="lesson.status=='false'">
-                    <a ui-sref="uploadproblme_students({lesson_id : lesson.id})">
+                    <a ui-sref="uploadproblme_students({course_name: course.name,lesson_id : lesson.id})">
                         <div class="col-md-12" style="padding: 0" >
 
                             <div class="chapter">

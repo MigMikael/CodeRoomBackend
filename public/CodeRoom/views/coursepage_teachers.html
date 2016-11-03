@@ -19,6 +19,7 @@
     <div class="container-main">
         <img ngf-src="course_teachers.image" >
         <h2 style="text-align: center;margin: 0">{{course_teachers.name}}</h2>
+
     </div>
 
 
@@ -34,7 +35,7 @@
 <div class="main-profile-chapter" ng-show="isProfilecourse">
     <div class="container">
         <div class="row container-main" style="margin: 30px auto">
-            <a ui-sref="list_teacherscourse()">
+            <a ui-sref="list_teacherscourse({course_id : course_teachers.id})">
                 <div class="block-coursepage col-md-4 " style="border-right: none">
                     <h3>
                         <i class="fa  fa-users fa-lg" aria-hidden="true" style="margin-right: 10px"></i> Teachers
@@ -53,7 +54,7 @@
 <div class="main-profile-chapter" ng-show="isProfileyouself">
     <div class="container">
         <div class="row container-main" style="margin: 30px auto">
-            <a href="#">
+            <a ui-sref="liststudent_teachers()">
                 <div class="col-md-4 block-coursepage" style="border-right: none">
                     <h3>Friend in Class</h3>
                 </div>

@@ -1,7 +1,7 @@
 
 
 app.factory('list_problems_teacher', function($http) {
-    var urlBase = "api/";//ยังไม่ได้ทำ
+    var urlBase = "api/lesson/problem/";
     var list_problems_teacher = {};
 
     list_problems_teacher.getList_problems_teacher= function (lesson_id) {
