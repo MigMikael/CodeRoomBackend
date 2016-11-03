@@ -1,5 +1,5 @@
 
-app.controller('addstudents_teachersController',function($scope, $http, Upload, $timeout,$stateParams,$rootScope,$localStorage) {
+app.controller('addstudents_teachersController',function($scope, $http, Upload, $timeout,$stateParams,$rootScope,$localStorage,$state) {
 
 
     $scope.isAddStudent = true;
@@ -27,8 +27,9 @@ app.controller('addstudents_teachersController',function($scope, $http, Upload, 
             $timeout(function () {
 
                 file.result = response.data;
-                // Todo back to เพจก่อนหน้า
-                location.reload();
+                
+                $state.go("liststudent_teachers");
+
                 //console.log($scope.teacherRequirement);
 
             });
