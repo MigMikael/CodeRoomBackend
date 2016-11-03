@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Announcement;
 use App\Course;
 use App\Lesson;
+use App\Student;
 use App\StudentCourse;
 use App\StudentLesson;
 use App\Teacher;
@@ -82,6 +83,7 @@ class CourseController extends Controller
 
     public function getDetailStudent($course_id, $student_id)
     {
+        $student = Student::where('student_id', '=', $student_id)->first();
         $course = Course::where('id', '=', $course_id)->first();
 
         /*$courseInstructor = [];
@@ -104,7 +106,7 @@ class CourseController extends Controller
         $announcements = Announcement::where('course_id', '=', $course_id)->get();
 
         $student_course = StudentCourse::where([
-            ['student_id', '=', $student_id],
+            ['student_id', '=', $student->id],
             ['course_id', '=', $course_id]
         ])->first();
         $student_course_id = $student_course->id;
