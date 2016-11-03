@@ -173,7 +173,7 @@ class CourseController extends Controller
     public function getStudentMember($course_id)
     {
         $course = Course::find($course_id);
-        $studentMember = $course->students;
+        $studentMember = $course->students()->where('status', 'active')->get();
 
         return $studentMember;
     }

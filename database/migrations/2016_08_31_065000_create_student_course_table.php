@@ -17,6 +17,7 @@ class CreateStudentCourseTable extends Migration
             $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->integer('course_id')->unsigned();
+            $table->string('status');
             $table->float('progress');
             $table->timestamps();
         });

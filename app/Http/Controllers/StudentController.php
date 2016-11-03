@@ -117,4 +117,14 @@ class StudentController extends Controller
 
         return $badges;
     }
+
+    public function getStudentProfile($student_id)
+    {
+        $student = Student::withCount('courses')
+            ->withCount('badges')
+            ->where('student_id', '=', $student_id)
+            ->first();
+        $student->badges;
+        return $student;
+    }
 }

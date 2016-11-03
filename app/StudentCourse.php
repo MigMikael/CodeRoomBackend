@@ -12,6 +12,7 @@ class StudentCourse extends Model
     protected $fillable = [
         'student_id',
         'course_id',
-        'progress'
+        'progress',
+        'status',
     ];
 }

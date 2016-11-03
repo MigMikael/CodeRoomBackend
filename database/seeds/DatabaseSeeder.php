@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TeacherCourseTableSeeder::class);
 
         $this->call(BadgeTableSeeder::class);
+        $this->call(BadgeStudentSeeder::class);
     }
 }

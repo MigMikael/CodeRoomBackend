@@ -56,6 +56,7 @@ Route::get('api/course/teacher_member/{course_id}','CourseController@getTeacherM
 Route::get('api/course/add_student_member', 'CourseController@addStudentMember');
 
 
+Route::get('api/student/profile/{student_id}', 'StudentController@getStudentProfile');
 Route::post('api/student/add_one_student_member', 'StudentController@storeOneStudentMember');
 Route::post('api/student/add_many_student_member', 'StudentController@storeManyStudentMember');
 

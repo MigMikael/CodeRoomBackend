@@ -48,17 +48,26 @@ class StudentCourseController extends Controller
 
     public function destroyById($student_id, $course_id)
     {
-        $student = Student::where('student_id', '=', $student_id)->first();
+        /*$student = Student::where('student_id', '=', $student_id)->first();
         $studentCourse = StudentCourse::where('student_id', '=', $student->id)
             ->where('course_id', '=', $course_id)
             ->first();
 
-        $studentCourse->delete();
+        $studentCourse->delete();*/
+
+        $student = Student::where('student_id', '=', $student_id)->first();
+        $studentCourse = StudentCourse::where('student_id', '=', $student->id)
+            ->where('course_id', '=', $course_id)
+            ->first();
+        $studentCourse->status = 'inactive';
+        $studentCourse->save();
     }
 
     public function getById($student_id)
     {
-        $studentCourses = StudentCourse::where('student_id', '=', $student_id)->get();
+        $student = Student::where('student_id','=', $student_id)->first();
+
+        $studentCourses = StudentCourse::where('student_id', '=', $student->id)->get();
         foreach ($studentCourses as $studentCourse) {
             //Log::info('#### student course id '. $studentCourse['course_id']);
             $course = Course::where('id', '=', $studentCourse['course_id'])->first();

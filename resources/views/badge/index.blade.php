@@ -44,7 +44,7 @@
                 FB.ui({
                     method: 'share',
                     display: 'popup',
-                    href: 'https://developers.facebook.com/docs/sharing/best-practices',
+                    href: 'https://localhost:8000/course',
                     // Todo change above link
                 }, function(response){});
             }
