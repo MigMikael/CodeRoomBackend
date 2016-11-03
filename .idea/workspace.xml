@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="add studentlist_teacher view manyyyyyy">
+    <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/app.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/listStudent_teachersController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/listStudent_teachersController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/liststudent_studentController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/liststudent_studentController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/services/listStudent_students.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/listStudent_students.js" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +65,8 @@
       <file leaf-file-name="listStudent_teachersController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/listStudent_teachersController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5817875">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.2529511">
+              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -868,12 +865,6 @@
       <workItem from="1476215969582" duration="401000" />
       <workItem from="1476354853365" duration="1342000" />
     </task>
-    <task id="LOCAL-00023" summary="change first view">
-      <created>1470324927606</created>
-      <option name="number" value="00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1470324927606</updated>
-    </task>
     <task id="LOCAL-00024" summary="get ProblemFile in directory">
       <created>1470418022928</created>
       <option name="number" value="00024" />
@@ -1162,7 +1153,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478155025466</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="add studentlist_teacher view manyyyyyy again">
+      <created>1478155494351</created>
+      <option name="number" value="00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1478155494351</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1240,7 +1237,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="add web submission part and rewrite some Controller" />
     <MESSAGE value="add web submission part and Calculate Student Structure Score" />
     <MESSAGE value="update view upload, uploadcontroller" />
     <MESSAGE value="add getiamgeproblem" />
@@ -1265,7 +1261,8 @@
     <MESSAGE value="teacher view addLesson , addQuiz edit bug again2" />
     <MESSAGE value="teacher addproblem and view listproblem" />
     <MESSAGE value="add studentlist_teacher view manyyyyyy" />
-    <option name="LAST_COMMIT_MESSAGE" value="add studentlist_teacher view manyyyyyy" />
+    <MESSAGE value="add studentlist_teacher view manyyyyyy again" />
+    <option name="LAST_COMMIT_MESSAGE" value="add studentlist_teacher view manyyyyyy again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1705,8 +1702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/listStudent_teachersController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5817875">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.2529511">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding />
         </state>
       </provider>
