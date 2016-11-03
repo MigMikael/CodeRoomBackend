@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/addStudents_teachersController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_adminController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/listStudent_teachersController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/liststudent_studentController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/delete_student_teachers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/listStudent_students.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/liststudent_teachers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/views/addStudents_teachers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/views/dashboard_admin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/views/listStudent_student.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/views/listStudent_teachers.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/css/main.css" afterPath="$PROJECT_DIR$/public/CodeRoom/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/index.html" afterPath="$PROJECT_DIR$/public/CodeRoom/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/app.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/coursePage_studentsController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/coursePage_studentsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/coursePage_teachersController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/coursePage_teachersController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_studentsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/list_problems_teachersController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/list_problems_teachersController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/list_teacherscourseController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/list_teacherscourseController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/services/list_problem_teachers.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/list_problem_teachers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/services/list_teacherCourse.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/list_teacherCourse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_students.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_students.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_teachers.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_teachers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/list_problems_teachers.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/list_problems_teachers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/list_teachersCourse.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/list_teachersCourse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/profile_students.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/profile_students.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -891,12 +864,6 @@
       <workItem from="1476215969582" duration="401000" />
       <workItem from="1476354853365" duration="1342000" />
     </task>
-    <task id="LOCAL-00021" summary="implement upload file system">
-      <created>1470151552627</created>
-      <option name="number" value="00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1470151552627</updated>
-    </task>
     <task id="LOCAL-00022" summary="extract zip file upload &amp; store in appropriate folder">
       <created>1470167581843</created>
       <option name="number" value="00022" />
@@ -1185,7 +1152,13 @@
       <option name="project" value="LOCAL" />
       <updated>1477931618478</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="add studentlist_teacher view manyyyyyy">
+      <created>1478154662849</created>
+      <option name="number" value="00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1478154662849</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1263,7 +1236,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="add web submission and rewrite some Controller" />
     <MESSAGE value="add web submission part and rewrite some Controller" />
     <MESSAGE value="add web submission part and Calculate Student Structure Score" />
     <MESSAGE value="update view upload, uploadcontroller" />
@@ -1288,7 +1260,8 @@
     <MESSAGE value="teacher view addLesson , addQuiz edit bug again" />
     <MESSAGE value="teacher view addLesson , addQuiz edit bug again2" />
     <MESSAGE value="teacher addproblem and view listproblem" />
-    <option name="LAST_COMMIT_MESSAGE" value="teacher addproblem and view listproblem" />
+    <MESSAGE value="add studentlist_teacher view manyyyyyy" />
+    <option name="LAST_COMMIT_MESSAGE" value="add studentlist_teacher view manyyyyyy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
