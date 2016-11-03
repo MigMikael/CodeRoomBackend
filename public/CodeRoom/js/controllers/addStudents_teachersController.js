@@ -27,7 +27,7 @@ app.controller('addstudents_teachersController',function($scope, $http, Upload, 
             $timeout(function () {
 
                 file.result = response.data;
-                
+
                 $state.go("liststudent_teachers");
 
                 //console.log($scope.teacherRequirement);

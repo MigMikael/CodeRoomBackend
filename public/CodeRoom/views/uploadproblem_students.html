@@ -1,5 +1,5 @@
 
-<div id="main" class="page-uploadstudents"  >
+<div id="main">
 
         <div id="mySidenav" class="slide-nav">
 
@@ -89,21 +89,14 @@
 
 
 
-    <nav class="nav-upload">
-        <div class="container-upload">
-            <div class="hbg-upload">
-                <div style="float: left;">
-                    <a  class="btn-hbg-upload" ng-click="openNavView()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  {{probInpage.order}}.{{probInpage.name}}</a>
+    <nav class="navtop-upload">
+        <div class="left-navtop-upload">
+            <a  class="btn-hbg-upload" ng-click="openNavView()"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>  {{probInpage.order}}.{{probInpage.name}}</a>
 
-                </div>
-                <div style="height: 100%;">
-                    <a> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>{{ course_name }}</a>
-                </div>
-
-
-            </div>
-
-
+        </div>
+        <a class="name-course-navtop-upload"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> {{ course_name }}</a>
+        <div class="right-navtop-upload">
+            profileddddd
         </div>
     </nav>
     <div class="main-uploadstudents">
@@ -118,33 +111,32 @@
 
         </div>
     </div>
+    <nav class="navbottom-upload">
+        <div class="left-navbottom-upload">
+            <p ng-class="{'massage-fail': alert.status == 'null'|| alert.status == 'false','massage-success': alert.status == 'complete'}" >{{alert.massage}}</p>
+        </div>
+        <div class="middle-navbottom-upload">
+            <button class="select-files upload-problem" type="file" ngf-select ng-model="file" name="file" accept=".zip">Select Files</button>
+            <p>{{file.name}}hello</p>
+
+            <button type="submit" value="sumit" ng-click="submitProblem()">SUBMIT</button>
+        </div>
+        <div class="right-navbottom-upload">
+            <a>NEXT</a>
+        </div>
+    </nav>
 
     <nav class="nav-upload" >
         <div class="container-upload" style="padding-top: 0">
             <!--DON'T TEST(ยังไม่ได้ลอง)-->
             <div class="alert-upload">
-                <p ng-class="{'massage-fail': alert.status == 'null'|| alert.status == 'false','massage-success': alert.status == 'complete'}" class="massage-fail">{{alert.massage}}</p>
+
             </div>
             <div class="btn-uploadfile">
-                <button class="select-files" type="file" ngf-select ng-model="file" name="file" accept=".zip">Select Files</button>
-                <p>{{file.name}}</p>
 
-                <button class="submit" type="submit" value="sumit" ng-click="submitProblem()">SUBMIT</button>
 
             </div>
-            <div class="progress-btn-next">
-                <div class="progress-main" style="border-top: none;margin: 0;padding: 0;width: 70%;padding-top: 20px;float: left" ng-show="file.progress >= 0">
-                    <div class="progress">
-                        <div class="progress-bar" style="width: {{filefield.progress}}%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                        </div>
-                    </div>
 
-                </div>
-                <div style="float: right;padding-top: 10px">
-                    <a class="next-upload">Next</a>
-                </div>
-
-            </div>
         </div>
 
 

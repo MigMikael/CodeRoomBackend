@@ -34,7 +34,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('profile_students', {
             url: '/profile',
-            controller: 'profileController',
+            controller: 'profile_studentsController',
             templateUrl: 'views/profile_students.html'
         })
 

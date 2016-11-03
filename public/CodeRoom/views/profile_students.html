@@ -18,18 +18,18 @@
 
 <div class="header-profile-chapter">
     <div class="container-main">
-        <img src="image/iconpeople.png" style="border-radius: 4px">
-        <h2 style="text-align: center;margin: 0">Thanadej Phadtong</h2>
+        <img ngf-src="student.image" style="border-radius: 4px">
+        <h2 style="text-align: center;margin: 0">{{student.name}}</h2>
 
     </div>
     <div class="main-profile-chapter" style="margin-top: 50px">
         <div class="container">
             <div class="row container-main" style="margin: 30px auto">
                 <div class="col-md-6 block-coursepage" style="border-right: none">
-                    <h3>1 Courses</h3>
+                    <h3>{{student.courses_count}} Courses</h3>
                 </div>
                 <div class="col-md-6 block-coursepage" style="border-left: none">
-                    <h3>5 Badges</h3>
+                    <h3>{{student.badges_count}} Badges</h3>
                 </div>
             </div>
         </div>
@@ -40,13 +40,12 @@
             <h2 style="text-align: center">Badges</h2>
             <div class="row">
 
-                <div class="col-md-4">
+                <div class="col-md-4" ng-repeat="badge in student.badges">
                     <div class="badges-students-profile">
-                        <img src="image/iconpeople.png" style="margin-bottom: 0">
+                        <img ngf-src="badge.image" style="margin-bottom: 0">
                         <div class="name-badge">
-                            <h4>Thanadej PhadTong</h4>
-                            <br>
-                            <br>
+                            <h4>{{ badge.name }}</h4>
+
                             <p>18/11/2559</p>
                         </div>
                     </div>
