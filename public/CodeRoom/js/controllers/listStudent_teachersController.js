@@ -21,6 +21,7 @@ app.controller('liststudent_teachersController',function($scope,liststudent_teac
         liststudent_teachers.getListstudent_teacher($localStorage.course_id_teacher)
             .success(function (data) {
                 $scope.students = addPathImage(data);
+                location.reload();
 
             })
             .error(function (error) {

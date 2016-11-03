@@ -40,7 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('liststudent_students', {
             url: '/liststudent_students',
-            controller: 'liststudent_teachersController',
+            controller: 'liststudent_studentsController',
             templateUrl: 'views/listStudent_student.html'
         })
 

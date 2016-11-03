@@ -1,5 +1,5 @@
 
-app.controller('liststudent_teachersController',function($scope,liststudent_student,$stateParams,$rootScope,$localStorage) {
+app.controller('liststudent_studentsController',function($scope,liststudent_students,$stateParams,$rootScope,$localStorage) {
     $scope.students;
 
     getStudent_list();
@@ -9,7 +9,7 @@ app.controller('liststudent_teachersController',function($scope,liststudent_stud
 
     function getStudent_list() {
 
-        liststudent_teachers.getListstudent_teachers($localStorage.course_id_student)
+        liststudent_students.getListstudent_students($localStorage.course_id_student)
             .success(function (data) {
                 $scope.students = data;
             })
