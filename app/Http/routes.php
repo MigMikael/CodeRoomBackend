@@ -37,13 +37,11 @@ Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileControl
 Route::get('problemfile/getQuestion/{prob_id}', 'ProblemFileController@getQuestion');
 
 
-Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
-
-
 Route::get('api/results/{user_id}/latest', 'ResultController@latestResult')->middleware(['cors']);
-
-
 Route::get('api/results/{user_id}/all', 'ResultController@allResult');
+
+
+Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
 Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis');
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
 
@@ -57,10 +55,10 @@ Route::get('api/lesson/problem/{lesson_id}', 'LessonController@getProblem');
 Route::get('api/course/student_member/{course_id}','CourseController@getStudentMember');
 Route::get('api/course/teacher_member/{course_id}','CourseController@getTeacherMember');
 Route::get('api/course/add_student_member', 'CourseController@addStudentMember');
-Route::post('api/course/add_student_member', 'CourseController@storeStudentMember');
 
 
-Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById'); // deprecate
+Route::post('api/student/add_one_student_member', 'StudentController@storeOneStudentMember');
+Route::post('api/student/add_many_student_member', 'StudentController@storeManyStudentMember');
 
 //api for badge achievement
 Route::get('api/student_badge/{student_id}', 'StudentController@getBadge');
@@ -74,11 +72,8 @@ Route::get('api/image/gen_normal_badge_image/{course_name}/{criteria}/{color}', 
 Route::get('api/image/gen_user_avatar_image', 'ImageController@genAvatarImage');
 Route::get('api/image/{id}', 'ImageController@getImage');
 
-
-Route::get('api/course/teacher/{course_id}', 'CourseController@getTeacher');
-
 //api for test
-/*Route::get('test', function (){
-    return view('test');
-});*/
 Route::get('test', 'TestController@index');
+
+//api deprecated
+//Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');

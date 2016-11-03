@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Maatwebsite\Excel;
 use App\Announcement;
 use App\Course;
 use App\Lesson;
@@ -56,6 +55,7 @@ class CourseController extends Controller
     {
         $course = Course::find($id);
         $course->students;
+        $course->teachers;
         return view('course.show')->with('course', $course);
         //return $course;
     }
@@ -63,19 +63,6 @@ class CourseController extends Controller
     public function addStudentMember()
     {
         return view('course.member');
-    }
-
-    public function storeStudentMember()
-    {
-        $course_id = Request::get('course_id');
-        $studentListFile = Request::get('studentList');
-        $fileName = $studentListFile->getClientOriginalName();
-        Storage::disk('public')->put($fileName, File::get($studentListFile));
-
-        /*$file = Storage::disk('public')->get($fileName);
-        $data = Excel::load*/
-
-        Log::info('#### Store File Complete');
     }
 
     public function getCourseImage($name)

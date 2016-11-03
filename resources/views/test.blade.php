@@ -13,7 +13,9 @@
 
 </head>
 <body>
-
+    <?php
+        echo storage_path().'\\app\\public\\';
+    ?>
     <img src="http://localhost:8000/api/image/1" alt="" />
     <script>
         window.fbAsyncInit = function() {
