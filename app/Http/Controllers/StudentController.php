@@ -127,4 +127,5 @@ class StudentController extends Controller
         $student->badges;
         return $student;
     }
+
 }

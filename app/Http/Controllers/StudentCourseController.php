@@ -67,7 +67,10 @@ class StudentCourseController extends Controller
     {
         $student = Student::where('student_id','=', $student_id)->first();
 
-        $studentCourses = StudentCourse::where('student_id', '=', $student->id)->get();
+        $studentCourses = StudentCourse::where([
+            ['student_id', '=', $student->id],
+            ['status', '=', 'active']
+        ])->get();
         foreach ($studentCourses as $studentCourse) {
             //Log::info('#### student course id '. $studentCourse['course_id']);
             $course = Course::where('id', '=', $studentCourse['course_id'])->first();
