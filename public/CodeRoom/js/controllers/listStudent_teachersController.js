@@ -5,7 +5,7 @@ app.controller('liststudent_teachersController',function($scope,liststudent_teac
     getStudent_list();
 
     $scope.deleteStudent = function(student_id){
-        delete_student_teachers.getDelete_student_teachers(student_id,$stateParams.course_id_teacher)
+        delete_student_teachers.getDelete_student_teachers(student_id,$localStorage.course_id_teacher)
             .success(function (data) {
                getStudent_list();
                 location.reload();
@@ -22,8 +22,7 @@ app.controller('liststudent_teachersController',function($scope,liststudent_teac
         liststudent_teachers.getListstudent_teacher($localStorage.course_id_teacher)
             .success(function (data) {
                 $scope.students = addPathImage(data);
-
-
+                console.log($scope.students);
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;

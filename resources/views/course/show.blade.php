@@ -31,6 +31,10 @@
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     view
                 </a>
+
+                <a href="{{ url('api/student_course/delete/'.$student->student_id.'/'.$course->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    delete
+                </a>
             </div>
         </div>
     @endforeach

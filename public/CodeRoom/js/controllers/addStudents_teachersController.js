@@ -27,7 +27,8 @@ app.controller('addstudents_teachersController',function($scope, $http, Upload, 
             $timeout(function () {
 
                 file.result = response.data;
-
+                // Todo back to เพจก่อนหน้า
+                location.reload();
                 //console.log($scope.teacherRequirement);
 
             });
@@ -40,11 +41,12 @@ app.controller('addstudents_teachersController',function($scope, $http, Upload, 
         });
     };
 
+    $scope.student = {
+        course_id: $localStorage.course_id_teacher
+    };
 
     $scope.addStudent = function(){
-        $scope.student = {
-            course_id: $localStorage.course_id_teacher
-        };
+        console.log($scope.student);
         var res = $http.post('/api/student/add_one_student_member', $scope.student);
 
         res.success(function(data, status, headers, config) {

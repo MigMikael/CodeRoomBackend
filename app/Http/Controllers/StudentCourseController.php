@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
 use App\StudentCourse;
 use App\Course;
 use Request;
@@ -33,6 +34,26 @@ class StudentCourseController extends Controller
         $input = Request::all();
         StudentCourse::create($input);
         return redirect('student_course');
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function destroy($id)
+    {
+        
+    }
+
+    public function destroyById($student_id, $course_id)
+    {
+        $student = Student::where('student_id', '=', $student_id)->first();
+        $studentCourse = StudentCourse::where('student_id', '=', $student->id)
+            ->where('course_id', '=', $course_id)
+            ->first();
+
+        $studentCourse->delete();
     }
 
     public function getById($student_id)

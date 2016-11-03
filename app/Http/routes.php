@@ -46,7 +46,6 @@ Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnal
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
 
 
-Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/course/all', 'CourseController@getAll');
 Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
 Route::get('api/student_course/{course_id}/{student_id}', 'CourseController@getDetailStudent');
@@ -59,6 +58,10 @@ Route::get('api/course/add_student_member', 'CourseController@addStudentMember')
 
 Route::post('api/student/add_one_student_member', 'StudentController@storeOneStudentMember');
 Route::post('api/student/add_many_student_member', 'StudentController@storeManyStudentMember');
+
+
+Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
+Route::get('api/student_course/delete/{student_id}/{course_id}', 'StudentCourseController@destroyById');
 
 //api for badge achievement
 Route::get('api/student_badge/{student_id}', 'StudentController@getBadge');
@@ -76,4 +79,4 @@ Route::get('api/image/{id}', 'ImageController@getImage');
 Route::get('test', 'TestController@index');
 
 //api deprecated
-//Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');
+Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');
