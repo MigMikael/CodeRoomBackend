@@ -19,31 +19,23 @@
 
 <div style="margin-bottom: 20px">
     <div class="container-main">
-        <div class="row ">
-            <h3 style="text-align: center">Friend in Class</h3>
-            <div class="col-md-12 marginheader" >
+        <h3 style="text-align: center">Friends in Class</h3>
 
-                <div class="card-students-list">
-                    <div class="img-card-students-list">
-                        <img src="image/iconpeople.png">
-                    </div>
-                    <div class="description-card-students-list">
-                        <p>07570497</p>
-                        <p>Thanadej Phadtong</p>
-                    </div>
-                    <div class="add-delete-card-students-list">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </div>
+        <table class="table">
+            <tr style="background-color: #204056; color: white">
+                <th style="text-align: center">Image</th>
+                <th style="text-align: center">Student_code</th>
+                <th style="text-align: center">Name</th>
+                <th style="text-align: center">Delete Student</th>
+            </tr>
+            <tr style="color:#204056;background-color:white " ng-repeat="student in students">
+                <td style="text-align: center"><img ngf-src="student.image" style="width: 30px;height: 30px"></td>
+                <td style="text-align: center">{{student.student_id}}</td>
+                <td style="text-align: center">{{student.name}}</td>
+                <td style="text-align: center;color: red"><span ng-click="deleteStudent(student.student_id)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+            </tr>
 
-
-                </div>
-            </div>
-
-
-
-
-
-        </div>
+        </table>
 
     </div>
 
