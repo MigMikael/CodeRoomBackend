@@ -4,23 +4,19 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
 
      function openNav(){
         if($scope.isNav){
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("hover").style.width = "0";
 
         }else {
-            document.getElementById("mySidenav").style.width = "350px";
-            document.getElementById("main").style.marginLeft = "350px";
+            document.getElementById("hover").style.width = "100%";
         }
         $scope.isNav = !$scope.isNav;
     };
     $scope.openNavView  = function(){
         if($scope.isNav){
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("hover").style.width = "0";
 
         }else {
-            document.getElementById("mySidenav").style.width = "350px";
-            document.getElementById("main").style.marginLeft = "350px";
+            document.getElementById("hover").style.width = "100%";
         }
         $scope.isNav = !$scope.isNav;
     };
@@ -31,7 +27,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
     editor.getSession().setMode("ace/mode/java");
 
     $scope.course_name = $stateParams.course_name;
-
+    $scope.detail_problem;
     $localStorage.lesson_id_student = $stateParams.lesson_id;
     getLesson();
     //manageData()
@@ -221,6 +217,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
                 $scope.probInpage = $scope.lesson.problem[i];
 
                 $scope.probInpage.order = parseInt(i)+1;
+                $scope.probInpage.class = $scope.lesson.problem[i].manyClass;
                 console.log($scope.probInpage);
                 break;
             }

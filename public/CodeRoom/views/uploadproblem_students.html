@@ -1,91 +1,93 @@
 
-<div id="main">
+<div  >
+    <div class="hover-slide-nav" id="hover">
+        <div class="left-hover-slide-nav">
+            <div class="slide-nav">
 
-        <div id="mySidenav" class="slide-nav">
+                <div class="header-slide-nav">
+                    <h3>{{lesson.lesson_name}}</h3>
+                </div>
 
-            <div class="header-slide-nav">
-                <div class="lesson-name">{{lesson.lesson_name}}</div>
-
-            </div>
-            <!--todo ทำด้วยนะ-->
-            <div class="main-slide-nav">
-            <span ng-repeat="problem in problems">
-                <a ng-click="setProblemView(problem.prob_id)">{{problem.prob_name}}
-                    <div class="popover-detail">
-                        <table class="table" ng-repeat="classindex in problem.manyClass">
-                            <tr style="background-color: #204056">
-                                <th>Type</th>
-                                <th>Modifier</th>
-                                <th>Final&Static</th>
-                                <th>DataType</th>
-                                <th>Name</th>
-                                <th>Parameter</th>
-                                <th>Point</th>
-                            </tr>
-                            <tr style="color:#204056;background-color:white ">
-                                <td>{{classindex.class[0]}}</td>
-                                <td>{{classindex.class[1]}}</td>
-                                <td>{{classindex.class[2]}}</td>
-                                <td>{{classindex.class[3]}}</td>
-                                <td>{{classindex.class[4]}}</td>
-                                <td>{{classindex.class[5]}}</td>
-                                <td>{{classindex.class[6]}}/{{classindex.class[7]}}</td>
-                            </tr>
-                            <tr style="color:#204056 ;background-color:white">
-                                <td>{{classindex.package[0]}}</td>
-                                <td>{{classindex.package[1]}}</td>
-                                <td>{{classindex.package[2]}}</td>
-                                <td>{{classindex.package[3]}}</td>
-                                <td>{{classindex.package[4]}}</td>
-                                <td>{{classindex.package[5]}}</td>
-                                <td>{{classindex.package[6]}}/{{classindex.package[7]}}</td>
-                            </tr>
-                            <tr style="color:#204056 ;background-color:white">
-                                <td>{{classindex.enclose[0]}}</td>
-                                <td>{{classindex.enclose[1]}}</td>
-                                <td>{{classindex.enclose[2]}}</td>
-                                <td>{{classindex.enclose[3]}}</td>
-                                <td>{{classindex.enclose[4]}}</td>
-                                <td>{{classindex.enclose[5]}}</td>
-                                <td>{{classindex.enclose[6]}}/{{classindex.enclose[7]}}</td>
-                            </tr>
-                            <tr style="color:#204056 ;background-color:white" ng-repeat="constructor in classindex.constructors">
-                                <td>{{constructor[0]}}</td>
-                                <td>{{constructor[1]}}</td>
-                                <td>{{constructor[2]}}</td>
-                                <td>{{constructor[3]}}</td>
-                                <td>{{constructor[4]}}</td>
-                                <td>{{constructor[5]}}</td>
-                                <td>{{constructor[6]}}/{{constructor[7]}}</td>
-                            </tr>
-                            <tr style="color:#204056 ;background-color:white" ng-repeat="attribute in classindex.attributes">
-                                <td>{{attribute[0]}}</td>
-                                <td>{{attribute[1]}}</td>
-                                <td>{{attribute[2]}}</td>
-                                <td>{{attribute[3]}}</td>
-                                <td>{{attribute[4]}}</td>
-                                <td>{{attribute[5]}}</td>
-                                <td>{{attribute[6]}}/{{attribute[7]}}</td>
-                            </tr>
-                            <tr  style="color:#204056 ;background-color:white" ng-repeat="method in classindex.methods">
-                                <td>{{method[0]}}</td>
-                                <td>{{method[1]}}</td>
-                                <td>{{method[2]}}</td>
-                                <td>{{method[3]}}</td>
-                                <td>{{method[4]}}</td>
-                                <td>{{method[5]}}</td>
-                                <td>{{method[6]}}/{{method[7]}}</td>
-                            </tr>
-
-                        </table>
-                    </div>
-                </a>
-            </span>
-
+                <div class="main-slide-nav">
+                    <span ng-repeat="problem in problems">
+                         <a ng-click="setProblemView(problem.prob_id)">{{problem.prob_name}}</a>
+                    </span>
+                    
+                </div>
 
             </div>
-
         </div>
+        <div class="right-hover-slide-nav">
+            <table class="table" ng-repeat="classindex in probInpage.classs">
+                <tr style="background-color: #204056">
+                    <th>Type</th>
+                    <th>Modifier</th>
+                    <th>Final&Static</th>
+                    <th>DataType</th>
+                    <th>Name</th>
+                    <th>Parameter</th>
+                    <th>Point</th>
+                </tr>
+                <tr style="color:#204056;background-color:white ">
+                    <td>{{classindex.class[0]}}</td>
+                    <td>{{classindex.class[1]}}</td>
+                    <td>{{classindex.class[2]}}</td>
+                    <td>{{classindex.class[3]}}</td>
+                    <td>{{classindex.class[4]}}</td>
+                    <td>{{classindex.class[5]}}</td>
+                    <td>{{classindex.class[6]}}/{{classindex.class[7]}}</td>
+                </tr>
+                <tr style="color:#204056 ;background-color:white">
+                    <td>{{classindex.package[0]}}</td>
+                    <td>{{classindex.package[1]}}</td>
+                    <td>{{classindex.package[2]}}</td>
+                    <td>{{classindex.package[3]}}</td>
+                    <td>{{classindex.package[4]}}</td>
+                    <td>{{classindex.package[5]}}</td>
+                    <td>{{classindex.package[6]}}/{{classindex.package[7]}}</td>
+                </tr>
+                <tr style="color:#204056 ;background-color:white">
+                    <td>{{classindex.enclose[0]}}</td>
+                    <td>{{classindex.enclose[1]}}</td>
+                    <td>{{classindex.enclose[2]}}</td>
+                    <td>{{classindex.enclose[3]}}</td>
+                    <td>{{classindex.enclose[4]}}</td>
+                    <td>{{classindex.enclose[5]}}</td>
+                    <td>{{classindex.enclose[6]}}/{{classindex.enclose[7]}}</td>
+                </tr>
+                <tr style="color:#204056 ;background-color:white" ng-repeat="constructor in classindex.constructors">
+                    <td>{{constructor[0]}}</td>
+                    <td>{{constructor[1]}}</td>
+                    <td>{{constructor[2]}}</td>
+                    <td>{{constructor[3]}}</td>
+                    <td>{{constructor[4]}}</td>
+                    <td>{{constructor[5]}}</td>
+                    <td>{{constructor[6]}}/{{constructor[7]}}</td>
+                </tr>
+                <tr style="color:#204056 ;background-color:white" ng-repeat="attribute in classindex.attributes">
+                    <td>{{attribute[0]}}</td>
+                    <td>{{attribute[1]}}</td>
+                    <td>{{attribute[2]}}</td>
+                    <td>{{attribute[3]}}</td>
+                    <td>{{attribute[4]}}</td>
+                    <td>{{attribute[5]}}</td>
+                    <td>{{attribute[6]}}/{{attribute[7]}}</td>
+                </tr>
+                <tr  style="color:#204056 ;background-color:white" ng-repeat="method in classindex.methods">
+                    <td>{{method[0]}}</td>
+                    <td>{{method[1]}}</td>
+                    <td>{{method[2]}}</td>
+                    <td>{{method[3]}}</td>
+                    <td>{{method[4]}}</td>
+                    <td>{{method[5]}}</td>
+                    <td>{{method[6]}}/{{method[7]}}</td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
 
 
 

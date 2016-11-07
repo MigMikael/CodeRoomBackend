@@ -538,63 +538,59 @@ span .icon-search {
 
 }
 
-#main {
-    transition: margin-left .5s;
-
+#hover {
+    transition: width .5s;
 }
 
 .hover-slide-nav{
-  width: 100vw;
-  height: 93vh;
-  background-color: rgba(0,0,0,0.1);
-  position: absolute;
-  top:7vh;
+  width: 0%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1999999;
   left: 0;
-  color: white;
+  top:0;
+  position: absolute;
+  overflow: hidden;
 }
-
-.slide-nav{
-    width: 0;
+.hover-slide-nav .left-hover-slide-nav{
+  width: 30%;
+  height: 100%;
+  float: left;
+  margin-top: 60px;
+  display: inline-block;
+}
+.hover-slide-nav .left-hover-slide-nav .slide-nav{
+    width: 100%;
     height: 100%;
-    min-height: 100%;
-    position: fixed;
-    display: block;
-    z-index: 10;
-    top: 0;
-    left:0;
+    overflow-y: auto;
+    overflow-x:hidden;
     background-color: #204056;
-    transition: 0.4s;
-
 
 }
-.slide-nav .header-slide-nav{
+.hover-slide-nav .left-hover-slide-nav .slide-nav .header-slide-nav{
   width: 100%;
   height: 100px;
   display: block;
   color: white;
   padding: 15px 15px;
   font-size: 20px;
+  overflow: hidden;
 
 }
-.slide-nav .header-slide-nav .lesson-name{
-  width: 100%;
-  height: 100%;
-  float: left;
-  overflow-x: hidden;
-  overflow-y: hidden;
+.hover-slide-nav .left-hover-slide-nav .slide-nav .header-slide-nav h3{
+
+  display: inline;
   text-transform: uppercase;
 
 }
+.hover-slide-nav .left-hover-slide-nav .slide-nav .main-slide-nav{
+  width: 100%;
+  max-height: 95%;
+  display: block;
+  overflow-y: auto;
 
-
-.slide-nav .main-slide-nav{
-    width: 100%;
-    max-height: 95%;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
-.slide-nav .main-slide-nav a{
+.hover-slide-nav .left-hover-slide-nav .slide-nav .main-slide-nav a{
   padding: 15px 20px;
   display: block;
   cursor: pointer;
@@ -606,46 +602,41 @@ span .icon-search {
   margin: 0 2px;
 
 }
-
-.slide-nav .main-slide-nav a:hover{
+.hover-slide-nav .left-hover-slide-nav .slide-nav .main-slide-nav a:hover{
   background-color: #00897B;
   color: #ffffff;
-}
-
-.slide-nav .main-slide-nav a .popover-detail{
-    left: 350px;
-    top: 100px;
-    width:800px;
-    height: 100%;
-    position: absolute;
-    display: none;
-    z-index: 12;
-    background-color: #eeeeee;
-    padding: 15px 20px;
-    overflow-y: auto;
-}
-.slide-nav .main-slide-nav a:hover .popover-detail{
-  display: block;
-}
-
-.slide-nav .main-slide-nav a:hover .popover-detail table.table tr th,
-.slide-nav .main-slide-nav a:hover .popover-detail table.table tr td{
-    border: 0;
 
 }
+
+
+.hover-slide-nav .right-hover-slide-nav{
+  width: 70%;
+  height: 100%;
+  float: right;
+  margin-top: 60px;
+  padding: 5px;
+  display: inline-block;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+
+
 
 .navtop-upload {
   display: block;
-  position: fixed;
+  position: relative;
   top: 0;
   background-color: #ffffff;
-  z-index: 10;
+  z-index: 1999999;
   height: 60px;
   width: 100%;
   line-height: 60px;
   overflow: hidden;
   padding: 0 20px;
   text-align: center!important;
+
 
 }
 .navtop-upload .name-course-navtop-upload{
@@ -674,13 +665,12 @@ span .icon-search {
 .main-uploadstudents{
 
     width: 100%;
-
+    position: fixed;
     height: 100%;
     margin: 0;
     display: block;
   top:60px;
   background-color: #204056;
- position: fixed;
   z-index: 1;
 }
 

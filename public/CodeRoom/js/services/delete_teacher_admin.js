@@ -1,5 +1,5 @@
 app.factory('delete_teacher_admin', function($http) {
-    var urlBase = "api/student_course/delete/"; //todo ยังไม่ได้ใส่พาท
+    var urlBase = "api/teacher_course/delete/";
     var delete_teacher_admin = {};
 
     delete_teacher_admin.getDelete_teacher_admin = function (teacher_id, course_id) {
