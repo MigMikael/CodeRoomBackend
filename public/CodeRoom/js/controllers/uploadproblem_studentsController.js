@@ -229,6 +229,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
                 $localStorage.prob_id = $scope.lesson.problem[i].prob_id;
                 $scope.probInpage = $scope.lesson.problem[i];
                 $scope.probInpage.order = parseInt(i)+1;
+                $scope.probInpage.class = $scope.lesson.problem[i].manyClass;
                 //console.log($scope.probInpage);
                 openNav();
                 break;

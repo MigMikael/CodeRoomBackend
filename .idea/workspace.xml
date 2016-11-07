@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/css/main.css" afterPath="$PROJECT_DIR$/public/CodeRoom/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/services/delete_teacher_admin.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/delete_teacher_admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_admin.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/listStudent_teachers.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/listStudent_teachers.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
@@ -77,8 +73,8 @@
       <file leaf-file-name="uploadproblem_students.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36343613">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.70264316">
+              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -96,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="219" column="23" selection-start-line="219" selection-start-column="23" selection-end-line="219" selection-end-column="33" />
+              <caret line="231" column="77" selection-start-line="231" selection-start-column="77" selection-end-line="231" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -903,12 +899,6 @@
       <workItem from="1476215969582" duration="401000" />
       <workItem from="1476354853365" duration="1342000" />
     </task>
-    <task id="LOCAL-00029" summary="upload problemfile from Web Submission">
-      <created>1470904514492</created>
-      <option name="number" value="00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1470904514492</updated>
-    </task>
     <task id="LOCAL-00030" summary="change view using google-mdl layout">
       <created>1470934367026</created>
       <option name="number" value="00030" />
@@ -1197,7 +1187,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478528662761</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="uploadproblem_students add hover list_problem">
+      <created>1478544590952</created>
+      <option name="number" value="00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1478544590953</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1275,7 +1271,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="change lesson api" />
     <MESSAGE value="show score in submission api" />
     <MESSAGE value="fix bug show submission score" />
     <MESSAGE value="update uploadteacher (enclose package class)" />
@@ -1300,7 +1295,8 @@
     <MESSAGE value="edit view uploadProblem_students" />
     <MESSAGE value="listStudent_(student,teacher)" />
     <MESSAGE value="admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin page" />
+    <MESSAGE value="uploadproblem_students add hover list_problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="uploadproblem_students add hover list_problem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1705,14 +1701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="219" column="23" selection-start-line="219" selection-start-column="23" selection-end-line="219" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5">
@@ -1721,10 +1709,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="231" column="77" selection-start-line="231" selection-start-column="77" selection-end-line="231" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36343613">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.70264316">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
