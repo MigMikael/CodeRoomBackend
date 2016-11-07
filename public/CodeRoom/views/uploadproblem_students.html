@@ -7,6 +7,7 @@
                 <div class="lesson-name">{{lesson.lesson_name}}</div>
 
             </div>
+            <!--todo ทำด้วยนะ-->
             <div class="main-slide-nav">
             <span ng-repeat="problem in problems">
                 <a ng-click="setProblemView(problem.prob_id)">{{problem.prob_name}}
@@ -99,6 +100,7 @@
             profileddddd
         </div>
     </nav>
+
     <div class="main-uploadstudents">
         <div class="iframe-upload">
             <iframe ngf-src="probInpage.problemfile"></iframe>
@@ -109,15 +111,17 @@
             </div>
             <div id="editor"></div>
 
+
         </div>
     </div>
+
     <nav class="navbottom-upload">
         <div class="left-navbottom-upload">
             <p ng-class="{'massage-fail': alert.status == 'null'|| alert.status == 'false','massage-success': alert.status == 'complete'}" >{{alert.massage}}</p>
         </div>
         <div class="middle-navbottom-upload">
             <button class="select-files upload-problem" type="file" ngf-select ng-model="file" name="file" accept=".zip">Select Files</button>
-            <p>{{file.name}}hello</p>
+            <p>{{file.name}}</p>
 
             <button type="submit" value="sumit" ng-click="submitProblem()">SUBMIT</button>
         </div>
@@ -126,23 +130,7 @@
         </div>
     </nav>
 
-    <nav class="nav-upload" >
-        <div class="container-upload" style="padding-top: 0">
-            <!--DON'T TEST(ยังไม่ได้ลอง)-->
-            <div class="alert-upload">
 
-            </div>
-            <div class="btn-uploadfile">
-
-
-            </div>
-
-        </div>
-
-
-
-
-    </nav>
 
 
 <!--

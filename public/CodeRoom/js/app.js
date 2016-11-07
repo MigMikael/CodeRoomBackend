@@ -97,6 +97,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'liststudent_teachersController',
             templateUrl: 'views/listStudent_teachers.html'
         })
+
+
+    //admin
+        .state('dashboard_admin', {
+            url: '/dashboard_admin',
+            controller: 'dashboard_adminController',
+            templateUrl: 'views/dashboard_admin.html'
+        })
+        .state('coursepage_admin', {
+            url: '/coursepage_admin/:course_id',
+            controller: 'coursePage_adminController',
+            templateUrl: 'views/coursepage_admin.html'
+        })
     ;
 
 });

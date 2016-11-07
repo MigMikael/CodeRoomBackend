@@ -19,20 +19,23 @@
 
 <div style="margin-bottom: 20px">
     <div class="container-main">
-        <h3 style="text-align: center">Students in Course</h3>
+        <h3 style="text-align: center">Teachers in {{detail_course.name}}</h3>
 
         <table class="table">
             <tr style="background-color: #204056; color: white">
                 <th style="text-align: center">Image</th>
-                <th style="text-align: center">Student_code</th>
+
                 <th style="text-align: center">Name</th>
-                <th style="text-align: center">Delete Student</th>
+                <th style="text-align: center">Status</th>
+                <th style="text-align: center">Delete Teacher</th>
+
             </tr>
-            <tr style="color:#204056;background-color:white " ng-repeat="student in students">
-                <td style="text-align: center"><img ngf-src="student.image" style="width: 30px;height: 30px"></td>
-                <td style="text-align: center">{{student.student_id}}</td>
-                <td style="text-align: center">{{student.name}}</td>
-                <td style="text-align: center;color: red"><span ng-click="deleteStudent(student.student_id)" class="glyphicon glyphicon-remove" style="cursor: pointer" aria-hidden="true"></span></td>
+            <tr style="color:#204056;background-color:white " ng-repeat="teacher in detail_course.teachers">
+                <td style="text-align: center"><img ngf-src="teacher.image" style="width: 30px;height: 30px"></td>
+                <td style="text-align: center">{{teacher.name}}</td>
+                <td style="text-align: center!important;"><div style="width: 30px;height: 30px;display: block;margin: auto" ng-class="{'status-active': teacher.status == 'active','status-inactive': teacher.status == 'inactive'}"></div></td>
+                <td style="text-align: center;color: red"><span ng-click="deleteTeacher(teacher.id)" class="glyphicon glyphicon-remove" style="cursor: pointer" aria-hidden="true"></span></td>
+
             </tr>
 
         </table>

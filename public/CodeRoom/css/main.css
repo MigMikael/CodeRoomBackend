@@ -5,7 +5,12 @@
   src : url(font/MYRIADPRO-BOLD.OTF);
 }
 
-
+.status-active{
+  background-color: #00897B;
+}
+.status-inactive{
+  background-color: red;
+}
 body {
   background-color: #EEEEEE;
   font-size: large;
@@ -670,7 +675,7 @@ span .icon-search {
 
     width: 100%;
 
-    height: 80%;
+    height: 100%;
     margin: 0;
     display: block;
   top:60px;
