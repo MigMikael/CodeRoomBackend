@@ -61,6 +61,25 @@ class CourseController extends Controller
         //return $course;
     }
 
+    public function edit($id)
+    {
+        $course = Course::find($id);
+        return $course;
+    }
+
+    public function update($id)
+    {
+        $course = Course::find($id);
+        $newCourse = Request::only([
+            'name',
+            'image',
+            'color',
+            'status'
+        ]);
+
+        $course->update($newCourse);
+    }
+
     public function addStudentMember()
     {
         return view('course.member');
@@ -159,6 +178,14 @@ class CourseController extends Controller
         $course['quiz_num'] = $quizNum;
         $course['lessons'] = $lessons;
         $course['announcement'] = $announcements;
+
+        return $course;
+    }
+
+    public function getDetailAdmin($course_id, $admin_id)
+    {
+        $course = Course::find($course_id);
+        $course->teachers;
 
         return $course;
     }

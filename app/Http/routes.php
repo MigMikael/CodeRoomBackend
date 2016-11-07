@@ -50,6 +50,7 @@ Route::get('api/course/all', 'CourseController@getAll');
 Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
 Route::get('api/student_course/{course_id}/{student_id}', 'CourseController@getDetailStudent');
 Route::get('api/teacher_course/{course_id}/{teacher_id}', 'CourseController@getDetailTeacher');
+Route::get('api/admin_course/{course_id}/{admin_id}', 'CourseController@getDetailAdmin');
 Route::get('api/lesson/problem/{lesson_id}', 'LessonController@getProblem');
 Route::get('api/course/student_member/{course_id}','CourseController@getStudentMember');
 Route::get('api/course/teacher_member/{course_id}','CourseController@getTeacherMember');

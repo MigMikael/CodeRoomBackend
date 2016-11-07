@@ -13,6 +13,7 @@ class Course extends Model
         'name',
         'image',
         'color',
+        'status',
     ];
 
     public function badges()
