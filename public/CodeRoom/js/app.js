@@ -110,6 +110,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'coursePage_adminController',
             templateUrl: 'views/coursepage_admin.html'
         })
+        .state('addteachersinCourse_admin', {
+            url: '/addteachersinCourse_admin',
+            controller: 'addTeachersinCourse_adminController',
+            templateUrl: 'views/addTeachers_admin.html'
+        })
+        .state('addteachers_admin', {
+            url: '/addteachers_admin',
+            controller: 'addTeachers_adminController',
+            templateUrl: 'views/addTeachers_admin.html'
+        })
     ;
 
 });

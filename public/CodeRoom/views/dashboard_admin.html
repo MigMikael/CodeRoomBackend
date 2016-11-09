@@ -71,3 +71,41 @@
 
     </div>
 </div>
+
+<div class="container-main marginheader">
+    <h2 style="text-align: center">All Teacher</h2>
+
+    <div class="row">
+        <div class="col-md-4" ng-repeat="teacher in teachers">
+            <div class="form">
+                <div class="imgForm">
+                    <img ngf-src="teacher.image" >
+                </div>
+                <div class="main-form">
+                    <p><i class="fa fa-user fa-lg" aria-hidden="true"></i>{{teacher.name}}</p>
+                    <div style="float: right;color: red">
+                        <span ng-click="deleteTeacher(teacher.id)" class="glyphicon glyphicon-remove" style="cursor: pointer" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="container-main" >
+    <h2 style="text-align: center">Add Teacher</h2>
+    <div class="row marginheader">
+        <a ui-sref="addteachers_admin()">
+            <div class="col-md-12">
+                <div class="card-alladd-teachers">
+                    <div class="btn-plus-teachers"> + </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</div>
