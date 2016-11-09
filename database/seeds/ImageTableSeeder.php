@@ -326,5 +326,17 @@ class ImageTableSeeder extends Seeder
             'text' => '',
             'path' => 'http://localhost:8000/api/image/26'
         ]);
+
+        DB::table('image')->insert([
+            'height' => 500,
+            'width' => 500,
+            'background_color' => '',
+            'foreground_color' => '',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'type' => 'avatar_image',
+            'text' => '',
+            'path' => 'http://localhost:8000/api/image/27'
+        ]);
     }
 }

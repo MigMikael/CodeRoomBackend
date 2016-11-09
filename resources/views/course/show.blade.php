@@ -38,6 +38,13 @@
             </div>
         </div>
     @endforeach
+    <div class="mdl-cell mdl-cell--12-col right">
+        <a href="{{ url('api/course/add_student_member') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+
+    <hr>
 
     <div class="mdl-cell mdl-cell--12-col center">
         <h2>Teacher Member</h2>
@@ -62,7 +69,7 @@
     @endforeach
 
     <div class="mdl-cell mdl-cell--12-col right">
-        <a href="{{ url('api/course/add_student_member') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <a href="{{ url('api/course/add_teacher_member') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
             <i class="material-icons">add</i>
         </a>
     </div>

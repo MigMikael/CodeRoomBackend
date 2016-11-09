@@ -15,7 +15,7 @@ class StudentTableSeeder extends Seeder
         DB::table('student')->insert([
             'student_id' => '07560550',
             'name' => 'Chanachai Puttaruksa',
-            'image' => 24,
+            'image' => 25,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -23,7 +23,7 @@ class StudentTableSeeder extends Seeder
         DB::table('student')->insert([
             'student_id' => '07560445',
             'name' => 'นันทิพัฒน์ พลบดี',
-            'image' => 25,
+            'image' => 26,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -31,7 +31,7 @@ class StudentTableSeeder extends Seeder
         DB::table('student')->insert([
             'student_id' => '07570497',
             'name' => 'ธนเดช พัดทอง',
-            'image' => 26,
+            'image' => 27,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

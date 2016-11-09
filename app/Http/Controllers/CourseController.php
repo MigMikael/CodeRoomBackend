@@ -85,6 +85,11 @@ class CourseController extends Controller
         return view('course.member');
     }
 
+    public function addTeacherMember()
+    {
+        return view('course.teacher_member');
+    }
+
     public function getCourseImage($name)
     {
         $name = str_replace('_','.',$name);
@@ -185,8 +190,9 @@ class CourseController extends Controller
     public function getDetailAdmin($course_id, $admin_id)
     {
         $course = Course::find($course_id);
-        $course->teachers;
-
+        foreach ($course->teachers as $teacher){
+            $teacher->pivot->status;
+        }
         return $course;
     }
 

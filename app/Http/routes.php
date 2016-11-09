@@ -55,15 +55,20 @@ Route::get('api/lesson/problem/{lesson_id}', 'LessonController@getProblem');
 Route::get('api/course/student_member/{course_id}','CourseController@getStudentMember');
 Route::get('api/course/teacher_member/{course_id}','CourseController@getTeacherMember');
 Route::get('api/course/add_student_member', 'CourseController@addStudentMember');
+Route::get('api/course/add_teacher_member', 'CourseController@addTeacherMember');
 
 
 Route::get('api/student/profile/{student_id}', 'StudentController@getStudentProfile');
 Route::post('api/student/add_one_student_member', 'StudentController@storeOneStudentMember');
 Route::post('api/student/add_many_student_member', 'StudentController@storeManyStudentMember');
 
-
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/student_course/delete/{student_id}/{course_id}', 'StudentCourseController@destroyById');
+
+Route::get('api/teacher/all', 'TeacherController@getAll');
+Route::post('api/teacher/add_one_teacher_member', 'TeacherController@storeOneTeacherMember');
+
+Route::get('api/teacher_course/delete/{teacher_id}/{course_id}', 'TeacherCourseController@destroyById');
 
 //api for badge achievement
 Route::get('api/student_badge/{student_id}', 'StudentController@getBadge');
