@@ -40,10 +40,10 @@ class ProblemFileController extends Controller
         $problemFile->filename = $file->getFilename().'.'.$extension;
         $problemFile->save();
 
-        $dirname = $problemFile->id;
+        $dirName = $problemFile->id;
 
-        Storage::disk('public')->makeDirectory($dirname);
-        $dest = storage_path() . '\\app\\public\\' . $dirname .'\\';
+        Storage::disk('public')->makeDirectory($dirName);
+        $dest = storage_path() . '\\app\\public\\' . $dirName .'\\';
         Log::info('#### 2 dest '.$dest);
 
         $path = storage_path('app\\public\\'.$problemFile->filename);
@@ -53,11 +53,24 @@ class ProblemFileController extends Controller
         $zipper->make($path)->extractTo($dest);
         Log::info('#### 4 extract complete');
 
+        // Todo Read all java file in directory
+        /*
         $id = ProblemFile::all()->last()->id;
         $code = Storage::disk('public')->get('\\' . $dirname . '\\' . $input_filename . '.java');
         $res = self::keepProblem($id, $input_filename, $input_package, $input_lesson_id, $code);
+        */
+        $allCodes = [];
+        $files = Storage::disk('public')->allFiles($dirName.'/'.$input_filename.'/src');
+        foreach ($files as $file){
+            $code = [
+                'filename' => (string)$file,
+                'code' => Storage::disk('public')->get($file)
+            ];
+            array_push($allCodes, $code);
+        }
+        return $allCodes;
 
-        return $res;
+        //return 'extract complete';
     }
 
     public function get($filename)

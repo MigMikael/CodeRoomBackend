@@ -13,8 +13,8 @@ class AddForeignToTeacherCourse extends Migration
     public function up()
     {
         Schema::table('teacher_course', function (Blueprint $table){
-            $table->foreign('teacher_id')->references('id')->on('teacher');
-            $table->foreign('course_id')->references('id')->on('course');
+            $table->foreign('teacher_id')->references('id')->on('teacher')->onDelete('cascade');;
+            $table->foreign('course_id')->references('id')->on('course')->onDelete('cascade');;
         });
     }
 

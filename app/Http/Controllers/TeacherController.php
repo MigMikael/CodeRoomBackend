@@ -34,6 +34,15 @@ class TeacherController extends Controller
         return $teacher;
     }
 
+    public function destroy($id)
+    {
+        // Todo fix this bug see in log
+        Log::info('Delete Teacher');
+        $teacher =Teacher::find($id);
+        $teacher->delete();
+        return 'delete complete';
+    }
+
     public function storeOneTeacherMember()
     {
         $course_id = Request::get('course_id');

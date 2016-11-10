@@ -84,6 +84,7 @@ Route::get('api/image/{id}', 'ImageController@getImage');
 
 //api for test
 Route::get('test', 'TestController@index');
+Route::get('test/file/{folderName}', 'TestController@getFile');
 
 //api deprecated
 Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');

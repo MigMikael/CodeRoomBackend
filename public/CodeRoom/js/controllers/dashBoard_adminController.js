@@ -25,8 +25,7 @@ app.controller('dashboard_adminController',function(allTeachers_admin,$scope,$ht
         allTeachers_admin.getAllTeachers_admin()
             .success(function (data) {
                 $scope.teachers = addPath(data);
-
-
+                console.log($scope.teachers);
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -41,7 +40,7 @@ app.controller('dashboard_adminController',function(allTeachers_admin,$scope,$ht
     }
     $scope.deleteTeacher = function (teacher_id) {
 
-        $http.delete('teacher/' + teacher_id)
+        $http.delete('/teacher/' + teacher_id)
             .success(function (data, status, headers) {
                 location.reload();
                 getAdminCourse();
