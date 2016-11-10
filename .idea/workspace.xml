@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachersinCourse_adminController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/js/services/allTeachers_admin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/views/addTeachers_admin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/CodeRoom/views/addTeachersinCourse_admin.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/index.html" afterPath="$PROJECT_DIR$/public/CodeRoom/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/app.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/addQuiz_teachersControllers.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/addQuiz_teachersControllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_adminController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_adminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_admin.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/coursepage_admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/dashboard_admin.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/dashboard_admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js" afterPath="$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/addproblem_teachers.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/addproblem_teachers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" afterPath="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,6 +53,54 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="uploadproblem_students.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.291667">
+              <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#2;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#3;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#4;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#5;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#6;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addTeachers_admin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/addTeachers_admin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.666667">
+              <caret line="26" column="101" selection-start-line="26" selection-start-column="101" selection-end-line="26" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addTeachers_adminController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30405405">
+              <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadproblem_studentsController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="417" column="31" selection-start-line="417" selection-start-column="31" selection-end-line="417" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,11 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashBoard_adminController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashBoard_adminController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_adminController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.375">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -126,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/CodeRoom/js/services/coursePage_students.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/uploadteacher.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/addLesson_teachers.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/addQuiz_teachers.html" />
@@ -161,15 +202,12 @@
         <option value="$PROJECT_DIR$/public/CodeRoom/js/services/delete_teacher_admin.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/listStudent_teachers.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/css/main.css" />
-        <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js" />
-        <option value="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/coursepage_teachers.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeacher_adminController.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/coursepage_admin.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachersinCourse_adminController.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/addTeachersinCourse_admin.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/views/addTeachers_admin.html" />
-        <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/js/app.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/js/services/allTeacher_admin.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/index.html" />
@@ -177,6 +215,10 @@
         <option value="$PROJECT_DIR$/public/CodeRoom/views/dashboard_admin.html" />
         <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/addQuiz_teachersControllers.js" />
         <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_adminController.js" />
+        <option value="$PROJECT_DIR$/public/CodeRoom/views/addproblem_teachers.html" />
+        <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js" />
+        <option value="$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html" />
+        <option value="$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js" />
       </list>
     </option>
   </component>
@@ -907,12 +949,6 @@
       <workItem from="1476215969582" duration="401000" />
       <workItem from="1476354853365" duration="1342000" />
     </task>
-    <task id="LOCAL-00031" summary="change all view using google-mdl layout">
-      <created>1470938309339</created>
-      <option name="number" value="00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1470938309339</updated>
-    </task>
     <task id="LOCAL-00032" summary="add angular Web Submission and make Student controller">
       <created>1472636125594</created>
       <option name="number" value="00032" />
@@ -1201,7 +1237,13 @@
       <option name="project" value="LOCAL" />
       <updated>1478545289831</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="add and delete teacher in ระบบ">
+      <created>1478698581647</created>
+      <option name="number" value="00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1478698581647</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1226,7 +1268,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33548388" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33548388" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18387097" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1279,7 +1321,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="fix bug show submission score" />
     <MESSAGE value="update uploadteacher (enclose package class)" />
     <MESSAGE value="update uploadteacher (Final&amp;static class attribute method)" />
     <MESSAGE value="update uploadteacher add final - static" />
@@ -1304,7 +1345,8 @@
     <MESSAGE value="admin page" />
     <MESSAGE value="uploadproblem_students add hover list_problem" />
     <MESSAGE value="uploadproblem_students add hover list_problem debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="uploadproblem_students add hover list_problem debug" />
+    <MESSAGE value="add and delete teacher in ระบบ" />
+    <option name="LAST_COMMIT_MESSAGE" value="add and delete teacher in ระบบ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1317,13 +1359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.051457975">
           <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/addproblem_teachers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24865831">
-          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="59" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1520,30 +1555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.5264316">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#2;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#3;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#4;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#5;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#6;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91004187">
-          <caret line="231" column="77" selection-start-line="231" selection-start-column="77" selection-end-line="231" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/coursepage_students.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14757709">
@@ -1636,22 +1647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/addTeachers_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47136563">
-          <caret line="26" column="101" selection-start-line="26" selection-start-column="101" selection-end-line="26" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025337838">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-250.625">
@@ -1664,14 +1659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -1733,14 +1720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/addproblem_teachersController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5208333">
-          <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="226" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.083333">
@@ -1751,8 +1730,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/dashBoard_adminController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.375">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/addproblem_teachersController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.8125">
+          <caret line="226" column="12" selection-start-line="226" selection-start-column="12" selection-end-line="226" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/addproblem_teachers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4225352">
+          <caret line="62" column="188" selection-start-line="62" selection-start-column="188" selection-end-line="62" selection-end-column="199" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/uploadproblem_studentsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="417" column="31" selection-start-line="417" selection-start-column="31" selection-end-line="417" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/uploadproblem_students.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.291667">
+          <caret line="111" column="46" selection-start-line="111" selection-start-column="46" selection-end-line="111" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#2;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#3;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#4;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#5;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#6;n#table#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/views/addTeachers_admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.666667">
+          <caret line="26" column="101" selection-start-line="26" selection-start-column="101" selection-end-line="26" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/CodeRoom/js/controllers/addTeachers_adminController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30405405">
+          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
           <folding />
         </state>
       </provider>

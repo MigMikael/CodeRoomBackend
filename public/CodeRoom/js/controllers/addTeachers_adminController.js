@@ -4,7 +4,7 @@ app.controller('addTeachers_adminController',function($scope,$stateParams,$http)
 
 
     $scope.teacher = {
-        course_id: $localStorage.course_id_admin,
+
     };
 
     $scope.addTeacher = function(){

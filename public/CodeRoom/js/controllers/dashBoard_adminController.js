@@ -14,7 +14,7 @@ app.controller('dashboard_adminController',function(allTeachers_admin,$scope,$ht
         adminCourse.getAdminCourse()
             .success(function (data) {
                 $scope.myAdmin_courses = data;
-                
+
 
             })
             .error(function (error) {

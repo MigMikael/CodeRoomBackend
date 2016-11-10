@@ -109,7 +109,10 @@
         </div>
         <div class="ace-upload">
             <div class="nav-aceupload">
-                <a>Java</a>
+                <span ng-repeat="file in files">
+                     <a>{{file.name}}</a>
+                </span>
+
             </div>
             <div id="editor"></div>
 
@@ -122,10 +125,11 @@
             <p ng-class="{'massage-fail': alert.status == 'null'|| alert.status == 'false','massage-success': alert.status == 'complete'}" >{{alert.massage}}</p>
         </div>
         <div class="middle-navbottom-upload">
-            <button class="select-files upload-problem" type="file" ngf-select ng-model="file" name="file" accept=".zip">Select Files</button>
+            {{readFiles()}}
+            <button class="select-files upload-problem" type="file" ngf-select ng-model="files" name="files" accept="/*" multiple >Select Files</button>
             <p>{{file.name}}</p>
 
-            <button type="submit" value="sumit" ng-click="submitProblem()">SUBMIT</button>
+            <button type="submit" value="sumit" ng-click="uploadFiles()">SUBMIT</button>
         </div>
         <div class="right-navbottom-upload">
             <a>NEXT</a>

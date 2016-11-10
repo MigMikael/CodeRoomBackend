@@ -29,6 +29,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
     $scope.course_name = $stateParams.course_name;
     $scope.detail_problem;
     $localStorage.lesson_id_student = $stateParams.lesson_id;
+    $scope.files;
     getLesson();
     //manageData()
 
@@ -412,11 +413,19 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
 
     };
 
+    $scope.readFiles = function(){
 
+        if($scope.files != null){
+
+        }
+
+
+    };
 
 
     //upload
     $scope.uploadFiles = function(file) {
+
         file.upload = Upload.upload({
             url: 'https://posttestserver.com/post.php',
             data: {file: file},
@@ -425,6 +434,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
         file.upload.then(function (response) {
             $timeout(function () {
                 file.result = response.data;
+
 
             });
         }, function (response) {
