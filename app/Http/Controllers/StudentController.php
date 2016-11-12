@@ -32,9 +32,23 @@ class StudentController extends Controller
 
     public function store()
     {
-        $student = Request::all();
-        $student['image'] = self::getAvatarImage();
-        $student = Student::create($student);
+        $password = Request::get('password');
+        $confirmPassword = Request::get('confirm_password');
+        if($password != $confirmPassword){
+            return 'password not match';
+        }
+
+        $student = [
+            'student_id' => Request::get('student_id'),
+            'name' => Request::get('name'),
+            'username' => Request::get('username'),
+            'password' => bcrypt($password),
+        ];
+        $student = Student::firstOrCreate($student);
+        if($student->image == ''){
+            $student->image = self::getAvatarImage();
+            $student->save();
+        }
         return $student;
     }
 
@@ -47,15 +61,21 @@ class StudentController extends Controller
         $student = [
             'student_id' => $student_id,
             'name' => $name,
-            'image' => self::getAvatarImage(),
         ];
-        $student = Student::create($student);
+        $student = Student::firstOrCreate($student);
+        if($student->image == ''){
+            $student->image = self::getAvatarImage();
+            $student->username = $student->student_id;  // auto generate username & pass from student_id ex. 07560550
+            $student->password = bcrypt($student->student_id);
+            $student->save();
+        }
 
         $studentCourse = [
             'student_id' => $student->id,
-            'course_id' => $course_id
+            'course_id' => $course_id,
+            'status' => 'active',
         ];
-        StudentCourse::create($studentCourse);
+        StudentCourse::firstOrCreate($studentCourse);
 
         return 'add student complete';
     }
@@ -69,7 +89,6 @@ class StudentController extends Controller
         Storage::disk('public')->put($fileName, File::get($studentListFile));
         $path = storage_path().'\\app\\public\\' . $fileName;
         $data = Excel::load($path, function ($reader){
-
         })->get();
 
         $students = [];
@@ -84,14 +103,20 @@ class StudentController extends Controller
         }
 
         foreach ($students as $student){
-            $student['image'] = self::getAvatarImage();
-            $student = Student::create($student);
+            $student = Student::firstOrCreate($student);
+            if($student->image == ''){
+                $student->image = self::getAvatarImage();
+                $student->username = $student->student_id;
+                $student->password = bcrypt($student->student_id);
+                $student->save();
+            }
 
             $studentCourse = [
                 'student_id' => $student->id,
-                'course_id' => $course_id
+                'course_id' => $course_id,
+                'status' => 'active',
             ];
-            StudentCourse::create($studentCourse);
+            StudentCourse::firstOrCreate($studentCourse);
         }
 
         return 'add student complete';

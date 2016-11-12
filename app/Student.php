@@ -13,6 +13,8 @@ class Student extends Model
         'student_id',
         'name',
         'image',
+        'username',
+        'password',
     ];
 
     public function badges()

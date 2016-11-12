@@ -29,7 +29,6 @@ class TeacherCourseController extends Controller
 
     public function store()
     {
-        //Todo fix bug create same teacher_course
         $input = Request::all();
         TeacherCourse::create($input);
         return redirect('teacher_course');

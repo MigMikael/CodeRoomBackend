@@ -8,9 +8,7 @@ body {
     margin-top: 1%;
 }
 
-.demo-card-event.mdl-card {
-    width: 256px;
-    height: 256px;
+.demo-card-event {
     background: #3E4EB8;
 }
 
@@ -39,8 +37,6 @@ body {
 }
 
 .demo-card-event2.mdl-card {
-    width: 256px;
-    height: 256px;
     background: #F44336;
 }
 
@@ -88,4 +84,13 @@ img.article-image {
 
 .big-card {
     padding: 20px;
+}
+
+.little-card > .mdl-card__title,
+.little-card > .mdl-card__supporting-text {
+    color: #FFFFFF;
+}
+
+.disable-card {
+    background: #ECEFF1;
 }

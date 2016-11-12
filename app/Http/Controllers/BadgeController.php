@@ -78,6 +78,6 @@ class BadgeController extends Controller
         $students = $badge->students()->get();
         return $students;
 
-        // Todo create badge view and student view
+        // Todo create student view
     }
 }

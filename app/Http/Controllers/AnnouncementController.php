@@ -16,8 +16,12 @@ class AnnouncementController extends Controller
 
     public function index()
     {
-        $announcements = Announcement::all();
+        $announcements = Announcement::orderBy('course_id')->get();
+        foreach ($announcements as $announcement){
+            $announcement->course;
+        }
         return view('announcement.index')->with('announcements', $announcements);
+        //return $announcements;
     }
 
     public function create()
@@ -28,7 +32,37 @@ class AnnouncementController extends Controller
     public function store()
     {
         $input = Request::all();
-        Announcement::create($input);
+        Announcement::firstOrCreate($input);
+        return redirect('announcement');
+    }
+
+    public function show($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        $announcement->course;
+        return view('announcement.show')->with('announcement', $announcement);
+        //return $announcement;
+    }
+
+    public function edit($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        return view('announcement.edit')->with('announcement', $announcement);
+    }
+
+    public function update($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        $newAnnouncement = Request::all();
+        $announcement->update($newAnnouncement);
+
+        return redirect('announcement');
+    }
+
+    public function destroy($id)
+    {
+        $announcement = Announcement::findOrFail($id);
+        $announcement->delete();
         return redirect('announcement');
     }
 }

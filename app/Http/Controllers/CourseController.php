@@ -37,47 +37,72 @@ class CourseController extends Controller
 
     public function store()
     {
-        $input_name = Request::get('name');
+        $name = Request::get('name');
+        $color = Request::get('color');
+        $status = Request::get('status');
         $file = Request::file('photo');
 
         Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
-
         $image_path = 'http://localhost:8000/api/course/image/'. str_replace('.','_',$file->getClientOriginalName());
         Log::info('#### '.$image_path);
 
-        $course_data = [];
-        $course_data['name'] = $input_name;
-        $course_data['image'] = $image_path;
-        Course::create($course_data);
+        $course_data = [
+            'name' => $name , 'color' => $color, 'status' => $status, 'image' => $image_path
+        ];
+        Course::firstOrCreate($course_data);
         return redirect('course');
     }
 
     public function show($id)
     {
-        $course = Course::find($id);
+        $course = Course::withCount([
+            'students', 'teachers', 'lessons', 'badges', 'announcements'
+        ])->findOrFail($id);
+
         $course->students;
         $course->teachers;
+        $course->lessons;
+        $course->badges;
+        $course->announcements;
         return view('course.show')->with('course', $course);
         //return $course;
     }
 
     public function edit($id)
     {
-        $course = Course::find($id);
-        return $course;
+        $course = Course::findOrFail($id);
+        return view('course.edit')->with('course', $course);
     }
 
     public function update($id)
     {
-        $course = Course::find($id);
-        $newCourse = Request::only([
-            'name',
-            'image',
-            'color',
-            'status'
-        ]);
+        $course = Course::findOrFail($id);
+        $image_path = $course->image;
 
+        $name = Request::get('name');
+        $color = Request::get('color');
+        $status = Request::get('status');
+
+        if(Request::hasFile('photo')){
+            $file = Request::file('photo');
+            Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
+            $image_path = 'http://localhost:8000/api/course/image/'. str_replace('.','_',$file->getClientOriginalName());
+            Log::info('#### '.$image_path);
+        }
+        $newCourse = [
+            'name' => $name, 'color' => $color,
+            'status' => $status, 'image' => $image_path
+        ];
         $course->update($newCourse);
+
+        return redirect('course');
+    }
+
+    public function destroy($id)
+    {
+        $course = Course::findOrFail($id);
+        $course->delete();
+        return redirect('course');
     }
 
     public function addStudentMember()
@@ -95,8 +120,9 @@ class CourseController extends Controller
         $name = str_replace('_','.',$name);
         Log::info('#### '.$name);
         $file = Storage::disk('public')->get($name);
-        //Todo change content type
-        return (new Response($file, 200))->header('Content-Type', 'image/png');
+        $mimeType = Storage::disk('public')->mimeType($name);
+
+        return (new Response($file, 200))->header('Content-Type', $mimeType);
     }
 
     public function getAll()
@@ -109,14 +135,6 @@ class CourseController extends Controller
     {
         $student = Student::where('student_id', '=', $student_id)->first();
         $course = Course::where('id', '=', $course_id)->first();
-
-        /*$courseInstructor = [];
-        $instructorsID = TeacherCourse::where('course_id', '=', $course_id)->pluck('teacher_id');
-        foreach ($instructorsID as $instructorID){
-            $teacher = Teacher::find($instructorID);
-            array_push($courseInstructor, $teacher->name);
-        }
-        $course['instructor'] = $courseInstructor;*/
 
         $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();
         $lessonNum = Lesson::where([
@@ -189,7 +207,7 @@ class CourseController extends Controller
 
     public function getDetailAdmin($course_id, $admin_id)
     {
-        $course = Course::find($course_id);
+        $course = Course::findOrFail($course_id);
         foreach ($course->teachers as $teacher){
             $teacher->pivot->status;
         }
@@ -198,7 +216,7 @@ class CourseController extends Controller
 
     public function getBadge($course_id)
     {
-        $course = Course::find($course_id);
+        $course = Course::findOrFail($course_id);
         Log::info('#### '.$course->name);
         $badges = $course->badges;
 
@@ -207,7 +225,7 @@ class CourseController extends Controller
 
     public function getStudentMember($course_id)
     {
-        $course = Course::find($course_id);
+        $course = Course::findOrFail($course_id);
         $studentMember = $course->students()->where('status', 'active')->get();
 
         return $studentMember;
@@ -215,9 +233,22 @@ class CourseController extends Controller
 
     public function getTeacherMember($course_id)
     {
-        $course = Course::find($course_id);
+        $course = Course::findOrFail($course_id);
         $teachers = $course->teachers;
 
         return $teachers;
+    }
+
+    public function changeStatus($course_id)
+    {
+        $course = Course::findOrFail($course_id);
+        if($course->status == 'active'){
+            $course->status = 'inactive';
+        }else{
+            $course->status = 'active';
+        }
+        $course->save();
+
+        return back();
     }
 }

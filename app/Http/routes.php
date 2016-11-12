@@ -29,6 +29,8 @@ Route::resource('teacher', 'TeacherController');
 Route::resource('teacher_course', 'TeacherCourseController');
 Route::resource('announcement', 'AnnouncementController');
 
+Route::get('course/{course}/status', 'CourseController@changeStatus');
+
 
 Route::get('problemfile', 'ProblemFileController@index');
 Route::get('problemfile/create', 'ProblemFileController@create');

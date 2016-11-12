@@ -13,6 +13,8 @@ class Teacher extends Model
         'name',
         'status',
         'image',
+        'username',
+        'password'
     ];
 
     public function courses()

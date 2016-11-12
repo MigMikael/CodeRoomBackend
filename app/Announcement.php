@@ -15,4 +15,8 @@ class Announcement extends Model
         'content',
         'priority'
     ];
+
+    public function course(){
+        return $this->belongsTo('App\Course');
+    }
 }

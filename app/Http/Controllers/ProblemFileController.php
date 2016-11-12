@@ -53,7 +53,7 @@ class ProblemFileController extends Controller
         $zipper->make($path)->extractTo($dest);
         Log::info('#### 4 extract complete');
 
-        // Todo Read all java file in directory
+        // Todo Read only java file
         /*
         $id = ProblemFile::all()->last()->id;
         $code = Storage::disk('public')->get('\\' . $dirname . '\\' . $input_filename . '.java');

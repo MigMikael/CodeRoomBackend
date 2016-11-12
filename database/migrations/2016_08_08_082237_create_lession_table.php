@@ -16,7 +16,7 @@ class CreateLessionTable extends Migration
         {
             $table->increments('id');
             $table->string('name');
-            $table->integer('course_id');
+            $table->integer('course_id')->unsigned();
             $table->timestamps();
         });
     }

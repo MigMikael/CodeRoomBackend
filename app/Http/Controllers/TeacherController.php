@@ -28,9 +28,22 @@ class TeacherController extends Controller
 
     public function store()
     {
-        $teacher = Request::all();
-        $teacher['image'] = self::getAvatarImage();
-        $teacher = Teacher::create($teacher);
+        $password = Request::get('password');
+        $confirmPassword = Request::get('confirm_password');
+        if($password != $confirmPassword){
+            return 'password not match';
+        }
+
+        $teacher = [
+            'name' => Request::get('name'),
+            'username' => Request::get('username'),
+            'password' => bcrypt($password),
+        ];
+        $teacher = Teacher::firstOrCreate($teacher);
+        if($teacher->image == ''){
+            $teacher->image = self::getAvatarImage();
+            $teacher->save();
+        }
         return $teacher;
     }
 
@@ -53,7 +66,7 @@ class TeacherController extends Controller
             'course_id' => $course_id,
             'status' => 'active',
         ];
-        TeacherCourse::create($teacherCourse);
+        TeacherCourse::firstOrCreate($teacherCourse);
 
         return 'add teacher complete';
     }

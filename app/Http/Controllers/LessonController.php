@@ -44,6 +44,7 @@ class LessonController extends Controller
         }*/
     }
 
+    // Todo wtf what I have done T_T
     public function getProblem($lesson_id)
     {
         $problems = Problem::where('lesson_id', '=', $lesson_id)->get();

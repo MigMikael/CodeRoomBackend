@@ -15,7 +15,10 @@ class AddCollumCourseId extends Migration
         Schema::table('badge', function (Blueprint $table){
             $table->integer('course_id')->unsigned();
 
-            $table->foreign('course_id')->references('id')->on('course');
+            $table->foreign('course_id')
+                ->references('id')
+                ->on('course')
+                ->onDelete('cascade');
         });
     }
 

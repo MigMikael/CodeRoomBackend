@@ -15,4 +15,9 @@ class Lesson extends Model
         'status',
         'order'
     ];
+
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
 }
