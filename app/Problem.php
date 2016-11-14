@@ -9,14 +9,23 @@ class Problem extends Model {
 	protected $table = 'problem';
 	public $timestamps = true;
 
-	public function problem()
-	{
-		return $this->hasMany('ProblemAnalysis');
-	}
-
     protected $fillable = [
         'name',
+        'description',
+        'evaluator',
+        'timelimit',
+        'memorylimit',
+        'lesson_id',
         'code',
-        'lesson_id'
     ];
+
+    public function lesson()
+    {
+        return $this->belongsTo('App\Lesson');
+    }
+
+    public function problemAnalysis()
+    {
+        return $this->hasMany('App\ProblemAnalysis');
+    }
 }

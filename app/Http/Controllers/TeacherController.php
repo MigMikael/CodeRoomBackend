@@ -47,13 +47,44 @@ class TeacherController extends Controller
         return $teacher;
     }
 
+    public function show($id)
+    {
+        $teacher = Teacher::withCount([
+            'courses'
+        ])->findOrFail($id);
+
+        foreach ($teacher->courses as $course){
+            $course->pivot;
+        }
+
+        return view('teacher.show')->with('teacher', $teacher);
+        //return $teacher;
+    }
+
+    public function edit($id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        return view('teacher.edit')->with('teacher', $teacher);
+    }
+
+    public function update($id)
+    {
+        $teacher = Teacher::findOrFail($id);
+
+        $newTeacher = [
+            'name' => Request::get('name'),
+            'username' => Request::get('username'),
+        ];
+        $teacher->update($newTeacher);
+
+        return redirect('teacher');
+    }
+
     public function destroy($id)
     {
-        // Todo fix this bug see in log
-        Log::info('Delete Teacher');
-        $teacher =Teacher::find($id);
+        $teacher =Teacher::findOrFail($id);
         $teacher->delete();
-        return 'delete complete';
+        return back();
     }
 
     public function storeOneTeacherMember()
@@ -84,5 +115,22 @@ class TeacherController extends Controller
     {
         $teachers = Teacher::all();
         return $teachers;
+    }
+
+    public function changeStatus($teacher_id, $course_id)
+    {
+        $teacherCourse = TeacherCourse::where([
+            ['teacher_id', '=', $teacher_id],
+            ['course_id', '=', $course_id]
+        ])->first();
+
+        if($teacherCourse->status == 'active'){
+            $teacherCourse->status = 'inactive';
+        }else{
+            $teacherCourse->status = 'active';
+        }
+        $teacherCourse->save();
+
+        return back();
     }
 }

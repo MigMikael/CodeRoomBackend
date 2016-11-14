@@ -9,8 +9,8 @@
 </div>
 
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {!! Form::label('content', 'Content:', ['class' => 'mdl-textfield__label']) !!}
-    {!! Form::text('content', null, ['class' => 'mdl-textfield__input']) !!}
+    {!! Form::textarea('content', null, ['class' => 'form-control mdl-textfield__input', 'type' => 'text', 'rows' => '6', 'cols' => '6']) !!}
+    <label for="content" class="mdl-textfield__label">Content:</label>
 </div>
 
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

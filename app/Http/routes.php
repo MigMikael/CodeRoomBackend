@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 
-Route::resource('problems', 'ProblemController');
-Route::resource('badge', 'badgeController');
+Route::resource('problem', 'ProblemController');
+Route::resource('badge', 'BadgeController');
+Route::resource('badge_student', 'BadgeStudentController');
 Route::resource('problem_analysis', 'ProblemAnalysisController');
 Route::resource('course', 'CourseController');
 Route::resource('lesson', 'LessonController');
@@ -30,6 +31,9 @@ Route::resource('teacher_course', 'TeacherCourseController');
 Route::resource('announcement', 'AnnouncementController');
 
 Route::get('course/{course}/status', 'CourseController@changeStatus');
+Route::get('student_course/{student_id}/{course_id}/status', 'StudentController@changeStatus');
+Route::get('student_badge/{student_id}/{badge_id}/delete', 'StudentController@deleteBadge');
+Route::get('teacher_course/{teacher_id}/{course_id}/status', 'TeacherController@changeStatus');
 
 
 Route::get('problemfile', 'ProblemFileController@index');

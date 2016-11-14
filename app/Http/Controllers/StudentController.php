@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BadgeStudent;
 use Excel;
 use App\Student;
 use App\StudentCourse;
@@ -50,6 +51,49 @@ class StudentController extends Controller
             $student->save();
         }
         return $student;
+    }
+
+    public function show($id)
+    {
+        $student = Student::withCount([
+            'courses', 'badges'
+        ])->findOrFail($id);
+
+        foreach ($student->courses as $course){
+            $course->pivot;
+        }
+        $student->badges;
+
+        return view('student.show')->with('student', $student);
+        //return $student;
+    }
+
+    public function edit($id)
+    {
+        $student = Student::findOrFail($id);
+        return view('student.edit')->with('student', $student);
+    }
+
+    public function update($id)
+    {
+        // Todo now Cannot change password
+        $student = Student::findOrFail($id);
+
+        $newStudent = [
+            'name' => Request::get('name'),
+            'student_id' => Request::get('student_id'),
+            'username' => Request::get('username'),
+        ];
+        $student->update($newStudent);
+
+        return redirect('student');
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+        return back();
     }
 
     public function storeOneStudentMember()
@@ -151,6 +195,34 @@ class StudentController extends Controller
             ->first();
         $student->badges;
         return $student;
+    }
+
+    public function changeStatus($student_id, $course_id)
+    {
+        $studentCourse = StudentCourse::where([
+            ['student_id', '=', $student_id],
+            ['course_id', '=', $course_id]
+        ])->first();
+
+        if($studentCourse->status == 'active'){
+            $studentCourse->status = 'inactive';
+        }else{
+            $studentCourse->status = 'active';
+        }
+        $studentCourse->save();
+
+        return back();
+    }
+
+    public function deleteBadge($student_id, $badge_id)
+    {
+        $badgeStudent = BadgeStudent::where([
+            ['student_id', '=', $student_id],
+            ['badge_id', '=', $badge_id]
+        ])->first();
+
+        $badgeStudent->delete();
+        return back();
     }
 
 }

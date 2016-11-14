@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Announcement;
 use App\Course;
+use App\Badge;
 use App\Lesson;
 use App\Problem;
 use App\ProblemAnalysis;
@@ -17,8 +18,12 @@ class LessonController extends Controller
 {
     public function index()
     {
-        $lessons = Lesson::all();
+        $lessons = Lesson::orderBy('course_id')->get();
+        foreach ($lessons as $lesson){
+            $lesson->course;
+        }
         return view('lesson.index')->with('lessons', $lessons);
+        //return $lessons;
     }
 
     public function create()
@@ -42,6 +47,42 @@ class LessonController extends Controller
         }else{
             return 'fail';
         }*/
+    }
+
+    public function show($id)
+    {
+        $lesson = Lesson::withCount(['problems'])->findOrFail($id);
+        $lesson->course;
+        $lesson->problems;
+        foreach ($lesson->problems as $problem){
+            $problem->code = '';
+        }
+        return view('lesson.show')->with('lesson', $lesson);
+        //return $lesson;
+    }
+
+    public function edit($id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        return view('lesson.edit')->with('lesson', $lesson);
+    }
+
+    public function update($id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        $newLesson = Request::all();
+        $lesson->update($newLesson);
+
+        return redirect('lesson');
+    }
+
+    public function destroy($id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        $badge = Badge::where('name', $lesson->name)->firstOrFail();
+        $badge->delete();
+        $lesson->delete();
+        return back();
     }
 
     // Todo wtf what I have done T_T

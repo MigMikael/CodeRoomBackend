@@ -27,4 +27,9 @@ class ProblemAnalysis extends Model {
         'constructor'
 	];
 
+    public function problem()
+    {
+        return $this->belongsTo('App\Problem');
+    }
+
 }

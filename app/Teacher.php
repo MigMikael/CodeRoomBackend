@@ -9,6 +9,10 @@ class Teacher extends Model
     protected $table = 'teacher';
     public $timestamps = true;
 
+    protected $hidden = [
+        'password'
+    ];
+
     protected $fillable = [
         'name',
         'status',

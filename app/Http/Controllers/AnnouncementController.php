@@ -32,7 +32,7 @@ class AnnouncementController extends Controller
     public function store()
     {
         $input = Request::all();
-        Announcement::firstOrCreate($input);
+        Announcement::create($input);
         return redirect('announcement');
     }
 
@@ -63,6 +63,6 @@ class AnnouncementController extends Controller
     {
         $announcement = Announcement::findOrFail($id);
         $announcement->delete();
-        return redirect('announcement');
+        return back();
     }
 }

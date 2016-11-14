@@ -13,6 +13,9 @@ class BadgeController extends Controller
     public function index()
     {
         $badges = Badge::all();
+        foreach ($badges as $badge){
+            $badge->course;
+        }
         return view('badge.index')->with('badges', $badges);
     }
 
@@ -30,6 +33,28 @@ class BadgeController extends Controller
         Badge::create($badge);
 
         return redirect('badge');
+    }
+
+    public function edit($id)
+    {
+        $badge = Badge::findOrFail($id);
+        return view('badge.edit')->with('badge', $badge);
+    }
+
+    public function update($id)
+    {
+        $badge = Badge::findOrFail($id);
+        $newBadge = Request::all();
+        $badge->update($newBadge);
+
+        return redirect('badge');
+    }
+
+    public function destroy($id)
+    {
+        $badge = Badge::findOrFail($id);
+        $badge->delete();
+        return back();
     }
 
     // Store Lesson badge
@@ -77,7 +102,5 @@ class BadgeController extends Controller
         Log::info('**** '.$badge->name);
         $students = $badge->students()->get();
         return $students;
-
-        // Todo create student view
     }
 }

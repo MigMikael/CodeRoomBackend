@@ -8,7 +8,9 @@
         <img src="{{ $course->image }}" alt="Teacher Image" class="article-image" border="0"/>
     </div>
 
-    <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp">
+    <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp
+        @if($course->status == 'inactive') disable-card @endif">
+
         <div class="mdl-card__supporting-text mdl-card--expand">
             <p><b>ID:</b> {{ $course->id }}</p><br>
             <p><b>Color:</b> {{ $course->color }}</p><br>
@@ -39,7 +41,7 @@
     @php
         $rgb = explode(':', $course->color)
     @endphp
-    <div class="mdl-cell mdl-cell--2-col mdl-card little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
+    <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
         <div class="mdl-card__title">
             Students
         </div>
@@ -48,7 +50,7 @@
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--2-col mdl-card little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
+    <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
         <div class="mdl-card__title">
             Teachers
         </div>
@@ -57,7 +59,7 @@
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--2-col mdl-card little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
+    <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
         <div class="mdl-card__title">
             Lessons
         </div>
@@ -66,7 +68,7 @@
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--2-col mdl-card little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
+    <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
         <div class="mdl-card__title">
             Badges
         </div>
@@ -75,7 +77,7 @@
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--2-col mdl-card little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
+    <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp little-card" style="background: rgb({{ $rgb[0] }},{{ $rgb[1] }},{{ $rgb[2] }})">
         <div class="mdl-card__title">
             Announcements
         </div>
@@ -90,7 +92,9 @@
         <h2>Student Members</h2>
     </div>
     @foreach($course->students as $student)
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp">
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp
+            @if($student->pivot->status == 'inactive') disable-card @endif">
+
             <div class="mdl-card__media" style="background-color: #FFFFFF">
                 <img src="{{ url('api/image/'.$student->image) }}" alt="Student Image" class="article-image" border="0"/>
             </div>
@@ -98,15 +102,20 @@
                 <h2 class="mdl-card__title-text">{{ $student->name }}</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                ID: {{ $student->student_id }}
+                ID: {{ $student->student_id }}<br>
+                Progress: <h3><b>{{ $student->pivot->progress }}%</b></h3>
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <a href="{{ url('student/'.$student->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     view
                 </a>
 
-                <a href="{{ url('api/student_course/delete/'.$student->student_id.'/'.$course->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    delete
+                <a href="{{ url('student_course/'.$student->id.'/'.$course->id.'/status') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    @if($student->pivot->status == 'active')
+                        inactive
+                    @else
+                        active
+                    @endif
                 </a>
             </div>
         </div>
@@ -123,7 +132,9 @@
         <h2>Teacher Members</h2>
     </div>
     @foreach($course->teachers as $teacher)
-        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp">
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp
+            @if($teacher->pivot->status == 'inactive') disable-card @endif">
+
             <div class="mdl-card__media" style="background-color: #FFFFFF">
                 <img src="{{ url('api/image/'.$teacher->image) }}" alt="Student Image" class="article-image" border="0"/>
             </div>
@@ -131,11 +142,18 @@
                 <h2 class="mdl-card__title-text">{{ $teacher->name }}</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                ID: {{ $teacher->student_id }}
+                ID: {{ $teacher->id }}
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     view
+                </a>
+                <a href="{{ url('teacher_course/'.$teacher->id.'/'.$course->id.'/status') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    @if($teacher->pivot->status == 'active')
+                        inactive
+                    @else
+                        active
+                    @endif
                 </a>
             </div>
         </div>
@@ -146,6 +164,7 @@
         </a>
     </div>
 
+    <hr>
 
     <div class="mdl-cell mdl-cell--12-col center">
         <h1>Course Lessons</h1>
@@ -167,11 +186,19 @@
                 Order: {{ $lesson->order }}<br>
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="">
+                <a href="{{ url('lesson/'.$lesson->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     View
                 </a>
                 <div class="mdl-layout-spacer"></div>
-                <i class="material-icons">subject</i>
+                <a href="{{ url('lesson/'.$lesson->id.'/edit') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    edit
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                {!! Form::model($lesson, ['method' => 'DELETE', 'url'=>'lesson/'.$lesson->id]) !!}
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
+                    <i class="material-icons">cancel</i>
+                </button>
+                {!! Form::close() !!}
             </div>
         </div>
     @endforeach
@@ -181,6 +208,7 @@
         </a>
     </div>
 
+    <hr>
 
     <div class="mdl-cell mdl-cell--12-col center">
         <h1>Course Badges</h1>
@@ -200,6 +228,16 @@
                 <div id="{{ $badge->id }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     share
                 </div>
+                <a href="{{ url('badge/'.$badge->id.'/edit') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    edit
+                </a>
+            </div>
+            <div class="mdl-card__menu">
+                {!! Form::model($badge, ['method' => 'DELETE', 'url'=>'badge/'.$badge->id]) !!}
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
+                    <i class="material-icons">cancel</i>
+                </button>
+                {!! Form::close() !!}
             </div>
         </div>
     @endforeach
@@ -224,11 +262,19 @@
                 Priority: {{ $announcement->priority }}<br>
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="">
+                <a href="{{ url('announcement/'.$announcement->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     View
                 </a>
                 <div class="mdl-layout-spacer"></div>
-                <i class="material-icons">subject</i>
+                <a href="{{ url('announcement/'.$announcement->id.'/edit') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    edit
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                {!! Form::model($announcement, ['method' => 'DELETE', 'url'=>'announcement/'.$announcement->id]) !!}
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
+                    <i class="material-icons">cancel</i>
+                </button>
+                {!! Form::close() !!}
             </div>
         </div>
     @endforeach

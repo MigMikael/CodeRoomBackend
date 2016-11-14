@@ -3,6 +3,9 @@
 @section('content')
     <div class="mdl-cell mdl-cell--12-col center">
         <h1>All Announcement</h1>
+        <a href="{{ url('announcement/create') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="material-icons">add</i>
+        </a>
     </div>
     @php
         $currentCourse = 0;
@@ -44,8 +47,6 @@
         </div>
     @endforeach
     <div class="mdl-cell mdl-cell--12-col right">
-        <a href="{{ url('announcement/create') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-            <i class="material-icons">add</i>
-        </a>
+
     </div>
 @stop

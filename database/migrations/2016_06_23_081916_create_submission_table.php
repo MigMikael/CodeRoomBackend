@@ -9,8 +9,8 @@ class CreateSubmissionTable extends Migration {
 	{
 		Schema::create('submission', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('user_id', 100)->index();
-			$table->integer('prob_id')->index();
+			$table->integer('student_id')->unsigned();
+			$table->integer('problem_id')->unsigned();
 			$table->integer('sub_num')->default('0');
 			$table->datetime('time');
 			$table->text('code');

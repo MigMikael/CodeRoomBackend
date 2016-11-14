@@ -20,39 +20,77 @@ class ProblemController extends Controller
     public function index()
     {
         $problems = Problem::all();
-
-        return view('problems.index')->with('problems', $problems);
+        foreach ($problems as $problem){
+            $problem->lesson;
+        }
+        return view('problem.index')->with('problems', $problems);
+        //return $problems;
     }
 
     public function create()
     {
-        return view('problems.create');
+        return view('problem.create');
     }
 
     public function store()
     {
-        $input_filename = Request::get('filename');
-        $input_package = Request::get('package');
-        $input_lesson_id = Request::get('lesson_id');
-        $input_code = Request::get('code');
-        Log::info('#### INPUT Data #### '.$input_filename.' ####');
+        $problem = [
+            'name' => Request::get('name'),
+            'description' => Request::get('description'),
+            'evaluator' => Request::get('evaluator'),
+            'timelimit' => Request::get('timelimit'),
+            'memorylimit' => Request::get('memorylimit'),
+            'lesson_id' => Request::get('lesson_id'),
+            'code' => Request::get('code')
+        ];
+        $problem = Problem::create($problem);
+        return redirect('problem');
 
-        $problem_data = [];
-        $problem_data['name'] = $input_filename;
-        $problem_data['lesson_id'] = $input_lesson_id;
-        $problem_data['code'] = $input_code;
-        Problem::create($problem_data);
-        Log::info('#### STATUS #### '. 'Keep Problem' .' ####');
-
-        $problem = Problem::all()->last();
-        $input_id = $problem->id;
-
+        /*$input_id = $problem->id;
         $analyzeResult_json = self::analyzeProblem($input_id, $input_filename, $input_package, $input_code);
         self::keepProblemAnalysis($analyzeResult_json, $input_package);
         $problemAnalysis_json = self::getProblemAnalysis($input_id);
         Log::info('#### Before Send to UI'. $problemAnalysis_json);
 
-        return \GuzzleHttp\json_encode($problemAnalysis_json);
+        return \GuzzleHttp\json_encode($problemAnalysis_json);*/
+    }
+
+    public function show($id)
+    {
+        $problem = Problem::findOrFail($id);
+        //$problem->problemAnalysis;
+        //return $problem;
+        return view('problem.show')->with('problem', $problem);
+    }
+
+    public function edit($id)
+    {
+        $problem = Problem::findOrFail($id);
+        return view('problem.edit')->with('problem', $problem);
+    }
+
+    public function update($id)
+    {
+        $problem = Problem::findOrFail($id);
+        $newProblem = [
+            'name' => Request::get('name'),
+            'description' => Request::get('description'),
+            'evaluator' => Request::get('evaluator'),
+            'timelimit' => Request::get('timelimit'),
+            'memorylimit' => Request::get('memorylimit'),
+            'lesson_id' => Request::get('lesson_id'),
+            'code' => Request::get('code')
+        ];
+        $problem->update($newProblem);
+
+        return redirect('problem');
+    }
+
+    public function destroy($id)
+    {
+        $problem = Problem::findOrFail($id);
+        $problem->delete();
+        return back();
     }
 
     public function analyzeProblem($input_id, $input_filename, $input_package, $input_code)

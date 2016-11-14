@@ -14,12 +14,23 @@
                 <h2 class="mdl-card__title-text">{{ $student->name }}</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                ID: {{ $student->id }}
+                ID: {{ $student->student_id }}
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <div class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <a href="{{ url('student/'.$student->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     view
-                </div>
+                </a>
+
+                <a href="{{ url('student/'.$student->id.'/edit') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    edit
+                </a>
+            </div>
+            <div class="mdl-card__menu">
+                {!! Form::model($student, ['method' => 'DELETE', 'url'=>'student/'.$student->id]) !!}
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
+                    <i class="material-icons">cancel</i>
+                </button>
+                {!! Form::close() !!}
             </div>
         </div>
     @endforeach

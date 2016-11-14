@@ -13,7 +13,7 @@ class AddCollumLessionId extends Migration
     public function up()
     {
         Schema::table('problem', function (Blueprint $table) {
-            $table->integer('lession_id');
+            $table->integer('lession_id')->unsigned();
         });
     }
 

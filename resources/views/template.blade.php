@@ -57,7 +57,7 @@
                 <a class="mdl-navigation__link" href="{{ url('badge') }}">Badge</a>
                 <hr>
                 <a class="mdl-navigation__link" href="{{ url('problemfile') }}">ProblemFile</a>
-                <a class="mdl-navigation__link" href="{{ url('problems') }}">Problem</a>
+                <a class="mdl-navigation__link" href="{{ url('problem') }}">Problem</a>
                 <a class="mdl-navigation__link" href="{{ url('problem_analysis') }}">ProblemAnalysis</a>
                 <hr>
                 <a class="mdl-navigation__link" href="{{ url('teacher') }}">Teacher</a>

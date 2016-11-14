@@ -9,6 +9,10 @@ class Student extends Model
     protected $table = 'student';
     public $timestamps = true;
 
+    protected $hidden = [
+        'password'
+    ];
+
     protected $fillable = [
         'student_id',
         'name',
@@ -24,6 +28,7 @@ class Student extends Model
 
     public function courses()
     {
-        return $this->belongsToMany('App\Course', 'student_course', 'student_id', 'course_id');
+        return $this->belongsToMany('App\Course', 'student_course', 'student_id', 'course_id')
+            ->withPivot('status', 'progress');
     }
 }

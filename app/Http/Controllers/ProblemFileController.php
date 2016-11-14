@@ -92,7 +92,7 @@ class ProblemFileController extends Controller
             'lesson_id' => $input_lesson_id,
             'code' => $code
         );
-        $request = Request::create('problems', 'POST', $args);
+        $request = Request::create('problem', 'POST', $args);
         $res = app()->handle($request);
         Log::info('#### 5 Send Problem Complete');
         return $res;

@@ -17,9 +17,20 @@
                 ID: {{ $teacher->id }}
             </div>
             <div class="mdl-card__actions mdl-card--border">
-                <div class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <a href="{{ url('teacher/'.$teacher->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     view
-                </div>
+                </a>
+
+                <a href="{{ url('teacher/'.$teacher->id.'/edit') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    edit
+                </a>
+            </div>
+            <div class="mdl-card__menu">
+                {!! Form::model($teacher, ['method' => 'DELETE', 'url'=>'teacher/'.$teacher->id]) !!}
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
+                    <i class="material-icons">cancel</i>
+                </button>
+                {!! Form::close() !!}
             </div>
         </div>
     @endforeach

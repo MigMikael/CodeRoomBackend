@@ -59,8 +59,12 @@ class CourseController extends Controller
             'students', 'teachers', 'lessons', 'badges', 'announcements'
         ])->findOrFail($id);
 
-        $course->students;
-        $course->teachers;
+        foreach ($course->students as $student){
+            $student->pivot;
+        }
+        foreach ($course->teachers as $teacher){
+            $teacher->pivot;
+        }
         $course->lessons;
         $course->badges;
         $course->announcements;

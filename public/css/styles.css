@@ -94,3 +94,11 @@ img.article-image {
 .disable-card {
     background: #ECEFF1;
 }
+
+.code-card {
+    height: 100vh;
+}
+
+.problem-card{
+    height: 40vh;
+}
