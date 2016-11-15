@@ -22,7 +22,7 @@ Route::resource('badge_student', 'BadgeStudentController');
 Route::resource('problem_analysis', 'ProblemAnalysisController');
 Route::resource('course', 'CourseController');
 Route::resource('lesson', 'LessonController');
-Route::resource('submissions', 'SubmissionController');
+Route::resource('submission', 'SubmissionController');
 Route::resource('results', 'ResultController');
 Route::resource('student', 'StudentController');
 Route::resource('student_course', 'StudentCourseController');

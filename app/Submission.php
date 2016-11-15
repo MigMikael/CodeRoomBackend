@@ -10,22 +10,20 @@ class Submission extends Model {
 	protected $table = 'submission';
 	public $timestamps = true;
 
-	public function result()
-	{
-		return $this->hasMany('Result');
-	}
-
 	protected $fillable = [
-		'user_id',
-		'prob_id',
+		'student_id',
+		'problem_id',
 		'sub_num',
-		'time',
 		'code'
 	];
 
-	public function setTimeAttribute($date)
-	{
-		$this->attributes['time'] = Carbon::createFromFormat('Y-m-d', $date);
-	}
+    public function student()
+    {
+        return $this->belongsTo('App\Student');
+    }
 
+    public function problem()
+    {
+        return $this->belongsTo('App\Problem');
+    }
 }

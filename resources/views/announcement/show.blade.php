@@ -6,7 +6,7 @@
             {{ $announcement->title }}
         </div>
         <div class="mdl-card__supporting-text">
-            Content: {{ $announcement->content }}<br>
+            Content: {!!  $announcement->content !!}<br>
             Course: {{ $announcement->course->name }}<br>
             Priority: {{ $announcement->priority }}<br>
         </div>

@@ -51,11 +51,11 @@
                 <div id="{{ $badge->id }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     share
                 </div>
-                <div class="mdl-layout-spacer"></div>
                 <a href="{{ url('badge/'.$badge->id.'/edit') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     edit
                 </a>
-                <div class="mdl-layout-spacer"></div>
+            </div>
+            <div class="mdl-card__menu">
                 {!! Form::model($badge, ['method' => 'DELETE', 'url'=>'badge/'.$badge->id]) !!}
                 <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
                     <i class="material-icons">cancel</i>

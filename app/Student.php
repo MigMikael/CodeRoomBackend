@@ -31,4 +31,9 @@ class Student extends Model
         return $this->belongsToMany('App\Course', 'student_course', 'student_id', 'course_id')
             ->withPivot('status', 'progress');
     }
+
+    public function submissions()
+    {
+        return $this->hasMany('App\Submission');
+    }
 }

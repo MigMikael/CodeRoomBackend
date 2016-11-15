@@ -56,13 +56,16 @@ class StudentController extends Controller
     public function show($id)
     {
         $student = Student::withCount([
-            'courses', 'badges'
+            'courses', 'badges', 'submissions'
         ])->findOrFail($id);
 
         foreach ($student->courses as $course){
             $course->pivot;
         }
         $student->badges;
+        foreach ($student->submissions as $submission){
+            $submission->code = '';
+        }
 
         return view('student.show')->with('student', $student);
         //return $student;

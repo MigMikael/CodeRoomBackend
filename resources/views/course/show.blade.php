@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mdl-cell mdl-cell--12-col center">
-        <h1>{{ $course->name }}</h1>
+        <h1>Course Detail</h1>
     </div>
     <div class="mdl-cell mdl-cell--4-col">
         <img src="{{ $course->image }}" alt="Teacher Image" class="article-image" border="0"/>
@@ -11,10 +11,15 @@
     <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp
         @if($course->status == 'inactive') disable-card @endif">
 
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{ $course->name }}</h2>
+        </div>
         <div class="mdl-card__supporting-text mdl-card--expand">
-            <p><b>ID:</b> {{ $course->id }}</p><br>
-            <p><b>Color:</b> {{ $course->color }}</p><br>
-            <p><b>Status:</b> {{ $course->status }}</p>
+            <p>
+                <b>ID:</b> {{ $course->id }}<br>
+                <b>Color:</b> {{ $course->color }}<br>
+                <b>Status:</b> {{ $course->status }}
+            </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <a href="{{ url('course/'.$course->id.'/edit') }}"
@@ -102,8 +107,10 @@
                 <h2 class="mdl-card__title-text">{{ $student->name }}</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                ID: {{ $student->student_id }}<br>
-                Progress: <h3><b>{{ $student->pivot->progress }}%</b></h3>
+                <p>
+                    <b>ID:</b> {{ $student->student_id }}<br>
+                    <b>Progress:</b> <h3><b>{{ $student->pivot->progress }}%</b></h3>
+                </p>
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a href="{{ url('student/'.$student->id) }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">

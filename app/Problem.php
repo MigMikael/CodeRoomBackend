@@ -28,4 +28,9 @@ class Problem extends Model {
     {
         return $this->hasMany('App\ProblemAnalysis');
     }
+
+    public function submissions()
+    {
+        return $this->hasMany('App\Submission');
+    }
 }

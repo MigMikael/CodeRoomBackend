@@ -1,16 +1,22 @@
 @extends('template')
 
 @section('content')
+    <div class="mdl-cell mdl-cell--12-col center">
+        <h1>Lesson Detail</h1>
+    </div>
+
     <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
         <div class="mdl-card__title">
-            <h2>{{ $lesson->name }}</h2>
+            <h2><b>{{ $lesson->id }}</b> > {{ $lesson->name }}</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            <h6>Course Name: {{ $lesson->course->name }}</h6><br>
-            Course ID: {{ $lesson->course_id }}<br>
-            Status: {{ $lesson->status }}<br>
-            Order: {{ $lesson->order }}<br>
-            Problem Num:{{ $lesson->problems_count }}<br>
+            <p>
+                <b>Course Name:</b> {{ $lesson->course->name }}<br>
+                <b>Course ID:</b> {{ $lesson->course_id }}<br>
+                <b>Status:</b> {{ $lesson->status }}<br>
+                <b>Order:</b> {{ $lesson->order }}<br>
+                <b>Lesson Problem:</b>{{ $lesson->problems_count }}<br>
+            </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <a href="{{ url('lesson/'.$lesson->id.'/edit') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">

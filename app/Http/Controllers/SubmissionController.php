@@ -18,43 +18,66 @@ class SubmissionController extends Controller
 {
     public function index()
     {
-        $submissions = Submission::all();
-        return view('submissions.index')->with('submissions', $submissions);
+        $submissions = Submission::all()->sortByDesc('created_at');
+        foreach ($submissions as $submission){
+            $submission->student;
+            $submission->code = '';
+        }
+        return view('submission.index')->with('submissions', $submissions);
+        //return $submissions;
     }
 
     public function create()
     {
-        return view('submissions.create');
+        return view('submission.create');
     }
 
     public function store()    
     {
-        $input_userId = Request::get('user_id');
-        $input_probId = Request::get('prob_id');
+        $student_id = Request::get('student_id');
+        $problem_id = Request::get('problem_id');
 
         $sub_num = DB::table('submission')->where([
-            ['user_id', '=', $input_userId],
-            ['prob_id', '=', $input_probId],
+            ['student_id', '=', $student_id],
+            ['problem_id', '=', $problem_id],
         ])->count();
         $sub_num++;
 
-        $input_code = Request::get('code');
+        $code = Request::get('code');
 
-        $submission_data = [];
-        $submission_data['user_id'] = $input_userId;
-        $submission_data['prob_id'] = $input_probId;
-        $submission_data['sub_num'] = $sub_num;
-        $submission_data['code'] = $input_code;
-        Submission::create($submission_data);
-        Log::info('#### STATUS #### 1 Keep Submission ####');
+        $submission = [
+            'student_id' => $student_id,
+            'problem_id' => $problem_id,
+            'sub_num' => $sub_num,
+            'code' => $code
+        ];
 
-        $submission_id = Submission::all()->last()->id;
+        $submission = Submission::create($submission);
+        return redirect('submission');
+
+        /*$submission_id = Submission::all()->last()->id;
 
         $analyze_result = self::analyzeSubmission($submission_id, $input_code);
         self::keepResult($submission_id, $analyze_result);
         $score = self::calculateScore($input_probId, $submission_id);
 
-        return $score;
+        return $score;*/
+    }
+
+    public function show($id)
+    {
+        $submission = Submission::findOrFail($id);
+        $submission->student;
+        $submission->problem->code = '';
+        return view('submission.show')->with('submission', $submission);
+        //return $submission;
+    }
+
+    public function destroy($id)
+    {
+        $submission = Submission::findOrFail($id);
+        $submission->delete();
+        return back();
     }
 
     public function analyzeSubmission($submission_id, $input_code)

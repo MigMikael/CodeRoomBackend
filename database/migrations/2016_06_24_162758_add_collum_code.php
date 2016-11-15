@@ -12,6 +12,7 @@ class AddCollumCode extends Migration
      */
     public function up()
     {
+        // Todo Remove this column
         Schema::table('problem_analysis', function (Blueprint $table) {
             //
             $table->addColumn('text','code');

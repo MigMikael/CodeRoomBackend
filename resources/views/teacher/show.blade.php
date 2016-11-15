@@ -2,15 +2,21 @@
 
 @section('content')
     <div class="mdl-cell mdl-cell--12-col center">
-        <h1>{{ $teacher->name }}</h1>
+        <h1>Teacher Detail</h1>
     </div>
-    <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+    <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp">
         <img src="{{ url('api/image/'. $teacher->image) }}" alt="Teacher Image" class="article-image" border="0"/>
     </div>
 
     <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{ $teacher->name }}</h2>
+        </div>
         <div class="mdl-card__supporting-text mdl-card--expand">
-            <p><b>Username:</b> {{ $teacher->username }}</p><br>
+            <p>
+                <b>ID:</b> {{ $teacher->id }}<br>
+                <b>Username:</b> {{ $teacher->username }}<br>
+            </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
             <a href="{{ url('teacher/'.$teacher->id.'/edit') }}"
@@ -27,7 +33,7 @@
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--12-col mdl-card little-card" style="background: #3E4EB8">
+    <div class="mdl-cell mdl-cell--2-col mdl-card little-card" style="background: #3E4EB8">
         <div class="mdl-card__title">
             Courses
         </div>
@@ -39,7 +45,7 @@
     <hr>
 
     <div class="mdl-cell mdl-cell--12-col center">
-        <h2>Course Member</h2>
+        <h2>Course Owner</h2>
     </div>
     @foreach($teacher->courses as $course)
         <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp
@@ -70,7 +76,7 @@
         </div>
     @endforeach
     <div class="mdl-cell mdl-cell--12-col right">
-        <a href="{{ url('') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <a href="{{ url('api/course/add_teacher_member') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
             <i class="material-icons">add</i>
         </a>
     </div>

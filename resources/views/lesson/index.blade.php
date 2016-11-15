@@ -14,7 +14,7 @@
     @foreach($lessons as $lesson)
         @if($currentCourse != $lesson->course_id)
             <div class="mdl-cell mdl-cell--12-col">
-                <h1>{{$lesson->course->id}} {{ $lesson->course->name }}</h1>
+                <h1><b>{{$lesson->course->id}}</b> > {{ $lesson->course->name }}</h1>
             </div>
             @php
                 $currentCourse = $lesson->course_id;
