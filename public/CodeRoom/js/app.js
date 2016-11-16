@@ -1,4 +1,4 @@
-var app = angular.module("CodeRoom", ['ui.router','ngFileUpload','ngStorage']);
+var app = angular.module("CodeRoom", ['ui.router','ngFileUpload','ngStorage','dndLists']);
 app.config(function($stateProvider, $urlRouterProvider) {
 
 
@@ -96,6 +96,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/liststudent_teachers',
             controller: 'liststudent_teachersController',
             templateUrl: 'views/listStudent_teachers.html'
+        })
+        .state('changeListlesson_teacher', {
+            url: '/changeListlesson_teacher',
+            controller: 'changeListlesson_teacherController',
+            templateUrl: 'views/changeListlesson_teacher.html'
         })
 
 
