@@ -10,10 +10,15 @@ use App\Http\Requests;
 
 class ProblemAnalysisController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth', ['except' => ['index']]);
+    }
+
     public function index()
     {
-        $problems_analysis = ProblemAnalysis::all();
-        return view('problems_analysis.index')->with('problems_analysis', $problems_analysis);
+        $problemsAnalysis = ProblemAnalysis::all();
+        return view('problems_analysis.index')->with('problems_analysis', $problemsAnalysis);
     }
 
     public function create()
@@ -28,32 +33,40 @@ class ProblemAnalysisController extends Controller
         return redirect('problems_analysis');
     }
 
-    public function edit($prob_id)
+    public function show($id)
     {
-        $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get()->last();
-        return view('problems_analysis.edit')->with('problem_analysis', $problem_analysis);
+        $problemAnalysis = ProblemAnalysis::findOrFail($id);
+        return view('problems_analysis.show')->with('problem_analysis', $problemAnalysis);
     }
 
-    //Todo finish this method
-    public function update($prob_id)
+    public function edit($id)
     {
-        $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get()->last();
+        $problemAnalysis = ProblemAnalysis::findOrFail($id);
+        return view('problems_analysis')->with('problemAnalysis', $problemAnalysis);
+    }
 
-        $input = Request::all();
+    public function update($id)
+    {
+        $problemAnalysis = ProblemAnalysis::findOrFail($id);
+        $newProblemAnalysis = [
+            'problem_id' => Request::get('problem_id'),
+            'class' => Request::get('class'),
+            'package' => Request::get('package'),
+            'enclose' => Request::get('enclose'),
+            'attribute' => Request::get('attribute'),
+            'constructor' => Request::get('constructor'),
+            'method' => Request::get('method'),
+        ];
+        $problemAnalysis->update($newProblemAnalysis);
 
-        $json = json_decode($input, true);
+        return redirect('problem_analysis');
+    }
 
-        /*$problem_analysis->where('prob_id', $problem_analysis->prob_id)
-            ->update(array(
-                'class' => $json['class'],
-                'package' => $json['package'],
-                'enclose' => $json['enclose'],
-                'attribute' => $json['attribute'],
-                'method' => $json['method'],
-                'code' => $json['code']
-            ));*/
-
-        return $input;
+    public function destroy($id)
+    {
+        $problemAnalysis = ProblemAnalysis::findOrFail($id);
+        $problemAnalysis->delete();
+        return back();
     }
 
     public function latestAnalysis()

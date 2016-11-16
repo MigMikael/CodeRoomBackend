@@ -32,8 +32,3 @@
     {!! Form::label('lesson_id', 'Lesson_ID:', ['class' => 'mdl-textfield__label']) !!}
     {!! Form::text('lesson_id', null, ['class' => 'mdl-textfield__input']) !!}
 </div>
-
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {!! Form::textarea('code', null, ['class' => 'form-control mdl-textfield__input', 'type' => 'text', 'rows' => '6', 'cols' => '6']) !!}
-    <label for="code" class="mdl-textfield__label">Code:</label>
-</div>

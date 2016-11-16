@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ProblemTableSeeder extends Seeder
 {
@@ -11,12 +12,28 @@ class ProblemTableSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('problem')->insert([
+        DB::table('problem')->insert([
             'name' => 'Runners',
+            'description' => 'ฝึกฝนการใช้ if-else',
+            'evaluator' => 'java',
+            'timelimit' => 1,
+            'memorylimit' => 3,
             'lesson_id' => 1,
             'code' => "",
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);*/
+        ]);
+
+        DB::table('problem')->insert([
+            'name' => 'Runners2',
+            'description' => 'ฝึกฝนการเขียนโค้ดที่มีประสิทธิภาพ',
+            'evaluator' => 'java',
+            'timelimit' => 1,
+            'memorylimit' => 1,
+            'lesson_id' => 1,
+            'code' => "",
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }

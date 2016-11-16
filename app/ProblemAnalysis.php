@@ -15,14 +15,12 @@ class ProblemAnalysis extends Model {
 	}
 
 	protected $fillable = [
-		'prob_id',
+		'problem_id',
 		'class',
 		'package',
 		'enclose',
 		'attribute',
-		'attribute_score',
 		'method',
-		'method_score',
 		'code',
         'constructor'
 	];
@@ -30,6 +28,11 @@ class ProblemAnalysis extends Model {
     public function problem()
     {
         return $this->belongsTo('App\Problem');
+    }
+
+    public function problemStructureScore()
+    {
+        return $this->hasOne('App\ProblemStructureScore', 'analysis_id');
     }
 
 }

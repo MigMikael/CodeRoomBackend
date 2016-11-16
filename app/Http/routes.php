@@ -48,7 +48,7 @@ Route::get('api/results/{user_id}/all', 'ResultController@allResult');
 
 
 Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
-Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis');
+//Route::get('api/problems_analysis/latest', 'ProblemAnalysisController@latestAnalysis');
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
 
 

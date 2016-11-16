@@ -5,10 +5,21 @@
         <div class="center">
             <h1>Create Problem</h1>
         </div>
-        <br>
+    </div>
+
+    <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp big-card">
         {!! Form::open(['url'=>'problem']) !!}
         @include('problem._form')
-        {!! Form::submit('Add', ['class'=>'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent']) !!}
+    </div>
+
+    <div class="mdl-cell mdl-cell--8-col mdl-shadow--2dp">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            {!! Form::textarea('code', null, ['class' => 'mdl-textfield__input', 'type' => 'text', 'rows' => '6', 'cols' => '6']) !!}
+            <div id="code" class="code-card"></div>
+        </div>
+        {!! Form::submit('Finish',['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent']) !!}
         {!! Form::close() !!}
     </div>
+
+    @include('problem._ace')
 @stop

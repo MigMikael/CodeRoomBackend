@@ -10,6 +10,7 @@ class ProblemStructureScore extends Model
     public $timestamps = true;
 
     protected $fillable = [
+        'analysis_id',
         'class',
         'package',
         'enclose',
@@ -17,4 +18,9 @@ class ProblemStructureScore extends Model
         'method',
         'constructor'
     ];
+
+    public function problemAnalysis()
+    {
+        return $this->belongsTo('App\ProblemAnalysis', 'analysis_id');
+    }
 }
