@@ -1,5 +1,5 @@
 
-app.controller('changeListlesson_teacherController',function($scope,coursePage_teachers,$stateParams,$rootScope,$localStorage) {
+app.controller('changeListlesson_teacherController',function($http,$scope,coursePage_teachers,$stateParams,$rootScope,$localStorage) {
     $scope.course_teachers;
     getCourse();
 
@@ -22,7 +22,7 @@ app.controller('changeListlesson_teacherController',function($scope,coursePage_t
     }, true);
 
     $scope.changeLesson = function(){
-        var res = $http.post('/lesson', $scope.course_teachers);
+        var res = $http.post('api/lesson/change_order', $scope.course_teachers);
 
         res.success(function(data, status, headers, config) {
             $scope.message2 = data;

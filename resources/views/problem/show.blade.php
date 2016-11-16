@@ -40,12 +40,18 @@
         </div>
     </div>
 
+
+    @foreach($problem->problem_analysis as $analysis)
     <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
         <div class="mdl-card__title">
             <b>1</b> > Class Package Enclose
         </div>
         <div class="mdl-card__supporting-text mdl-card--expand">
-
+            <p>
+                {{ $analysis->class }}<br>
+                {{ $analysis->package }}<br>
+                {{ $analysis->enclose }}<br>
+            </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
 
@@ -59,7 +65,9 @@
             <b>2</b> > Constructor
         </div>
         <div class="mdl-card__supporting-text mdl-card--expand">
-
+            <p>
+                {{ $analysis->constructor }}
+            </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
 
@@ -73,7 +81,9 @@
             <b>3</b>  > Attribute
         </div>
         <div class="mdl-card__supporting-text mdl-card--expand">
-
+            <p>
+                {{ $analysis->attribute }}
+            </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
 
@@ -87,7 +97,9 @@
             <b>4</b> > Method
         </div>
         <div class="mdl-card__supporting-text mdl-card--expand">
-
+            <p>
+                {{ $analysis->method }}
+            </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
 
@@ -96,63 +108,7 @@
 
         </div>
     </div>
-
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>1</b> > Class Package Enclose
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-
-        </div>
-        <div class="mdl-card__menu">
-
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>2</b> > Constructor
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-
-        </div>
-        <div class="mdl-card__menu">
-
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>3</b>  > Attribute
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-
-        </div>
-        <div class="mdl-card__menu">
-
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>4</b> > Method
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-
-        </div>
-        <div class="mdl-card__menu">
-
-        </div>
-    </div>
+    @endforeach
 
     <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-card__title">

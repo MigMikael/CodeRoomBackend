@@ -62,7 +62,7 @@ Route::get('api/course/student_member/{course_id}','CourseController@getStudentM
 Route::get('api/course/teacher_member/{course_id}','CourseController@getTeacherMember');
 Route::get('api/course/add_student_member', 'CourseController@addStudentMember');
 Route::get('api/course/add_teacher_member', 'CourseController@addTeacherMember');
-
+Route::post('api/lesson/change_order', 'LessonController@changeLessonOrder');
 
 Route::get('api/student/profile/{student_id}', 'StudentController@getStudentProfile');
 Route::post('api/student/add_one_student_member', 'StudentController@storeOneStudentMember');

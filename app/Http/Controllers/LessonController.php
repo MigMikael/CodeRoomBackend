@@ -18,7 +18,9 @@ class LessonController extends Controller
 {
     public function index()
     {
-        $lessons = Lesson::orderBy('course_id')->get();
+        $lessons = Lesson::orderBy('course_id')
+            ->orderBy('order')
+            ->get();
         foreach ($lessons as $lesson){
             $lesson->course;
         }
@@ -155,5 +157,20 @@ class LessonController extends Controller
         }
 
         return $problem_list;
+    }
+
+    public function changeLessonOrder()
+    {
+        $data = Request::all();
+        $newLessons = $data['lessons'];
+        $count = 0;
+        foreach ($newLessons as $newLesson){
+            $count++;
+            $lesson = Lesson::findOrFail($newLesson['id']);
+            $lesson->order = $count;
+            $lesson->save();
+            Log::info($lesson->name);
+        }
+
     }
 }

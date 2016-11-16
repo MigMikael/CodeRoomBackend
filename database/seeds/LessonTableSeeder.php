@@ -26,7 +26,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'Quiz บทนำเกี่ยวกับคอมพิวเตอร์และการโปรแกรม',
             'course_id' => 1,
             'status' => 'false',
-            'order' => 1,
+            'order' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -35,7 +35,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'การวิเคราะห์และแก้ปัญหา',
             'course_id' => 1,
             'status' => 'true',
-            'order' => 2,
+            'order' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -44,7 +44,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'โครงสร้างภาษาซี ตัวแปร และ การแสดงผลอย่างง่าย',
             'course_id' => 1,
             'status' => 'true',
-            'order' => 3,
+            'order' => 4,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -53,7 +53,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'Quiz โครงสร้างภาษาซี ตัวแปร และ การแสดงผลอย่างง่าย',
             'course_id' => 1,
             'status' => 'false',
-            'order' => 2,
+            'order' => 5,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -62,7 +62,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'ตัวดำเนินการ (operators), การรับข้อมูลเข้า และ การแสดงผลลัพธ์',
             'course_id' => 1,
             'status' => 'true',
-            'order' => 4,
+            'order' => 6,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -81,7 +81,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'Quiz Array',
             'course_id' => 3,
             'status' => 'false',
-            'order' => 1,
+            'order' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -90,7 +90,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'Link List',
             'course_id' => 3,
             'status' => 'true',
-            'order' => 2,
+            'order' => 3,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -99,7 +99,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'Tree',
             'course_id' => 3,
             'status' => 'true',
-            'order' => 3,
+            'order' => 4,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -108,7 +108,7 @@ class LessonTableSeeder extends Seeder
             'name' => 'Graph',
             'course_id' => 3,
             'status' => 'true',
-            'order' => 4,
+            'order' => 5,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
