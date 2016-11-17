@@ -416,6 +416,17 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
     $scope.readFiles = function(){
 
         if($scope.files != null){
+                var file = $scope.files[0];
+
+
+
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        console.log(reader.result);
+                    }
+                    reader.readAsText(file);
+
 
         }
 

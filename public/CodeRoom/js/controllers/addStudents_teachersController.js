@@ -1,53 +1,65 @@
 
-app.controller('addstudents_teachersController',function($scope, $http, Upload, $timeout,$stateParams,$rootScope,$localStorage,$state) {
+app.controller('addstudents_teachersController',function($scope, $http, Upload, $timeout,$stateParams,$rootScope,$localStorage,$state,liststudent_teachers,allStudent) {
 
 
-    $scope.isAddStudent = true;
-    $scope.isAddStudents = false;
-    $scope.setActive = function(menuItem) {
-        if(menuItem === 0){
-            $scope.isAddStudent  = true;
-            $scope.isAddStudents = false;
-        }else{
-            $scope.isAddStudent  = false;
-            $scope.isAddStudents = true;
-        }
-    };
 
-    //upload
-    $scope.uploadFiles = function(file) {
+    getStudent_list();
+    $scope.students = {};
+    var studentCourse;
+    var allStudent;
+    function getStudent_list() {
 
-
-        file.upload = Upload.upload({
-            url: '/api/student/add_many_student_member',
-            data: {studentList: file, course_id: $localStorage.course_id_teacher},
-        });
-
-        file.upload.then(function (response) {
-            $timeout(function () {
-
-                file.result = response.data;
-
-                $state.go("liststudent_teachers");
-
-                //console.log($scope.teacherRequirement);
-
+        liststudent_teachers.getListstudent_teacher($localStorage.course_id_teacher)
+            .success(function (data) {
+                studentCourse = addPathImage(data);
+                getAllstudent();
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
             });
-        }, function (response) {
-            if (response.status > 0)
-                $scope.errorMsg = response.status + ': ' + response.data;
-        }, function (evt) {
-            // Math.min is to fix IE which reports 200% sometimes
-            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-        });
-    };
 
-    $scope.student = {
-        course_id: $localStorage.course_id_teacher
-    };
+    }
+    function getAllstudent() {
 
-    $scope.addStudent = function(){
-        console.log($scope.student);
+        allStudent.getAllStudent()
+            .success(function (data) {
+                allStudent = addPathImage(data);
+                deleteRedundant();
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+
+    }
+    function addPathImage(data) {
+        for(i=0 ; i<data.length ;i++){
+            data[i].image = "http://localhost:8000/api/image/"+data[i].image;
+        }
+        return data;
+    }
+
+    function deleteRedundant(){
+        for(i=0 ; i<studentCourse.length ; i++){
+            for(j=0 ; j<allStudent.length ; j++){
+                if(studentCourse[i].id === allStudent[j].id){
+                    allStudent.splice(j,1);
+                }
+            }
+        }
+        $scope.students = {
+            allStudent: allStudent,
+            studentCourse: studentCourse
+        }
+    }
+
+
+    $scope.$watch('students', function(model) {
+        $scope.modelAsJson = angular.toJson(model, true);
+    }, true);
+
+
+    $scope.addStudents = function(){
+        $scope.students.course_id = $localStorage.course_id_teacher;
         var res = $http.post('/api/student/add_one_student_member', $scope.student);
 
         res.success(function(data, status, headers, config) {
