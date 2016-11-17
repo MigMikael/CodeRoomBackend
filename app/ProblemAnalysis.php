@@ -19,10 +19,6 @@ class ProblemAnalysis extends Model {
 		'class',
 		'package',
 		'enclose',
-		'attribute',
-		'method',
-		'code',
-        'constructor'
 	];
 
     public function problem()
@@ -30,9 +26,18 @@ class ProblemAnalysis extends Model {
         return $this->belongsTo('App\Problem');
     }
 
-    public function problemStructureScore()
+    public function attributes()
     {
-        return $this->hasOne('App\ProblemStructureScore', 'analysis_id');
+        return $this->hasMany('App\Attribute', 'analysis_id');
     }
 
+    public function constructors()
+    {
+        return $this->hasMany('App\Constructor', 'analysis_id');
+    }
+
+    public function methods()
+    {
+        return $this->hasMany('App\Method', 'analysis_id');
+    }
 }

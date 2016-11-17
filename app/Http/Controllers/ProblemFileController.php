@@ -60,17 +60,14 @@ class ProblemFileController extends Controller
         $res = self::keepProblem($id, $input_filename, $input_package, $input_lesson_id, $code);
         */
         $allCodes = [];
+        $count = 0;
         $files = Storage::disk('public')->allFiles($dirName.'/'.$input_filename.'/src');
         foreach ($files as $file){
-            $code = [
-                'filename' => (string)$file,
-                'code' => Storage::disk('public')->get($file)
-            ];
-            array_push($allCodes, $code);
+            $code = Storage::disk('public')->get($file);
+            $allCodes[$count] = $code;
+            $count++;
         }
         return $allCodes;
-
-        //return 'extract complete';
     }
 
     public function get($filename)

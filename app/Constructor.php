@@ -4,19 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProblemStructureScore extends Model
+class Constructor extends Model
 {
-    protected $table = 'problem_structure_score';
-    public $timestamps = true;
+    protected $table = 'constructor';
 
     protected $fillable = [
         'analysis_id',
-        'class',
-        'package',
-        'enclose',
-        'attribute',
-        'method',
-        'constructor'
+        'access_modifier',
+        'name',
+        'parameter',
+        'score',
     ];
 
     public function problemAnalysis()

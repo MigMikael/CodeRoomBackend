@@ -40,74 +40,117 @@
         </div>
     </div>
 
+    @foreach($problem->problemAnalysis as $analysis)
+        <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--4dp">
+            <div class="mdl-card__title">
+                <h4><b>{{ str_replace(';', ' ', $analysis->class) }}</b></h4>
+            </div>
+            <div class="mdl-card__supporting-text mdl-card--expand">
+                <p>
+                    <b>Package</b>: {{ $analysis->package }}<br>
+                    <b>Enclose</b>: {{ $analysis->enclose }}<br>
+                </p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
 
-    @foreach($problem->problem_analysis as $analysis)
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>1</b> > Class Package Enclose
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-            <p>
-                {{ $analysis->class }}<br>
-                {{ $analysis->package }}<br>
-                {{ $analysis->enclose }}<br>
-            </p>
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
+            </div>
+            <div class="mdl-card__menu">
 
+            </div>
         </div>
-        <div class="mdl-card__menu">
+        <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--4dp">
+            <div class="mdl-card__title">
+                <b>Constructor</b>
+            </div>
+            <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
+                <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">ID</th>
+                    <th>Access Modifier</th>
+                    <th>Name</th>
+                    <th>Parameter</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($analysis->constructors as $constructor)
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">{{ $constructor->id }}</td>
+                        <td>{{ $constructor->access_modifier }}</td>
+                        <td>{{ $constructor->name }}</td>
+                        <td>{{ $constructor->parameter }}</td>
+                        <td>{{ $constructor->score }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+            <div class="mdl-card__title">
+                <b>Attribute</b>
+            </div>
+            <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
+                <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">ID</th>
+                    <th>Access Modifier</th>
+                    <th>Non-Access Modifier</th>
+                    <th>Data Type</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($analysis->attributes as $attribute)
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">{{ $attribute->id }}</td>
+                        <td>{{ $attribute->access_modifier }}</td>
+                        <td>{{ $attribute->non_access_modifier }}</td>
+                        <td>{{ $attribute->data_type }}</td>
+                        <td>{{ $attribute->name }}</td>
+                        <td>{{ $attribute->score }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
 
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+            <div class="mdl-card__title">
+                <b>Method</b>
+            </div>
+            <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
+                <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">ID</th>
+                    <th>Access Modifier</th>
+                    <th>Non-Access Modifier</th>
+                    <th>Return Type</th>
+                    <th>Name</th>
+                    <th>Parameter</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($analysis->methods as $method)
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">{{ $method->id }}</td>
+                        <td>{{ $method->access_modifier }}</td>
+                        <td>{{ $method->non_access_modifier }}</td>
+                        <td>{{ $method->return_type }}</td>
+                        <td>{{ $method->name }}</td>
+                        <td>{{ $method->parameter }}</td>
+                        <td>{{ $method->score }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>2</b> > Constructor
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-            <p>
-                {{ $analysis->constructor }}
-            </p>
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
 
+        <div class="mdl-cell mdl-cell--12-col">
+            <hr>
+            <br>
         </div>
-        <div class="mdl-card__menu">
-
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>3</b>  > Attribute
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-            <p>
-                {{ $analysis->attribute }}
-            </p>
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-
-        </div>
-        <div class="mdl-card__menu">
-
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <b>4</b> > Method
-        </div>
-        <div class="mdl-card__supporting-text mdl-card--expand">
-            <p>
-                {{ $analysis->method }}
-            </p>
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-
-        </div>
-        <div class="mdl-card__menu">
-
-        </div>
-    </div>
     @endforeach
 
     <div class="mdl-cell mdl-cell--12-col">

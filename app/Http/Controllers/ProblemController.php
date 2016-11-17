@@ -63,6 +63,11 @@ class ProblemController extends Controller
 
         $problem->lesson;
         $problem->problemAnalysis;
+        foreach ($problem->problemAnalysis as $analysis){
+            $analysis->attributes;
+            $analysis->constructors;
+            $analysis->methods;
+        }
         foreach ($problem->submissions as $submission){
             $submission->student;
             $submission->code = '';
@@ -76,7 +81,7 @@ class ProblemController extends Controller
         $problem = Problem::findOrFail($id);
         return view('problem.edit')->with('problem', $problem);
     }
-//opifopi4tpf
+
     public function update($id)
     {
         $problem = Problem::findOrFail($id);

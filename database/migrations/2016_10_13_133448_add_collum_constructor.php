@@ -28,12 +28,6 @@ class AddCollumConstructor extends Migration
      */
     public function down()
     {
-        Schema::table('problem_analysis', function (Blueprint $table) {
-            $table->dropColumn('constructor');
-        });
 
-        Schema::table('problem_structure_score', function (Blueprint $table) {
-            $table->dropColumn('constructor');
-        });
     }
 }

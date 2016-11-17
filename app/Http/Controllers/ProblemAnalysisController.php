@@ -17,13 +17,17 @@ class ProblemAnalysisController extends Controller
 
     public function index()
     {
-        $problemsAnalysis = ProblemAnalysis::all();
+        $problemsAnalysis = ProblemAnalysis::orderBy('problem_id')->get();
+        foreach ($problemsAnalysis as $analysis){
+            $analysis->problem->code = '';
+        }
         return view('problems_analysis.index')->with('problems_analysis', $problemsAnalysis);
+        //return $problemsAnalysis;
     }
 
     public function create()
     {
-        return view('problems_analysis.create');
+        //return view('problems_analysis.create');
     }
 
     public function store()
@@ -35,14 +39,16 @@ class ProblemAnalysisController extends Controller
 
     public function show($id)
     {
+        /*
         $problemAnalysis = ProblemAnalysis::findOrFail($id);
         return view('problems_analysis.show')->with('problem_analysis', $problemAnalysis);
+        */
     }
 
     public function edit($id)
     {
-        $problemAnalysis = ProblemAnalysis::findOrFail($id);
-        return view('problems_analysis')->with('problemAnalysis', $problemAnalysis);
+        /*$problemAnalysis = ProblemAnalysis::findOrFail($id);
+        return view('problems_analysis')->with('problemAnalysis', $problemAnalysis);*/
     }
 
     public function update($id)

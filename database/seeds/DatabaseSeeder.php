@@ -28,5 +28,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ProblemTableSeeder::class);
         $this->call(ProblemAnalysisTableSeeder::class);
+
+        $this->call(AttributeTableSeeder::class);
+        $this->call(ConstructorTableSeeder::class);
+        $this->call(MethodTableSeeder::class);
     }
 }
