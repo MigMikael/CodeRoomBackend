@@ -9,10 +9,10 @@ class CreateResultTable extends Migration {
 	{
 		Schema::create('result', function(Blueprint $table) {
 		    $table->increments('id');
-			$table->integer('submission_id');
-			$table->string('class', 100);
-			$table->string('package', 100);
-			$table->string('enclose', 100);
+			$table->integer('submission_id')->unsigned();
+			$table->string('class');
+			$table->string('package');
+			$table->string('enclose');
 			$table->text('attribute');
 			$table->text('method');
 			$table->timestamps();
