@@ -35,24 +35,28 @@ class ProblemController extends Controller
     public function store()
     {
         $problem = [
+            'lesson_id' => Request::get('lesson_id'),
             'name' => Request::get('name'),
             'description' => Request::get('description'),
             'evaluator' => Request::get('evaluator'),
             'timelimit' => Request::get('timelimit'),
             'memorylimit' => Request::get('memorylimit'),
-            'lesson_id' => Request::get('lesson_id'),
-            'code' => Request::get('code')
+            'is_parse' => Request::get('is_parse'),
         ];
+
         $problem = Problem::create($problem);
-        return redirect('problem');
+        if(Request::hasFile('file')){
+            $file = Request::file('file');
+            self::sendToProblemFile($problem, $file);
+        } else {
+            return 'file not found';
+        }
 
-        /*$input_id = $problem->id;
-        $analyzeResult_json = self::analyzeProblem($input_id, $input_filename, $input_package, $input_code);
-        self::keepProblemAnalysis($analyzeResult_json, $input_package);
-        $problemAnalysis_json = self::getProblemAnalysis($input_id);
-        Log::info('#### Before Send to UI'. $problemAnalysis_json);
+        if($problem->is_parse == 'true'){
+            self::analyzeProblem($problem);
+        }
 
-        return \GuzzleHttp\json_encode($problemAnalysis_json);*/
+        //return \GuzzleHttp\json_encode($problemAnalysis_json);
     }
 
     public function show($id)
@@ -62,7 +66,9 @@ class ProblemController extends Controller
         ])->findOrFail($id);
 
         $problem->lesson;
-        $problem->problemAnalysis;
+        foreach ($problem->problemFiles as $problemFile){
+            $problemFile->code = '';
+        }
         foreach ($problem->problemAnalysis as $analysis){
             $analysis->attributes;
             $analysis->constructors;
@@ -72,8 +78,8 @@ class ProblemController extends Controller
             $submission->student;
             $submission->code = '';
         }
-        //return $problem;
-        return view('problem.show')->with('problem', $problem);
+        return $problem;
+        //return view('problem.show')->with('problem', $problem);
     }
 
     public function edit($id)
@@ -92,7 +98,8 @@ class ProblemController extends Controller
             'timelimit' => Request::get('timelimit'),
             'memorylimit' => Request::get('memorylimit'),
             'lesson_id' => Request::get('lesson_id'),
-            'code' => Request::get('code')
+            'is_parse' => Request::get('is_parse'),
+            /*'code' => Request::get('code')*/
         ];
         $problem->update($newProblem);
 
@@ -106,26 +113,40 @@ class ProblemController extends Controller
         return back();
     }
 
-    public function analyzeProblem($input_id, $input_filename, $input_package, $input_code)
+    public function sendToProblemFile($problem, $file)
+    {
+        $problemFile = [
+            'problem_id' => $problem->id,
+            'problem_name' => $problem->name,
+            'file' => $file
+        ];
+
+        $request = Request::create('problemfile/add', 'POST', $problemFile);
+
+        $res = app()->handle($request);
+        return $res;
+    }
+
+    public function analyzeProblem($problem)
     {
         $client = new Client();
+        //Todo Send Problem To Evaluator
         $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => [
-            'prob_id' => $input_id,
-            'filename' => $input_filename,
-            'package' => $input_package,
-            'code' => $input_code]
+                'prob_id' => $problem->id,
+                'filename' => '',
+                'code' => ''
+            ]
         ]);
         $result = $res->getBody();
         $json = json_decode($result, true);
 
         Log::info('#### '. $res->getBody());
-        Log::info('#### STATUS #### '. 'Analyze Problem' .' ####');
         return $json;
     }
 
-    public function keepProblemAnalysis($analyzeResult_json, $input_package)
+    public function keepProblemAnalysis($analyzeResult_json)
     {
-        Log::info('#### '. $input_package);
+       /* Log::info('#### '. $input_package);
         $prob_id = $analyzeResult_json['prob_id'];
         $classes = $analyzeResult_json['class'];
         $data = [];
@@ -185,7 +206,7 @@ class ProblemController extends Controller
             }
             ProblemAnalysis::create($data);
         }
-        Log::info('#### STATUS #### '. 'Keep Problem Analysis' .' ####');
+        Log::info('#### STATUS #### '. 'Keep Problem Analysis' .' ####');*/
     }
 
     public function getProblemAnalysis($prob_id)

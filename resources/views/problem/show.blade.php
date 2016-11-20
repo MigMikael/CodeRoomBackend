@@ -14,6 +14,7 @@
             <h5><b>Evaluator:</b> {{ $problem->evaluator }}</h5>
             <h5><b>TimeLimit:</b> {{ $problem->timelimit }} Sec</h5>
             <h5><b>MemoryLimit:</b> {{ $problem->memorylimit }} MB</h5>
+            <h5><b>Analyze Structures:</b> {{ $problem->is_parse }}</h5>
             <h5><b>Problem Submission:</b> {{ $problem->submissions_count }}</h5>
         </div>
         <div class="mdl-card__actions mdl-card--border">
@@ -30,9 +31,52 @@
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--8-col mdl-card code-card mdl-shadow--4dp" id="editor" >
-        {{ $problem->code }}
-    </div>
+    <table class="mdl-cell mdl-cell--8-col mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">ID</th>
+            <th>Package</th>
+            <th>Filename</th>
+            <th>Mime</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($problem->problemFiles as $problemFile)
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">{{ $problemFile->id }}</td>
+                <td>{{ $problemFile->package }}</td>
+                <td>{{ $problemFile->filename }}</td>
+                <td>{{ $problemFile->mime }}</td>
+                <td>
+                    <a href="{{ url('') }}"
+                       class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        <i class="material-icons">launch</i>
+                    </a>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    {{--<div class="mdl-cell mdl-cell--8-col mdl-card code-card mdl-shadow--4dp">
+        <div class="mdl-tabs mdl-js-tabs">
+            <div class="mdl-tabs__tab-bar">
+                <a href="#tab1" class="mdl-tabs__tab">Tab One</a>
+                <a href="#tab2" class="mdl-tabs__tab">Tab Two</a>
+                <a href="#tab3" class="mdl-tabs__tab">Tab Three</a>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="tab1">
+                <p>First tab's content.</p>
+            </div>
+            <div class="mdl-tabs__panel" id="tab2">
+                <p>Second tab's content.</p>
+            </div>
+            <div class="mdl-tabs__panel" id="tab3">
+                <p>Third tab's content.</p>
+            </div>
+        </div>
+    </div>--}}
+
 
     <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-card__title">

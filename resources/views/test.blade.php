@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Testing</title>
+    <title>Backend</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="CodeRoom System">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-amber.min.css" />
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}" />
 
 </head>
 <body>
     <?php
-        echo storage_path().'\\app\\public\\';
-    ?>
+/*        echo storage_path().'\\app\\public\\';
+    */?><!--
     <img src="http://localhost:8000/api/image/1" alt="" />
     <script>
         window.fbAsyncInit = function() {
@@ -54,6 +61,23 @@
                 href: 'https://developers.facebook.com/docs/',
             }, function(response){});
         }
-    </script>
+    </script>-->
+
+    <div class="mdl-tabs mdl-js-tabs">
+        <div class="mdl-tabs__tab-bar">
+            <a href="#tab1" class="mdl-tabs__tab">Tab One</a>
+            <a href="#tab2" class="mdl-tabs__tab">Tab Two</a>
+            <a href="#tab3" class="mdl-tabs__tab">Tab Three</a>
+        </div>
+        <div class="mdl-tabs__panel is-active" id="tab1">
+            <p>First tab's content.</p>
+        </div>
+        <div class="mdl-tabs__panel" id="tab2">
+            <p>Second tab's content.</p>
+        </div>
+        <div class="mdl-tabs__panel" id="tab3">
+            <p>Third tab's content.</p>
+        </div>
+    </div>
 </body>
 </html>

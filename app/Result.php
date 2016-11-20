@@ -9,20 +9,30 @@ class Result extends Model {
 	protected $table = 'result';
 	public $timestamps = true;
 
-	public function output()
-	{
-		return $this->hasMany('OutputScore');
-	}
-
 	protected $fillable = [
 		'submission_id',
 		'class',
 		'package',
 		'enclose',
-		'attribute',
-		'attribute_score',
-		'method',
-		'method_score'
 	];
 
+    public function submission()
+    {
+        return $this->belongsTo('App\Submission');
+    }
+
+    public function attributes()
+    {
+        return $this->hasMany('App\ResultAttribute', 'result_id');
+    }
+
+    public function constructors()
+    {
+        return $this->hasMany('App\ResultConstructor', 'result_id');
+    }
+
+    public function methods()
+    {
+        return $this->hasMany('App\ResultMethod', 'result_id');
+    }
 }

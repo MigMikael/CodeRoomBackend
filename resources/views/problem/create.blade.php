@@ -7,8 +7,8 @@
         </div>
     </div>
 
-    <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp big-card">
-        {!! Form::open(['url'=>'problem']) !!}
+    {{--<div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp big-card">
+        {!! Form::open(['url'=>'problem', 'files' => true]) !!}
         @include('problem._form')
     </div>
 
@@ -21,5 +21,13 @@
         {!! Form::close() !!}
     </div>
 
-    @include('problem._ace')
+    @include('problem._ace')--}}
+
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp big-card">
+        {!! Form::open(['url'=>'problem', 'files' => true]) !!}
+            @include('problem._form')
+            Problem File: {!! Form::file('file') !!}
+        {!! Form::submit('Finish',['class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent']) !!}
+        {!! Form::close() !!}
+    </div>
 @stop

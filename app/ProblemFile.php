@@ -7,11 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class ProblemFile extends Model
 {
     protected $table = 'problemfile';
-    public $timestamps = true;
 
     protected $fillable = [
+        'problem_id',
+        'package',
         'filename',
         'mime',
-        'original_filename'
+        'code'
     ];
+
+    public function problem()
+    {
+        return $this->belongsTo('App\Problem');
+    }
 }

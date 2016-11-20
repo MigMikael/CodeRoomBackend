@@ -10,13 +10,13 @@ class Problem extends Model {
 	public $timestamps = true;
 
     protected $fillable = [
+        'lesson_id',
         'name',
         'description',
         'evaluator',
         'timelimit',
         'memorylimit',
-        'lesson_id',
-        'code',
+        'is_parse',
     ];
 
     public function lesson()
@@ -32,5 +32,10 @@ class Problem extends Model {
     public function submissions()
     {
         return $this->hasMany('App\Submission');
+    }
+
+    public function problemFiles()
+    {
+        return $this->hasMany('App\ProblemFile');
     }
 }

@@ -12,9 +12,7 @@ class AddCollumLessionId extends Migration
      */
     public function up()
     {
-        Schema::table('problem', function (Blueprint $table) {
-            $table->integer('lession_id')->unsigned();
-        });
+
     }
 
     /**
@@ -24,8 +22,6 @@ class AddCollumLessionId extends Migration
      */
     public function down()
     {
-        Schema::table('problem', function (Blueprint $table) {
-            $table->dropColumn('lession_id');
-        });
+
     }
 }

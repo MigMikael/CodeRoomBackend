@@ -15,10 +15,16 @@ class CreateProblemFilesTable extends Migration
 		Schema::create('problemfile', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->integer('problem_id')->unsigned();
+            $table->string('package');
 			$table->string('filename');
 			$table->string('mime');
-			$table->string('original_filename');
-			$table->timestamps();
+			$table->text('code');
+
+            $table->foreign('problem_id')
+                ->references('id')
+                ->on('problem')
+                ->onDelete('cascade');
 		});
 	}
 

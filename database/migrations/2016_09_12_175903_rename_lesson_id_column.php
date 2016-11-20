@@ -12,9 +12,7 @@ class RenameLessonIdColumn extends Migration
      */
     public function up()
     {
-        Schema::table('problem', function ($table) {
-            $table->renameColumn('lession_id', 'lesson_id');
-        });
+
     }
 
     /**
@@ -24,8 +22,6 @@ class RenameLessonIdColumn extends Migration
      */
     public function down()
     {
-        Schema::table('problem', function ($table) {
-            $table->renameColumn('lesson_id', 'lession_id');
-        });
+
     }
 }

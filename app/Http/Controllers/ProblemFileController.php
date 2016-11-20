@@ -21,53 +21,51 @@ class ProblemFileController extends Controller
 
     public function create()
     {
-        return view('problemfiles.create');
+
     }
 
     public function add()
     {
-        Log::info('#### 1 add file');
-        $input_filename = Request::get('filename');
-        $input_package = Request::get('package');
-        $input_lesson_id = Request::get('lesson_id');
-        $file = Request::file('filefield');
+        $problem_id = Request::get('problem_id');
+        $problem_name = Request::get('problem_name');
+        $file = Request::get('file');
 
         $extension = $file->getClientOriginalExtension();
-        Storage::disk('public')->put($file->getFilename().'.'.$extension, File::get($file));
-        $problemFile = new ProblemFile();
-        $problemFile->mime = $file->getClientMimeType();
-        $problemFile->original_filename = $file->getClientOriginalName();
-        $problemFile->filename = $file->getFilename().'.'.$extension;
-        $problemFile->save();
+        Storage::disk('public')->put($problem_id.'_'.$problem_name.'.'.$extension, File::get($file));
 
-        $dirName = $problemFile->id;
+        $dirName = $problem_id.'_'.$problem_name; // problem_id for unique file name
 
         Storage::disk('public')->makeDirectory($dirName);
-        $dest = storage_path() . '\\app\\public\\' . $dirName .'\\';
-        Log::info('#### 2 dest '.$dest);
+        $folderPath = storage_path('\\app\\public\\' . $dirName .'\\');
+        $filePath = storage_path('app\\public\\'.$problem_id.'_'.$problem_name.'.'.$extension);
 
-        $path = storage_path('app\\public\\'.$problemFile->filename);
-        Log::info('#### 3 path '.$path);
+        /*Log::info('#### Extract Dest '. $folderPath);
+        Log::info('#### Path File '. $filePath);*/
 
         $zipper = new Zipper();
-        $zipper->make($path)->extractTo($dest);
-        Log::info('#### 4 extract complete');
+        $zipper->make($filePath)->extractTo($folderPath);
 
-        // Todo Read only java file
-        /*
-        $id = ProblemFile::all()->last()->id;
-        $code = Storage::disk('public')->get('\\' . $dirname . '\\' . $input_filename . '.java');
-        $res = self::keepProblem($id, $input_filename, $input_package, $input_lesson_id, $code);
-        */
-        $allCodes = [];
-        $count = 0;
-        $files = Storage::disk('public')->allFiles($dirName.'/'.$input_filename.'/src');
+        $sourcePath = $dirName.'/'.$problem_name.'/src/';
+        $files = Storage::disk('public')->allFiles($sourcePath);
         foreach ($files as $file){
-            $code = Storage::disk('public')->get($file);
-            $allCodes[$count] = $code;
-            $count++;
+            if(substr($file, -4) == 'java'){ // read only java file
+                $packageAndName = str_replace($sourcePath, '', $file); // dataStructures/LinkedList.java
+                $temp = explode('/', $packageAndName);
+                $packageName = $temp[0];
+                $fileName = $temp[1];
+
+                $problemFile = [
+                    'problem_id' => $problem_id,
+                    'package' => $packageName,
+                    'filename' => $fileName,
+                    'mime' => 'java',
+                    'code' => Storage::disk('public')->get($file),
+                ];
+                ProblemFile::create($problemFile);
+            }
         }
-        return $allCodes;
+
+        return 'finish';
     }
 
     public function get($filename)
@@ -80,30 +78,12 @@ class ProblemFileController extends Controller
         return (new Response($file, 200))->header('Content-Type', $problemFile->mime);
     }
 
-    public function keepProblem($id, $input_filename, $input_package, $input_lesson_id, $code)
+    public function getQuestion($problem_id)
     {
-        $args = array(
-            'id' => $id,
-            'filename' => $input_filename,
-            'package' => $input_package,
-            'lesson_id' => $input_lesson_id,
-            'code' => $code
-        );
-        $request = Request::create('problem', 'POST', $args);
-        $res = app()->handle($request);
-        Log::info('#### 5 Send Problem Complete');
-        return $res;
-    }
+        $problem = Problem::findOrFail($problem_id);
+        $questionPath = '/'.$problem->id.'_'.$problem->name.'/'.$problem->name.'/question/'.$problem->name.'.pdf';
+        $question = Storage::disk('public')->get($questionPath);
 
-    public function getQuestion($prob_id)
-    {
-        $problem = Problem::where('id', '=', $prob_id)->firstOrFail();
-        $filename = $problem->name;
-        $pdf_name = $filename;
-        $pdf_name = $pdf_name . '.pdf';
-        Log::info('#### Get File');
-        $file = Storage::disk('public')->get('/'. $prob_id . '/' . $pdf_name);
-
-        return (new Response($file, 200))->header('Content-Type', 'application/pdf');
+        return (new Response($question, 200))->header('Content-Type', 'application/pdf');
     }
 }

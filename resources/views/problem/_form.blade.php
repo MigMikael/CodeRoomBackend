@@ -1,4 +1,9 @@
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    {!! Form::label('lesson_id', 'Lesson_ID:', ['class' => 'mdl-textfield__label']) !!}
+    {!! Form::text('lesson_id', null, ['class' => 'mdl-textfield__input']) !!}
+</div>
+
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     {!! Form::label('name', 'Name:', ['class' => 'mdl-textfield__label']) !!}
     {!! Form::text('name', null, ['class' => 'mdl-textfield__input']) !!}
 </div>
@@ -24,11 +29,11 @@
 </div>
 
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {!! Form::label('package', 'Package:', ['class' => 'mdl-textfield__label']) !!}
-    {!! Form::text('package', null, ['class' => 'mdl-textfield__input']) !!}
+    {!! Form::label('is_parse', 'Parse Structures(True/false):', ['class' => 'mdl-textfield__label']) !!}
+    {!! Form::text('is_parse', null, ['class' => 'mdl-textfield__input']) !!}
 </div>
 
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {!! Form::label('lesson_id', 'Lesson_ID:', ['class' => 'mdl-textfield__label']) !!}
-    {!! Form::text('lesson_id', null, ['class' => 'mdl-textfield__input']) !!}
-</div>
+{{--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    {!! Form::label('package', 'Package:', ['class' => 'mdl-textfield__label']) !!}
+    {!! Form::text('package', null, ['class' => 'mdl-textfield__input']) !!}
+</div>--}}

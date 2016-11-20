@@ -5,7 +5,7 @@
     <title>Backend</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="My portfolio website with Material Design Lite.">
+    <meta name="description" content="CodeRoom System">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
