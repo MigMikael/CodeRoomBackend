@@ -53,15 +53,18 @@ class SubmissionController extends Controller
         ];
 
         $submission = Submission::create($submission);
-        return redirect('submission');
+        if(Request::hasFile('file')){
+            $file = Request::file('file');
+            self::sendToSubmissionFile($submission, $file);
+        } else {
+            return 'file not found';
+        }
 
-        /*$submission_id = Submission::all()->last()->id;
+        if($submission->problem->is_parse == 'true'){
+            //self::analyzeSubmission();
+        }
 
-        $analyze_result = self::analyzeSubmission($submission_id, $input_code);
-        self::keepResult($submission_id, $analyze_result);
-        $score = self::calculateScore($input_probId, $submission_id);
-
-        return $score;*/
+        //return redirect('submission');
     }
 
     public function show($id)
@@ -78,6 +81,20 @@ class SubmissionController extends Controller
         $submission = Submission::findOrFail($id);
         $submission->delete();
         return back();
+    }
+
+    public function sendToSubmissionFile($submission, $file)
+    {
+        $submissionFile = [
+            'submission_id' => $submission->id,
+            'problem_name' => $submission->problem->name,
+            'file' => $file,
+        ];
+
+        $request = Request::create('submissionfile', 'POST', $submissionFile);
+
+        $res = app()->handle($request);
+        return $res;
     }
 
     public function analyzeSubmission($submission_id, $input_code)

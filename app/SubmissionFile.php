@@ -4,21 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProblemFile extends Model
+class SubmissionFile extends Model
 {
     public $timestamps = false;
-    protected $table = 'problemfile';
+    protected $table = 'submissionfile';
 
     protected $fillable = [
-        'problem_id',
+        'submission_id',
         'package',
         'filename',
         'mime',
         'code'
     ];
 
-    public function problem()
+    public function submission()
     {
-        return $this->belongsTo('App\Problem');
+        return $this->belongsTo('App\Submission');
     }
 }

@@ -33,7 +33,7 @@ class ProblemFileController extends Controller
         $extension = $file->getClientOriginalExtension();
         Storage::disk('public')->put($problem_id.'_'.$problem_name.'.'.$extension, File::get($file));
 
-        $dirName = $problem_id.'_'.$problem_name; // problem_id for unique file name
+        $dirName = 'problem/'.$problem_id.'_'.$problem_name; // problem_id for unique file name
 
         Storage::disk('public')->makeDirectory($dirName);
         $folderPath = storage_path('\\app\\public\\' . $dirName .'\\');
@@ -46,6 +46,7 @@ class ProblemFileController extends Controller
         $zipper->make($filePath)->extractTo($folderPath);
 
         $sourcePath = $dirName.'/'.$problem_name.'/src/';
+
         $files = Storage::disk('public')->allFiles($sourcePath);
         foreach ($files as $file){
             if(substr($file, -4) == 'java'){ // read only java file
@@ -70,6 +71,7 @@ class ProblemFileController extends Controller
 
     public function get($filename)
     {
+        //Todo rewrite this method
         $filename = str_replace('_','.',$filename);
 
         $problemFile = ProblemFile::where('filename', '=', $filename)->firstOrFail();

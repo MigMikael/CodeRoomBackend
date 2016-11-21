@@ -23,6 +23,7 @@ Route::resource('problem_analysis', 'ProblemAnalysisController');
 Route::resource('course', 'CourseController');
 Route::resource('lesson', 'LessonController');
 Route::resource('submission', 'SubmissionController');
+Route::resource('submissionfile', 'SubmissionFileController');
 Route::resource('results', 'ResultController');
 Route::resource('student', 'StudentController');
 Route::resource('student_course', 'StudentCourseController');

@@ -53,7 +53,7 @@ class ProblemController extends Controller
         }
 
         if($problem->is_parse == 'true'){
-            self::analyzeProblem($problem);
+            //self::analyzeProblem($problem);
         }
 
         //return \GuzzleHttp\json_encode($problemAnalysis_json);
@@ -78,8 +78,8 @@ class ProblemController extends Controller
             $submission->student;
             $submission->code = '';
         }
-        return $problem;
-        //return view('problem.show')->with('problem', $problem);
+        //return $problem;
+        return view('problem.show')->with('problem', $problem);
     }
 
     public function edit($id)

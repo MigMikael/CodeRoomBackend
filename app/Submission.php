@@ -26,4 +26,9 @@ class Submission extends Model {
     {
         return $this->belongsTo('App\Problem');
     }
+
+    public function submissionFiles()
+    {
+        return $this->hasMany('App\SubmissionFile');
+    }
 }
