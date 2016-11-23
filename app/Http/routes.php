@@ -38,7 +38,7 @@ Route::get('teacher_course/{teacher_id}/{course_id}/status', 'TeacherController@
 
 
 Route::get('problemfile', 'ProblemFileController@index');
-Route::get('problemfile/create', 'ProblemFileController@create');
+//Route::get('problemfile/create', 'ProblemFileController@create');
 Route::get('problemfile/get/{filename}', ['as' => 'getfile', 'uses' => 'ProblemFileController@get']);
 Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileController@add']);
 Route::get('problemfile/getQuestion/{problem_id}', 'ProblemFileController@getQuestion');

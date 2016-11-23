@@ -47,8 +47,8 @@ class ProblemAnalysisController extends Controller
 
     public function edit($id)
     {
-        /*$problemAnalysis = ProblemAnalysis::findOrFail($id);
-        return view('problems_analysis')->with('problemAnalysis', $problemAnalysis);*/
+        $problemAnalysis = ProblemAnalysis::findOrFail($id);
+        return view('problems_analysis')->with('problemAnalysis', $problemAnalysis);
     }
 
     public function update($id)

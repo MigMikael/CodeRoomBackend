@@ -49,7 +49,8 @@ class ProblemFileController extends Controller
 
         $files = Storage::disk('public')->allFiles($sourcePath);
         foreach ($files as $file){
-            if(substr($file, -4) == 'java'){ // read only java file
+            Log::info('##### '.$file);
+            /*if(substr($file, -4) == 'java'){ // read only java file
                 $packageAndName = str_replace($sourcePath, '', $file); // dataStructures/LinkedList.java
                 $temp = explode('/', $packageAndName);
                 $packageName = $temp[0];
@@ -63,7 +64,7 @@ class ProblemFileController extends Controller
                     'code' => Storage::disk('public')->get($file),
                 ];
                 ProblemFile::create($problemFile);
-            }
+            }*/
         }
 
         return 'finish';
