@@ -34,4 +34,26 @@ class TestController extends Controller
         return $allCodes;
         //return (new Response($files, 200))->header('Content-Type', 'image/png');
     }
+
+    public function testStrPos()
+    {
+        /*$msg = '1_Queue_sol.txt';
+        if(strpos($msg, 'in') != false){
+            echo 'This is in file';
+        } else {
+            echo 'This is sol file';
+        }*/
+
+        $msg = 'LinkedList.java';
+        $msg1 = 'dataStructures/LinkedList.java';
+        $msg2 = 'com/amela/BookStore.java';
+        $temps = explode('/', $msg);
+
+        echo $temps[0];
+    }
+
+    public function testTemplate2()
+    {
+        return view('template2');
+    }
 }

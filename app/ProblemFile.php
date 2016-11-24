@@ -21,4 +21,14 @@ class ProblemFile extends Model
     {
         return $this->belongsTo('App\Problem');
     }
+
+    public function input()
+    {
+        return $this->hasMany('App\ProblemInput');
+    }
+
+    public function output()
+    {
+        return $this->hasMany('App\ProblemOutput');
+    }
 }

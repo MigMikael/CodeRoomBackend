@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\ProblemFile;
+use App\ProblemInput;
+use App\ProblemOutput;
 use Chumper\Zipper\Zipper;
 use Request;
 use Log;
@@ -39,22 +41,36 @@ class ProblemFileController extends Controller
         $folderPath = storage_path('\\app\\public\\' . $dirName .'\\');
         $filePath = storage_path('app\\public\\'.$problem_id.'_'.$problem_name.'.'.$extension);
 
-        /*Log::info('#### Extract Dest '. $folderPath);
-        Log::info('#### Path File '. $filePath);*/
+        /*Log::info('#### Extract Dest '. $folderPath); Log::info('#### Path File '. $filePath);*/
 
         $zipper = new Zipper();
         $zipper->make($filePath)->extractTo($folderPath);
 
         $sourcePath = $dirName.'/'.$problem_name.'/src/';
-
         $files = Storage::disk('public')->allFiles($sourcePath);
+
         foreach ($files as $file){
-            Log::info('##### '.$file);
-            /*if(substr($file, -4) == 'java'){ // read only java file
+            //Log::info('##### '.$file);                               // com/amela/Book.java
+            if(substr($file, -4) == 'java'){                           // read only java file
                 $packageAndName = str_replace($sourcePath, '', $file); // dataStructures/LinkedList.java
-                $temp = explode('/', $packageAndName);
-                $packageName = $temp[0];
-                $fileName = $temp[1];
+                $temps = explode('/', $packageAndName);
+
+                $packageName = '';
+                $fileName = '';
+
+                if(sizeof($temps) == 1){
+                    $packageName = 'default package';
+                    $fileName = $temps[0];
+                }
+                else if(sizeof($temps) > 1){
+                    for($i = 0; $i < sizeof($temps)-1; $i++){
+                        $packageName .= $temps[$i];
+                        if($i != sizeof($temps)-2){
+                            $packageName .= '.';
+                        }
+                    }
+                    $fileName = $temps[sizeof($temps) -1];
+                }
 
                 $problemFile = [
                     'problem_id' => $problem_id,
@@ -63,10 +79,38 @@ class ProblemFileController extends Controller
                     'mime' => 'java',
                     'code' => Storage::disk('public')->get($file),
                 ];
-                ProblemFile::create($problemFile);
-            }*/
-        }
+                $problemFile = ProblemFile::create($problemFile);
 
+                $temp = explode('.', $problemFile->filename);
+                $inputFolderName = $temp[0];
+
+                $inputPath = $dirName.'/'.$problem_name.'/testCase/'.$inputFolderName.'/';
+                $inputFiles = Storage::disk('public')->allFiles($inputPath);
+                foreach ($inputFiles as $inputFile){
+                    $temps = explode('/', $inputFile);
+                    $fileName = $temps[sizeof($temps) - 1];
+
+                    if(strpos($fileName, 'in') != false) {          // This is input file
+                        $problemInput = [
+                            'problemfile_id' => $problemFile->id,
+                            'version' => '',
+                            'filename' => $fileName,
+                            'content' => Storage::disk('public')->get($inputFile)
+                        ];
+                        ProblemInput::create($problemInput);
+                    }
+                    else if(strpos($fileName, 'sol') != false) {    //This is output file
+                        $problemOutput = [
+                            'problemfile_id' => $problemFile->id,
+                            'version' => '',
+                            'filename' => $fileName,
+                            'content' => Storage::disk('public')->get($inputFile)
+                        ];
+                        ProblemOutput::create($problemOutput);
+                    }
+                }
+            }
+        }
         return 'finish';
     }
 

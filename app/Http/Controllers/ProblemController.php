@@ -79,7 +79,8 @@ class ProblemController extends Controller
             $submission->code = '';
         }
         //return $problem;
-        return view('problem.show')->with('problem', $problem);
+        //return view('problem.show')->with('problem', $problem);
+        return view('problem.show2')->with('problem', $problem);
     }
 
     public function edit($id)
