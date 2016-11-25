@@ -64,6 +64,11 @@ class SubmissionController extends Controller
             //self::analyzeSubmission();
         }
 
+        return self::sendTeacherInput($submission->problem);
+        //return self::sendTeacherOutput($submission->problem);
+
+        //self::sendStudentFile($submission);
+
         //return redirect('submission');
     }
 
@@ -95,6 +100,84 @@ class SubmissionController extends Controller
 
         $res = app()->handle($request);
         return $res;
+    }
+
+    public function sendTeacherInput($problem)
+    {
+        $inputs = [];
+
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+
+        $inputs['subject'] = $subjectName;
+        $inputs['problem'] = $problem->name;
+        $inputs['in'] = [];
+
+        foreach ($problem->problemFiles as $problemFile){
+            foreach ($problemFile->inputs as $input){
+                $realInput = [
+                    'version' => $input->version,
+                    'filename' => $input->filename,
+                    'content' => $input->content,
+                ];
+                array_push($inputs['in'], $realInput);
+            }
+        }
+        //return $inputs;
+
+        $client = new Client();
+        $res = $client->request('POST', 'http://172.27.231.183:3000/api/teacher/send_in', ['json' => [
+                'subject' => $inputs['subject'],
+                'problem' => $inputs['problem'],
+                'in' => $inputs['in'],
+            ]
+        ]);
+
+        $result = $res->getBody();
+        return $result;
+    }
+
+    public function sendTeacherOutput($problem)
+    {
+        $outputs = [];
+
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+
+        $outputs['subject'] = $subjectName;
+        $outputs['problem'] = $problem->name;
+        $outputs['sol'] = [];
+
+        foreach ($problem->problemFiles as $problemFile){
+            foreach ($problemFile->outputs as $output){
+                $realOutput = [
+                    'version' => $output->version,
+                    'filename' => $output->filename,
+                    'content' => $output->content,
+                ];
+                array_push($outputs['sol'], $realOutput);
+            }
+        }
+        //return $outputs;
+
+        $client = new Client();
+        //$res = $client->request('POST', 'http://www.posttestserver.com/post.php', ['json' => [
+        $res = $client->request('POST', 'http://172.27.231.183:3000/api/teacher/send_sol', ['json' => [
+                'subject' => $outputs['subject'],
+                'problem' => $outputs['problem'],
+                'sol' => $outputs['sol'],
+            ]
+        ]);
+
+        $result = $res->getBody();
+        return $result;
+    }
+
+    public function sendStudentFile($submission)
+    {
+        Log::info('##### sendStudentFile '. $submission->sub_num);
     }
 
     public function analyzeSubmission($submission_id, $input_code)

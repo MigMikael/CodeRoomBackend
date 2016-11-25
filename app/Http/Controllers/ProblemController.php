@@ -43,11 +43,11 @@ class ProblemController extends Controller
             'memorylimit' => Request::get('memorylimit'),
             'is_parse' => Request::get('is_parse'),
         ];
-
         $problem = Problem::create($problem);
+
         if(Request::hasFile('file')){
             $file = Request::file('file');
-            self::sendToProblemFile($problem, $file);
+            self::sendToProblemFile($problem, $file, 'create');
         } else {
             return 'file not found';
         }
@@ -66,9 +66,7 @@ class ProblemController extends Controller
         ])->findOrFail($id);
 
         $problem->lesson;
-        foreach ($problem->problemFiles as $problemFile){
-            $problemFile->code = '';
-        }
+        $problem->problemFiles;
         foreach ($problem->problemAnalysis as $analysis){
             $analysis->attributes;
             $analysis->constructors;
@@ -100,11 +98,15 @@ class ProblemController extends Controller
             'memorylimit' => Request::get('memorylimit'),
             'lesson_id' => Request::get('lesson_id'),
             'is_parse' => Request::get('is_parse'),
-            /*'code' => Request::get('code')*/
         ];
         $problem->update($newProblem);
 
-        return redirect('problem');
+        if(Request::hasFile('file')){
+            $file = Request::file('file');
+            self::sendToProblemFile($problem, $file, 'edit');
+        }
+
+        return 'update finish';
     }
 
     public function destroy($id)
@@ -114,16 +116,20 @@ class ProblemController extends Controller
         return back();
     }
 
-    public function sendToProblemFile($problem, $file)
+    public function sendToProblemFile($problem, $file, $mode)
     {
         $problemFile = [
             'problem_id' => $problem->id,
             'problem_name' => $problem->name,
             'file' => $file
         ];
+        if($mode == 'create'){
+            $url = 'problemfile/add';
+        }else{
+            $url = 'problemfile/edit';
+        }
 
-        $request = Request::create('problemfile/add', 'POST', $problemFile);
-
+        $request = Request::create($url, 'POST', $problemFile);
         $res = app()->handle($request);
         return $res;
     }

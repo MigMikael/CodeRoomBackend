@@ -31,17 +31,43 @@ class ProblemFileController extends Controller
         $problem_id = Request::get('problem_id');
         $problem_name = Request::get('problem_name');
         $file = Request::get('file');
+        $version = 1;
 
+        self::keepFile($problem_id, $problem_name, $file, $version);
+    }
+
+    public function edit()
+    {
+        $problem_id = Request::get('problem_id');
+        $problem_name = Request::get('problem_name');
+        $file = Request::get('file');
+
+        $currentVersion = 0;
+        $problemFiles = ProblemFile::where('problem_id', '=', $problem_id)->get();
+        foreach ($problemFiles as $problemFile){
+            if(sizeof($problemFile->inputs) > 0){   // This problemfile has input
+                $input = $problemFile->inputs()->first();
+                $currentVersion = $input->version;
+            }
+        }
+        $version = ++$currentVersion;
+        ProblemFile::where('problem_id', '=', $problem_id)->delete();
+
+        self::keepFile($problem_id, $problem_name, $file, $version);
+    }
+
+    public function keepFile($problem_id, $problem_name, $file, $version)
+    {
         $extension = $file->getClientOriginalExtension();
         Storage::disk('public')->put($problem_id.'_'.$problem_name.'.'.$extension, File::get($file));
 
-        $dirName = 'problem/'.$problem_id.'_'.$problem_name; // problem_id for unique file name
+        $dirName = 'problem/'.$problem_id.'_'.$problem_name;
 
+        Storage::disk('public')->deleteDirectory($dirName);
         Storage::disk('public')->makeDirectory($dirName);
+
         $folderPath = storage_path('\\app\\public\\' . $dirName .'\\');
         $filePath = storage_path('app\\public\\'.$problem_id.'_'.$problem_name.'.'.$extension);
-
-        /*Log::info('#### Extract Dest '. $folderPath); Log::info('#### Path File '. $filePath);*/
 
         $zipper = new Zipper();
         $zipper->make($filePath)->extractTo($folderPath);
@@ -79,6 +105,7 @@ class ProblemFileController extends Controller
                     'mime' => 'java',
                     'code' => Storage::disk('public')->get($file),
                 ];
+
                 $problemFile = ProblemFile::create($problemFile);
 
                 $temp = explode('.', $problemFile->filename);
@@ -93,7 +120,7 @@ class ProblemFileController extends Controller
                     if(strpos($fileName, 'in') != false) {          // This is input file
                         $problemInput = [
                             'problemfile_id' => $problemFile->id,
-                            'version' => '',
+                            'version' => $version,
                             'filename' => $fileName,
                             'content' => Storage::disk('public')->get($inputFile)
                         ];
@@ -102,7 +129,7 @@ class ProblemFileController extends Controller
                     else if(strpos($fileName, 'sol') != false) {    //This is output file
                         $problemOutput = [
                             'problemfile_id' => $problemFile->id,
-                            'version' => '',
+                            'version' => $version,
                             'filename' => $fileName,
                             'content' => Storage::disk('public')->get($inputFile)
                         ];

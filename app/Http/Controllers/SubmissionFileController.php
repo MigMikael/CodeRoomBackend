@@ -30,14 +30,29 @@ class SubmissionFileController extends Controller
         $zipper->make($filePath)->extractTo($folderPath);
 
         $sourcePath = $dirName.'/'.$problem_name.'/src/';
-
         $files = Storage::disk('public')->allFiles($sourcePath);
+
         foreach ($files as $file){
             if(substr($file, -4) == 'java'){ // read only java file
                 $packageAndName = str_replace($sourcePath, '', $file); // dataStructures/LinkedList.java
-                $temp = explode('/', $packageAndName);
-                $packageName = $temp[0];
-                $fileName = $temp[1];
+                $temps = explode('/', $packageAndName);
+
+                $packageName = '';
+                $fileName = '';
+
+                if(sizeof($temps) == 1){
+                    $packageName = 'default package';
+                    $fileName = $temps[0];
+                }
+                else if(sizeof($temps) > 1){
+                    for($i = 0; $i < sizeof($temps)-1; $i++){
+                        $packageName .= $temps[$i];
+                        if($i != sizeof($temps)-2){
+                            $packageName .= '.';
+                        }
+                    }
+                    $fileName = $temps[sizeof($temps) -1];
+                }
 
                 $submissionFile = [
                     'submission_id' => $submission_id,

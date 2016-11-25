@@ -22,13 +22,13 @@ class ProblemFile extends Model
         return $this->belongsTo('App\Problem');
     }
 
-    public function input()
+    public function inputs()
     {
-        return $this->hasMany('App\ProblemInput');
+        return $this->hasMany('App\ProblemInput', 'problemfile_id');
     }
 
-    public function output()
+    public function outputs()
     {
-        return $this->hasMany('App\ProblemOutput');
+        return $this->hasMany('App\ProblemOutput', 'problemfile_id');
     }
 }

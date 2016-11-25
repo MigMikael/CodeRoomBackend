@@ -24,7 +24,7 @@
 </div>
 
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {!! Form::label('memorylimit', 'Memory Limit(MB):', ['class' => 'mdl-textfield__label']) !!}
+    {!! Form::label('memorylimit', 'Memory Limit(KB):', ['class' => 'mdl-textfield__label']) !!}
     {!! Form::text('memorylimit', null, ['class' => 'mdl-textfield__input']) !!}
 </div>
 
@@ -32,7 +32,7 @@
     {!! Form::label('is_parse', 'Parse Structures(True/false):', ['class' => 'mdl-textfield__label']) !!}
     {!! Form::text('is_parse', null, ['class' => 'mdl-textfield__input']) !!}
 </div>
-
+Problem File: {!! Form::file('file') !!}
 {{--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     {!! Form::label('package', 'Package:', ['class' => 'mdl-textfield__label']) !!}
     {!! Form::text('package', null, ['class' => 'mdl-textfield__input']) !!}

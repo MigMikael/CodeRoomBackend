@@ -18,6 +18,6 @@ class ProblemInput extends Model
 
     public function problemFile()
     {
-        return $this->belongsTo('App\ProblemFile');
+        return $this->belongsTo('App\ProblemFile', 'problemfile_id');
     }
 }
