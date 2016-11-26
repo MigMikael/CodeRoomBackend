@@ -21,6 +21,8 @@ class CreateMethodTable extends Migration
             $table->string('return_type');
             $table->string('name');
             $table->string('parameter');
+            $table->string('recursive');
+            $table->string('loop');
             $table->float('score');
 
             $table->foreign('analysis_id')

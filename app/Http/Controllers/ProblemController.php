@@ -43,9 +43,9 @@ class ProblemController extends Controller
             'memorylimit' => Request::get('memorylimit'),
             'is_parse' => Request::get('is_parse'),
         ];
-        $problem = Problem::create($problem);
 
         if(Request::hasFile('file')){
+            $problem = Problem::create($problem);
             $file = Request::file('file');
             self::sendToProblemFile($problem, $file, 'create');
         } else {
@@ -112,6 +112,7 @@ class ProblemController extends Controller
     public function destroy($id)
     {
         $problem = Problem::findOrFail($id);
+
         $problem->delete();
         return back();
     }
@@ -153,72 +154,12 @@ class ProblemController extends Controller
 
     public function keepProblemAnalysis($analyzeResult_json)
     {
-       /* Log::info('#### '. $input_package);
-        $prob_id = $analyzeResult_json['prob_id'];
-        $classes = $analyzeResult_json['class'];
-        $data = [];
 
-        foreach ($classes as $class) {
-            $data['prob_id'] = $prob_id;
-            $data['class'] = $class['modifier'].';'.$class['static_required'].';'.$class['name'];
-            $data['package'] = $input_package;
-            $data['enclose'] = $class['enclose'];
-
-            $constructors = $class['constructure'];
-            $count = 1;
-            $data['constructor'] = '';
-            foreach ($constructors as $constructor) {
-                $data['constructor'] .= $count.';'
-                    .$constructor['modifier'].';'
-                    .$constructor['name'].';'
-                    .'(';
-                $params = $constructor['params'];
-                foreach ($params as $param){
-                    $data['constructor'] .= $param['datatype'].' '
-                        .$param['name'].', ';
-                }
-                $data['constructor'] .= ')|';
-                $count++;
-            }
-
-            $attributes = $class['attribute'];
-            $count = 1;
-            $data['attribute'] = '';
-            foreach ($attributes as $attribute) {
-                $data['attribute'] .= $count.';'
-                    .$attribute['modifier'].';'
-                    .$attribute['static_required'].';'
-                    .$attribute['datatype'].';'
-                    .$attribute['name'].'|';
-                $count++;
-            }
-
-            $count = 1;
-            $data['method'] = '';
-            $methods = $class['method'];
-            foreach ($methods as $method) {
-                $data['method'] .= $count.';'
-                    .$method['modifier'].';'
-                    .$method['static_required'].';'
-                    .$method['return_type'].';'
-                    .$method['name'].';'
-                    .'(';
-                $params = $method['params'];
-                foreach ($params as $param) {
-                    $data['method'] .= $param['datatype'].' '
-                        .$param['name'].', ';
-                }
-                $data['method'] .= ')|';
-                $count++;
-            }
-            ProblemAnalysis::create($data);
-        }
-        Log::info('#### STATUS #### '. 'Keep Problem Analysis' .' ####');*/
     }
 
     public function getProblemAnalysis($prob_id)
     {
-        $problem_analysis = ProblemAnalysis::where('prob_id', '=', $prob_id)->get();
+        $problem_analysis = ProblemAnalysis::where('problem_id', '=', $prob_id)->get();
         return $problem_analysis;
     }
 }

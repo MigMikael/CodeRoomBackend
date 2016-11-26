@@ -13,6 +13,8 @@ class CreateProblemAnalysisTable extends Migration {
 			$table->string('class', 100);
 			$table->string('package', 100);
 			$table->string('enclose', 100);
+            $table->string('extends');
+            $table->string('implements');
 			$table->text('attribute');
 			$table->text('method');
 			$table->timestamps();

@@ -17,6 +17,8 @@ class ProblemAnalysisTableSeeder extends Seeder
             'class' => 'public;Runners',
             'package' => 'default package',
             'enclose' => 'null',
+            'extends' => 'null',
+            'implements' => 'null',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -26,6 +28,8 @@ class ProblemAnalysisTableSeeder extends Seeder
             'class' => 'default;Runner',
             'package' => 'default package',
             'enclose' => 'Runners',
+            'extends' => 'null',
+            'implements' => 'null',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

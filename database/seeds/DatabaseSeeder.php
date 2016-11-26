@@ -32,5 +32,12 @@ class DatabaseSeeder extends Seeder
         $this->call(AttributeTableSeeder::class);
         $this->call(ConstructorTableSeeder::class);
         $this->call(MethodTableSeeder::class);
+
+        $this->call(ProblemFileTableSeeder::class);
+        $this->call(ProblemInputTableSeeder::class);
+        $this->call(ProblemOutputTableSeeder::class);
+
+        $this->call(SubmissionTableSeeder::class);
+        $this->call(SubmissionFileTableSeeder::class);
     }
 }

@@ -56,81 +56,91 @@
                             <div class="mdl-cell mdl-cell--12-col center">
                                 <h4>{{ $analysis->class }}</h4>
                             </div>
-                            <b>Constructor</b>
-                            <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
-                                <thead>
-                                <tr>
-                                    <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                    <th>Access Modifier</th>
-                                    <th>Name</th>
-                                    <th>Parameter</th>
-                                    <th>Score</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($analysis->constructors as $constructor)
+                            <div class="mdl-card__supporting-text mdl-card--expand">
+                                <p>Package: {{ $analysis->package }}</p>
+                                <p>Enclose: {{ $analysis->enclose }}</p>
+                                <p>Extends: {{ $analysis->extends }}</p>
+                                <p>Implements: {{ $analysis->implements }}</p>
+                                <b>Constructor</b>
+                                <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
+                                    <thead>
                                     <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">{{ $constructor->id }}</td>
-                                        <td>{{ $constructor->access_modifier }}</td>
-                                        <td>{{ $constructor->name }}</td>
-                                        <td>{{ $constructor->parameter }}</td>
-                                        <td>{{ $constructor->score }}</td>
+                                        <th class="mdl-data-table__cell--non-numeric">ID</th>
+                                        <th>Access Modifier</th>
+                                        <th>Name</th>
+                                        <th>Parameter</th>
+                                        <th>Score</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <b>Attribute</b>
-                            <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
-                                <thead>
-                                <tr>
-                                    <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                    <th>Access Modifier</th>
-                                    <th>Non-Access Modifier</th>
-                                    <th>Data Type</th>
-                                    <th>Name</th>
-                                    <th>Score</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($analysis->attributes as $attribute)
+                                    </thead>
+                                    <tbody>
+                                    @foreach($analysis->constructors as $constructor)
+                                        <tr>
+                                            <td class="mdl-data-table__cell--non-numeric">{{ $constructor->id }}</td>
+                                            <td>{{ $constructor->access_modifier }}</td>
+                                            <td>{{ $constructor->name }}</td>
+                                            <td>{{ $constructor->parameter }}</td>
+                                            <td>{{ $constructor->score }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                                <b>Attribute</b>
+                                <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
+                                    <thead>
                                     <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">{{ $attribute->id }}</td>
-                                        <td>{{ $attribute->access_modifier }}</td>
-                                        <td>{{ $attribute->non_access_modifier }}</td>
-                                        <td>{{ $attribute->data_type }}</td>
-                                        <td>{{ $attribute->name }}</td>
-                                        <td>{{ $attribute->score }}</td>
+                                        <th class="mdl-data-table__cell--non-numeric">ID</th>
+                                        <th>Access Modifier</th>
+                                        <th>Non-Access Modifier</th>
+                                        <th>Data Type</th>
+                                        <th>Name</th>
+                                        <th>Score</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <b>Method</b>
-                            <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
-                                <thead>
-                                <tr>
-                                    <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                    <th>Access Modifier</th>
-                                    <th>Non-Access Modifier</th>
-                                    <th>Return Type</th>
-                                    <th>Name</th>
-                                    <th>Parameter</th>
-                                    <th>Score</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($analysis->methods as $method)
+                                    </thead>
+                                    <tbody>
+                                    @foreach($analysis->attributes as $attribute)
+                                        <tr>
+                                            <td class="mdl-data-table__cell--non-numeric">{{ $attribute->id }}</td>
+                                            <td>{{ $attribute->access_modifier }}</td>
+                                            <td>{{ $attribute->non_access_modifier }}</td>
+                                            <td>{{ $attribute->data_type }}</td>
+                                            <td>{{ $attribute->name }}</td>
+                                            <td>{{ $attribute->score }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                                <b>Method</b>
+                                <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
+                                    <thead>
                                     <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">{{ $method->id }}</td>
-                                        <td>{{ $method->access_modifier }}</td>
-                                        <td>{{ $method->non_access_modifier }}</td>
-                                        <td>{{ $method->return_type }}</td>
-                                        <td>{{ $method->name }}</td>
-                                        <td>{{ $method->parameter }}</td>
-                                        <td>{{ $method->score }}</td>
+                                        <th class="mdl-data-table__cell--non-numeric">ID</th>
+                                        <th>Access Modifier</th>
+                                        <th>Non-Access Modifier</th>
+                                        <th>Return Type</th>
+                                        <th>Name</th>
+                                        <th>Parameter</th>
+                                        <th>Recursive</th>
+                                        <th>Loop</th>
+                                        <th>Score</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($analysis->methods as $method)
+                                        <tr>
+                                            <td class="mdl-data-table__cell--non-numeric">{{ $method->id }}</td>
+                                            <td>{{ $method->access_modifier }}</td>
+                                            <td>{{ $method->non_access_modifier }}</td>
+                                            <td>{{ $method->return_type }}</td>
+                                            <td>{{ $method->name }}</td>
+                                            <td>{{ $method->parameter }}</td>
+                                            <td>{{ $method->recursive }}</td>
+                                            <td>{{ $method->loop }}</td>
+                                            <td>{{ $method->score }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -139,7 +149,7 @@
             @for($i = 0; $i < sizeof($problem->problemFiles); $i++)
             <section class="mdl-layout__tab-panel" id="scroll-tab-{{$i+2}}">
                 <div class="mdl-grid page-max-width">
-                    <div class="mdl-cell mdl-cell--8-col mdl-card code-card mdl-shadow--4dp" id="editor{{$i+2}}" >
+                    <div class="mdl-cell mdl-cell--12-col mdl-card code-card mdl-shadow--4dp" id="editor{{$i+2}}" >
                         {{ $problem->problemFiles[$i]->code }}
                     </div>
                 </div>

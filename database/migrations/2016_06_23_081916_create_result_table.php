@@ -13,6 +13,8 @@ class CreateResultTable extends Migration {
 			$table->string('class');
 			$table->string('package');
 			$table->string('enclose');
+            $table->string('extends');
+            $table->string('implements');
 			$table->text('attribute');
 			$table->text('method');
 			$table->timestamps();
