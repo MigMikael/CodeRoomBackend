@@ -16,9 +16,9 @@ class Result extends Model {
 		'enclose',
 	];
 
-    public function submission()
+    public function submissionFile()
     {
-        return $this->belongsTo('App\Submission');
+        return $this->belongsTo('App\SubmissionFile', 'submissionfile_id');
     }
 
     public function attributes()

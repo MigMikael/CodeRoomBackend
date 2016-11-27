@@ -9,7 +9,7 @@ class CreateResultTable extends Migration {
 	{
 		Schema::create('result', function(Blueprint $table) {
 		    $table->increments('id');
-			$table->integer('submission_id')->unsigned();
+			$table->integer('submissionfile_id')->unsigned();
 			$table->string('class');
 			$table->string('package');
 			$table->string('enclose');

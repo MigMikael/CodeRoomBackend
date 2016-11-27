@@ -13,7 +13,7 @@ class ResultTableSeeder extends Seeder
     public function run()
     {
         DB::table('result')->insert([
-            'submission_id' => 1,
+            'submissionfile_id' => 1,
             'class' => 'public;Runners',
             'package' => 'default package',
             'enclose' => 'null',
@@ -24,7 +24,7 @@ class ResultTableSeeder extends Seeder
         ]);
 
         DB::table('result')->insert([
-            'submission_id' => 1,
+            'submissionfile_id' => 1,
             'class' => 'default;Runner',
             'package' => 'default package',
             'enclose' => 'Runners',

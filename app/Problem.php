@@ -24,11 +24,6 @@ class Problem extends Model {
         return $this->belongsTo('App\Lesson');
     }
 
-    public function problemAnalysis()
-    {
-        return $this->hasMany('App\ProblemAnalysis');
-    }
-
     public function submissions()
     {
         return $this->hasMany('App\Submission');

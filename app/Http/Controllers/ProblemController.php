@@ -62,15 +62,16 @@ class ProblemController extends Controller
     public function show($id)
     {
         $problem = Problem::withCount([
-            'submissions' , 'problemAnalysis'
+            'submissions' , 'problemFiles'
         ])->findOrFail($id);
 
         $problem->lesson;
-        $problem->problemFiles;
-        foreach ($problem->problemAnalysis as $analysis){
-            $analysis->attributes;
-            $analysis->constructors;
-            $analysis->methods;
+        foreach ($problem->problemFiles as $problemFile){
+            foreach ($problemFile->problemAnalysis as $analysis){
+                $analysis->attributes;
+                $analysis->constructors;
+                $analysis->methods;
+            }
         }
         foreach ($problem->submissions as $submission){
             $submission->student;

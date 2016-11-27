@@ -16,9 +16,9 @@ class ProblemAnalysis extends Model {
 		'enclose',
 	];
 
-    public function problem()
+    public function problemFile()
     {
-        return $this->belongsTo('App\Problem');
+        return $this->belongsTo('App\ProblemFile', 'problemfile_id');
     }
 
     public function attributes()

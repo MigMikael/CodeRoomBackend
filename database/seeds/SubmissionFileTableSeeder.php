@@ -13,7 +13,7 @@ class SubmissionFileTableSeeder extends Seeder
     public function run()
     {
         DB::table('submissionfile')->insert([
-            'submission_id' => '1',
+            'submission_id' => 1,
             'package' => 'default package',
             'filename' => 'Runners.java',
             'mime' => 'java',

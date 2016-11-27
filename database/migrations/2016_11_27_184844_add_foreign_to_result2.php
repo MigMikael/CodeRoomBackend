@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToProblemAnalysis extends Migration
+class AddForeignToResult2 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class AddForeignToProblemAnalysis extends Migration
      */
     public function up()
     {
-        Schema::table('problem_analysis', function (Blueprint $table){
-            $table->foreign('problemfile_id')
+        Schema::table('result', function (Blueprint $table){
+            $table->foreign('submissionfile_id')
                 ->references('id')
-                ->on('problemfile')
+                ->on('submissionfile')
                 ->onDelete('cascade');
         });
     }
@@ -27,8 +27,8 @@ class AddForeignToProblemAnalysis extends Migration
      */
     public function down()
     {
-        Schema::table('problem_analysis', function (Blueprint $table){
-            $table->dropForeign('problem_analysis_problemfile_id_foreign');
+        Schema::table('result', function (Blueprint $table){
+            $table->dropForeign('result_submissionfile_id_foreign');
         });
     }
 }

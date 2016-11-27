@@ -13,7 +13,7 @@ class ProblemAnalysisTableSeeder extends Seeder
     public function run()
     {
         DB::table('problem_analysis')->insert([
-            'problem_id' => 1,
+            'problemfile_id' => 1,
             'class' => 'public;Runners',
             'package' => 'default package',
             'enclose' => 'null',
@@ -24,7 +24,7 @@ class ProblemAnalysisTableSeeder extends Seeder
         ]);
 
         DB::table('problem_analysis')->insert([
-            'problem_id' => 1,
+            'problemfile_id' => 1,
             'class' => 'default;Runner',
             'package' => 'default package',
             'enclose' => 'Runners',

@@ -51,7 +51,7 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
-                    @foreach($problem->problemAnalysis as $analysis)
+                   {{-- @foreach($problem->problemAnalysis as $analysis)
                         <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                             <div class="mdl-cell mdl-cell--12-col center">
                                 <h4>{{ $analysis->class }}</h4>
@@ -142,15 +142,90 @@
                                 </table>
                             </div>
                         </div>
-                    @endforeach
+                    @endforeach--}}
                 </div>
             </section>
 
             @for($i = 0; $i < sizeof($problem->problemFiles); $i++)
             <section class="mdl-layout__tab-panel" id="scroll-tab-{{$i+2}}">
                 <div class="mdl-grid page-max-width">
-                    <div class="mdl-cell mdl-cell--12-col mdl-card code-card mdl-shadow--4dp" id="editor{{$i+2}}" >
+                    <div class="mdl-cell mdl-cell--7-col mdl-card code-card mdl-shadow--4dp" id="editor{{$i+2}}" >
                         {{ $problem->problemFiles[$i]->code }}
+                    </div>
+
+                    <div class="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--4dp">
+
+                        @foreach($problem->problemFiles[$i]->problemAnalysis as $analysis)
+                        <div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+                            <div class="mdl-card__title">
+                                <h4>{{ $analysis->class }}</h4>
+                            </div>
+                            <div class="mdl-card__supporting-text mdl-card--expand">
+                                <b>Package:</b> {{ $analysis->package }}
+                                <b>Enclose:</b> {{ $analysis->enclose }}
+                                <b>Extends:</b> {{ $analysis->extends }}
+                                <b>Implements:</b> {{ $analysis->implements }}
+                            </div>
+                        </div>
+                        <ul class="mdl-list">
+                            <li class="mdl-list__item">
+                                <h5>Attribute</h5>
+                            </li>
+                            @foreach($analysis->attributes as $attribute)
+                                <li class="mdl-list__item mdl-list__item--three-line">
+                                <span class="mdl-list__item-primary-content">
+                                  <i class="material-icons mdl-list__item-avatar">accessibility</i>
+                                  <span>{{ $attribute->access_modifier }} {{ $attribute->non_access_modifier }} {{ $attribute->data_type }} <b>{{ $attribute->name }}</b></span>
+                                  <span class="mdl-list__item-text-body">
+                                      <b>Score</b>: {{ $attribute->score }}
+                                  </span>
+                                </span>
+                                    <span class="mdl-list__item-secondary-content">
+                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                </span>
+                                </li>
+                            @endforeach
+                            <li class="mdl-list__item">
+                                <h5>Constructor</h5>
+                            </li>
+                            @foreach($analysis->constructors as $constructor)
+                                <li class="mdl-list__item mdl-list__item--three-line">
+                                <span class="mdl-list__item-primary-content">
+                                  <i class="material-icons mdl-list__item-avatar">account_balance</i>
+                                  <span>{{ $constructor->access_modifier }} <b>{{ $constructor->name }}</b></span>
+                                  <span class="mdl-list__item-text-body">
+                                      <b>Score :</b> {{ $constructor->score }}
+                                      <b>Parameter :</b>{{ $constructor->parameter }}
+                                  </span>
+                                </span>
+                                    <span class="mdl-list__item-secondary-content">
+                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                </span>
+                                </li>
+                            @endforeach
+                            <li class="mdl-list__item">
+                                <h5>Method</h5>
+                            </li>
+                            @foreach($analysis->methods as $method)
+                                <li class="mdl-list__item mdl-list__item--three-line">
+                                <span class="mdl-list__item-primary-content">
+                                  <i class="material-icons mdl-list__item-avatar">directions_run</i>
+                                  <span>{{ $method->access_modifier }} {{ $method->non_access_modifier }} {{ $method->return_type }} <b>{{ $method->name }}</b></span>
+                                    <span class="mdl-list__item-text-body">
+                                        <b>Parameter :</b>{{ $method->parameter }}<br>
+                                        <b>Recursive :</b>{{ $method->recursive }}
+                                        <b>Loop :</b>{{ $method->loop }}
+                                        <b>Score :</b> {{ $method->score }}
+                                    </span>
+                                </span>
+                                <span class="mdl-list__item-secondary-content">
+                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                </span>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <hr>
+                        @endforeach
                     </div>
                 </div>
             </section>

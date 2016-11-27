@@ -12,12 +12,12 @@ class AddForeignToResult extends Migration
      */
     public function up()
     {
-        Schema::table('result', function (Blueprint $table){
-            $table->foreign('submission_id')
+        /*Schema::table('result', function (Blueprint $table){
+            $table->foreign('submissionfile_id')
                 ->references('id')
-                ->on('submission')
+                ->on('submissionfile')
                 ->onDelete('cascade');
-        });
+        });*/
     }
 
     /**
@@ -27,8 +27,8 @@ class AddForeignToResult extends Migration
      */
     public function down()
     {
-        Schema::table('result', function (Blueprint $table){
-            $table->dropForeign('result_submission_id_foreign');
-        });
+        /*Schema::table('result', function (Blueprint $table){
+            $table->dropForeign('result_submissionfile_id_foreign');
+        });*/
     }
 }

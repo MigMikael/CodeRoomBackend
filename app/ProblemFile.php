@@ -22,6 +22,11 @@ class ProblemFile extends Model
         return $this->belongsTo('App\Problem');
     }
 
+    public function problemAnalysis()
+    {
+        return $this->hasMany('App\ProblemAnalysis', 'problemfile_id');
+    }
+
     public function inputs()
     {
         return $this->hasMany('App\ProblemInput', 'problemfile_id');

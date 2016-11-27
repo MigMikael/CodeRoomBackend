@@ -9,10 +9,10 @@ class CreateProblemAnalysisTable extends Migration {
 	{
 		Schema::create('problem_analysis', function(Blueprint $table) {
             $table->increments('id');
-			$table->integer('problem_id')->unsigned();
-			$table->string('class', 100);
-			$table->string('package', 100);
-			$table->string('enclose', 100);
+			$table->integer('problemfile_id')->unsigned();
+			$table->string('class');
+			$table->string('package');
+			$table->string('enclose');
             $table->string('extends');
             $table->string('implements');
 			$table->text('attribute');
