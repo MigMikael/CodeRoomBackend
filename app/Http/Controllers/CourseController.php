@@ -137,7 +137,7 @@ class CourseController extends Controller
 
     public function getDetailStudent($course_id, $student_id)
     {
-        $student = Student::where('student_id', '=', $student_id)->first();
+        $student = Student::where('id', '=', $student_id)->first();
         $course = Course::where('id', '=', $course_id)->first();
 
         $lessons = Lesson::where('course_id', '=', $course_id)->orderBy('order')->get();

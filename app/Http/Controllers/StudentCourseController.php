@@ -65,7 +65,7 @@ class StudentCourseController extends Controller
 
     public function getById($student_id)
     {
-        $student = Student::where('student_id','=', $student_id)->first();
+        $student = Student::where('id','=', $student_id)->first();
 
         $studentCourses = StudentCourse::where([
             ['student_id', '=', $student->id],

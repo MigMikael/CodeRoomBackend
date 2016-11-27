@@ -9,11 +9,6 @@ class ProblemAnalysis extends Model {
 	protected $table = 'problem_analysis';
 	public $timestamps = true;
 
-	public function output()
-	{
-		return $this->hasMany('OutputCirteria');
-	}
-
 	protected $fillable = [
 		'problem_id',
 		'class',
@@ -39,5 +34,10 @@ class ProblemAnalysis extends Model {
     public function methods()
     {
         return $this->hasMany('App\Method', 'analysis_id');
+    }
+
+    public function score()
+    {
+        return $this->hasOne('App\ProblemScore', 'analysis_id');
     }
 }

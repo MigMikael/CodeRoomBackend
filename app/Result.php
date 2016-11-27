@@ -35,4 +35,9 @@ class Result extends Model {
     {
         return $this->hasMany('App\ResultMethod', 'result_id');
     }
+
+    public function score()
+    {
+        return $this->hasOne('App\ResultScore', 'result_id');
+    }
 }

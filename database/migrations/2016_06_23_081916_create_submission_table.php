@@ -12,8 +12,8 @@ class CreateSubmissionTable extends Migration {
 			$table->integer('student_id')->unsigned();
 			$table->integer('problem_id')->unsigned();
 			$table->integer('sub_num')->default('0');
+            $table->string('is_accept')->default('false');
 			$table->datetime('time');
-			$table->text('code');
 			$table->timestamps();
 		});
 	}

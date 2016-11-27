@@ -20,7 +20,7 @@ class CreateAttributeTable extends Migration
             $table->string('non_access_modifier');
             $table->string('data_type');
             $table->string('name');
-            $table->float('score');
+            $table->float('score')->default(0);
 
             $table->foreign('analysis_id')
                 ->references('id')

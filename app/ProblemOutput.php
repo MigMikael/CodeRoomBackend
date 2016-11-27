@@ -14,6 +14,7 @@ class ProblemOutput extends Model
         'version',
         'filename',
         'content',
+        'score',
     ];
 
     public function problemFile()

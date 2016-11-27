@@ -21,4 +21,9 @@ class SubmissionFile extends Model
     {
         return $this->belongsTo('App\Submission');
     }
+
+    public function outputs()
+    {
+        return $this->hasMany('App\ProblemOutput', 'problemfile_id');
+    }
 }

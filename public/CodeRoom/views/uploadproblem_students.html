@@ -99,18 +99,20 @@
         </div>
         <a class="name-course-navtop-upload"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> {{ course_name }}</a>
         <div class="right-navtop-upload">
-            profileddddd
+            profile
         </div>
     </nav>
+    {{readFiles()}}
 
     <div class="main-uploadstudents">
         <div class="iframe-upload">
             <iframe ngf-src="probInpage.problemfile"></iframe>
         </div>
+
         <div class="ace-upload">
             <div class="nav-aceupload">
-                <span ng-repeat="file in files">
-                     <a>{{file.name}}</a>
+                <span ng-repeat="file in packages.files">
+                     <a>{{file.namefile}}</a>
                 </span>
 
             </div>
@@ -125,11 +127,11 @@
             <p ng-class="{'massage-fail': alert.status == 'null'|| alert.status == 'false','massage-success': alert.status == 'complete'}" >{{alert.massage}}</p>
         </div>
         <div class="middle-navbottom-upload">
-            {{readFiles()}}
-            <button class="select-files upload-problem" type="file" ngf-select ng-model="files" name="files" accept="/*" multiple >Select Files</button>
-            <p>{{file.name}}</p>
 
-            <button type="submit" value="sumit" ng-click="uploadFiles()">SUBMIT</button>
+            <button class="select-files upload-problem" type="file" ngf-select ng-model="files" name="files" accept="/*" multiple >Select Files</button>
+            <p>{{files.name}}</p>
+
+            <button type="submit" value="sumit" ng-click="submitProblem()">SUBMIT</button>
         </div>
         <div class="right-navbottom-upload">
             <a>NEXT</a>

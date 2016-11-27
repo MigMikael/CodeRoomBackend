@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMethodTable extends Migration
+class CreateProblemScoreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,15 @@ class CreateMethodTable extends Migration
      */
     public function up()
     {
-        Schema::create('method', function (Blueprint $table)
+        Schema::create('problem_score', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('analysis_id')->unsigned();
-            $table->string('access_modifier');
-            $table->string('non_access_modifier');
-            $table->string('return_type');
-            $table->string('name');
-            $table->string('parameter');
-            $table->string('recursive');
-            $table->string('loop');
-            $table->float('score')->default(0);
+            $table->float('class')->default(0);
+            $table->float('package')->default(0);
+            $table->float('enclose')->default(0);
+            $table->float('extends')->default(0);
+            $table->float('implements')->default(0);
 
             $table->foreign('analysis_id')
                 ->references('id')
@@ -39,6 +36,6 @@ class CreateMethodTable extends Migration
      */
     public function down()
     {
-        Schema::drop('method');
+        Schema::drop('problem_score');
     }
 }

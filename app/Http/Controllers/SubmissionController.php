@@ -7,6 +7,8 @@ use App\ProblemFile;
 use App\ProblemInput;
 use App\Result;
 use App\Submission;
+use App\SubmissionFile;
+use App\SubmissionOutput;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Request;
@@ -37,19 +39,12 @@ class SubmissionController extends Controller
         $student_id = Request::get('student_id');
         $problem_id = Request::get('problem_id');
 
-        $sub_num = DB::table('submission')->where([
-            ['student_id', '=', $student_id],
-            ['problem_id', '=', $problem_id],
-        ])->count();
-        $sub_num++;
-
-        $code = Request::get('code');
+        $sub_num = self::getSubNum($student_id, $problem_id);
 
         $submission = [
             'student_id' => $student_id,
             'problem_id' => $problem_id,
             'sub_num' => $sub_num,
-            'code' => $code
         ];
 
         if(Request::hasFile('file')){
@@ -68,23 +63,24 @@ class SubmissionController extends Controller
                 $currentVersion = $input->version;
             }
         }
-        Log::info('#### '.$currentVersion);
+        //Log::info('#### '.$currentVersion);
 
-
-        /*$problem = $submission->problem;
+        $problem = $submission->problem;
 
         $data = self::getInputVersion($problem);
         if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
-            self::sendTeacherInput($problem);
+            return self::sendTeacherInput($problem);
         }
 
         $data = self::getOutputVersion($problem);
         if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
             self::sendTeacherOutput($problem);
-        }*/
+        }
 
+        $scores = self::sendStudentFile($submission);
+        self::keepSubmissionScore($scores, $submission);
 
-        return self::sendStudentFile($submission);
+        return $scores;
 
 
         /*if($problem->is_parse == 'true'){
@@ -261,8 +257,11 @@ class SubmissionController extends Controller
             $is_main = false;
             $main = strpos($code, 'main');
             if($main != false){
-                $args = strpos($code, '(String[] args)', $main);
-                if($args != false){
+                $args = strpos($code, '(', $main);
+                $args1 = strpos($code, 'String', $args);
+                $args2 = strpos($code, '[]', $args1);
+
+                if($args != false && $args1 != false && $args2 != false){
                     $is_main = true;
                 }
             }
@@ -275,19 +274,22 @@ class SubmissionController extends Controller
                 $package .= '/';
             }
 
+            $temps = explode('.', $submissionFile->filename);
+            $fileName = $temps[0];
+
             $dataFile = [
                 'package' => $package,
-                'filename' => $submissionFile->filename,
+                'filename' => $fileName,
                 'code' => $submissionFile->code,
                 'is_main' => $is_main
             ];
             array_push($data['file'], $dataFile);
         }
-        return $data;
+        //return $data;
 
-        /*$client = new Client();
-        //$url = 'http://172.27.169.110:3000/api/teacher/send_sol';
-        $url = 'http://www.posttestserver.com/post.php';
+        $client = new Client();
+        $url = 'http://172.27.169.110:3000/api/teacher/evaluate';
+        //$url = 'http://www.posttestserver.com/post.php';
         $res = $client->request('POST', $url, ['json' => [
             'time_out' => $data['time_out'],
             'mem_size' => $data['mem_size'],
@@ -299,9 +301,29 @@ class SubmissionController extends Controller
         ]);
 
         $result = $res->getBody();
-        return $result;*/
+        $json = json_decode($result, true);
+        return $json;
     }
 
+    public function keepSubmissionScore($scores, $submission)
+    {
+        $submissionFiles = $submission->submissionFiles;
+        foreach ($submissionFiles as $submissionFile){
+            $problemFile = ProblemFile::where('filename', '=', $submissionFile->filename)->first();
+            //Log::info('##### '. $problemFile->filename);
+            $problemOutputNum = ProblemInput::where('problemfile_id', '=', $problemFile->id)->count();
+
+            if($problemOutputNum > 0){
+                foreach ($scores as $score){
+                    $submissionOutput = [
+                        'submissionfile_id' => $submissionFile->id,
+                        'score' => $score['score'],
+                    ];
+                    $submissionOutput = SubmissionOutput::create($submissionOutput);
+                }
+            }
+        }
+    }
     //Todo rewrite this method
     public function analyzeSubmission($submission_id, $input_code)
     {
@@ -330,6 +352,52 @@ class SubmissionController extends Controller
     public function calculateScore()
     {
 
+    }
+
+    public function storeCode()
+    {
+        Log::info('###### This is storCode');
+        $student_id = Request::get('student_id');
+        $problem_id = Request::get('problem_id');
+        $sub_num = self::getSubNum($student_id, $problem_id);
+
+        $submission = [
+            'student_id' => $student_id,
+            'problem_id' => $problem_id,
+            'sub_num' => $sub_num,
+        ];
+
+        $submission = Submission::create($submission);
+        $files = Request::get('files');
+
+        foreach ($files as $file){
+            //Log::info('Filename '.$file['filename']);
+            $temps = explode('.', $file['filename']);
+            $fileName = $temps[0];
+            $mime = $temps[1];
+
+            $submissionFile = [
+                'submission_id' => $submission->id,
+                'package' => $file['name'],
+                'filename' => $fileName,
+                'mime' => $mime,
+                'code' => $file['code']
+            ];
+
+            $submissionFile = SubmissionFile::create($submissionFile);
+        }
+        return 'finish';
+    }
+
+    public function getSubNum($student_id, $problem_id)
+    {
+        $sub_num = DB::table('submission')->where([
+            ['student_id', '=', $student_id],
+            ['problem_id', '=', $problem_id],
+        ])->count();
+        $sub_num++;
+
+        return $sub_num;
     }
 
 }

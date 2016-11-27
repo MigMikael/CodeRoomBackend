@@ -96,5 +96,8 @@ Route::get('test/file/{folderName}', 'TestController@getFile');
 Route::get('test/string_pos', 'TestController@testStrPos');
 Route::get('test/template2', 'TestController@testTemplate2');
 
+//api for submission
+Route::post('api/submission/code', 'SubmissionController@storeCode');
+
 //api deprecated
 Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');

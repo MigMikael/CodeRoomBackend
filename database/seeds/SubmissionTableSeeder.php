@@ -15,6 +15,7 @@ class SubmissionTableSeeder extends Seeder
         DB::table('submission')->insert([
             'student_id' => '1',
             'problem_id' => '1',
+            'sub_num' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

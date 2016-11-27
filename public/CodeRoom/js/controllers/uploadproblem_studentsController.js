@@ -2,7 +2,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
     $scope.isNav = false;
     $scope.isAlert = false;
 
-     function openNav(){
+    function openNav(){
         if($scope.isNav){
             document.getElementById("hover").style.width = "0";
 
@@ -21,6 +21,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
         $scope.isNav = !$scope.isNav;
     };
 
+
     //ace
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/eclipse");
@@ -30,6 +31,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
     $scope.detail_problem;
     $localStorage.lesson_id_student = $stateParams.lesson_id;
     $scope.files;
+    $scope.packages = {};
     getLesson();
     //manageData()
 
@@ -42,7 +44,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
             .success(function (data) {
                 $scope.lesson = data;
                 manageData();
-               //checkSucsessproblem();
+                //checkSucsessproblem();
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
@@ -109,7 +111,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
                             splitConstructor2.push(splitConstructor2_score[1]);
                         }
                         arrayConstructor.push(splitConstructor2);
-                       //console.log(splitConstructor2);
+                        //console.log(splitConstructor2);
                     }
                 }
 
@@ -196,7 +198,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
                     attributes:arrayAttibute,
                     methods:arrayMethod
                 })
-            //console.log(class1);
+                //console.log(class1);
             }
             //console.log(class1);
             $scope.problems.push({
@@ -270,7 +272,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
 
                 for(z in data[i].manyClass[j].attributes){
                     if(data[i].manyClass[j].attributes[z][5] !== data[i].manyClass[j].attributes[z][6]){
-                      setProblem(data[i].prob_id);
+                        setProblem(data[i].prob_id);
                         console.log(data[i].prob_id);
                         return;
                     }
@@ -293,7 +295,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
 
 
     //checkrespont
-    $scope.checkPropriety = function(){
+    function checkPropriety(){
         $scope.alert = {
             massage:"",
             status:""
@@ -325,7 +327,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
                         return;
                     }
                 }else if(j==="enclose"){
-                var splitEnclose = $scope.test[i][j].split(';');
+                    var splitEnclose = $scope.test[i][j].split(';');
                     if(splitEnclose[1]==="null"){
                         $scope.alert.massage = "Don't Enclose "+splitEnclose[0];
                         $scope.alert.status = splitEnclose[1];
@@ -339,7 +341,7 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
                 }else if(j==="attribute"){
                     var splitAttribute = $scope.test[i][j].split('|');
                     for(var z in splitAttribute){
-                       var subSplitattribute = splitAttribute[z].split(';');
+                        var subSplitattribute = splitAttribute[z].split(';');
                         if(subSplitattribute[1]==="null"){
                             $scope.alert.massage = "Don't have Attribute "+subSplitattribute[0];
                             $scope.alert.status = subSplitattribute[1];
@@ -413,60 +415,106 @@ app.controller('uploadproblem_studentsController',function($scope, $sce, $http, 
 
     };
 
-    $scope.readFiles = function(){
 
-        if($scope.files != null){
-                var file = $scope.files[0];
+    function readFile(){
+
+        var code = [];
+
+        var packages = [];
+        var zip = new JSZip();
 
 
 
-                    var reader = new FileReader();
+        zip.loadAsync($scope.files[0])
+            .then(function(zip) {
+                //console.log(zip);
 
-                    reader.onload = function(e) {
-                        console.log(reader.result);
+                for(var i in zip.files){
+                    var package = {};
+
+                    var x = zip.files[i].name.split('/');
+                    if(x[1] == "src"){
+                        //console.log(x);
+                        if(x[2]!= ""){
+                            if(x[2].split('.')[1]== "java"){
+                                package.filename = x[2];
+                                package.name = "default package";
+
+                                zip.files[i].async("string").then(function success(content) {
+                                    code.push(content);
+
+                                }, function error(e) {
+                                    console.log("hello");
+                                    // handle the error
+                                });
+
+
+                                packages.push(package);
+
+                            }
+                            else if(x[3] !== ""){
+                                if(x[3].split('.')[1] == "java"){
+                                    package.filename = x[3];
+                                    package.name = x[2];
+
+                                    zip.files[i].async("string").then(function Success(content) {
+                                        code.push(content);
+
+
+
+                                    }, function error(e) {
+                                        console.log("hello");
+                                        // handle the error
+                                    });
+                                    packages.push(package);
+                                }
+                            }
+
+
+                        }
                     }
-                    reader.readAsText(file);
+
+                }
+
+                setTimeout(function(){
+                    for(i=0 ; i<packages.length ; i++){
+
+                        packages[i].code = code[i];
+
+                    }
+                    addPackages(packages);
+                }, 5000);
 
 
-        }
-
-
-    };
-
-
-    //upload
-    $scope.uploadFiles = function(file) {
-
-        file.upload = Upload.upload({
-            url: 'https://posttestserver.com/post.php',
-            data: {file: file},
-        });
-
-        file.upload.then(function (response) {
-            $timeout(function () {
-                file.result = response.data;
 
 
             });
-        }, function (response) {
-            if (response.status > 0)
-                $scope.errorMsg = response.status + ': ' + response.data;
-        }, function (evt) {
-            // Math.min is to fix IE which reports 200% sometimes
-            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-        });
+
+
+    }
+
+    function addPackages(packages){
+        $scope.packages.files = packages;
+
+        console.log($scope.packages);
+
+    }
+
+    $scope.readFiles = function(){
+        if($scope.files != null) {
+            readFile();
+        }
+
     };
 
+
+
     $scope.submitProblem = function(){
+        $scope.packages.student_id = $localStorage.student_id;
+        $scope.packages.problem_id = 1;
 
-        var dataSubmitproblem = {
-            user_id: $localStorage.student_id,
-            prob_id: $localStorage.prob_id,
-            code: editor.getValue(),
-        };
-        console.log(dataSubmitproblem);
-
-        var res = $http.post('/submissions', dataSubmitproblem);
+        console.log($scope.packages);
+        var res = $http.post('/api/submission/code', $scope.packages);
         res.success(function(data, status, headers, config) {
 
         });
