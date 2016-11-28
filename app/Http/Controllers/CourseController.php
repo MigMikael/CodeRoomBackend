@@ -122,7 +122,7 @@ class CourseController extends Controller
     public function getCourseImage($name)
     {
         $name = str_replace('_','.',$name);
-        Log::info('#### '.$name);
+        //Log::info('#### '.$name);
         $file = Storage::disk('public')->get($name);
         $mimeType = Storage::disk('public')->mimeType($name);
 

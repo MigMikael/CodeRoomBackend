@@ -8,6 +8,7 @@ use Chumper\Zipper\Zipper;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
+use Log;
 
 class SubmissionFileController extends Controller
 {
@@ -32,6 +33,8 @@ class SubmissionFileController extends Controller
         $sourcePath = $dirName.'/'.$problem_name.'/src/';
         $files = Storage::disk('public')->allFiles($sourcePath);
 
+        $hasDriver = false;
+
         foreach ($files as $file){
             if(substr($file, -4) == 'java'){ // read only java file
                 $packageAndName = str_replace($sourcePath, '', $file); // dataStructures/LinkedList.java
@@ -54,6 +57,10 @@ class SubmissionFileController extends Controller
                     $fileName = $temps[sizeof($temps) -1];
                 }
 
+                if($packageName == 'driver'){
+                    $hasDriver = true;
+                }
+
                 $submissionFile = [
                     'submission_id' => $submission_id,
                     'package' => $packageName,
@@ -65,6 +72,15 @@ class SubmissionFileController extends Controller
             }
         }
 
-        return 'finish';
+        //Todo Delete zip file when finish (permission deny)
+        //Storage::disk('public')->delete('submission_'.$submission_id.'.'.$extension);
+        //unlink($filePath);
+
+
+        if($hasDriver == false){
+            return 'finish no driver appear';
+        } else {
+            return 'finish driver appear';
+        }
     }
 }

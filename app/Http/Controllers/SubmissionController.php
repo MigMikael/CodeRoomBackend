@@ -46,11 +46,16 @@ class SubmissionController extends Controller
             'problem_id' => $problem_id,
             'sub_num' => $sub_num,
         ];
+        $hasDriver = false;
 
         if(Request::hasFile('file')){
             $submission = Submission::create($submission);
             $file = Request::file('file');
-            self::sendToSubmissionFile($submission, $file);
+            $msg = self::sendToSubmissionFile($submission, $file);
+
+            if($msg == 'finish driver appear'){
+                $hasDriver = true;
+            }
         } else {
             return 'file not found';
         }
@@ -63,24 +68,40 @@ class SubmissionController extends Controller
                 $currentVersion = $input->version;
             }
         }
-        //Log::info('#### '.$currentVersion);
 
+        $currentIP = 'http://172.27.225.120:3000';
         $problem = $submission->problem;
 
-        $data = self::getInputVersion($problem);
-        if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
-            return self::sendTeacherInput($problem);
+        if(!$hasDriver){
+            //Log::info('##### This Submission not have driver');
+            $data = self::getInputVersion($problem, $currentIP);
+            if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
+                self::sendTeacherInput($problem, $currentIP);
+            }
+
+            $data = self::getOutputVersion($problem, $currentIP);
+            if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
+                self::sendTeacherOutput($problem, $currentIP);
+            }
+
+            $scores = self::sendStudentFile($submission, $currentIP);
+            self::keepSubmissionScore($scores, $submission);
+        } else {
+            //Log::info('##### This Submission have driver');
+            /*$data = self::getInputVersion2($problem, $currentIP);
+            if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
+                self::sendTeacherInput2($problem, $currentIP);
+            }
+
+            $data = self::getOutputVersion2($problem, $currentIP);
+            if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
+                self::sendTeacherOutput2($problem, $currentIP);
+            }*/
+
+            return self::sendDriver($problem, $currentIP);
         }
 
-        $data = self::getOutputVersion($problem);
-        if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
-            self::sendTeacherOutput($problem);
-        }
-
-        $scores = self::sendStudentFile($submission);
-        self::keepSubmissionScore($scores, $submission);
-
-        return $scores;
+        //return $scores;
 
 
         /*if($problem->is_parse == 'true'){
@@ -94,8 +115,17 @@ class SubmissionController extends Controller
     {
         $submission = Submission::findOrFail($id);
         $submission->student;
-        $submission->problem->code = '';
-        return view('submission.show')->with('submission', $submission);
+        $submission->problem;
+        $submission->submissionFiles;
+        foreach ($submission->submissionFiles as $submissionFile){
+            foreach ($submissionFile->results as $result){
+                $result->attributes;
+                $result->constructors;
+                $result->methods;
+            }
+            $submissionFile->outputs;
+        }
+        return view('submission.show2')->with('submission', $submission);
         //return $submission;
     }
 
@@ -117,17 +147,18 @@ class SubmissionController extends Controller
         $request = Request::create('submissionfile', 'POST', $submissionFile);
 
         $res = app()->handle($request);
-        return $res;
+        $result = $res->getContent();
+        return $result;
     }
 
-    public function getInputVersion($problem)
+    public function getInputVersion($problem, $currentIP)
     {
         $subjectName = $problem->lesson->course->name;
         $subjectName = str_replace(' ', '', $subjectName);
         $subjectName = strtolower($subjectName);
 
         $client = new Client();
-        $url = 'http://172.27.169.110:3000/api/teacher/check_in?subject='.$subjectName.'&problem='.$problem->name;
+        $url = $currentIP.'/api/teacher/check_in?subject='.$subjectName.'&problem='.$problem->name;
         //$url = 'http://posttestserver.com/post.php?subject='.$subjectName.'&problem='.$problem->name;
 
         $res = $client->request('GET', $url);
@@ -138,14 +169,32 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function getOutputVersion($problem)
+    public function getInputVersion2($problem, $currentIP)
     {
         $subjectName = $problem->lesson->course->name;
         $subjectName = str_replace(' ', '', $subjectName);
         $subjectName = strtolower($subjectName);
 
         $client = new Client();
-        $url = 'http://172.27.169.110:3000/api/teacher/check_sol?subject='.$subjectName.'&problem='.$problem->name;
+        $url = $currentIP.'/api/teacher/check_in_driver?subject='.$subjectName.'&problem='.$problem->name;
+        //$url = 'http://posttestserver.com/post.php?subject='.$subjectName.'&problem='.$problem->name;
+
+        $res = $client->request('GET', $url);
+        $result = $res->getBody();
+        $json = json_decode($result, true);
+
+        //Log::info('#### getInputVersion '. $res->getBody());
+        return $json;
+    }
+
+    public function getOutputVersion($problem, $currentIP)
+    {
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+
+        $client = new Client();
+        $url = $currentIP.'/api/teacher/check_sol?subject='.$subjectName.'&problem='.$problem->name;
         //$url = 'http://posttestserver.com/post.php?subject='.$subjectName.'&problem='.$problem->name;
 
         $res = $client->request('GET', $url);
@@ -156,7 +205,25 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function sendTeacherInput($problem)
+    public function getOutputVersion2($problem, $currentIP)
+    {
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+
+        $client = new Client();
+        $url = $currentIP.'/api/teacher/check_sol_driver?subject='.$subjectName.'&problem='.$problem->name;
+        //$url = 'http://posttestserver.com/post.php?subject='.$subjectName.'&problem='.$problem->name;
+
+        $res = $client->request('GET', $url);
+        $result = $res->getBody();
+        $json = json_decode($result, true);
+
+        //Log::info('#### getOutVersion '. $res->getBody());
+        return $json;
+    }
+
+    public function sendTeacherInput($problem, $currentIP)
     {
         $inputs = [];
 
@@ -181,7 +248,7 @@ class SubmissionController extends Controller
         //return $inputs;
 
         $client = new Client();
-        $url = 'http://172.27.169.110:3000/api/teacher/send_in';
+        $url = $currentIP.'/api/teacher/send_in';
         //$url = 'http://www.posttestserver.com/post.php';
 
         $res = $client->request('POST', $url, ['json' => [
@@ -195,7 +262,49 @@ class SubmissionController extends Controller
         return $result;
     }
 
-    public function sendTeacherOutput($problem)
+    public function sendTeacherInput2($problem, $currentIP)
+    {
+        $inputs = [];
+
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+
+        $inputs['subject'] = $subjectName;
+        $inputs['problem'] = $problem->name;
+        $inputs['in'] = [];
+
+        foreach ($problem->problemFiles as $problemFile){
+            $temps = explode('.', $problemFile->filename);
+            $package = $temps[0];
+            foreach ($problemFile->inputs as $input){
+                $realInput = [
+                    'version' => $input->version,
+                    'filename' => $input->filename,
+                    'content' => $input->content,
+                    'package' => $package
+                ];
+                array_push($inputs['in'], $realInput);
+            }
+        }
+        //return $inputs;
+
+        $client = new Client();
+        $url = $currentIP.'/api/teacher/send_in_driver';
+        //$url = 'http://www.posttestserver.com/post.php';
+
+        $res = $client->request('POST', $url, ['json' => [
+            'subject' => $inputs['subject'],
+            'problem' => $inputs['problem'],
+            'in' => $inputs['in'],
+        ]
+        ]);
+
+        $result = $res->getBody();
+        return $result;
+    }
+
+    public function sendTeacherOutput($problem, $currentIP)
     {
         $outputs = [];
 
@@ -220,7 +329,7 @@ class SubmissionController extends Controller
         //return $outputs;
 
         $client = new Client();
-        $url = 'http://172.27.169.110:3000/api/teacher/send_sol';
+        $url = $currentIP.'/api/teacher/send_sol';
         //$url = 'http://www.posttestserver.com/post.php';
 
         $res = $client->request('POST', $url, ['json' => [
@@ -234,7 +343,93 @@ class SubmissionController extends Controller
         return $result;
     }
 
-    public function sendStudentFile($submission)
+    public function sendTeacherOutput2($problem, $currentIP)
+    {
+        $outputs = [];
+
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+
+        $outputs['subject'] = $subjectName;
+        $outputs['problem'] = $problem->name;
+        $outputs['sol'] = [];
+
+        foreach ($problem->problemFiles as $problemFile){
+            $temps = explode('.', $problemFile->filename);
+            $package = $temps[0];
+            foreach ($problemFile->outputs as $output){
+                $realOutput = [
+                    'version' => $output->version,
+                    'filename' => $output->filename,
+                    'content' => $output->content,
+                    'package' => $package
+                ];
+                array_push($outputs['sol'], $realOutput);
+            }
+        }
+        //return $outputs;
+
+        $client = new Client();
+        $url = $currentIP.'/api/teacher/send_sol_driver';
+        //$url = 'http://www.posttestserver.com/post.php';
+
+        $res = $client->request('POST', $url, ['json' => [
+            'subject' => $outputs['subject'],
+            'problem' => $outputs['problem'],
+            'sol' => $outputs['sol'],
+        ]
+        ]);
+
+        $result = $res->getBody();
+        return $result;
+    }
+
+    public function sendDriver($problem, $currentIP)
+    {
+        $drivers = [];
+
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+
+        $drivers['subject'] = $subjectName;
+        $drivers['problem'] = $problem->name;
+        $drivers['driver'] = [];
+
+        foreach ($problem->problemFiles as $problemFile){
+            $temps = explode('.', $problemFile->filename);
+            $filename = $temps[0];
+            if($problemFile->package == 'driver'){
+                $numInSol = ProblemInput::where('problemfile_id', '=', $problemFile->id)->count();
+                $driver = [
+                    'package' => $problemFile->package,
+                    'filename' => $filename,
+                    'code' => $problemFile->code,
+                    'number' => $numInSol
+                ];
+                array_push($drivers['driver'], $driver);
+            }
+        }
+        //return $drivers;
+
+        $client = new Client();
+        $url = $currentIP.'/api/teacher/send_driver';
+        //$url = 'http://www.posttestserver.com/post.php';
+
+        $res = $client->request('POST', $url, ['json' => [
+            'subject' => $drivers['subject'],
+            'problem' => $drivers['problem'],
+            'driver' => $drivers['driver'],
+        ]
+        ]);
+
+        $result = $res->getBody();
+        $json = json_decode($result, true);
+        return $json;
+    }
+
+    public function sendStudentFile($submission, $currentIP)
     {
         $data = [];
         $problem = $submission->problem;
@@ -288,7 +483,7 @@ class SubmissionController extends Controller
         //return $data;
 
         $client = new Client();
-        $url = 'http://172.27.169.110:3000/api/teacher/evaluate';
+        $url = $currentIP.'/api/teacher/evaluate';
         //$url = 'http://www.posttestserver.com/post.php';
         $res = $client->request('POST', $url, ['json' => [
             'time_out' => $data['time_out'],
@@ -303,6 +498,11 @@ class SubmissionController extends Controller
         $result = $res->getBody();
         $json = json_decode($result, true);
         return $json;
+    }
+
+    public function sendStudentFile2($submission, $currentIP)
+    {
+
     }
 
     public function keepSubmissionScore($scores, $submission)

@@ -8,7 +8,7 @@ use Request;
 use App\Http\Requests;
 use GuzzleHttp\Client;
 use Log;
-
+use App\Submission;
 
 class ProblemController extends Controller
 {
@@ -75,7 +75,6 @@ class ProblemController extends Controller
         }
         foreach ($problem->submissions as $submission){
             $submission->student;
-            $submission->code;
         }
         //return $problem;
         //return view('problem.show')->with('problem', $problem);

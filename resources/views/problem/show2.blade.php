@@ -36,6 +36,7 @@
                             <h5><b>TimeLimit:</b> {{ $problem->timelimit }} Sec</h5>
                             <h5><b>MemoryLimit:</b> {{ $problem->memorylimit }} KB</h5>
                             <h5><b>Analyze Structures:</b> {{ $problem->is_parse }}</h5>
+                            <h5><b>Problem File:</b> {{ $problem->problem_files_count }}</h5>
                             <h5><b>Problem Submission:</b> {{ $problem->submissions_count }}</h5>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
@@ -51,98 +52,48 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
-                   {{-- @foreach($problem->problemAnalysis as $analysis)
-                        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-                            <div class="mdl-cell mdl-cell--12-col center">
-                                <h4>{{ $analysis->class }}</h4>
-                            </div>
-                            <div class="mdl-card__supporting-text mdl-card--expand">
-                                <p>Package: {{ $analysis->package }}</p>
-                                <p>Enclose: {{ $analysis->enclose }}</p>
-                                <p>Extends: {{ $analysis->extends }}</p>
-                                <p>Implements: {{ $analysis->implements }}</p>
-                                <b>Constructor</b>
-                                <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
-                                    <thead>
-                                    <tr>
-                                        <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                        <th>Access Modifier</th>
-                                        <th>Name</th>
-                                        <th>Parameter</th>
-                                        <th>Score</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($analysis->constructors as $constructor)
-                                        <tr>
-                                            <td class="mdl-data-table__cell--non-numeric">{{ $constructor->id }}</td>
-                                            <td>{{ $constructor->access_modifier }}</td>
-                                            <td>{{ $constructor->name }}</td>
-                                            <td>{{ $constructor->parameter }}</td>
-                                            <td>{{ $constructor->score }}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                                <b>Attribute</b>
-                                <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
-                                    <thead>
-                                    <tr>
-                                        <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                        <th>Access Modifier</th>
-                                        <th>Non-Access Modifier</th>
-                                        <th>Data Type</th>
-                                        <th>Name</th>
-                                        <th>Score</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($analysis->attributes as $attribute)
-                                        <tr>
-                                            <td class="mdl-data-table__cell--non-numeric">{{ $attribute->id }}</td>
-                                            <td>{{ $attribute->access_modifier }}</td>
-                                            <td>{{ $attribute->non_access_modifier }}</td>
-                                            <td>{{ $attribute->data_type }}</td>
-                                            <td>{{ $attribute->name }}</td>
-                                            <td>{{ $attribute->score }}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                                <b>Method</b>
-                                <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table">
-                                    <thead>
-                                    <tr>
-                                        <th class="mdl-data-table__cell--non-numeric">ID</th>
-                                        <th>Access Modifier</th>
-                                        <th>Non-Access Modifier</th>
-                                        <th>Return Type</th>
-                                        <th>Name</th>
-                                        <th>Parameter</th>
-                                        <th>Recursive</th>
-                                        <th>Loop</th>
-                                        <th>Score</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($analysis->methods as $method)
-                                        <tr>
-                                            <td class="mdl-data-table__cell--non-numeric">{{ $method->id }}</td>
-                                            <td>{{ $method->access_modifier }}</td>
-                                            <td>{{ $method->non_access_modifier }}</td>
-                                            <td>{{ $method->return_type }}</td>
-                                            <td>{{ $method->name }}</td>
-                                            <td>{{ $method->parameter }}</td>
-                                            <td>{{ $method->recursive }}</td>
-                                            <td>{{ $method->loop }}</td>
-                                            <td>{{ $method->score }}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    @endforeach--}}
+                </div>
+                <div class="mdl-grid page-max-width">
+                    <div class="mdl-card__title">
+                        <h5>Submission</h5>
+                    </div>
+                    <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">StudentID</th>
+                            <th>Username</th>
+                            <th>ProblemID</th>
+                            <th>SubNum</th>
+                            <th>SubTime</th>
+                            <th>View</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($problem->submissions as $submission)
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">{{ $submission->student->student_id }}</td>
+                                <td>{{ $submission->student->username }}</td>
+                                <td>{{ $submission->problem_id }}</td>
+                                <td>{{ $submission->sub_num }}</td>
+                                <td>{{ $submission->created_at }}</td>
+                                <td>
+                                    <a href="{{ url('submission/'.$submission->id) }}"
+                                       class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
+                                        <i class="material-icons">launch</i>
+                                    </a>
+                                </td>
+                                <td>
+                                    {!! Form::model($submission, ['method' => 'DELETE', 'url'=>'submission/'.$submission->id]) !!}
+                                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">
+                                        <i class="material-icons">cancel</i>
+                                    </button>
+                                    {!! Form::close() !!}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </section>
 

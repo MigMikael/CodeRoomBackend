@@ -40,6 +40,9 @@ class DatabaseSeeder extends Seeder
         $this->call(SubmissionFileTableSeeder::class);
 
         $this->call(ResultTableSeeder::class);
+        $this->call(ResultAttributeTableSeeder::class);
+        $this->call(ResultConstructorTableSeeder::class);
+        $this->call(ResultMethodTableSeeder::class);
 
     }
 }

@@ -29,6 +29,6 @@ class SubmissionFile extends Model
 
     public function outputs()
     {
-        return $this->hasMany('App\ProblemOutput', 'problemfile_id');
+        return $this->hasMany('App\SubmissionOutput', 'submissionfile_id');
     }
 }

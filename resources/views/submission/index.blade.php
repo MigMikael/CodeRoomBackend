@@ -30,7 +30,7 @@
                 <td>{{ $submission->created_at }}</td>
                 <td>
                     <a href="{{ url('submission/'.$submission->id) }}"
-                       class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                       class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
                         <i class="material-icons">launch</i>
                     </a>
                 </td>
