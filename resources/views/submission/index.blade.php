@@ -11,9 +11,10 @@
     <table class="mdl-cell mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
         <tr>
-            <th class="mdl-data-table__cell--non-numeric">StudentID</th>
+            <th class="mdl-data-table__cell--non-numeric">Accept</th>
+            <th>StudentID</th>
             <th>Username</th>
-            <th>ProblemID</th>
+            <th>Problem</th>
             <th>SubNum</th>
             <th>SubTime</th>
             <th>View</th>
@@ -23,10 +24,20 @@
         <tbody>
         @foreach($submissions as $submission)
             <tr>
-                <td class="mdl-data-table__cell--non-numeric">{{ $submission->student->student_id }}</td>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <i class="material-icons">
+                        @if($submission->is_accept == 'true')
+                            done
+                        @else
+                            clear
+                        @endif
+                    </i>
+                </td>
+                <td>{{ $submission->student->student_id }}</td>
                 <td>{{ $submission->student->username }}</td>
-                <td>{{ $submission->problem_id }}</td>
+                <td>{{ $submission->problem->name }}</td>
                 <td>{{ $submission->sub_num }}</td>
+
                 <td>{{ $submission->created_at }}</td>
                 <td>
                     <a href="{{ url('submission/'.$submission->id) }}"

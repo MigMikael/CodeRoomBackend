@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Attribute;
+use App\Constructor;
+use App\Method;
+use App\ProblemAnalysis;
 use App\ProblemFile;
 use App\ProblemInput;
 use App\ProblemOutput;
@@ -12,6 +16,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Problem;
+use GuzzleHttp\Client;
 
 class ProblemFileController extends Controller
 {
@@ -31,9 +36,10 @@ class ProblemFileController extends Controller
         $problem_id = Request::get('problem_id');
         $problem_name = Request::get('problem_name');
         $file = Request::get('file');
+        $currentIP = Request::get('currentIP');
         $version = 1;
 
-        self::keepFile($problem_id, $problem_name, $file, $version);
+        self::keepFile($problem_id, $problem_name, $file, $version, $currentIP);
     }
 
     public function edit()
@@ -41,6 +47,7 @@ class ProblemFileController extends Controller
         $problem_id = Request::get('problem_id');
         $problem_name = Request::get('problem_name');
         $file = Request::get('file');
+        $currentIP = Request::get('currentIP');
 
         $currentVersion = 0;
         $problemFiles = ProblemFile::where('problem_id', '=', $problem_id)->get();
@@ -53,10 +60,10 @@ class ProblemFileController extends Controller
         $version = ++$currentVersion;
         ProblemFile::where('problem_id', '=', $problem_id)->delete();
 
-        self::keepFile($problem_id, $problem_name, $file, $version);
+        self::keepFile($problem_id, $problem_name, $file, $version, $currentIP);
     }
 
-    public function keepFile($problem_id, $problem_name, $file, $version)
+    public function keepFile($problem_id, $problem_name, $file, $version, $currentIP)
     {
         $extension = $file->getClientOriginalExtension();
         Storage::disk('public')->put($problem_id.'_'.$problem_name.'.'.$extension, File::get($file));
@@ -136,20 +143,96 @@ class ProblemFileController extends Controller
                         ProblemOutput::create($problemOutput);
                     }
                 }
+
+                if($problemFile->problem->is_parse == 'true'){
+                    $classes = self::analyzeProblemFile($problemFile, $currentIP);
+                    self::keepProblemAnalysis($problemFile, $classes);
+                }
             }
         }
         return 'finish';
     }
 
-    public function get($filename)
+    public function analyzeProblemFile($problemFile ,$currentIP)
     {
-        //Todo rewrite this method
-        $filename = str_replace('_','.',$filename);
+        $codes = [];
+        array_push($codes, $problemFile->code);
 
-        $problemFile = ProblemFile::where('filename', '=', $filename)->firstOrFail();
-        $file = Storage::disk('public')->get($problemFile->filename);
-        
-        return (new Response($file, 200))->header('Content-Type', $problemFile->mime);
+        $client = new Client();
+        $res = $client->request('POST', $currentIP.'/api/teacher/required', ['json' => [
+                'code' => $codes,
+            ]
+        ]);
+
+        $result = $res->getBody();
+        $json = json_decode($result, true);
+        Log::info('#### Data From Evaluator : '. $res->getBody());
+
+        return $json;
+    }
+
+    public function keepProblemAnalysis($problemFile, $classes)
+    {
+        foreach ($classes['class'] as $class){
+            $im = '';
+            foreach ($class['implements'] as $implement){
+                $im .= $implement['name'];
+            }
+
+            $problemAnalysis = [
+                'problemfile_id' => $problemFile->id,
+                'class' => $class['modifier'].';'.$class['static_required'].';'.$class['name'],
+                'enclose' => $class['enclose'],
+                'extends' => $class['extends'],
+                'implements' => $im,
+            ];
+            $problemAnalysis = ProblemAnalysis::create($problemAnalysis);
+
+            foreach ($class['constructure'] as $constructor){
+                $pa = '';
+                foreach ($constructor['params'] as $param){
+                    $pa .= $param['datatype'].';'.$param['name'].'|';
+                }
+
+                $con = [
+                    'analysis_id' => $problemAnalysis->id,
+                    'access_modifier' => $constructor['modifier'],
+                    'name' => $constructor['name'],
+                    'parameter' => $pa
+                ];
+                Constructor::create($con);
+            }
+
+            foreach ($class['attribute'] as $attribute){
+                $att = [
+                    'analysis_id' => $problemAnalysis->id,
+                    'access_modifier' => $attribute['modifier'],
+                    'non_access_modifier' => $attribute['static_required'],
+                    'data_type' => $attribute['datatype'],
+                    'name' => $attribute['name']
+                ];
+                Attribute::create($att);
+            }
+
+            foreach ($class['method'] as $method){
+                $pa = '';
+                foreach ($method['params'] as $param){
+                    $pa .= $param['datatype'].';'.$param['name'].'|';
+                }
+
+                $me = [
+                    'analysis_id' => $problemAnalysis->id,
+                    'access_modifier' => $method['modifier'],
+                    'non_access_modifier' => $method['static_required'],
+                    'return_type' => $method['return_type'],
+                    'name' => $method['name'],
+                    'parameter' => $pa,
+                    'recursive' => $method['recursive'],
+                    'loop' => $method['loop_exist']
+                ];
+                Method::create($me);
+            }
+        }
     }
 
     public function getQuestion($problem_id)

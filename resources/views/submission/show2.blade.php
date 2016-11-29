@@ -70,15 +70,17 @@
                     <div class="mdl-cell mdl-cell--12-col">
                         <h2>{{ $submissionFile->filename }}</h2>
                     </div>
+                    @php $count = 1; @endphp
                     @foreach($submissionFile->outputs as $output)
                         <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp">
                             <div class="mdl-card__title">
-                                <h2 class="mdl-card__title-text">Test Case: <b>{{ $output->id }}</b></h2>
+                                <h2 class="mdl-card__title-text">Test Case: <b>{{ $count }}</b></h2>
                             </div>
                             <div class="mdl-card__supporting-text">
                                 Score <h1>{{ $output->score }}</h1>
                             </div>
                         </div>
+                        @php ++$count @endphp
                     @endforeach
                 @endforeach
             </div>
@@ -87,67 +89,95 @@
         @for($i = 0; $i < sizeof($submission->submissionFiles); $i++)
             <section class="mdl-layout__tab-panel" id="scroll-tab-{{$i+2}}">
                 <div class="mdl-grid page-max-width">
-                    <div class="mdl-cell mdl-cell--7-col mdl-card code-card mdl-shadow--4dp" id="editor{{$i+2}}" >
+                    <div class="mdl-cell mdl-card code-card mdl-shadow--4dp
+                        @if($submission->problem->is_parse == 'true')
+                            mdl-cell--7-col
+                        @else
+                            mdl-cell--12-col
+                        @endif
+                     " id="editor{{$i+2}}" >
                         {{ $submission->submissionFiles[$i]->code }}
                     </div>
 
-                    <div class="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--4dp">
-
-                        @foreach($submission->submissionFiles[$i]->results as $result)
-                            <div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
-                                <div class="mdl-card__title">
-                                    <h4>{{ $result->class }}</h4>
+                    @if($submission->problem->is_parse == 'true')
+                        <div class="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--4dp">
+                            @foreach($submission->submissionFiles[$i]->results as $result)
+                                <div class="mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h4>{{ $result->class }}</h4>
+                                    </div>
+                                    <div class="mdl-card__supporting-text mdl-card--expand">
+                                        <b>Package:</b> {{ $result->package }}
+                                        <b>Enclose:</b> {{ $result->enclose }}
+                                        <b>Extends:</b> {{ $result->extends }}
+                                        <b>Implements:</b> {{ $result->implements }}
+                                    </div>
                                 </div>
-                                <div class="mdl-card__supporting-text mdl-card--expand">
-                                    <b>Package:</b> {{ $result->package }}
-                                    <b>Enclose:</b> {{ $result->enclose }}
-                                    <b>Extends:</b> {{ $result->extends }}
-                                    <b>Implements:</b> {{ $result->implements }}
-                                </div>
-                            </div>
-                            <ul class="mdl-list">
-                                <li class="mdl-list__item">
-                                    <h5>Attribute</h5>
-                                </li>
-                                @foreach($result->attributes as $attribute)
-                                    <li class="mdl-list__item mdl-list__item--three-line">
+                                <ul class="mdl-list">
+                                    <li class="mdl-list__item">
+                                        <h5>Attribute</h5>
+                                    </li>
+                                    @foreach($result->attributes as $attribute)
+                                        <li class="mdl-list__item mdl-list__item--three-line">
                                         <span class="mdl-list__item-primary-content">
-                                          <i class="material-icons mdl-list__item-avatar">accessibility</i>
+                                          <i class="material-icons mdl-list__item-avatar">
+                                              @if($attribute->score == 10)
+                                                  done
+                                              @else
+                                                  clear
+                                              @endif
+                                          </i>
                                           <span>{{ $attribute->access_modifier }} {{ $attribute->non_access_modifier }} {{ $attribute->data_type }} <b>{{ $attribute->name }}</b></span>
                                           <span class="mdl-list__item-text-body">
                                               <b>Score</b>: {{ $attribute->score }}
                                           </span>
                                         </span>
-                                        <span class="mdl-list__item-secondary-content">
-                                            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                            <span class="mdl-list__item-secondary-content">
+                                            <a class="mdl-list__item-secondary-action" href="#">
+                                                {{--<i class="material-icons">star</i>--}}
+                                            </a>
                                         </span>
+                                        </li>
+                                    @endforeach
+                                    <li class="mdl-list__item">
+                                        <h5>Constructor</h5>
                                     </li>
-                                @endforeach
-                                <li class="mdl-list__item">
-                                    <h5>Constructor</h5>
-                                </li>
-                                @foreach($result->constructors as $constructor)
-                                    <li class="mdl-list__item mdl-list__item--three-line">
+                                    @foreach($result->constructors as $constructor)
+                                        <li class="mdl-list__item mdl-list__item--three-line">
                                         <span class="mdl-list__item-primary-content">
-                                          <i class="material-icons mdl-list__item-avatar">account_balance</i>
+                                          <i class="material-icons mdl-list__item-avatar">
+                                              @if($attribute->score == 10)
+                                                  done
+                                              @else
+                                                  clear
+                                              @endif
+                                          </i>
                                           <span>{{ $constructor->access_modifier }} <b>{{ $constructor->name }}</b></span>
                                           <span class="mdl-list__item-text-body">
                                               <b>Score :</b> {{ $constructor->score }}
                                               <b>Parameter :</b>{{ $constructor->parameter }}
                                           </span>
                                         </span>
-                                        <span class="mdl-list__item-secondary-content">
-                                            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                            <span class="mdl-list__item-secondary-content">
+                                            <a class="mdl-list__item-secondary-action" href="#">
+
+                                            </a>
                                         </span>
+                                        </li>
+                                    @endforeach
+                                    <li class="mdl-list__item">
+                                        <h5>Method</h5>
                                     </li>
-                                @endforeach
-                                <li class="mdl-list__item">
-                                    <h5>Method</h5>
-                                </li>
-                                @foreach($result->methods as $method)
-                                    <li class="mdl-list__item mdl-list__item--three-line">
+                                    @foreach($result->methods as $method)
+                                        <li class="mdl-list__item mdl-list__item--three-line">
                                         <span class="mdl-list__item-primary-content">
-                                          <i class="material-icons mdl-list__item-avatar">directions_run</i>
+                                          <i class="material-icons mdl-list__item-avatar">
+                                              @if($attribute->score == 10)
+                                                  done
+                                              @else
+                                                  clear
+                                              @endif
+                                          </i>
                                           <span>{{ $method->access_modifier }} {{ $method->non_access_modifier }} {{ $method->return_type }} <b>{{ $method->name }}</b></span>
                                             <span class="mdl-list__item-text-body">
                                                 <b>Parameter :</b>{{ $method->parameter }}<br>
@@ -156,15 +186,18 @@
                                                 <b>Score :</b> {{ $method->score }}
                                             </span>
                                         </span>
-                                        <span class="mdl-list__item-secondary-content">
-                                          <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                            <span class="mdl-list__item-secondary-content">
+                                          <a class="mdl-list__item-secondary-action" href="#">
+
+                                          </a>
                                         </span>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            <hr>
-                        @endforeach
-                    </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                <hr>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </section>
         @endfor

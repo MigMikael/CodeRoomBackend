@@ -10,7 +10,7 @@ class ProblemAnalysis extends Model {
 	public $timestamps = true;
 
 	protected $fillable = [
-		'problem_id',
+		'problemfile_id',
 		'class',
 		'package',
 		'enclose',

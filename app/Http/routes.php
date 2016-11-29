@@ -42,7 +42,7 @@ Route::get('problemfile', 'ProblemFileController@index');
 Route::get('problemfile/get/{filename}', ['as' => 'getfile', 'uses' => 'ProblemFileController@get']);
 Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileController@add']);
 Route::post('problemfile/edit', ['as' => 'editfile', 'uses' => 'ProblemFileController@edit']);
-Route::get('problemfile/getQuestion/{problem_id}', 'ProblemFileController@getQuestion');
+Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 
 
 Route::get('api/results/{user_id}/latest', 'ResultController@latestResult')->middleware(['cors']);

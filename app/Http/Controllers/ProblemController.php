@@ -9,6 +9,8 @@ use App\Http\Requests;
 use GuzzleHttp\Client;
 use Log;
 use App\Submission;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProblemController extends Controller
 {
@@ -47,16 +49,10 @@ class ProblemController extends Controller
         if(Request::hasFile('file')){
             $problem = Problem::create($problem);
             $file = Request::file('file');
-            self::sendToProblemFile($problem, $file, 'create');
+            return self::sendToProblemFile($problem, $file, 'create');
         } else {
             return 'file not found';
         }
-
-        if($problem->is_parse == 'true'){
-            //self::analyzeProblem($problem);
-        }
-
-        //return \GuzzleHttp\json_encode($problemAnalysis_json);
     }
 
     public function show($id)
@@ -119,10 +115,13 @@ class ProblemController extends Controller
 
     public function sendToProblemFile($problem, $file, $mode)
     {
+        $currentIP = '172.27.169.19:3000';
+
         $problemFile = [
             'problem_id' => $problem->id,
             'problem_name' => $problem->name,
-            'file' => $file
+            'file' => $file,
+            'currentIP' => $currentIP
         ];
         if($mode == 'create'){
             $url = 'problemfile/add';
@@ -135,31 +134,19 @@ class ProblemController extends Controller
         return $res;
     }
 
-    public function analyzeProblem($problem)
-    {
-        $client = new Client();
-        //Todo Send Problem To Evaluator
-        $res = $client->request('POST', 'http://localhost:3000/api/teacher/required', ['json' => [
-                'prob_id' => $problem->id,
-                'filename' => '',
-                'code' => ''
-            ]
-        ]);
-        $result = $res->getBody();
-        $json = json_decode($result, true);
-
-        Log::info('#### '. $res->getBody());
-        return $json;
-    }
-
-    public function keepProblemAnalysis($analyzeResult_json)
-    {
-
-    }
-
     public function getProblemAnalysis($prob_id)
     {
         $problem_analysis = ProblemAnalysis::where('problem_id', '=', $prob_id)->get();
         return $problem_analysis;
+    }
+
+    //Todo rewrite this method
+    public function getQuestion($problem_id)
+    {
+
+        $problem = Problem::findOrFail($problem_id);
+        $file = Storage::disk('public')->get($problem->name.'.pdf');
+
+        return (new Response($file, 200))->header('Content-Type', 'application/pdf');
     }
 }

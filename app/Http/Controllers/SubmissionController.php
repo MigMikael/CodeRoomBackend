@@ -48,14 +48,20 @@ class SubmissionController extends Controller
         ];
         $hasDriver = false;
 
-        if(Request::hasFile('file')){
-            $submission = Submission::create($submission);
-            $file = Request::file('file');
-            $msg = self::sendToSubmissionFile($submission, $file);
-
-            if($msg == 'finish driver appear'){
+        $submission = Submission::create($submission);
+        $problem = $submission->problem;
+        $problemFiles = $problem->problemFiles;
+        foreach ($problemFiles as $problemFile){
+            if($problemFile->package == 'driver'){
                 $hasDriver = true;
             }
+        }
+
+        $currentIP = '172.27.169.19:3000';
+
+        if(Request::hasFile('file')){
+            $file = Request::file('file');
+            self::sendToSubmissionFile($submission, $file, $currentIP);
         } else {
             return 'file not found';
         }
@@ -69,9 +75,9 @@ class SubmissionController extends Controller
             }
         }
 
-        $currentIP = 'http://172.27.225.120:3000';
         $problem = $submission->problem;
 
+        $scores = '';
         if(!$hasDriver){
             //Log::info('##### This Submission not have driver');
             $data = self::getInputVersion($problem, $currentIP);
@@ -88,7 +94,7 @@ class SubmissionController extends Controller
             self::keepSubmissionScore($scores, $submission);
         } else {
             //Log::info('##### This Submission have driver');
-            /*$data = self::getInputVersion2($problem, $currentIP);
+            $data = self::getInputVersion2($problem, $currentIP);
             if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
                 self::sendTeacherInput2($problem, $currentIP);
             }
@@ -96,19 +102,13 @@ class SubmissionController extends Controller
             $data = self::getOutputVersion2($problem, $currentIP);
             if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
                 self::sendTeacherOutput2($problem, $currentIP);
-            }*/
-
-            return self::sendDriver($problem, $currentIP);
+            }
+            self::sendDriver($problem, $currentIP);
+            $scores = self::sendStudentFile2($submission, $currentIP);
+            self::keepSubmissionScore2($scores, $submission);
         }
 
-        //return $scores;
-
-
-        /*if($problem->is_parse == 'true'){
-            self::analyzeSubmission();
-            self::keepResult();
-            self::calculateScore();
-        }*/
+        return $scores;
     }
 
     public function show($id)
@@ -133,15 +133,16 @@ class SubmissionController extends Controller
     {
         $submission = Submission::findOrFail($id);
         $submission->delete();
-        return back();
+        return 'delete finish';
     }
 
-    public function sendToSubmissionFile($submission, $file)
+    public function sendToSubmissionFile($submission, $file, $currentIP)
     {
         $submissionFile = [
             'submission_id' => $submission->id,
             'problem_name' => $submission->problem->name,
             'file' => $file,
+            'currentIP' => $currentIP,
         ];
 
         $request = Request::create('submissionfile', 'POST', $submissionFile);
@@ -502,12 +503,60 @@ class SubmissionController extends Controller
 
     public function sendStudentFile2($submission, $currentIP)
     {
+        $data = [];
+        $problem = $submission->problem;
+        $data['time_out'] = strval($problem->timelimit);
+        $data['mem_size'] = strval($problem->memorylimit);
 
+        $subjectName = $problem->lesson->course->name;
+        $subjectName = str_replace(' ', '', $subjectName);
+        $subjectName = strtolower($subjectName);
+        $data['subject'] = $subjectName;
+        $data['problem'] = $problem->name;
+
+        $data['file'] = [];
+        foreach ($submission->submissionFiles as $submissionFile){
+            $package = $submissionFile->package;
+            if($package == 'default package'){
+                $package = '';
+            } else {
+                $package = str_replace('.','/', $package);
+                $package .= '/';
+            }
+
+            $temps = explode('.', $submissionFile->filename);
+            $fileName = $temps[0];
+
+            $dataFile = [
+                'package' => $package,
+                'filename' => $fileName,
+                'code' => $submissionFile->code,
+            ];
+            array_push($data['file'], $dataFile);
+        }
+        //return $data;
+
+        $client = new Client();
+        $url = $currentIP.'/api/teacher/evaluate_driver';
+        //$url = 'http://www.posttestserver.com/post.php';
+        $res = $client->request('POST', $url, ['json' => [
+            'time_out' => $data['time_out'],
+            'mem_size' => $data['mem_size'],
+            'subject' => $data['subject'],
+            'problem' => $data['problem'],
+            'file' => $data['file'],
+        ]
+        ]);
+
+        $result = $res->getBody();
+        $json = json_decode($result, true);
+        return $json;
     }
 
     public function keepSubmissionScore($scores, $submission)
     {
         $submissionFiles = $submission->submissionFiles;
+        $isAccept = true;
         foreach ($submissionFiles as $submissionFile){
             $problemFile = ProblemFile::where('filename', '=', $submissionFile->filename)->first();
             //Log::info('##### '. $problemFile->filename);
@@ -515,6 +564,9 @@ class SubmissionController extends Controller
 
             if($problemOutputNum > 0){
                 foreach ($scores as $score){
+                    if($score['score'] != 100){
+                        $isAccept = false;
+                    }
                     $submissionOutput = [
                         'submissionfile_id' => $submissionFile->id,
                         'score' => $score['score'],
@@ -523,35 +575,54 @@ class SubmissionController extends Controller
                 }
             }
         }
-    }
-    //Todo rewrite this method
-    public function analyzeSubmission($submission_id, $input_code)
-    {
-        $client = new Client();
-        $res = $client->request('POST', 'http://localhost:3000/api/student/code', ['json' => [
-                'prob_id' => $submission_id,
-                'filename' => 'Test',
-                'package' => 'default package',
-                'code' => $input_code
-            ]
-        ]);
-        $result = $res->getBody();
-        $json = json_decode($result, true);
-
-        Log::info('#### STATUS #### 2 Analyze Submission ####');
-        Log::info('#### Data From Evaluator : '. $res->getBody());
-
-        return $json;
+        if ($isAccept == true){
+            $submission->is_accept = 'true';
+        }else{
+            $submission->is_accept = 'false';
+        }
+        $submission->save();
     }
 
-    public function keepResult()
+    public function keepSubmissionScore2($scores, $submission)
     {
+        $problem = $submission->problem;
+        $problemFiles = $problem->problemFiles;
+        $isAccept = true;
+        foreach ($problemFiles as $problemFile){
+            if($problemFile->package == 'driver'){
+                $submissionFile = [
+                    'submission_id' => $submission->id,
+                    'package' => $problemFile->package,
+                    'filename' => $problemFile->filename,
+                    'mime' => $problemFile->mime,
+                    'code' => 'driver from teacher',
+                ];
+                $submissionFile = SubmissionFile::create($submissionFile);
+                $temps = explode('.',$submissionFile->filename);
+                $fileName = $temps[0];
 
-    }
-
-    public function calculateScore()
-    {
-
+                foreach ($scores as $score){
+                    if($score['name'] == $fileName){
+                        if($score != 100){
+                            $isAccept = false;
+                        }
+                        $output = [
+                            'submissionfile_id' => $submissionFile->id,
+                            'content' => '',
+                            'score' => $score['score'],
+                        ];
+                        $output = SubmissionOutput::create($output);
+                        Log::info('#### '.$output->submissionfile_id);
+                    }
+                }
+            }
+        }
+        if ($isAccept == true){
+            $submission->is_accept = 'true';
+        }else{
+            $submission->is_accept = 'false';
+        }
+        $submission->save();
     }
 
     public function storeCode()
