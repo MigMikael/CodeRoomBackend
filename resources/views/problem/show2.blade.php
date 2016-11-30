@@ -132,7 +132,9 @@
                                   </span>
                                 </span>
                                     <span class="mdl-list__item-secondary-content">
-                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                  {{--<a class="mdl-list__item-secondary-action" href="#">
+                                      <i class="material-icons">star</i>
+                                  </a>--}}
                                 </span>
                                 </li>
                             @endforeach
@@ -150,7 +152,9 @@
                                   </span>
                                 </span>
                                     <span class="mdl-list__item-secondary-content">
-                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                  {{--<a class="mdl-list__item-secondary-action" href="#">
+                                      <i class="material-icons">star</i>
+                                  </a>--}}
                                 </span>
                                 </li>
                             @endforeach
@@ -170,7 +174,8 @@
                                     </span>
                                 </span>
                                 <span class="mdl-list__item-secondary-content">
-                                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                                  {{--<a class="mdl-list__item-secondary-action" href="#">
+                                      <i class="material-icons">star</i></a>--}}
                                 </span>
                                 </li>
                             @endforeach

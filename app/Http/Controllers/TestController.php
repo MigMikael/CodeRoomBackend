@@ -54,6 +54,7 @@ class TestController extends Controller
 
     public function testTemplate2()
     {
-        return view('template2');
+        echo env('CURRENT_IP');
+        //return view('template2');
     }
 }

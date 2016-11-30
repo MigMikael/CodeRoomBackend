@@ -57,11 +57,9 @@ class SubmissionController extends Controller
             }
         }
 
-        $currentIP = '172.27.169.19:3000';
-
         if(Request::hasFile('file')){
             $file = Request::file('file');
-            self::sendToSubmissionFile($submission, $file, $currentIP);
+            self::sendToSubmissionFile($submission, $file);
         } else {
             return 'file not found';
         }
@@ -77,34 +75,33 @@ class SubmissionController extends Controller
 
         $problem = $submission->problem;
 
-        $scores = '';
+        //$scores = '';
         if(!$hasDriver){
             //Log::info('##### This Submission not have driver');
-            $data = self::getInputVersion($problem, $currentIP);
+            $data = self::getInputVersion($problem);
             if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
-                self::sendTeacherInput($problem, $currentIP);
+                self::sendTeacherInput($problem);
             }
 
-            $data = self::getOutputVersion($problem, $currentIP);
+            $data = self::getOutputVersion($problem);
             if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
-                self::sendTeacherOutput($problem, $currentIP);
+                self::sendTeacherOutput($problem);
             }
-
-            $scores = self::sendStudentFile($submission, $currentIP);
+            $scores = self::sendStudentFile($submission);
             self::keepSubmissionScore($scores, $submission);
         } else {
             //Log::info('##### This Submission have driver');
-            $data = self::getInputVersion2($problem, $currentIP);
+            $data = self::getInputVersion2($problem);
             if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
-                self::sendTeacherInput2($problem, $currentIP);
+                self::sendTeacherInput2($problem);
             }
 
-            $data = self::getOutputVersion2($problem, $currentIP);
+            $data = self::getOutputVersion2($problem);
             if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
-                self::sendTeacherOutput2($problem, $currentIP);
+                self::sendTeacherOutput2($problem);
             }
-            self::sendDriver($problem, $currentIP);
-            $scores = self::sendStudentFile2($submission, $currentIP);
+            self::sendDriver($problem);
+            $scores = self::sendStudentFile2($submission);
             self::keepSubmissionScore2($scores, $submission);
         }
 
@@ -136,8 +133,9 @@ class SubmissionController extends Controller
         return 'delete finish';
     }
 
-    public function sendToSubmissionFile($submission, $file, $currentIP)
+    public function sendToSubmissionFile($submission, $file)
     {
+        $currentIP = env('CURRENT_IP');
         $submissionFile = [
             'submission_id' => $submission->id,
             'problem_name' => $submission->problem->name,
@@ -152,8 +150,9 @@ class SubmissionController extends Controller
         return $result;
     }
 
-    public function getInputVersion($problem, $currentIP)
+    public function getInputVersion($problem)
     {
+        $currentIP = env('CURRENT_IP');
         $subjectName = $problem->lesson->course->name;
         $subjectName = str_replace(' ', '', $subjectName);
         $subjectName = strtolower($subjectName);
@@ -170,8 +169,9 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function getInputVersion2($problem, $currentIP)
+    public function getInputVersion2($problem)
     {
+        $currentIP = env('CURRENT_IP');
         $subjectName = $problem->lesson->course->name;
         $subjectName = str_replace(' ', '', $subjectName);
         $subjectName = strtolower($subjectName);
@@ -188,8 +188,9 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function getOutputVersion($problem, $currentIP)
+    public function getOutputVersion($problem)
     {
+        $currentIP = env('CURRENT_IP');
         $subjectName = $problem->lesson->course->name;
         $subjectName = str_replace(' ', '', $subjectName);
         $subjectName = strtolower($subjectName);
@@ -206,8 +207,9 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function getOutputVersion2($problem, $currentIP)
+    public function getOutputVersion2($problem)
     {
+        $currentIP = env('CURRENT_IP');
         $subjectName = $problem->lesson->course->name;
         $subjectName = str_replace(' ', '', $subjectName);
         $subjectName = strtolower($subjectName);
@@ -224,8 +226,10 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function sendTeacherInput($problem, $currentIP)
+    public function sendTeacherInput($problem)
     {
+        $currentIP = env('CURRENT_IP');
+
         $inputs = [];
 
         $subjectName = $problem->lesson->course->name;
@@ -263,8 +267,10 @@ class SubmissionController extends Controller
         return $result;
     }
 
-    public function sendTeacherInput2($problem, $currentIP)
+    public function sendTeacherInput2($problem)
     {
+        $currentIP = env('CURRENT_IP');
+
         $inputs = [];
 
         $subjectName = $problem->lesson->course->name;
@@ -305,8 +311,10 @@ class SubmissionController extends Controller
         return $result;
     }
 
-    public function sendTeacherOutput($problem, $currentIP)
+    public function sendTeacherOutput($problem)
     {
+        $currentIP = env('CURRENT_IP');
+
         $outputs = [];
 
         $subjectName = $problem->lesson->course->name;
@@ -344,8 +352,10 @@ class SubmissionController extends Controller
         return $result;
     }
 
-    public function sendTeacherOutput2($problem, $currentIP)
+    public function sendTeacherOutput2($problem)
     {
+        $currentIP = env('CURRENT_IP');
+
         $outputs = [];
 
         $subjectName = $problem->lesson->course->name;
@@ -386,8 +396,10 @@ class SubmissionController extends Controller
         return $result;
     }
 
-    public function sendDriver($problem, $currentIP)
+    public function sendDriver($problem)
     {
+        $currentIP = env('CURRENT_IP');
+
         $drivers = [];
 
         $subjectName = $problem->lesson->course->name;
@@ -430,8 +442,10 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function sendStudentFile($submission, $currentIP)
+    public function sendStudentFile($submission)
     {
+        $currentIP = env('CURRENT_IP');
+
         $data = [];
         $problem = $submission->problem;
         $data['time_out'] = strval($problem->timelimit);
@@ -501,8 +515,10 @@ class SubmissionController extends Controller
         return $json;
     }
 
-    public function sendStudentFile2($submission, $currentIP)
+    public function sendStudentFile2($submission)
     {
+        $currentIP = env('CURRENT_IP');
+
         $data = [];
         $problem = $submission->problem;
         $data['time_out'] = strval($problem->timelimit);

@@ -146,7 +146,7 @@
                                         <li class="mdl-list__item mdl-list__item--three-line">
                                         <span class="mdl-list__item-primary-content">
                                           <i class="material-icons mdl-list__item-avatar">
-                                              @if($attribute->score == 10)
+                                              @if($constructor->score == 10)
                                                   done
                                               @else
                                                   clear
@@ -172,7 +172,7 @@
                                         <li class="mdl-list__item mdl-list__item--three-line">
                                         <span class="mdl-list__item-primary-content">
                                           <i class="material-icons mdl-list__item-avatar">
-                                              @if($attribute->score == 10)
+                                              @if($method->score == 10)
                                                   done
                                               @else
                                                   clear

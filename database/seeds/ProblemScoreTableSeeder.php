@@ -11,7 +11,7 @@ class ProblemScoreTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('problem_score')->insert([
+        /*DB::table('problem_score')->insert([
             'analysis_id' => 1,
             'class' => 10,
             'package' => 10,
@@ -27,6 +27,6 @@ class ProblemScoreTableSeeder extends Seeder
             'enclose' => 10,
             'extends' => 'null',
             'implements' => 'null',
-        ]);
+        ]);*/
     }
 }

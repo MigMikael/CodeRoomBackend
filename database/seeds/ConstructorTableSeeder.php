@@ -10,8 +10,8 @@ class ConstructorTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {/*
-        DB::table('constructor')->insert([
+    {
+        /*DB::table('constructor')->insert([
             'analysis_id' => 1,
             'access_modifier' => 'default',
             'name' => 'round',

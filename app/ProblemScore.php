@@ -20,6 +20,6 @@ class ProblemScore extends Model
 
     public function problemAnalysis()
     {
-        return $this->belongsTo('App\ProblemAnalysis');
+        return $this->belongsTo('App\ProblemAnalysis', 'analysis_id');
     }
 }

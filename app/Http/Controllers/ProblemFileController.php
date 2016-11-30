@@ -9,6 +9,7 @@ use App\ProblemAnalysis;
 use App\ProblemFile;
 use App\ProblemInput;
 use App\ProblemOutput;
+use App\ProblemScore;
 use Chumper\Zipper\Zipper;
 use Request;
 use Log;
@@ -187,6 +188,16 @@ class ProblemFileController extends Controller
                 'implements' => $im,
             ];
             $problemAnalysis = ProblemAnalysis::create($problemAnalysis);
+
+            $problem_score = [
+                'analysis_id' => $problemAnalysis->id,
+                'class' => 10,
+                'package' => 10,
+                'enclose' => 10,
+                'extends' => 10,
+                'implements' => 10,
+            ];
+            ProblemScore::create($problem_score);
 
             foreach ($class['constructure'] as $constructor){
                 $pa = '';

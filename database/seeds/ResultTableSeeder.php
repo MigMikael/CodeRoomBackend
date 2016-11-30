@@ -12,7 +12,7 @@ class ResultTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('result')->insert([
+        /*DB::table('result')->insert([
             'submissionfile_id' => 1,
             'class' => 'public;Runners',
             'package' => 'default package',
@@ -32,6 +32,6 @@ class ResultTableSeeder extends Seeder
             'implements' => 'null',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
+        ]);*/
     }
 }

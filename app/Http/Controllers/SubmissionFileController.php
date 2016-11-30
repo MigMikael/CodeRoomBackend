@@ -221,45 +221,78 @@ class SubmissionFileController extends Controller
                 $implements_score = 0;
             }
             $result_score = [
+                'result_id' => $result->id,
                 'class' => $class_score,
                 'package' => $package_score,
                 'enclose' => $enclose_score,
                 'extends' => $extends_score,
                 'implements' => $implements_score
             ];
+            /*Log::info('-------------------------------------------------------------');
+            Log::info('##### CLASS NAME'. $result->class);
+            Log::info('-------------------------------------------------------------');
+            Log::info('##### CLASS SCORE '. $class_score);
+            Log::info('##### ENCLOSE SCORE '. $enclose_score);
+            Log::info('##### EXTENDS SCORE '. $extends_score);
+            Log::info('##### IMPLEMENTS SCORE '. $implements_score);
+            Log::info('-------------------------------------------------------------');*/
             ResultScore::create($result_score);
 
             foreach ($result->attributes as $attribute){
                 $prob_attr = Attribute::where('name', '=', $attribute->name)->first();
-                $this_problem = $prob_attr->problemAnalysis->problemFile->problem;
+                if($prob_attr != null){
+                    $this_problem = $prob_attr->problemAnalysis->problemFile->problem;
+                }else {
+                    $this_problem->id = 0;
+                }
                 if($problem->id != $this_problem->id){
                     $prob_attr = null;
                 }
 
-                $is_correct = true;
+                $correct = true;
                 if($prob_attr != null){
-                    if($attribute->access_modifiler != $prob_attr->access_modifier){
-                        $is_correct = false;
-                    } elseif ($attribute->non_access_modifiler != $prob_attr->non_access_modifier){
-                        $is_correct = false;
+                    if($attribute->access_modifier != $prob_attr->access_modifier){
+                        $correct = false;
+                    } elseif ($attribute->non_access_modifier != $prob_attr->non_access_modifier){
+                        $correct = false;
                     } elseif ($attribute->data_type != $prob_attr->data_type){
-                        $is_correct = false;
+                        $correct = false;
                     }
                 }else{
-                    $is_correct = false;
+                    $correct = false;
                 }
 
-                if($is_correct){
+                if($correct){
                     $attribute->score = $prob_attr->score;
                 }else{
                     $attribute->score = 0;
                 }
                 $attribute->save();
+                /*Log::info('Attribute IS CORRECT '. $correct);
+
+                Log::info('-------------------------------------------------------------');
+                Log::info('##### ATTRIBUTE NAME'. $attribute->name);
+                Log::info('-------------------------------------------------------------');
+                Log::info('##### ATTRIBUTE Access Modifier :'. $attribute->access_modifier.'5555');
+                Log::info('##### ATTRIBUTE Non Access Modifier '. $attribute->non_access_modifier);
+                Log::info('##### ATTRIBUTE Data Type '. $attribute->data_type);
+
+
+                Log::info('##### P ATTRIBUTE NAME'. $prob_attr->name);
+                Log::info('-------------------------------------------------------------');
+                Log::info('##### P ATTRIBUTE Access Modifier :'. $prob_attr->access_modifier.'5555');
+                Log::info('##### P ATTRIBUTE Non Access Modifier '. $prob_attr->non_access_modifier);
+                Log::info('##### P ATTRIBUTE Data Type '. $prob_attr->data_type);
+                Log::info('-------------------------------------------------------------');*/
             }
 
             foreach ($result->constructors as $constructor){
                 $prob_con = Constructor::where('name', '=', $constructor->name)->first();
-                $this_problem = $prob_con->problemAnalysis->problemFile->problem;
+                if($prob_con != null){
+                    $this_problem = $prob_con->problemAnalysis->problemFile->problem;
+                }else {
+                    $this_problem->id = 0;
+                }
                 if($problem->id != $this_problem->id){
                     $prob_con = null;
                 }
@@ -281,11 +314,18 @@ class SubmissionFileController extends Controller
                     $constructor->score = 0;
                 }
                 $constructor->save();
+
+                //Log::info('Constructor IS CORRECT '. $is_correct);
+
             }
 
             foreach ($result->methods as $method){
                 $prob_me = Method::where('name', '=', $method->name)->first();
-                $this_problem = $prob_me->problemAnalysis->problemFile->problem;
+                if($prob_me != null){
+                    $this_problem = $prob_me->problemAnalysis->problemFile->problem;
+                } else {
+                    $this_problem->id = 0;
+                }
                 if($problem->id != $this_problem->id){
                     $prob_me = null;
                 }
@@ -315,6 +355,8 @@ class SubmissionFileController extends Controller
                     $method->score = 0;
                 }
                 $method->save();
+
+                //Log::info('Method IS CORRECT '. $is_correct);
             }
         }
     }

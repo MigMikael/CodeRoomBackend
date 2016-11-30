@@ -12,7 +12,7 @@ class ProblemTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('problem')->insert([
+        /*DB::table('problem')->insert([
             'lesson_id' => 1,
             'name' => 'Runners',
             'description' => 'ฝึกฝนการใช้ if-else',
@@ -22,6 +22,6 @@ class ProblemTableSeeder extends Seeder
             'is_parse' => 'true',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
+        ]);*/
     }
 }

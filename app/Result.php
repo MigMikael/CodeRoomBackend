@@ -10,7 +10,7 @@ class Result extends Model {
 	public $timestamps = true;
 
 	protected $fillable = [
-		'submission_id',
+		'submissionfile_id',
 		'class',
 		'package',
 		'enclose',

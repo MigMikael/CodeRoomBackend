@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResultConstructor extends Model
 {
+    public $timestamps = false;
     protected $table = 'result_constructor';
 
     protected $fillable = [

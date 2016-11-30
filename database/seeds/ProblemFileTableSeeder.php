@@ -11,12 +11,12 @@ class ProblemFileTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('problemfile')->insert([
+        /*DB::table('problemfile')->insert([
             'problem_id' => 1,
             'package' => 'default package',
             'filename' => 'Runners.java',
             'mime' => 'java',
             'code' => '',
-        ]);
+        ]);*/
     }
 }

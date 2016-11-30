@@ -19,7 +19,7 @@ class CreateConstructorTable extends Migration
             $table->string('access_modifier');
             $table->string('name');
             $table->string('parameter');
-            $table->float('score')->default(0);
+            $table->float('score')->default(10);
 
             $table->foreign('analysis_id')
                 ->references('id')

@@ -20,6 +20,6 @@ class ResultScore extends Model
 
     public function result()
     {
-        return $this->belongsTo('App\Result');
+        return $this->belongsTo('App\Result', 'result_id');
     }
 }

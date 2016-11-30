@@ -12,7 +12,7 @@ class AttributeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('attribute')->insert([
+        /*DB::table('attribute')->insert([
             'analysis_id' => 1,
             'access_modifier' => 'default',
             'non_access_modifier' => 'static',
@@ -64,6 +64,6 @@ class AttributeTableSeeder extends Seeder
             'data_type' => 'float',
             'name' => 'totalTime',
             'score' => 10,
-        ]);
+        ]);*/
     }
 }

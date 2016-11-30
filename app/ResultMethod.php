@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResultMethod extends Model
 {
+    public $timestamps = false;
     protected $table = 'result_method';
 
     protected $fillable = [

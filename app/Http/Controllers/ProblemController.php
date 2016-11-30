@@ -115,7 +115,7 @@ class ProblemController extends Controller
 
     public function sendToProblemFile($problem, $file, $mode)
     {
-        $currentIP = '172.27.169.19:3000';
+        $currentIP = env('CURRENT_IP');
 
         $problemFile = [
             'problem_id' => $problem->id,

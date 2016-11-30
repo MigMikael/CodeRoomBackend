@@ -11,7 +11,7 @@ class ProblemInputTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('problem_input')->insert([
+        /*DB::table('problem_input')->insert([
             'problemfile_id' => 1,
             'version' => 1,
             'filename' => '1.in',
@@ -51,6 +51,6 @@ class ProblemInputTableSeeder extends Seeder
             'version' => 1,
             'filename' => '6.in',
             'content' => '2555',
-        ]);
+        ]);*/
     }
 }

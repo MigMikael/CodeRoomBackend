@@ -11,7 +11,7 @@ class ResultAttributeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('result_attribute')->insert([
+        /*DB::table('result_attribute')->insert([
             'result_id' => 1,
             'access_modifier' => 'default',
             'non_access_modifier' => 'static',
@@ -63,6 +63,6 @@ class ResultAttributeTableSeeder extends Seeder
             'data_type' => 'float',
             'name' => 'totalTime',
             'score' => 10,
-        ]);
+        ]);*/
     }
 }

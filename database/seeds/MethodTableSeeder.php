@@ -11,7 +11,7 @@ class MethodTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('method')->insert([
+        /*DB::table('method')->insert([
             'analysis_id' => 1,
             'access_modifier' => 'public',
             'non_access_modifier' => 'static',
@@ -117,6 +117,6 @@ class MethodTableSeeder extends Seeder
             'recursive' => '',
             'loop' => '',
             'score' => 20,
-        ]);
+        ]);*/
     }
 }
