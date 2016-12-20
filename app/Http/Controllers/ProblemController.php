@@ -72,6 +72,7 @@ class ProblemController extends Controller
         foreach ($problem->submissions as $submission){
             $submission->student;
         }
+        //echo $problem->problemFiles[0]->code;
         //return $problem;
         //return view('problem.show')->with('problem', $problem);
         return view('problem.show2')->with('problem', $problem);
@@ -110,7 +111,7 @@ class ProblemController extends Controller
         $problem = Problem::findOrFail($id);
 
         $problem->delete();
-        return "delete finish";
+        return 'Delete Finish';
     }
 
     public function sendToProblemFile($problem, $file, $mode)

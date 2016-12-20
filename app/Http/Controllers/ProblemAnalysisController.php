@@ -72,7 +72,7 @@ class ProblemAnalysisController extends Controller
     {
         $problemAnalysis = ProblemAnalysis::findOrFail($id);
         $problemAnalysis->delete();
-        return back();
+        return 'Delete Finish';
     }
 
     public function latestAnalysis()

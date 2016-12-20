@@ -130,7 +130,7 @@ class SubmissionController extends Controller
     {
         $submission = Submission::findOrFail($id);
         $submission->delete();
-        return 'delete finish';
+        return 'Delete Finish';
     }
 
     public function sendToSubmissionFile($submission, $file)

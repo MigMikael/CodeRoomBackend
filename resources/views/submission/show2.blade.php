@@ -107,9 +107,9 @@
                                         <h4>{{ $result->class }}</h4>
                                     </div>
                                     <div class="mdl-card__supporting-text mdl-card--expand">
-                                        <b>Package:</b> {{ $result->package }}
-                                        <b>Enclose:</b> {{ $result->enclose }}
-                                        <b>Extends:</b> {{ $result->extends }}
+                                        <b>Package:</b> {{ $result->package }}<br>
+                                        <b>Enclose:</b> {{ $result->enclose }}<br>
+                                        <b>Extends:</b> {{ $result->extends }}<br>
                                         <b>Implements:</b> {{ $result->implements }}
                                     </div>
                                 </div>

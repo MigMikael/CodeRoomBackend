@@ -100,9 +100,9 @@
             @for($i = 0; $i < sizeof($problem->problemFiles); $i++)
             <section class="mdl-layout__tab-panel" id="scroll-tab-{{$i+2}}">
                 <div class="mdl-grid page-max-width">
-                    <div class="mdl-cell mdl-cell--7-col mdl-card code-card mdl-shadow--4dp" id="editor{{$i+2}}" >
-                        {{ $problem->problemFiles[$i]->code }}
-                    </div>
+                    <div class="mdl-cell mdl-cell--7-col mdl-card code-card mdl-shadow--4dp" id="editor{{$i+2}}" >{{
+                    $problem->problemFiles[$i]->code
+                    }}</div>
 
                     <div class="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--4dp">
 

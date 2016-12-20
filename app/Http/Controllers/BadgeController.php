@@ -54,7 +54,7 @@ class BadgeController extends Controller
     {
         $badge = Badge::findOrFail($id);
         $badge->delete();
-        return back();
+        return 'Delete Finish';
     }
 
     // Store Lesson badge

@@ -217,6 +217,24 @@
 
     <hr>
 
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1210331272313647',
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <div class="mdl-cell mdl-cell--12-col center">
         <h1>Course Badges</h1>
     </div>
@@ -247,6 +265,16 @@
                 {!! Form::close() !!}
             </div>
         </div>
+        <script>
+            document.getElementById('{{ $badge->id }}').onclick = function() {
+                FB.ui({
+                    method: 'share',
+                    display: 'popup',
+                    href: 'http://mikaelcv.herokuapp.com/MyCV.html',
+                    // Todo change above link
+                }, function(response){});
+            }
+        </script>
     @endforeach
     <div class="mdl-cell mdl-cell--12-col right">
         <a href="{{ url('badge/create') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">

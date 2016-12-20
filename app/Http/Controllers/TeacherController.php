@@ -84,7 +84,7 @@ class TeacherController extends Controller
     {
         $teacher =Teacher::findOrFail($id);
         $teacher->delete();
-        return back();
+        return 'Delete Finish';
     }
 
     public function storeOneTeacherMember()

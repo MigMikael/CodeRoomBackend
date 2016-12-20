@@ -96,7 +96,7 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $student->delete();
-        return back();
+        return 'Delete Finish';
     }
 
     public function storeOneStudentMember()

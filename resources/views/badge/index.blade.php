@@ -68,7 +68,7 @@
                 FB.ui({
                     method: 'share',
                     display: 'popup',
-                    href: 'https://localhost:8000/course',
+                    href: 'http://mikaelcv.herokuapp.com/MyCV.html',
                     // Todo change above link
                 }, function(response){});
             }

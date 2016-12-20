@@ -84,7 +84,7 @@ class LessonController extends Controller
         $badge = Badge::where('name', $lesson->name)->firstOrFail();
         $badge->delete();
         $lesson->delete();
-        return back();
+        return 'Delete Finish';
     }
 
     // Todo wtf what I have done T_T

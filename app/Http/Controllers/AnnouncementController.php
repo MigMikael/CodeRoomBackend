@@ -63,6 +63,6 @@ class AnnouncementController extends Controller
     {
         $announcement = Announcement::findOrFail($id);
         $announcement->delete();
-        return back();
+        return 'Delete Finish';
     }
 }
