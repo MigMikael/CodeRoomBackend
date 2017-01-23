@@ -10,7 +10,7 @@ class Teacher extends Model
     public $timestamps = true;
 
     protected $hidden = [
-        'password'
+        'password',
     ];
 
     protected $fillable = [
@@ -18,7 +18,8 @@ class Teacher extends Model
         'status',
         'image',
         'username',
-        'password'
+        'password',
+        'token'
     ];
 
     public function courses()

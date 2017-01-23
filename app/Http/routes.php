@@ -54,7 +54,7 @@ Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
 
 
-Route::get('api/course/all', 'CourseController@getAll');
+Route::get('api/course/all', 'CourseController@getAll')->middleware(['userAuth']);
 Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
 Route::get('api/student_course/{course_id}/{student_id}', 'CourseController@getDetailStudent');
 Route::get('api/teacher_course/{course_id}/{teacher_id}', 'CourseController@getDetailTeacher');
@@ -95,9 +95,16 @@ Route::get('test', 'TestController@index');
 Route::get('test/file/{folderName}', 'TestController@getFile');
 Route::get('test/string_pos', 'TestController@testStrPos');
 Route::get('test/template2', 'TestController@testTemplate2');
+Route::get('test/token', 'TestController@testToken');
+Route::get('test/current_user_profile','TestController@getUserProfile');
 
 //api for submission
 Route::post('api/submission/code', 'SubmissionController@storeCode');
 
 //api deprecated
 Route::get('api/teacher_course/{teacher_id}', 'TeacherCourseController@getById');
+
+//auth
+Route::post('login', 'UserAuthController@loginUser');
+Route::get('login', 'UserAuthController@login');
+Route::get('logout', 'UserAuthController@logout');

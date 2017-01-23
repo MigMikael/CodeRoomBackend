@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\TokenGenerate;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -56,5 +57,32 @@ class TestController extends Controller
     {
         echo env('CURRENT_IP');
         //return view('template2');
+    }
+
+    public function testToken()
+    {
+        $generator = new TokenGenerate();
+
+        $token = $generator->generate(32);
+
+        return $token;
+
+        /*$hash = password_hash('mig39525G', PASSWORD_DEFAULT);
+
+        if(password_verify('mig39525G', $hash)){
+            echo 'Password is correct';
+        }else {
+            echo 'Password is incorrect';
+        }*/
+    }
+
+    public function getUserProfile(Request $request)
+    {
+        if($request->session()->has('userID')){
+            echo $request->session()->get('userID').'<br>';
+            echo $request->session()->get('userRole');
+        }else{
+            echo 'Now has no session';
+        }
     }
 }

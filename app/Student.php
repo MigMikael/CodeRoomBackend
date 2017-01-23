@@ -10,7 +10,7 @@ class Student extends Model
     public $timestamps = true;
 
     protected $hidden = [
-        'password'
+        'password',
     ];
 
     protected $fillable = [
@@ -19,6 +19,7 @@ class Student extends Model
         'image',
         'username',
         'password',
+        'token'
     ];
 
     public function badges()
