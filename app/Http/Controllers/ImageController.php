@@ -67,10 +67,10 @@ class ImageController extends Controller
 
     public function genAvatarImage()
     {
-        Log::info('#### Image Controller');
+        //Log::info('#### Image Controller');
         $imageNum = Image::all()->count();
         $imageNum++;
-        Log::info('#### ImageNum : '.$imageNum);
+        //Log::info('#### ImageNum : '.$imageNum);
         $image = [
             'height' => 500,
             'width' => 500,

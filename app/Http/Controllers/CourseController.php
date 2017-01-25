@@ -255,4 +255,38 @@ class CourseController extends Controller
 
         return back();
     }
+
+    #--------------------------------------------------------------------------------------------------------
+
+    public function getDetail($id)
+    {
+        $course = Course::withCount([
+            'students', 'teachers', 'lessons', 'badges', 'announcements'
+        ])->findOrFail($id);
+
+        /*foreach ($course->students as $student){
+            $student->pivot;
+        }
+        foreach ($course->teachers as $teacher){
+            $teacher->pivot;
+        }*/
+        $course->lessons;
+        $course->badges;
+        $course->announcements;
+
+        return $course;
+    }
+
+    public function getMember($id)
+    {
+        $course = Course::findOrFail($id);
+        foreach ($course->students as $student){
+            $student->pivot;
+        }
+        foreach ($course->teachers as $teacher){
+            $teacher->pivot;
+        }
+
+        return $course;
+    }
 }

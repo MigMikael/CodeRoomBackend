@@ -11,6 +11,8 @@ class Student extends Model
 
     protected $hidden = [
         'password',
+        'created_at',
+        'updated_at'
     ];
 
     protected $fillable = [

@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\BadgeStudent;
+use App\Course;
 use Excel;
 use App\Student;
 use App\StudentCourse;
-use Request;
+//use Request;
 use Log;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -228,4 +230,29 @@ class StudentController extends Controller
         return back();
     }
 
+
+    #--------------------------------------------------------------------------------------------------------
+
+    public function dashboard(Request $request)
+    {
+        /*if(!($request->session()->has('userID'))){
+            return response()->json(['status' => 'session expire']);
+        }*/
+
+        $userID = $request->session()->get('userID');
+        //$userRole = $request->session()->get('userRole');
+
+        $student = Student::findOrFail($userID);
+        $student->courses;
+
+        $data = [];
+        $data['student'] = $student;
+
+        $courses = Course::withCount([
+            'students', 'teachers', 'lessons'
+        ])->get();
+        $data['course'] = $courses;
+
+        return $data;
+    }
 }

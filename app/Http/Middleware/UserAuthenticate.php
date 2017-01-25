@@ -18,7 +18,6 @@ class UserAuthenticate
      */
     public function handle($request, Closure $next)
     {
-        $userID = null;
         if($request->hasHeader('Authorization_Token')){
             $student = Student::where('token', '=', $request->header('Authorization_Token'))->first();
 
@@ -26,7 +25,7 @@ class UserAuthenticate
                 $teacher = Teacher::where('token', '=', $request->header('Authorization_Token'))->first();
 
                 if($teacher == null){
-                    return response()->json(['status' => 'unauthorized']);
+                    return response()->json(['status' => 'request unauthorized']);
                 }
             }
 
@@ -35,8 +34,12 @@ class UserAuthenticate
                 return response()->json(['status' => 'session expired']);
             }
 
+            if(!($request->session()->has('userRole'))){
+                return response()->json(['status' => 'session expired']);
+            }
+
         }else{
-            return response()->json(['status' => 'unauthorized']);
+            return response()->json(['status' => 'request unauthorized']);
         }
         return $next($request);
     }

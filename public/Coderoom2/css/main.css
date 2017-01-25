@@ -1,0 +1,571 @@
+@font-face{
+    font-family: "WorkSans-Light";
+    src :  url(WorkSans-Light.ttf);
+}
+@font-face{
+    font-family: "WorkSans-Regular";
+    src :  url(WorkSans-Regular.ttf);
+}
+body{
+    font-family: "WorkSans-Regular";
+    background-color: #eee;
+    color: #204060;
+    font-size: 18px;
+}
+.one-page{
+    width: 100vw;
+    height: 100vh;
+}
+.navbar{
+    width: 100%;
+    height: 60px;
+    background-color: #00b4a2;
+    border-radius: 0;
+}
+.navbar .navbar-brand{
+     float: left;
+    line-height: 60px;
+    height: 0;
+    padding: 0;
+    margin: 0;
+
+ }
+
+.navbar .navbar-brand a{
+
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar .navbar-user{
+      float: right;
+        padding: 9px 0 0 0;
+    margin-right: -15px;
+}
+
+.navbar .navbar-user .circle-user{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+.navbar .navbar-user img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+
+}
+.nav-login-register{
+    width: 100%;
+    height: 380px;
+    background-color: #00b4a2;
+    padding: 20px 0;
+}
+.nav-login-register img{
+     display: block;
+     margin:auto;
+     width: 140px;
+     height: 140px;
+     border-radius: 100%;
+ }
+.nav-login-register h3{
+    text-align: center;
+    color: white
+}
+.nav-login-register div{
+    width: 100%;
+    padding: 0 60px;
+    margin-top: 30px;
+}
+.nav-login-register div a{
+    padding: 10px;
+    background-color: white;
+    color: #204060;
+    cursor: pointer
+}
+.nav-login-register div a.register{
+    float: left;
+}
+.nav-login-register div a.login{
+     float: right;
+ }
+.nav-login-register div a.active{
+    background-color: #eee;
+}
+.nav-login-register div a:hover{
+    background-color: #eee;
+}
+.login-register{
+    width: 100%;
+    height: 380px;
+    background-color: white;
+    border: 1px solid #204060;
+    padding: 0 60px;
+}
+.login-register button{
+     width: 100%;
+     background-color: #00b4a2;
+     border:0;
+     height:40px;
+     color: white;
+ }
+
+.login-register button:focus{
+    outline: none;
+}
+.card-course{
+    width: 100%;
+    height: 330px;
+    background-color: white;
+
+    margin: 10px 0;
+    cursor: pointer;
+    border: 1px solid #EEEEEE;
+}
+.card-course:hover{
+    opacity: 0.8;
+}
+.card-course img{
+    width: 100%;
+    height: 180px;
+
+
+
+
+}
+.card-course .card-headder{
+    padding: 10px;
+    overflow: hidden;
+
+    width: 100%;
+    height: 120px;
+    display: block;
+
+}
+.card-course .card-headder h4{
+    display: inline;
+
+}
+.card-course .list-icon{
+    width: 100%;
+    height: 30px;
+    padding: 0px 10px 10px 10px;
+    display: block;
+
+}
+
+.card-course .list-icon span{
+    color: #204060;
+    margin-right: 10px;
+    display: inline;
+}
+
+.card-teacher{
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    padding:10px;
+    text-align: center;
+    background-color: white;
+    margin: 10px 0;
+}
+.card-teacher img{
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 100%;
+
+}
+.card-teacher h4{
+    display: inline;
+}
+.list-course{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 5px 0 0 0;
+
+
+
+}
+
+.list-course .img-list-course{
+
+    height: 100%;
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 70px;
+}
+.list-course .img-list-course img{
+    width: 100%;
+    height: 100%;
+
+}
+.list-course .progress-list-course{
+    height: 100%;
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 70px;
+    background-color: #204060;
+    text-align: center;
+
+}
+.list-course .progress-list-course span{
+    line-height: 60px;
+    color: white;
+}
+.list-course .list-course-headder{
+    padding: 5px 0 0 0;
+    height: 30px;
+    float: left;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: block;
+
+
+
+}
+
+.list-course .list-course-icon{
+    display: block;
+    float: left;
+    margin-right: 10px;
+    height: 25px;
+    position: absolute;
+    left: 80px;
+    top:35px;
+
+
+
+}
+.list-course .list-course-icon span{
+    color: #204060;
+    margin-right: 10px;
+    display: inline;
+}
+.list-course .list-course-join{
+    float: right;
+
+    height: 100%;
+    background-color: #00b4a2;
+    padding: 10px 15px;
+}
+
+.list-course .list-course-join p{
+    line-height: 40px;
+    color: white;
+}
+
+.img-card-coursepage{
+    width: 100%;
+    height: 250px;
+
+}
+.img-card-coursepage img{
+    width: 100%;
+    height: 100%;
+
+}
+.detail-card-coursepage{
+    width: 100%;
+    height: 250px;
+
+    background-color: white;
+    padding: 20px 10px;
+}
+.detail-card-coursepage .headder-card-coursepage{
+    display: block;
+    float: left;
+    height: 50px;
+    width: 100%;
+
+}
+.detail-card-coursepage .headder-card-coursepage h3{
+    display: inline;
+}
+.detail-card-coursepage .l-a-f-card-course{
+    display: block;
+    float: left;
+    height: 50px;
+    width: 100%;
+
+    margin-top: 15px;
+}
+.detail-card-coursepage .l-a-f-card-course .icon-l-a-f-card-course{
+    text-align: center;
+    border: 1px solid #204060;
+    padding: 10px;
+    background-color: white;
+    width: 150px;
+    padding-right: 0;
+    display: inline;
+
+}
+.detail-card-coursepage .l-a-f-card-course a{
+    padding: 10px;
+    background-color: white;
+    color: #00b4a2;
+
+    display: inline;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0;
+
+}
+.announce-list{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    margin: 5px 0;
+    cursor: pointer;
+}
+.announce-list .announce-date{
+    text-align: center;
+    width: 110px;
+    height: 100%;
+    float: left;
+    display: block;
+    background-color: #204060;
+    color: white;
+}
+.announce-list .announce-detail{
+    display: block;
+    float: left;
+    line-height: 60px;
+    margin-left: 10px;
+
+}
+.announce-list .announce-detail h4{
+    display: inline;
+
+}
+
+.navbar-study{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #204060;
+    display: block;
+    border-radius: 0;
+    z-index: 19999;
+    padding: 5px;
+
+}
+.navbar-study .navber-student-middle{
+
+}
+.navbar-study .navber-student-middle h4{
+    line-height: 35px;
+    cursor: pointer;
+    z-index: 10;
+
+}
+.navbar-study h4:hover{
+    text-decoration: underline;
+
+}
+.navbar-study .navbar-study-left{
+    float: left;
+
+
+}
+.navbar-study .navbar-study-left .button-opennav-problem{
+    border: 1px solid #00b4a2;
+    color: #00b4a2;
+
+    height: 48px;
+    line-height: 50px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+.navbar-study .navbar-study-left .button-opennav-problem:hover{
+    background-color: #00b4a2;
+    color: white;
+}
+.navbar-study .navbar-study-right{
+    float: right;
+
+}
+.navbar-study .navbar-study-right .navbar-study-user-circle{
+     float: right;
+}
+.navbar-study .navbar-study-right .navbar-study-user-circle .circle-user-button{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin-top: 4px;
+}
+.navbar-study .navbar-study-right .navbar-study-user-circle .circle-user-button img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.navbar-study .navbar-study-bottom-left{
+     width: 50%;
+     height: 100%;
+    overflow: hidden;
+    float: left;
+ }
+.navbar-study .navbar-study-bottom-left h4{
+    display: inline;
+    line-height: 50px;
+    text-decoration: none;
+}
+.navbar-study .navbar-study-bottom-left h4.success-massage{
+    color: #00b4a2;
+}
+.navbar-study .navbar-study-bottom-left h4.error-massage{
+    color: red;
+}
+.navbar-study .navbar-study-bottom-right{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    float: right;
+}
+.navbar-study .navber-study-bottom-right button{
+    background-color: #00b4a2;
+    border: 0;
+    color: white;
+    line-height: 43px;
+    display: inline;
+
+}
+.navbar-study .navber-study-bottom-right p{
+    line-height: 45px;
+    display: inline;
+    margin: 0 5px;
+}
+.navbar-study .navber-study-bottom-right .navber-study-bottom-next{
+    float: right;
+}
+
+.iframe-zone{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #204060;
+    margin-top: 32px;
+
+}
+.ace-zone{
+
+}
+
+.show-error{
+    background-color: white;height: 180px;width: 100%;display: block;margin-top: 50px;border: 1px solid #204060;padding: 10px
+}
+
+.show-problem-detail{
+    width: 100%;
+    height: 500px;
+    display: none;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #204060;
+
+}
+.show-problem-detail .navber-problem{
+    background-color: white;
+    border: 1px solid #204060;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+    height: 400px;
+}
+.show-problem-detail .navber-problem a{
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #204060;
+      color: #204060;
+      padding: 10px;
+      text-decoration: none;
+    cursor: pointer;
+  }
+.show-problem-detail .navber-problem a:hover{
+    background-color: #204060;
+    color: white;
+
+}
+
+.card-student{
+     width: 100%;
+     height: 60px;
+     background-color: white;
+    padding: 5px;
+    overflow: hidden;
+    margin: 5px;
+ }
+.card-student img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    float: left;
+    margin:0 10px;
+
+}
+.card-student p{
+    display: block;
+    line-height: 20px;
+}
+
+.card-problem-detail{
+    background-color: white;
+    width: 100%;
+    height: 60px;
+
+    display: block;
+    border: 1px solid #204060;
+    margin: 5px;
+}
+.card-problem-detail .card-problem-detail-left{
+     width: 30%;
+     height: 100%;
+     border-right: 1px solid #204060;
+    display: block;
+    float: left;
+
+ }
+.card-problem-detail .card-problem-detail-left h4{
+    position: absolute;
+    top:15px;
+    left: 70px;
+ }
+.card-problem-detail .card-problem-detail-left i{
+     font-size: 35px;
+     margin-right: 5px;
+     display: inline;
+     position: absolute;
+     top: 16px;
+     left: 25px;
+ }
+.card-problem-detail .card-problem-detail-left span{
+    font-size: 30px;
+    margin-right: 5px;
+    display: inline;
+    position: absolute;
+    top: 20px;
+    left: 27px;
+}
+.card-problem-detail .card-problem-detail-right{
+    width: 70%;
+    height: 100%;
+
+    float: left;
+    display: inline-block;
+}
+.card-problem-detail .card-problem-detail-right p{
+    line-height: 60px;
+    text-align: center;
+}
+.card-problem-detail .card-problem-detail-right span{
+    line-height: 60px;
+    text-align: center;
+}

@@ -68,6 +68,7 @@ class TestController extends Controller
         return $token;
 
         /*$hash = password_hash('mig39525G', PASSWORD_DEFAULT);
+        echo $hash;
 
         if(password_verify('mig39525G', $hash)){
             echo 'Password is correct';
@@ -85,4 +86,6 @@ class TestController extends Controller
             echo 'Now has no session';
         }
     }
+
+
 }

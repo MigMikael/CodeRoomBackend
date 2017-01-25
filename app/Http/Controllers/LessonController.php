@@ -113,4 +113,14 @@ class LessonController extends Controller
         }
 
     }
+
+    #--------------------------------------------------------------------------------------------------------
+
+    public function getDetail($id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        $lesson->problems;
+
+        return $lesson;
+    }
 }

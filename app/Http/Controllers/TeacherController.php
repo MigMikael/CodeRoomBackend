@@ -133,4 +133,11 @@ class TeacherController extends Controller
 
         return back();
     }
+
+    #--------------------------------------------------------------------------------------------------------
+
+    public function dashboard()
+    {
+
+    }
 }
