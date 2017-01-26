@@ -243,7 +243,7 @@ class StudentController extends Controller
         //$userRole = $request->session()->get('userRole');
 
         $student = Student::findOrFail($userID);
-        $student['course'] = $student->courses()->withCount([
+        $student['courses'] = $student->courses()->withCount([
             'students', 'teachers', 'lessons',
         ])->get();
 
@@ -253,7 +253,7 @@ class StudentController extends Controller
         $courses = Course::withCount([
             'students', 'teachers', 'lessons'
         ])->get();
-        $data['course'] = $courses;
+        $data['courses'] = $courses;
 
         return $data;
     }

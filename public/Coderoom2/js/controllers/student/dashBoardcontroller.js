@@ -8,6 +8,7 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
 
         dashBoardStudent.getData(token).then(
             function(response){
+                console.log(response.data);
                 $scope.dataDashboard = deleteCourse(response.data);
                 console.log($scope.dataDashboard);
 
@@ -21,10 +22,10 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
 
         for(i=0 ; i<data.student.courses.length ; i++){
 
-            for(j=0 ; j<data.course.length ;j++){
-                if(data.student.courses[i].id===data.course[j].id){
+            for(j=0 ; j<data.courses.length ;j++){
+                if(data.student.courses[i].course_id===data.courses[j].id){
 
-                    data.course.splice(j,1);
+                    data.courses.splice(j,1);
 
 
                 }

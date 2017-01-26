@@ -121,6 +121,7 @@ class LessonController extends Controller
         $lesson = Lesson::findOrFail($id);
         $lesson->problems;
 
+
         return $lesson;
     }
 }
