@@ -114,6 +114,12 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 });
 
 
+#--------------------------------------------------------------------------------------------------------
+#                               Image API
+#--------------------------------------------------------------------------------------------------------
+Route::get('api/image/{id}', 'ImageController@getImage');
+Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
+
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -130,7 +136,7 @@ Route::post('problem_analysis/score', 'ProblemAnalysisController@keepScore');
 Route::get('api/problems_analysis/{prob_id}', 'ProblemAnalysisController@getById');
 
 Route::get('api/course/all', 'CourseController@getAll')->middleware(['userAuth']);
-Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
+
 Route::get('api/student_course/{course_id}/{student_id}', 'CourseController@getDetailStudent');
 Route::get('api/teacher_course/{course_id}/{teacher_id}', 'CourseController@getDetailTeacher');
 Route::get('api/admin_course/{course_id}/{admin_id}', 'CourseController@getDetailAdmin');
@@ -144,7 +150,6 @@ Route::post('api/lesson/change_order', 'LessonController@changeLessonOrder');
 Route::get('api/student/profile/{student_id}', 'StudentController@getStudentProfile');
 Route::post('api/student/add_one_student_member', 'StudentController@storeOneStudentMember');
 Route::post('api/student/add_many_student_member', 'StudentController@storeManyStudentMember');
-
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/student_course/delete/{student_id}/{course_id}', 'StudentCourseController@destroyById');
 
@@ -162,7 +167,7 @@ Route::post('api/gen_lesson_badge', 'BadgeController@genLessonBadge');
 Route::get('api/image/gen_lesson_badge_image/{course_name}/{lesson_name}/{color}', 'ImageController@genLessonBadgeImage');
 Route::get('api/image/gen_normal_badge_image/{course_name}/{criteria}/{color}', 'ImageController@genNormalBadgeImage');
 Route::get('api/image/gen_user_avatar_image', 'ImageController@genAvatarImage');
-Route::get('api/image/{id}', 'ImageController@getImage');
+
 
 //api for submission
 Route::post('api/submission/code', 'SubmissionController@storeCode');
