@@ -1,5 +1,5 @@
 
-app.controller('homeController',function($scope,$http,$localStorage) {
+app.controller('homeController',function($scope,$http,$localStorage,$location) {
     $scope.buttonLogin = true;
     $scope.buttonRegister = false;
     $scope.switchMode = function(status){
@@ -24,13 +24,17 @@ app.controller('homeController',function($scope,$http,$localStorage) {
                 function(response){
                     // success
                     $localStorage.user = response.data;
-                    console.log($localStorage.user);
+                    checkRole($localStorage.user.role);
                 },
                 function(response){
                     // failure callback
                 }
             );
     }
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
+
 
     $scope.logout = function () {
 
@@ -41,11 +45,21 @@ app.controller('homeController',function($scope,$http,$localStorage) {
                 function(response){
                     console.log(response);
                     delete $localStorage.user;
-                    console.log($localStorage.user);
+                    $location.path('#/home');
                 },
                 function(response){
                     // failure callback
                 }
             );
+    }
+
+    function checkRole(role){
+        if(role==="student"){
+           $location.path('/dashboardstudent');
+        }else if(role="teacher"){
+            $location.path('/dashboardteacher');
+        }else if(role="admin"){
+
+        }
     }
 });

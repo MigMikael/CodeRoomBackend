@@ -6,15 +6,15 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/student/dashBoard.html",
             controller: "dashBoardstudentController"
         })
-        .when("/coursestudent", {
+        .when("/coursestudent/:course_id", {
             templateUrl : "js/views/student/course.html",
             controller: "courseController"
         })
-        .when("/studystudent", {
+        .when("/studystudent/:lesson_id", {
             templateUrl : "js/views/student/study.html",
             controller: "studyController"
         })
-        .when("/viewMemberstudent", {
+        .when("/viewMemberstudent/:course_id", {
             templateUrl : "js/views/student/viewMember.html",
             controller: "viewMemberController"
         })

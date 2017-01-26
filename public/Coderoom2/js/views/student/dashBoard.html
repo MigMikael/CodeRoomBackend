@@ -5,7 +5,7 @@
         </div>
         <div class="navbar-user">
             <div class="circle-user">
-                <img src="Thanadej.jpg">
+                <img ngf-src="user.student.image">
             </div>
         </div>
     </div>
@@ -15,37 +15,24 @@
     <div style="width: 100%;background-color: #204060;height: 60px;text-align: center;margin-bottom: 20px">
         <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">My Courses</h3>
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12" >
-        <div class="card-course">
-            <img src="c.png">
-            <div class="card-headder">
-                <h4 style="margin: 0">Comprogramming II</h4>
-            </div>
-            <div class="list-icon">
-                <span class="glyphicon glyphicon glyphicon-user"></span>
-                <span>{{5}}</span>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                <span>{{5}}</span>
-            </div>
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="myCourse in dataDashboard.student.courses">
+
+            <div class="card-course" ng-click="go('/coursestudent/'+myCourse.id)" >
+                <img ngf-src="myCourse.image">
+                <div class="card-headder">
+                    <h4 style="margin: 0">{{myCourse.name}}</h4>
+                </div>
+                <div class="list-icon">
+                    <span class="glyphicon glyphicon glyphicon-user"></span>
+                    <span>{{myCourse.students_count + myCourse.teachers_count}}</span>
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                    <span>{{myCourse.lessons_count}}</span>
+                </div>
 
 
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12" >
-        <div class="card-course">
-            <img src="c.png">
-            <div class="card-headder">
-                <h4 style="margin: 0">Comprogramming II</h4>
-            </div>
-            <div class="list-icon">
-                <span class="glyphicon glyphicon glyphicon-user"></span>
-                <span>{{5}}</span>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                <span>{{5}}</span>
             </div>
 
 
-        </div>
     </div>
 </div>
 <div class="container">
@@ -55,25 +42,25 @@
     <div class="col-md-12" style="margin-bottom: 10px">
         <div class="input-group" style="border: 1px solid #204060">
             <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060;"><span class="glyphicon glyphicon-search"></span></span>
-            <input class="form-control left-border-none" placeholder="Search Courses..." type="text" name="Search" style="border: 0;border-radius: 0;float: left">
+            <input class="form-control left-border-none" placeholder="Search Courses..." type="text" name="Search" style="border: 0;border-radius: 0;float: left" ng-model="nameCourse">
         </div>
     </div>
 
 
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="list-course">
+    <div class="col-md-12 col-sm-12 col-xs-12" ng-repeat="course in dataDashboard.course | filter: nameCourse">
+        <div class="list-course" >
             <div class="img-list-course">
-                <img src="java.png">
+                <img ngf-src="course.image">
             </div>
             <div class="list-course-headder">
-                <h4 style="margin: 0">Comprogramming II</h4>
+                <h4 style="margin: 0">{{course.name}}</h4>
             </div>
             <div style="position: relative;display: block">
                 <div class="list-course-icon">
                     <span class="glyphicon glyphicon glyphicon-user"></span>
-                    <span>{{5}}</span>
+                    <span>{{course.students_count + course.teachers_count}}</span>
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    <span>{{5}}</span>
+                    <span>{{course.lessons_count}}</span>
 
                 </div>
             </div>
@@ -85,54 +72,5 @@
 
         </div>
     </div>
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="list-course">
-            <div class="img-list-course">
-                <img src="java.png">
-            </div>
-            <div class="list-course-headder">
-                <h4 style="margin: 0">Comprogramming II</h4>
-            </div>
-            <div style="position: relative;display: block">
-                <div class="list-course-icon">
-                    <span class="glyphicon glyphicon glyphicon-user"></span>
-                    <span>{{5}}</span>
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    <span>{{5}}</span>
 
-                </div>
-            </div>
-            <div class="list-course-join">
-                <p>Join</p>
-            </div>
-
-
-
-        </div>
-    </div>
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="list-course">
-            <div class="img-list-course">
-                <img src="java.png">
-            </div>
-            <div class="list-course-headder">
-                <h4 style="margin: 0">Comprogramming II</h4>
-            </div>
-            <div style="position: relative;display: block">
-                <div class="list-course-icon">
-                    <span class="glyphicon glyphicon glyphicon-user"></span>
-                    <span>{{5}}</span>
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    <span>{{5}}</span>
-
-                </div>
-            </div>
-            <div class="list-course-join">
-                <p>Join</p>
-            </div>
-
-
-
-        </div>
-    </div>
 </div>

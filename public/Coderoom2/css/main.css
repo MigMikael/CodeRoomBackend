@@ -9,8 +9,9 @@
 body{
     font-family: "WorkSans-Regular";
     background-color: #eee;
-    color: #204060;
+    color: #204056;
     font-size: 18px;
+    padding-bottom: 20px;
 }
 .one-page{
     width: 100vw;
@@ -80,7 +81,7 @@ body{
 .nav-login-register div a{
     padding: 10px;
     background-color: white;
-    color: #204060;
+    color: #204056;
     cursor: pointer
 }
 .nav-login-register div a.register{
@@ -99,7 +100,7 @@ body{
     width: 100%;
     height: 380px;
     background-color: white;
-    border: 1px solid #204060;
+    border: 1px solid #204056;
     padding: 0 60px;
 }
 .login-register button{
@@ -155,7 +156,7 @@ body{
 }
 
 .card-course .list-icon span{
-    color: #204060;
+    color: #204056;
     margin-right: 10px;
     display: inline;
 }
@@ -212,7 +213,7 @@ body{
     margin-right: 10px;
     display: block;
     width: 70px;
-    background-color: #204060;
+    background-color: #204056;
     text-align: center;
 
 }
@@ -245,7 +246,7 @@ body{
 
 }
 .list-course .list-course-icon span{
-    color: #204060;
+    color: #204056;
     margin-right: 10px;
     display: inline;
 }
@@ -299,11 +300,11 @@ body{
 }
 .detail-card-coursepage .l-a-f-card-course .icon-l-a-f-card-course{
     text-align: center;
-    border: 1px solid #204060;
+    border: 1px solid #204056;
     padding: 10px;
     background-color: white;
     width: 150px;
-    padding-right: 0;
+
     display: inline;
 
 }
@@ -331,7 +332,7 @@ body{
     height: 100%;
     float: left;
     display: block;
-    background-color: #204060;
+    background-color: #204056;
     color: white;
 }
 .announce-list .announce-detail{
@@ -346,154 +347,291 @@ body{
 
 }
 
-.navbar-study{
+/*start studypage*/
+#hover{
+    transition: width .5s;
+}
+.hover-nav{
+     position: absolute;
+     display: none;
+     z-index: 5;
+     width: 0%;
+     height: 100%;
+
+     left: 0;
+     background-color: rgba(0,0,0,0.8);
+     padding: 60px 20px 20px 20px;
+    overflow: hidden;
+
+ }
+.hover-nav .hadder-hover-nav{
     width: 100%;
-    height: 60px;
+    height: 45px;
     background-color: white;
-    border: 1px solid #204060;
     display: block;
-    border-radius: 0;
-    z-index: 19999;
-    padding: 5px;
+    padding-left: 20px;
+}
+.hover-nav .hadder-hover-nav h4{
+    line-height: 45px;
 
 }
-.navbar-study .navber-student-middle{
+.hover-nav .list-problem{
+     width: 30%;
+     height: 90%;
+     background-color: white;
+     float: left;
+    overflow-y: auto;
+ }
+.hover-nav .list-problem .hedder-list-problem{
+    width: 100%;
+    height: 40px;
+    background-color: #204056;
+    display: block;
 
 }
-.navbar-study .navber-student-middle h4{
-    line-height: 35px;
-    cursor: pointer;
-    z-index: 10;
-
+.hover-nav .list-problem .hedder-list-problem p{
+    color: white;
+    line-height: 40px;
+    margin-left: 20px;
 }
-.navbar-study h4:hover{
-    text-decoration: underline;
+.hover-nav .list-problem .problem{
 
+     border-bottom: 1px solid #204056;
+     cursor: pointer;
+    width: 100%;
+    height: 40px;
+
+ }
+.hover-nav .list-problem .problem p{
+
+    line-height: 40px;
+    margin-left: 20px;
 }
-.navbar-study .navbar-study-left{
-    float: left;
-
-
-}
-.navbar-study .navbar-study-left .button-opennav-problem{
-    border: 1px solid #00b4a2;
-    color: #00b4a2;
-
-    height: 48px;
-    line-height: 50px;
-    padding: 0 15px;
-    cursor: pointer;
-}
-.navbar-study .navbar-study-left .button-opennav-problem:hover{
+.hover-nav .list-problem .problem:hover{
+    border: none;
     background-color: #00b4a2;
     color: white;
-}
-.navbar-study .navbar-study-right{
-    float: right;
 
 }
-.navbar-study .navbar-study-right .navbar-study-user-circle{
+.hover-nav .show-problem-detail2{
+     width: 70%;
+     height: 90%;
+
      float: right;
+     background-color: #EEEEEE;
+     padding: 10px;
+     overflow-y: auto;
+ }
+.hover-nav .show-problem-detail2 table.table tr{
+    background-color: white;
+
 }
-.navbar-study .navbar-study-right .navbar-study-user-circle .circle-user-button{
+
+
+
+.navbar-study-top{
+    position: fixed;
+    display: block;
+    width: 100%;
+    z-index: 6;
+    height: 50px;
+    background-color: #00b4a2;
+
+}
+.navbar-study-top .navber-button-problem{
+    float: left;
+
+}
+
+.navbar-study-top .navbar-user-study-top{
+     position: relative;
+     display: inline-block;
+    float: right;
+    padding: 5px 10px 0 0;
+    width: 350px;
+
+
+ }
+.navbar-study-top .navbar-user-study-top .circle-user-study{
     border-radius: 100%;
     width: 40px;
     height: 40px;
-    display: block;
-    margin-top: 4px;
+    float: right;
 }
-.navbar-study .navbar-study-right .navbar-study-user-circle .circle-user-button img{
+.navbar-study-top .navbar-user-study-top .circle-user-study img{
     width: 100%;
     height: 100%;
     border-radius: 100%;
 }
-.navbar-study .navbar-study-bottom-left{
-     width: 50%;
-     height: 100%;
-    overflow: hidden;
-    float: left;
+.navbar-study-top .navbar-user-study-top .navber-user-study-top-content{
+     display: block;
+     position: absolute;
+     background-color: white;
+
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 1;
+     height: 170px;
+     margin-top: 45px;
+     width: 100%;
+
+
  }
-.navbar-study .navbar-study-bottom-left h4{
+.navbar-study-top .navbar-user-study-top .navber-user-study-top-content .card-navber-user-study-content{
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+
+}
+.navbar-study-top .navbar-user-study-top .navber-user-study-top-content .card-navber-user-study-content img{
+     width: 90px;
+     height: 90px;
+     border-radius: 100%;
+     float: left;
+     display: inline;
+     margin-right: 20px;
+ }
+.navbar-study-top .navbar-user-study-top .navber-user-study-top-content .card-navber-user-study-content h4{
     display: inline;
-    line-height: 50px;
-    text-decoration: none;
 }
-.navbar-study .navbar-study-bottom-left h4.success-massage{
-    color: #00b4a2;
+.navbar-study-top .navbar-user-study-top .navber-user-study-top-content .button-navber-user-study-content{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #204056;
 }
-.navbar-study .navbar-study-bottom-left h4.error-massage{
-    color: red;
-}
-.navbar-study .navbar-study-bottom-right{
+.navbar-study-top .navbar-user-study-top .navber-user-study-top-content .button-navber-user-study-content .profile-button-navber-user-study-content{
+    cursor: pointer;
+    float: left;
     width: 50%;
     height: 100%;
-    overflow: hidden;
-    float: right;
-}
-.navbar-study .navber-study-bottom-right button{
+    border-right: 1px solid;
     background-color: #00b4a2;
-    border: 0;
     color: white;
-    line-height: 43px;
-    display: inline;
-
+    line-height: 50px;
+    text-align: center;
 }
-.navbar-study .navber-study-bottom-right p{
-    line-height: 45px;
-    display: inline;
-    margin: 0 5px;
-}
-.navbar-study .navber-study-bottom-right .navber-study-bottom-next{
-    float: right;
-}
-
-.iframe-zone{
-    width: 100%;
-    height: 100%;
-    border: 1px solid #204060;
-    margin-top: 32px;
-
-}
-.ace-zone{
-
-}
-
-.show-error{
-    background-color: white;height: 180px;width: 100%;display: block;margin-top: 50px;border: 1px solid #204060;padding: 10px
-}
-
-.show-problem-detail{
-    width: 100%;
-    height: 500px;
-    display: none;
-    background-color: white;
-    padding: 10px;
-    border: 1px solid #204060;
-
-}
-.show-problem-detail .navber-problem{
-    background-color: white;
-    border: 1px solid #204060;
-    overflow-x: hidden;
-    overflow-y: auto;
-    display: block;
-    width: 100%;
-    height: 400px;
-}
-.show-problem-detail .navber-problem a{
-      width: 100%;
-      display: block;
-      border-bottom: 1px solid #204060;
-      color: #204060;
-      padding: 10px;
-      text-decoration: none;
+.navbar-study-top .navbar-user-study-top .navber-user-study-top-content .button-navber-user-study-content .logout-button-navber-user-study-content{
     cursor: pointer;
-  }
-.show-problem-detail .navber-problem a:hover{
-    background-color: #204060;
-    color: white;
+    float: left;
+    width: 50%;
+    height: 100%;
+
+    background-color: white;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+.main-study-middle{
+     display: block;
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     padding-top: 50px;
+    padding-bottom: 50px;
+ }
+.main-study-middle .left-main-study-middle{
+     float: left;
+     width: 50%;
+     height: 100%;
+    padding: 10px;
+
+ }
+.main-study-middle .left-main-study-middle iframe{
+    width:100%;
+    height: 80%;
+   border: 0;
+
+
 
 }
+.main-study-middle .left-main-study-middle .show-error{
+    background-color: white;
+    width: 100%;
+    height: 20%;
+    border: 1px solid #204056;
+}
+.main-study-middle .right-main-study-middle{
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+
+}
+
+.main-study-middle .right-main-study-middle select{
+
+    width: 100%;
+    height: 5%;
+    border: 1px solid #204056;
+    border-radius:0;
+    margin-bottom: 1%;
+
+}
+.main-study-middle .right-main-study-middle #editor{
+    width: 100%;
+    height: 95%;
+
+}
+.navbar-study-bottom{
+    position: absolute;
+
+    width: 100%;
+    display: block;
+    height: 50px;
+    background-color: white;
+    bottom: 0px;
+
+}
+.navbar-study-bottom .left-navber-study-bottom{
+     width: 50%;
+     height: 100%;
+
+    float: left;
+    padding-left: 10px;
+
+ }
+.navbar-study-bottom .left-navber-study-bottom p{
+    line-height: 50px;
+    padding: 0;
+    margin: 0
+}
+.navbar-study-bottom .left-navber-study-bottom p.complete{
+    color: #00b4a2;
+}
+.navbar-study-bottom .left-navber-study-bottom p.error{
+    color: red;
+}
+.navbar-study-bottom .right-navber-study-bottom{
+     width: 50%;
+     height: 100%;
+     float: left;
+    padding-left: 10px;
+    padding-right: 5px;
+ }
+.navbar-study-bottom .right-navber-study-bottom button{
+    border: 0;
+    background-color: #204056;
+    color: white;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 5px;
+    display: inline;
+}
+.navbar-study-bottom .right-navber-study-bottom button.select-file{
+    background-color: red;
+    color: white;
+}
+.navbar-study-bottom .right-navber-study-bottom p{
+    line-height: 50px;
+    margin-right: 5px;
+    display: inline;
+}
+
+.navbar-study-bottom .right-navber-study-bottom .right-next-problem{
+    float: right;
+    height: 100%;
+}
+/*end studypage*/
 
 .card-student{
      width: 100%;
@@ -522,7 +660,7 @@ body{
     height: 60px;
 
     display: block;
-    border: 1px solid #204060;
+    border: 1px solid #204056;
     margin: 5px;
 }
 .card-problem-detail .card-problem-detail-left{
