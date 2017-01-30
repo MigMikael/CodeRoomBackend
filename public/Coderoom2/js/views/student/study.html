@@ -1,18 +1,20 @@
         <div style="height: 100%;width: 100%;">
 
             <div class="navbar-study-top">
-                <div class="navber-button-problem">
 
+                <div class="navber-button-problem">
+                    <button ng-click="openNavview()">1.For</button>
                 </div>
+
                 <div class="navbar-user-study-top">
-                    <div class="circle-user-study">
-                        <img src="Thanadej.jpg">
+                    <div class="circle-user-study" ng-click="openCarduser()">
+                        <img src="{{user.image}}">
                     </div>
-                    <div class="navber-user-study-top-content">
+                    <div class="navber-user-study-top-content" id="showCarduser">
                         <div class="card-navber-user-study-content">
-                            <img src="Thanadej.jpg">
-                            <p>07570497</p>
-                            <h4>Thanadej Phadtong</h4>
+                            <img src="{{user.image}}">
+                            <p>{{user.student_id}}</p>
+                            <h4>{{user.name}}</h4>
                         </div>
                         <div class="button-navber-user-study-content">
                             <div class="profile-button-navber-user-study-content">
@@ -25,20 +27,15 @@
                     </div>
                 </div>
             </div>
-            <div class="hover-nav">
+            <div class="hover-nav" id="hover">
                 <div class="hadder-hover-nav">
-                    <h4>Lesson Name</h4>
+                    <h4>{{study.name}}</h4>
                 </div>
                 <div class="list-problem">
-                    <div class="hedder-list-problem">
-                        <p>1.For</p>
+                    <div class="hedder-list-problem" ng-repeat="problem in study.problems">
+                        <p>{{$index}}.problem.name</p>
                     </div>
-                    <div class="problem">
-                        <p>2.While</p>
-                    </div>
-                    <div class="problem">
-                        <p>2.While</p>
-                    </div>
+
                 </div>
                 <div class="show-problem-detail2">
                     <table class="table">
@@ -60,10 +57,11 @@
                     <div class="show-error"></div>
                 </div>
                 <div class="right-main-study-middle">
-                    <select>
-                        <option>hello</option>
+                    <select ng-model="numberFile">
+                        <option ng-repeat="file in allFiles" value="{{file.id}}">{{file.filename}}</option>
                     </select>
-                    <div id="editor" ></div>
+
+                    <div ui-ace ng-model="aceValue"></div>
                 </div>
             </div>
             <div class="navbar-study-bottom">
@@ -71,8 +69,8 @@
                     <p>Error</p>
                 </div>
                 <div class="right-navber-study-bottom">
-                    <button class="select-file">Select File</button>
-                    <p>.java</p>
+                    <button class="select-file" type="file" ngf-select ng-model="zip" name="zip" accept="/*" >Select Files</button>
+                    <p>{{zip.name}}</p>
                     <button>Submit</button>
                     <div class="right-next-problem">
                         <button>Next</button>

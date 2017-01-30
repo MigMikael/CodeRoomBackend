@@ -1,5 +1,5 @@
 
-app.controller('courseController',function($scope,$http,courseStudent,$localStorage,$routeParams,$location) {
+app.controller('viewCourseController',function($scope,$http,courseStudent,$localStorage,$routeParams,$location) {
     $scope.course;
     $scope.cardUser = false;
     $localStorage.course_id = $routeParams.course_id;
@@ -33,8 +33,6 @@ app.controller('courseController',function($scope,$http,courseStudent,$localStor
         }
         $scope.cardUser = !$scope.cardUser;
     };
-
-
 
 
 });

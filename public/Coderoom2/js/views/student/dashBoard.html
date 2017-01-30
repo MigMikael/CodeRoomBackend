@@ -1,11 +1,26 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a href="#/">CODEROOM</a>
+            <a ng-click="go('/dashboardstudent')">CODEROOM</a>
         </div>
         <div class="navbar-user">
-            <div class="circle-user">
-                <img ngf-src="user.student.image">
+            <div class="circle-user" ng-click="openCarduser()">
+                <img src="{{user.image}}">
+            </div>
+            <div class="navber-user-content" id="showCarduser">
+                <div class="card-navbar-content">
+                    <img src="{{user.image}}">
+                    <p>{{user.student_id}}</p>
+                    <h4>{{user.name}}</h4>
+                </div>
+                <div class="zone-button-navbar-user-content" >
+                    <div class="button-navbar-user-content-profile">
+                        Profile
+                    </div>
+                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
+                        Logout
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -18,7 +33,7 @@
     <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="myCourse in dataDashboard.student.courses">
 
             <div class="card-course" ng-click="go('/coursestudent/'+myCourse.id)" >
-                <img ngf-src="myCourse.image">
+                <img src="{{myCourse.image}}">
                 <div class="card-headder">
                     <h4 style="margin: 0">{{myCourse.name}}</h4>
                 </div>
@@ -48,9 +63,9 @@
 
 
     <div class="col-md-12 col-sm-12 col-xs-12" ng-repeat="course in dataDashboard.courses | filter: nameCourse">
-        <div class="list-course" >
+        <div class="list-course" ng-click="go('/viewcoursestudent/'+course.id)">
             <div class="img-list-course">
-                <img ngf-src="course.image">
+                <img src="{{course.image}}">
             </div>
             <div class="list-course-headder">
                 <h4 style="margin: 0">{{course.name}}</h4>

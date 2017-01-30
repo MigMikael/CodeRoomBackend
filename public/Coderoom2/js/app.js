@@ -1,10 +1,14 @@
-var app = angular.module("CodeRoom", ["ngRoute","ngStorage"]);
+var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace"]);
 app.config(function($routeProvider) {
     $routeProvider
         //student
         .when("/dashboardstudent", {
             templateUrl : "js/views/student/dashBoard.html",
             controller: "dashBoardstudentController"
+        })
+        .when("/viewcoursestudent/:course_id", {
+            templateUrl : "js/views/student/viewCourse.html",
+            controller: "viewCourseController"
         })
         .when("/coursestudent/:course_id", {
             templateUrl : "js/views/student/course.html",

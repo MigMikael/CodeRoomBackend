@@ -1,23 +1,39 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a href="#/">CODEROOM</a>
+            <a ng-click="go('/dashboardstudent')">CODEROOM</a>
         </div>
         <div class="navbar-user">
-            <div class="circle-user">
-                <img src="Thanadej.jpg">
+            <div class="circle-user" ng-click="openCarduser()">
+                <img src="{{user.image}}">
+            </div>
+            <div class="navber-user-content" id="showCarduser">
+                <div class="card-navbar-content">
+                    <img src="{{user.image}}">
+                    <p>{{user.student_id}}</p>
+                    <h4>{{user.name}}</h4>
+                </div>
+                <div class="zone-button-navbar-user-content" >
+                    <div class="button-navbar-user-content-profile">
+                        Profile
+                    </div>
+                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
+                        Logout
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 </nav>
+
 <div class="container">
     <div style="width: 100%;background-color: #204060;height: 60px;text-align: center;margin-bottom: 20px">
         <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">Teachers</h3>
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="teacher in viewMember.teachers">
         <div class="card-teacher">
-            <img ngf-src="teacher.image">
+            <img src="{{teacher.image}}">
             <h4>{{teacher.name}}</h4>
         </div>
     </div>
@@ -30,7 +46,7 @@
     </div>
     <div class="col-md-4 col-sm-6 col-xs-12"  ng-repeat="student in viewMember.students">
         <div class="card-student">
-            <img ngf-src="student.image">
+            <img src="{{student.image}}">
             <p>{{student.student_id}}</p>
             <p>{{student.name}}</p>
         </div>

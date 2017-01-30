@@ -15,6 +15,7 @@ app.controller('homeController',function($scope,$http,$localStorage,$location) {
 
     };
 
+
     $scope.postUser ={};
     $localStorage.user;
 
@@ -23,7 +24,9 @@ app.controller('homeController',function($scope,$http,$localStorage,$location) {
             .then(
                 function(response){
                     // success
-                    $localStorage.user = response.data;
+                    $localStorage.user = addPathimg(response.data);
+                    console.log($localStorage.user);
+
                     checkRole($localStorage.user.role);
                 },
                 function(response){
@@ -35,6 +38,10 @@ app.controller('homeController',function($scope,$http,$localStorage,$location) {
         $location.path( path );
     };
 
+    function addPathimg(data){
+        data.image = "http://localhost:8000/api/image/"+data.image;
+        return data;
+    }
 
     $scope.logout = function () {
 
