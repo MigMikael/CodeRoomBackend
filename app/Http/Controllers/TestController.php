@@ -87,5 +87,13 @@ class TestController extends Controller
         }
     }
 
+    public function testGetQuestion()
+    {
+        $dirName = 'problem/1_SigmoidFunction/SigmoidFunction/question/SigmoidFunction.pdf';
+        $file = Storage::disk('public')->get($dirName);
+
+        return response($file, 200)->header('Content-Type', 'application/pdf');
+    }
+
 
 }

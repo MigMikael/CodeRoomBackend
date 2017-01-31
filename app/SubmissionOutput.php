@@ -13,6 +13,7 @@ class SubmissionOutput extends Model
         'submissionfile_id',
         'content',
         'score',
+        'error',
     ];
 
     public function submissionFile()

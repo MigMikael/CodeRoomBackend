@@ -13,6 +13,8 @@ class AdminAuthenticate
      * @param  \Closure  $next
      * @return mixed
      */
+
+    //Todo change admin middleware
     public function handle($request, Closure $next)
     {
         if(!($request->session()->has('adminID'))){

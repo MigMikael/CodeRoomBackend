@@ -66,6 +66,7 @@ Route::get('test/string_pos', 'TestController@testStrPos');
 Route::get('test/template2', 'TestController@testTemplate2');
 Route::get('test/token', 'TestController@testToken');
 Route::get('test/current_user_profile','TestController@getUserProfile');
+Route::get('test/getQuestion', 'TestController@testGetQuestion');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
@@ -95,14 +96,14 @@ Route::get('register', 'UserAuthController@register');
 #--------------------------------------------------------------------------------------------------------
 #                               Student API
 #--------------------------------------------------------------------------------------------------------
-Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
+//Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
     Route::get('api/student/course/{id}', 'CourseController@getDetail');
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
     Route::get('api/student/lesson/{id}', 'LessonController@getDetail');
 
-});
+//});
 
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API

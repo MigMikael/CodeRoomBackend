@@ -43,8 +43,8 @@ class CourseController extends Controller
         $file = Request::file('photo');
 
         Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
-        $image_path = 'http://localhost:8000/api/course/image/'. str_replace('.','_',$file->getClientOriginalName());
-        Log::info('#### '.$image_path);
+        $image_path = url('api/course/image/'). str_replace('.','_',$file->getClientOriginalName());
+        //Log::info('#### '.$image_path);
 
         $course_data = [
             'name' => $name , 'color' => $color, 'status' => $status, 'image' => $image_path
@@ -90,7 +90,7 @@ class CourseController extends Controller
         if(Request::hasFile('photo')){
             $file = Request::file('photo');
             Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
-            $image_path = 'http://localhost:8000/api/course/image/'. str_replace('.','_',$file->getClientOriginalName());
+            $image_path = url('api/course/image/'). str_replace('.','_',$file->getClientOriginalName());
             Log::info('#### '.$image_path);
         }
         $newCourse = [
@@ -264,13 +264,28 @@ class CourseController extends Controller
             'students', 'teachers', 'lessons', 'badges', 'announcements'
         ])->findOrFail($id);
 
-        /*foreach ($course->students as $student){
-            $student->pivot;
+        $student = Student::findOrFail($id);
+
+        foreach ($course->lessons as $lesson){
+            $student_course = StudentCourse::where([
+                ['student_id', '=', $student->id],
+                ['course_id', '=', $course->id]
+            ])->first();
+
+            $student_lesson = StudentLesson::where([
+                ['student_course_id', '=', $student_course->id],
+                ['lesson_id', '=', $lesson->id]
+            ])->first();
+
+            if($student_lesson == null){
+                $lesson['progress'] = 0;
+            }else{
+                $lesson['progress'] = $student_lesson->progress;
+            }
+
+            $lesson['problems_count'] = $lesson->problems()->count();
         }
-        foreach ($course->teachers as $teacher){
-            $teacher->pivot;
-        }*/
-        $course->lessons;
+
         $course->badges;
         $course->announcements;
 

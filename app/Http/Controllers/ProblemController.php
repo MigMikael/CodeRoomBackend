@@ -144,10 +144,11 @@ class ProblemController extends Controller
     //Todo rewrite this method
     public function getQuestion($problem_id)
     {
-
         $problem = Problem::findOrFail($problem_id);
-        $file = Storage::disk('public')->get($problem->name.'.pdf');
 
-        return (new Response($file, 200))->header('Content-Type', 'application/pdf');
+        $dirName = 'problem/'.$problem->id.'_'.$problem->name.'/'.$problem->name.'/question/'.$problem->name.'.pdf';
+        $file = Storage::disk('public')->get($dirName);
+
+        return response($file, 200)->header('Content-Type', 'application/pdf');
     }
 }

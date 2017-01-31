@@ -19,7 +19,8 @@ class Teacher extends Model
         'image',
         'username',
         'password',
-        'token'
+        'token',
+        'role',
     ];
 
     public function courses()

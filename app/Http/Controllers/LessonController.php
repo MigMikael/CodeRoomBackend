@@ -119,8 +119,9 @@ class LessonController extends Controller
     public function getDetail($id)
     {
         $lesson = Lesson::findOrFail($id);
-        $lesson->problems;
-
+        foreach ($lesson->problems as $problem){
+            $problem['question'] = url('problem/getQuestion/'.$problem->id);
+        }
 
         return $lesson;
     }
