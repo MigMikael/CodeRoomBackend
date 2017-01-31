@@ -3,7 +3,7 @@ app.controller('viewCourseController',function($scope,$http,courseStudent,$local
     $scope.course;
     $scope.cardUser = false;
     $localStorage.course_id = $routeParams.course_id;
-    $scope.user = $localStorage.user;
+
     console.log($scope.user);
 
     getData($localStorage.user.token,$localStorage.course_id);

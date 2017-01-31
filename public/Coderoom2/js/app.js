@@ -1,6 +1,12 @@
 var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace"]);
 app.config(function($routeProvider) {
     $routeProvider
+
+
+        .when("/selectrole", {
+            templateUrl : "js/views/selectRole.html",
+            controller: "selectRoleController"
+        })
         //student
         .when("/dashboardstudent", {
             templateUrl : "js/views/student/dashBoard.html",
@@ -40,6 +46,24 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/teacher/problem.html",
             controller: "problemTeacherController"
         })
+        .when("/viewMemberteacher", {
+            templateUrl : "js/views/teacher/viewMember.html",
+            controller: "viewMemberteacherController"
+        })
+        .when("/addlessonteacher", {
+            templateUrl : "js/views/teacher/addLesson.html",
+            controller: "addLessonteacherController"
+        })
+        .when("/addproblemteacher", {
+            templateUrl : "js/views/teacher/addProblem.html",
+            controller: "addProblemteacherController"
+        })
+        .when("/addannouncement", {
+            templateUrl : "js/views/teacher/addAnnouncement.html",
+            controller: "addAnnouncementteacherController"
+        })
+
+
 
         .otherwise({
         redirectTo: '/home',

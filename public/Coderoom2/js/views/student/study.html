@@ -57,9 +57,12 @@
                     <div class="show-error"></div>
                 </div>
                 <div class="right-main-study-middle">
-                    <select ng-model="numberFile">
-                        <option ng-repeat="file in allFiles" value="{{file.id}}">{{file.filename}}</option>
-                    </select>
+                    <!--<select ng-model="numberFile">-->
+                        <!--<option ng-repeat="file in allFiles" value="{{file.id}}">{{file.filename}}</option>-->
+                    <!--</select>-->
+                    <div class="list-file">
+                        <button ng-repeat="file in allFiles" ng-click="changeFiles(file.id)">{{file.filename}}</button>
+                    </div>
 
                     <div ui-ace ng-model="aceValue"></div>
                 </div>
@@ -71,7 +74,7 @@
                 <div class="right-navber-study-bottom">
                     <button class="select-file" type="file" ngf-select ng-model="zip" name="zip" accept="/*" >Select Files</button>
                     <p>{{zip.name}}</p>
-                    <button>Submit</button>
+                    <button ng-click="test()">Submit</button>
                     <div class="right-next-problem">
                         <button>Next</button>
                     </div>

@@ -633,12 +633,32 @@ body{
     height: 5%;
     border: 1px solid #204056;
     border-radius:0;
-    margin-bottom: 1%;
-
+}
+.main-study-middle .right-main-study-middle .list-file{
+    width: 100%;
+    height: 10%;
+    border-radius:0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    background-color: white;
+}
+.main-study-middle .right-main-study-middle .list-file button{
+    display: inline;
+    background-color: #204056;
+    color: white;
+    height: 100%;
+    margin-right: 2px;
+    border: none;
+    padding: 0 7px
+}
+.main-study-middle .right-main-study-middle .list-file button:focus{
+    background-color: #00b4a2;
+    outline: none;
 }
 .main-study-middle .right-main-study-middle .ace_editor{
     width: 100%;
-    height: 95%;
+    height: 90%;
 
 }
 .navbar-study-bottom{
@@ -721,8 +741,33 @@ body{
 .card-student p{
     display: block;
     line-height: 20px;
-}
 
+}
+.card-student .right-card-student{
+     float: right;
+
+}
+.card-student .right-card-student .button-right-card-student{
+
+    height: 100%;
+    background-color: white;
+    color: #00b4a2;
+    text-align: center;
+
+}
+.card-student .right-card-student .button-right-card-student{
+
+    height: 100%;
+    background-color: white;
+    color: #00b4a2;
+    text-align: center;
+
+
+}
+.card-student .right-card-student .button-right-card-student p{
+    line-height: 50px;
+    cursor: pointer;
+ }
 .card-problem-detail{
     background-color: white;
     width: 100%;
@@ -775,4 +820,79 @@ body{
 .card-problem-detail .card-problem-detail-right span{
     line-height: 60px;
     text-align: center;
+}
+
+
+.list-file-problem{
+    width: 100%;
+    height: 51px;
+    border-radius:0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    background-color: white;
+
+}
+.list-file-problem button{
+    display: inline;
+    background-color: #204056;
+    color: white;
+    height: 100%;
+    margin-right: 2px;
+    border: none;
+    padding: 0 7px
+}
+.list-file-problem button:focus{
+    background-color: #00b4a2;
+    outline: none;
+
+}
+.card-all-add{
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+
+}
+.card-all-add button.submit-card-all-add{
+    margin-top: 10px;
+    border: none;
+    background-color: #204056;
+    color: white;
+    padding: 10px;
+    float: right;
+    display: block;
+}
+
+.progress-main{
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    float: left;
+    border-top: none;
+    margin-bottom:10px;
+
+}
+.progress-main .progress {
+    width: 90%;
+    height: 6px;
+    float: left;
+    background-color: lightgray;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 0;
+}
+
+.progress-main .progress .progress-bar{
+    background-image: none;
+    background-color: #204056;
+}
+.progress-main .current-work{
+    width: 10%;
+    float: right;
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 8px;
+    color: #204056;
+}
+.progress-main .current-work p{
+   float: right;
 }

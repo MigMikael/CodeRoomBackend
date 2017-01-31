@@ -3,7 +3,7 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
     $scope.cardUser = false;
     getData($localStorage.user.token);
     $scope.dataDashboard;
-    $scope.user = $localStorage.user;
+    $rootScope.user = $localStorage.user;
 
     function getData(token) {
 

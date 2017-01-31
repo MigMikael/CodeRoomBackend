@@ -1,8 +1,8 @@
 
-app.controller('viewMemberController',function($scope,viewMember,$localStorage,$http,$routeParams,$location) {
+app.controller('viewMemberteacherController',function($scope,viewMember,$localStorage,$http,$routeParams,$location) {
     $scope.viewMember;
     $scope.cardUser = false;
-
+    $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
     getData($localStorage.user.token,$localStorage.course_id);
     function getData(token,course_id) {
@@ -48,3 +48,6 @@ app.controller('viewMemberController',function($scope,viewMember,$localStorage,$
     };
 });
 
+/**
+ * Created by thanadej on 1/30/2017 AD.
+ */
