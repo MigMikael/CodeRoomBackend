@@ -2,7 +2,7 @@
 app.controller('viewMemberController',function($scope,viewMember,$localStorage,$http,$routeParams,$location) {
     $scope.viewMember;
     $scope.cardUser = false;
-
+    $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
     getData($localStorage.user.token,$localStorage.course_id);
     function getData(token,course_id) {
@@ -46,5 +46,24 @@ app.controller('viewMemberController',function($scope,viewMember,$localStorage,$
         }
         $scope.cardUser = !$scope.cardUser;
     };
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
+
+    $scope.logout = function () {
+
+        $http.get('/logout', {headders:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    delete $localStorage.user;
+                    $location.path('/home');
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
 });
 

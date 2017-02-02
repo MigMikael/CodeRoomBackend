@@ -1,11 +1,26 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a href="#/">CODEROOM</a>
+            <a ng-click="go('/dashboardteacher')">CODEROOM</a>
         </div>
         <div class="navbar-user">
-            <div class="circle-user">
-                <img src="Thanadej.jpg">
+            <div class="circle-user" ng-click="openCarduser()">
+                <img src="{{user.image}}">
+            </div>
+            <div class="navber-user-content" id="showCarduser">
+                <div class="card-navbar-content">
+                    <img src="{{user.image}}">
+                    <p>{{user.student_id}}</p>
+                    <h4>{{user.name}}</h4>
+                </div>
+                <div class="zone-button-navbar-user-content" >
+                    <div class="button-navbar-user-content-profile">
+                        Profile
+                    </div>
+                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
+                        Logout
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -15,36 +30,21 @@
     <div style="width: 100%;background-color: #204060;height: 60px;text-align: center;margin-bottom: 20px">
         <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">My Courses</h3>
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12" >
-        <div class="card-course">
-            <img src="c.png">
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="course in dataDashboard.teacher.courses">
+        <div class="card-course" ng-click="go('/courseteacher/'+course.id)">
+            <img src="{{course.image}}">
             <div class="card-headder">
-                <h4 style="margin: 0">Comprogramming II</h4>
+                <h4 style="margin: 0">{{course.name}}</h4>
             </div>
             <div class="list-icon">
                 <span class="glyphicon glyphicon glyphicon-user"></span>
-                <span>{{5}}</span>
+                <span>{{course.students_count + course.teachers_count}}</span>
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
-                <span>{{5}}</span>
+                <span>{{course.lessons_count}}</span>
             </div>
 
 
         </div>
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12" >
-        <div class="card-course">
-            <img src="c.png">
-            <div class="card-headder">
-                <h4 style="margin: 0">Comprogramming II</h4>
-            </div>
-            <div class="list-icon">
-                <span class="glyphicon glyphicon glyphicon-user"></span>
-                <span>{{5}}</span>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                <span>{{5}}</span>
-            </div>
 
-
-        </div>
-    </div>
 </div>

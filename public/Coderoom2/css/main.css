@@ -352,7 +352,7 @@ body{
 .detail-card-coursepage .l-a-f-card-course .icon-l-a-f-card-course{
     text-align: center;
     border: 1px solid #204056;
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
     background-color: white;
     width: 150px;
 
@@ -472,6 +472,7 @@ body{
      float: right;
      background-color: #EEEEEE;
      padding: 10px;
+    overflow-x: auto;
      overflow-y: auto;
  }
 .hover-nav .show-problem-detail2 table.table tr{
@@ -851,16 +852,20 @@ body{
     width: 100%;
     padding: 15px;
     background-color: white;
+    clear: both;
+    height: 100%;
+    display: table;
 
 }
 .card-all-add button.submit-card-all-add{
-    margin-top: 10px;
+
     border: none;
     background-color: #204056;
     color: white;
     padding: 10px;
     float: right;
     display: block;
+    margin-top: 10px;
 }
 
 .progress-main{
@@ -895,4 +900,45 @@ body{
 }
 .progress-main .current-work p{
    float: right;
+}
+
+
+/*test drang drop*/
+.simpleDemo ul[dnd-list],
+.simpleDemo ul[dnd-list] > li {
+    position: relative;
+}
+
+
+.simpleDemo ul[dnd-list] {
+    min-height: 60px;
+    padding-left: 0px;
+}
+
+
+.simpleDemo ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+
+.simpleDemo ul[dnd-list] .dndPlaceholder {
+    display: block;
+    background-color: #EEEEEE;
+    min-height: 60px
+}
+
+.simpleDemo ul[dnd-list] li {
+    background-color: white;
+    border: 1px solid #204056;
+    height: 60px;
+    display: block;
+    line-height:55px;
+    margin-bottom: 1px;
+    padding-left: 10px;
+}
+
+
+.simpleDemo ul[dnd-list] li.selected {
+    background-color: #dff0d8;
+    color: #00b4a2;
 }

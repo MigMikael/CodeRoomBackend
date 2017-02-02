@@ -3,7 +3,7 @@
             <div class="navbar-study-top">
 
                 <div class="navber-button-problem">
-                    <button ng-click="openNavview()">1.For</button>
+                    <button ng-click="openNavview()">{{problem.name}}</button>
                 </div>
 
                 <div class="navbar-user-study-top">
@@ -31,37 +31,97 @@
                 <div class="hadder-hover-nav">
                     <h4>{{study.name}}</h4>
                 </div>
-                <div class="list-problem">
-                    <div class="hedder-list-problem" ng-repeat="problem in study.problems">
-                        <p>{{$index}}.problem.name</p>
+                <div class="list-problem" >
+                    <div class="hedder-list-problem" ng-repeat="problem in study.problems" ng-click="selectProblem($index)">
+                        <p>{{$index+1}}.{{problem.name}}</p>
                     </div>
 
                 </div>
                 <div class="show-problem-detail2">
-                    <table class="table">
-                        <tr style="background-color: #204056;color: white">
-                            <th>hello</th>
-                        </tr>
-                        <tr>
-                            <td>hello</td>
-                        </tr>
+                    <span ng-repeat="file in result.submission_files">
+                        <table class="table" ng-repeat="class in file.results">
+                            <tr style="background-color: #204056;color: white">
+                                <th>access_modifier</th>
+                                <th>non_access_modifier</th>
+                                <th>data_type</th>
+                                <th>return_type</th>
+                                <th>name</th>
+                                <th>parameter</th>
+                                <th>recursive</th>
+                                <th>loop</th>
+                                <th>Score</th>
+                            </tr>
+                            <tr>
 
+                            </tr>
+                            <tr ng-repeat="constructor in class.constructors">
+                                <td ng-show="constructor.access_modifier!==''">{{constructor.access_modifier}}</td>
+                                <td ng-show="constructor.access_modifier===''">-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td ng-show="constructor.name!==''">{{constructor.name}}</td>
+                                <td ng-show="constructor.name===''">-</td>
+                                <td ng-show="constructor.parameter!==''">{{constructor.parameter}}</td>
+                                <td ng-show="constructor.parameter===''">-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td ng-show="constructor.score!==''">{{constructor.score}}</td>
+                                <td ng-show="constructor.score===''">-</td>
+                            </tr>
+                            <tr ng-repeat="attribute in class.attributes">
+                                <td ng-show="attribute.access_modifier!==''">{{attribute.access_modifier}}</td>
+                                <td ng-show="attribute.access_modifier===''">-</td>
+                                <td ng-show="attribute.non_access_modifier!==''">{{attribute.non_access_modifier}}</td>
+                                <td ng-show="attribute.non_access_modifier===''">-</td>
+                                <td ng-show="attribute.data_type!==''">{{attribute.data_type}}</td>
+                                <td ng-show="attribute.data_type===''">-</td>
+                                <td>-</td>
+                                <td ng-show="attribute.name!==''">{{attribute.name}}</td>
+                                <td ng-show="attribute.name===''">-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td ng-show="attribute.score!==''">{{attribute.score}}</td>
+                                <td ng-show="attribute.score===''">-</td>
 
-                    </table>
+                            </tr>
+                            <tr ng-repeat="method in class.methods">
+                                <td ng-show="method.access_modifier!==''">{{method.access_modifier}}</td>
+                                <td ng-show="method.access_modifier===''">-</td>
+                                <td ng-show="method.non_access_modifier!==''">{{method.non_access_modifier}}</td>
+                                <td ng-show="method.non_access_modifier===''">-</td>
+                                <td>-</td>
+                                <td ng-show="method.return_type!==''">{{method.return_type}}</td>
+                                <td ng-show="method.return_type===''">-</td>
+                                <td ng-show="method.name!==''">{{method.name}}</td>
+                                <td ng-show="method.name===''">-</td>
+                                <td ng-show="method.parameter!==''">{{method.parameter}}</td>
+                                <td ng-show="method.parameter===''">-</td>
+                                <td ng-show="method.recursive!==''">{{method.recursive}}</td>
+                                <td ng-show="method.recursive===''">-</td>
+                                <td ng-show="method.loop!==''">{{method.loop}}</td>
+                                <td ng-show="method.loop===''">-</td>
+                                <td ng-show="method.score!==''">{{method.score}}</td>
+                                <td ng-show="method.score===''">-</td>
+
+                            </tr>
+
+                        </table>
+                    </span>
+
 
                 </div>
             </div>
             <div class="main-study-middle">
                 <div class="left-main-study-middle">
-                    <iframe src="test.pdf"></iframe>
+                    <iframe ng-src="{{problem.question}}"></iframe>
                     <div class="show-error"></div>
                 </div>
                 <div class="right-main-study-middle">
-                    <!--<select ng-model="numberFile">-->
-                        <!--<option ng-repeat="file in allFiles" value="{{file.id}}">{{file.filename}}</option>-->
-                    <!--</select>-->
+
                     <div class="list-file">
-                        <button ng-repeat="file in allFiles" ng-click="changeFiles(file.id)">{{file.filename}}</button>
+                        <button ng-repeat="file in allFiles" ng-click="changeFiles($index)">{{file.filename}}</button>
                     </div>
 
                     <div ui-ace ng-model="aceValue"></div>

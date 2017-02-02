@@ -1,11 +1,26 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a href="#/">CODEROOM</a>
+            <a ng-click="go('/dashboardteacher')">CODEROOM</a>
         </div>
         <div class="navbar-user">
-            <div class="circle-user">
-                <img src="Thanadej.jpg">
+            <div class="circle-user" ng-click="openCarduser()">
+                <img src="{{user.image}}">
+            </div>
+            <div class="navber-user-content" id="showCarduser">
+                <div class="card-navbar-content">
+                    <img src="{{user.image}}">
+                    <p>{{user.student_id}}</p>
+                    <h4>{{user.name}}</h4>
+                </div>
+                <div class="zone-button-navbar-user-content" >
+                    <div class="button-navbar-user-content-profile">
+                        Profile
+                    </div>
+                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
+                        Logout
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -21,17 +36,20 @@
         <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
             <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Add Announcement</h3>
         </div>
-        <div class="card-all-add" style="height: 285px">
+        <form ng-form="addAnnouncement()">
+            <div class="card-all-add">
 
-            <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
-                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-bullhorn" aria-hidden="true"></i></span></span>
-                <input class="form-control left-border-none" placeholder="Announcement name" type="text" name="announcement" style="border: 0;border-radius: 0">
+                <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
+                    <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-bullhorn" aria-hidden="true"></i></span></span>
+                    <input class="form-control left-border-none" placeholder="Announcement name" type="text" name="announcement" ng-model="announcement.name" style="border: 0;border-radius: 0">
+                </div>
+
+                <textarea class="form-control" rows="7" id="comment" style="resize: none;border: 1px solid #204056" placeholder="Content" ng-model="announcement.content"></textarea>
+                <button class="submit-card-all-add" type="submit" value="submit">Submit</button>
+
             </div>
+        </form>
 
-            <textarea class="form-control" rows="7" id="comment" style="resize: none;border: 1px solid #204056" placeholder="Content"></textarea>
-            <button class="submit-card-all-add">Submit</button>
-
-        </div>
     </div>
     <div class="col-md-3">
         <div style="width: 100%">

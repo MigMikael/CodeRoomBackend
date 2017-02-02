@@ -1,4 +1,4 @@
-var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace"]);
+var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists']);
 app.config(function($routeProvider) {
     $routeProvider
 
@@ -34,33 +34,49 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/teacher/dashBoard.html",
             controller: "dashBoardteacherController"
         })
-        .when("/courseteacher", {
+        .when("/courseteacher/:course_id", {
             templateUrl : "js/views/teacher/course.html",
             controller: "courseTeacherController"
         })
-        .when("/listproblemteacher", {
+        .when("/listproblemteacher/:lesson_id", {
             templateUrl : "js/views/teacher/listProblem.html",
             controller: "listProblemteacherController"
         })
-        .when("/problemteacher", {
+        .when("/problemteacher/:prob_id", {
             templateUrl : "js/views/teacher/problem.html",
             controller: "problemTeacherController"
         })
-        .when("/viewMemberteacher", {
+        .when("/viewMemberteacher/:course_id", {
             templateUrl : "js/views/teacher/viewMember.html",
             controller: "viewMemberteacherController"
         })
-        .when("/addlessonteacher", {
+        .when("/addlessonteacher/:course_id", {
             templateUrl : "js/views/teacher/addLesson.html",
             controller: "addLessonteacherController"
         })
-        .when("/addproblemteacher", {
+        .when("/addproblemteacher/:lesson_id", {
             templateUrl : "js/views/teacher/addProblem.html",
             controller: "addProblemteacherController"
         })
-        .when("/addannouncement", {
+        .when("/addannouncementteacher/:course_id", {
             templateUrl : "js/views/teacher/addAnnouncement.html",
             controller: "addAnnouncementteacherController"
+        })
+        .when("/addstudentsortteacher", {
+            templateUrl : "js/views/teacher/addStudentSort.html",
+            controller: "addStudentSortController"
+        })
+        .when("/sortlessonteacher/:course_id", {
+            templateUrl : "js/views/teacher/sortLesson.html",
+            controller: "sortLessonController"
+        })
+        .when("/editlessonteacher/:lesson_id", {
+            templateUrl : "js/views/teacher/editLesson.html",
+            controller: "editLessonteacherController"
+        })
+        .when("/editproblem/:prob_id", {
+            templateUrl : "js/views/teacher/editProblem.html",
+            controller: "editProblemteacherController"
         })
 
 

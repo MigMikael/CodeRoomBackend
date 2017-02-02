@@ -1,11 +1,26 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a href="#/">CODEROOM</a>
+            <a ng-click="go('/dashboardteacher')">CODEROOM</a>
         </div>
         <div class="navbar-user">
-            <div class="circle-user">
-                <img src="Thanadej.jpg">
+            <div class="circle-user" ng-click="openCarduser()">
+                <img src="{{user.image}}">
+            </div>
+            <div class="navber-user-content" id="showCarduser">
+                <div class="card-navbar-content">
+                    <img src="{{user.image}}">
+                    <p>{{user.student_id}}</p>
+                    <h4>{{user.name}}</h4>
+                </div>
+                <div class="zone-button-navbar-user-content" >
+                    <div class="button-navbar-user-content-profile">
+                        Profile
+                    </div>
+                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
+                        Logout
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -14,41 +29,41 @@
 <div class="container">
     <div class="col-md-4" style="padding: 0">
         <div class="img-card-coursepage">
-            <img src="c.png">
+            <img src="{{course.image}}">
         </div>
     </div>
     <div class="col-md-8" style="padding: 0">
         <div class="detail-card-coursepage" >
             <div class="headder-card-coursepage">
-                <h3>Selected Topics in Software Engineering </h3>
+                <h3>{{course.name}} </h3>
             </div>
-            <div class="l-a-f-card-course">
+            <div class="l-a-f-card-course" >
                 <div class="col-md-12" style="margin-bottom: 30px;padding: 0">
-                    <div class="icon-l-a-f-card-course">
+                    <div class="icon-l-a-f-card-course" style="padding: 10px 0px 10px 10px;">
                         <span class="glyphicon glyphicon-book"></span>
-                        <span style="margin-left: 5px">{{10000}}</span>
+                        <span style="margin-left: 5px">{{course.lessons_count}}</span>
 
-                        <a style="color: #00b4a2;">Sort</a>
-                        <a style="background-color: #00b4a2;color: white;">Add</a>
+                        <a style="color: #00b4a2;" ng-click="go('/sortlessonteacher/'+course.id)">Sort</a>
+                        <a style="background-color: #00b4a2;color: white;" ng-click="go('/addlessonteacher/'+course.id)">Add</a>
                     </div>
 
 
                 </div>
                 <div class="col-md-12" style="margin-bottom: 30px;padding: 0">
-                    <div class="icon-l-a-f-card-course" >
+                    <div class="icon-l-a-f-card-course" style="padding: 10px 0px 10px 10px;">
                         <i class="fa fa-bullhorn" aria-hidden="true"></i>
 
-                        <span style="margin-left: 5px">{{10000}}</span>
-                        <a style="background-color: #00b4a2;color: white;border-left: none;">Add</a>
+                        <span style="margin-left: 5px">{{course.announcements_count}}</span>
+                        <a style="background-color: #00b4a2;color: white;border-left: none;" ng-click="go('/addannouncementteacher/'+course.id)">Add</a>
 
                     </div>
 
                 </div>
                 <div class="col-md-12" style="margin-bottom: 30px;padding: 0">
-                    <div class="icon-l-a-f-card-course">
+                    <div class="icon-l-a-f-card-course" style="padding: 10px 0px 10px 10px;">
                         <i class="fa fa-users"></i>
-                        <span style="margin-left: 5px">{{10000}}</span>
-                        <a style="background-color: #00b4a2;color: white;border-left: none">View</a>
+                        <span style="margin-left: 5px">{{course.students_count + course.teachers_count}}</span>
+                        <a style="background-color: #00b4a2;color: white;border-left: none" ng-click="go('/viewMemberteacher/'+course.id)">View</a>
                     </div>
 
                 </div>
@@ -68,114 +83,40 @@
         <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">
             <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Lessons</h3>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0">
+        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0" ng-repeat="lesson in course.lessons">
             <div class="list-course" style="padding-left: 15px">
-
-
-
-                <div class="list-course-headder">
-                    <h4 style="margin: 0">For</h4>
+                <div class="list-course-headder" ng-click="go('/listproblemteacher/'+lesson.id)">
+                    <h4 style="margin: 0">{{lesson.name}}</h4>
                 </div>
                 <div style="position: relative;display: block">
-                    <div class="list-course-icon" style="left: 0">
+                    <div class="list-course-icon" style="left: 0" ng-click="go('/listproblemteacher/'+lesson.id)">
                         <span>Problems</span>
-                        <span>{{5}}</span>
-                        <span>Quiz</span>
-                        <span>{{5}}</span>
-
+                        <span>{{lesson.problems_count}}</span>
                     </div>
                 </div>
-                <div class="list-course-join">
+                <div class="list-course-join" ng-click="go('/editlessonteacher/'+ lesson.id)">
                     <p>Edit</p>
                 </div>
-                <div class="list-course-join" style="background-color: white">
+                <div class="list-course-join" style="background-color: white" ng-click="deleteLesson(lesson.id)">
                     <p style="color: #00b4a2">Delete</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0">
-            <div class="list-course" style="padding-left: 15px">
 
 
-
-                <div class="list-course-headder">
-                    <h4 style="margin: 0">For</h4>
-                </div>
-                <div style="position: relative;display: block">
-                    <div class="list-course-icon" style="left: 0">
-                        <span>Problems</span>
-                        <span>{{5}}</span>
-                        <span>Quiz</span>
-                        <span>{{5}}</span>
-
-                    </div>
-                </div>
-                <div class="list-course-join">
-                    <p>Edit</p>
-                </div>
-                <div class="list-course-join" style="background-color: white">
-                    <p style="color: #00b4a2">Delete</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0">
-            <div class="list-course" style="padding-left: 15px">
-
-
-
-                <div class="list-course-headder">
-                    <h4 style="margin: 0">For</h4>
-                </div>
-                <div style="position: relative;display: block">
-                    <div class="list-course-icon" style="left: 0">
-                        <span>Problems</span>
-                        <span>{{5}}</span>
-                        <span>Quiz</span>
-                        <span>{{5}}</span>
-
-                    </div>
-                </div>
-                <div class="list-course-join">
-                    <p>Edit</p>
-                </div>
-                <div class="list-course-join" style="background-color: white">
-                    <p style="color: #00b4a2">Delete</p>
-                </div>
-            </div>
-        </div>
 
     </div>
     <div class="col-md-4 col-sm-4 col-xs-12" >
         <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">
             <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Announces</h3>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0">
+        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0" ng-repeat="announcement in course.announcements">
             <div class="announce-list">
                 <div class="announce-date">
-                    00.38 20/1/2560
+                    {{announcement.created_at}}
                 </div>
                 <div class="announce-detail">
-                    <h4>Annonunce name</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0">
-            <div class="announce-list">
-                <div class="announce-date">
-                    00.38 20/1/2560
-                </div>
-                <div class="announce-detail">
-                    <h4>Annonunce name</h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0">
-            <div class="announce-list">
-                <div class="announce-date">
-                    00.38 20/1/2560
-                </div>
-                <div class="announce-detail">
-                    <h4>Annonunce name</h4>
+                    <h4>{{announcement.name}}</h4>
                 </div>
             </div>
         </div>

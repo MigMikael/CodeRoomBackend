@@ -34,17 +34,15 @@
     </div>
     <div class="col-md-6">
         <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
-            <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Add Lesson</h3>
+            <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Edit Lesson</h3>
         </div>
         <div class="card-all-add">
-        <form ng-form="addLesson()">
+
             <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
                 <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-bullhorn" aria-hidden="true"></i></span></span>
-                <input class="form-control left-border-none" placeholder="Lesson name" type="text" name="name"  ng-model="lesson.name" style="border: 0;border-radius: 0">
+                <input class="form-control left-border-none" placeholder="Lesson name" type="text"  ng-model="lesson.name" style="border: 0;border-radius: 0">
             </div>
-            <button class="submit-card-all-add" type="submit">Submit</button>
-        </form>
-
+            <button class="submit-card-all-add" ng-click="editLesson()" >Submit</button>
 
         </div>
     </div>

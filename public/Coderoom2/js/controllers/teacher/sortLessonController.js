@@ -1,17 +1,17 @@
 
-app.controller('dashBoardstudentController',function($scope,$localStorage,dashBoardStudent,$http, $location,$rootScope) {
-    $scope.cardUser = false;
-    getData($localStorage.user.token);
-    $scope.dataDashboard;
-    $rootScope.user = $localStorage.user;
+app.controller('sortLessonController',function($scope,$localStorage,$routeParams,$http,$location,courseTeacher) {
 
-    function getData(token) {
+    $scope.user = $localStorage.user;
+    $localStorage.course_id = $routeParams.course_id;
 
-        dashBoardStudent.getData(token).then(
+    console.log($localStorage.course_id);
+    getData($localStorage.user.token,$localStorage.course_id);
+    function getData(token,course_id) {
+
+        courseTeacher.getData(token,course_id).then(
             function(response){
-                console.log(response.data);
-                $scope.dataDashboard = deleteCourse(response.data);
-                console.log($scope.dataDashboard);
+                $scope.course = response.data;
+                console.log($scope.course);
 
             },
             function(response){
@@ -19,23 +19,19 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
             });
 
     }
+    $scope.sortLesson = function(){
+        $http.post('', $scope.course)
+            .then(
+                function(response){
+                    $location.path('/courseteacher/'+$scope.course.id);
 
-
-    function deleteCourse(data){
-
-        for(i=0 ; i<data.student.courses.length ; i++){
-
-            for(j=0 ; j<data.courses.length ;j++){
-                if(data.student.courses[i].course_id===data.courses[j].id){
-
-                    data.courses.splice(j,1);
-
-
+                },
+                function(response){
+                    // failure callback
                 }
-            }
-        }
-        return data;
+            );
     }
+
 
     $scope.openCarduser  = function(){
         if($scope.cardUser){
@@ -48,7 +44,6 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
         }
         $scope.cardUser = !$scope.cardUser;
     };
-
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -68,6 +63,7 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
                 }
             );
     }
-
 });
+
+
 

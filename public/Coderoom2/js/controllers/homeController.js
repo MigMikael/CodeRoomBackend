@@ -26,7 +26,6 @@ app.controller('homeController',function($scope,$http,$localStorage,$location) {
                     // success
                     $localStorage.user = addPathimg(response.data);
                     console.log($localStorage.user);
-
                     checkRole($localStorage.user.role);
                 },
                 function(response){
@@ -63,9 +62,9 @@ app.controller('homeController',function($scope,$http,$localStorage,$location) {
     function checkRole(role){
         if(role==="student"){
            $location.path('/dashboardstudent');
-        }else if(role="teacher"){
+        }else if(role=="teacher"){
             $location.path('/dashboardteacher');
-        }else if(role="admin"){
+        }else if(role==="admin"){
 
         }
     }

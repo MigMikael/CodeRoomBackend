@@ -1,14 +1,30 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a href="#/">CODEROOM</a>
+            <a ng-click="go('/dashboardteacher')">CODEROOM</a>
         </div>
         <div class="navbar-user">
-            <div class="circle-user">
-                <img src="Thanadej.jpg">
+            <div class="circle-user" ng-click="openCarduser()">
+                <img src="{{user.image}}">
+            </div>
+            <div class="navber-user-content" id="showCarduser">
+                <div class="card-navbar-content">
+                    <img src="{{user.image}}">
+                    <p>{{user.student_id}}</p>
+                    <h4>{{user.name}}</h4>
+                </div>
+                <div class="zone-button-navbar-user-content" >
+                    <div class="button-navbar-user-content-profile">
+                        Profile
+                    </div>
+                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
+                        Logout
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </nav>
 <div class="container">
 
@@ -18,18 +34,17 @@
 
 
             <div class="list-course-headder">
-                <h4 style="margin: 0">For</h4>
+                <h4 style="margin: 0">{{lesson.name}}</h4>
             </div>
             <div style="position: relative;display: block">
                 <div class="list-course-icon" style="left: 0">
                     <span>Problems</span>
-                    <span>{{5}}</span>
-                    <span>Quiz</span>
-                    <span>{{5}}</span>
+                    <span>{{lesson.problems_count}}</span>
+
 
                 </div>
             </div>
-            <div class="list-course-join">
+            <div class="list-course-join" ng-click="go('/addproblemteacher/'+lesson.id)">
                 <p>Add</p>
             </div>
             <div class="list-course-join" style="background-color: white">
@@ -42,57 +57,24 @@
     <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">
         <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Problems</h3>
     </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="list-course" style="padding-left: 15px">
+    <div class="col-md-6 col-sm-12 col-xs-12" ng-repeat="problem in lesson.problems">
+        <div class="list-course" style="padding-left: 15px" ng-click="go('/problemteacher/'+problem.id)">
 
 
 
             <div class="list-course-headder" style="height: 60px" >
-                <h4 style="margin: 0;line-height: 50px">1.For</h4>
+                <h4 style="margin: 0;line-height: 50px">{{$index +1}}.{{problem.name}}</h4>
             </div>
 
-            <div class="list-course-join">
+            <div class="list-course-join" ng-click="go('/editproblem/'+problem.id)">
                 <p>Edit</p>
             </div>
-            <div class="list-course-join" style="background-color: white">
+            <div class="list-course-join" style="background-color: white" ng-click="deleteProblem(problem.id)">
                 <p style="color: #00b4a2">Delete</p>
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="list-course" style="padding-left: 15px">
 
-
-
-            <div class="list-course-headder" style="height: 60px" >
-                <h4 style="margin: 0;line-height: 50px">2.For</h4>
-            </div>
-
-            <div class="list-course-join">
-                <p>Edit</p>
-            </div>
-            <div class="list-course-join" style="background-color: white">
-                <p style="color: #00b4a2">Delete</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="list-course" style="padding-left: 15px">
-
-
-
-            <div class="list-course-headder" style="height: 60px" >
-                <h4 style="margin: 0;line-height: 50px">3.For</h4>
-            </div>
-
-            <div class="list-course-join">
-                <p>Edit</p>
-            </div>
-            <div class="list-course-join" style="background-color: white">
-                <p style="color: #00b4a2">Delete</p>
-            </div>
-        </div>
-    </div>
 
 </div>
 

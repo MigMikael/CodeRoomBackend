@@ -1,8 +1,14 @@
 
-app.controller('studyController',function($scope,studyStudent,$localStorage,$http,$routeParams,$location) {
+app.controller('studyController',function($scope,studyStudent,$localStorage,$http,$routeParams,$location,resultProblem) {
     $scope.isNav = false;
     $scope.cardUser = false;
+
+    $scope.user = $localStorage.user;
     $scope.study;
+    $scope.problem;
+    $scope.allFiles;
+    $scope.aceValue;
+    $scope.result;
 
     $localStorage.lesson_id = $routeParams.lesson_id;
     getData($localStorage.user.token,$localStorage.lesson_id);
@@ -41,6 +47,25 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         }
         $scope.cardUser = !$scope.cardUser;
     };
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
+
+    $scope.logout = function () {
+
+        $http.get('/logout', {headders:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    delete $localStorage.user;
+                    $location.path('/home');
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
 
 
 
@@ -51,14 +76,37 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         studyStudent.getData(token,lesson_id).then(
             function(response){
                 $scope.study = response.data;
-                console.log($scope.study);
+                $scope.problem = $scope.study.problems[0];
 
+                getResult(token,$localStorage.user.id,$scope.problem.id);
+
+                console.log($scope.study);
+                console.log($scope.problem);
             },
             function(response){
                 // failure call back
             });
 
     }
+    function  getResult(token,student_id,problem_id){
+        resultProblem.getData(token,student_id,problem_id).then(
+            function(response){
+                $scope.result = response.data;
+                $scope.allFiles = $scope.result.submission_files;
+                console.log($scope.result);
+            },
+            function(response){
+                // failure call back
+            });
+    }
+
+    $scope.selectProblem = function(prob_id){
+        console.log(prob_id);
+        $scope.problem = $scope.study.problems[prob_id];
+        getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
+        openNav();
+    };
+
     //uploadZip
     $scope.$watch(function () { return $scope.zip; }, function (newData, oldData) {
         $scope.zip = newData;
@@ -123,7 +171,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                                 var package = {packagename:"default package"};
                                 package.filename = folder[folder.length-1];
                                 package.code = content;
-                                package.id= readFiles;
+
                                 zipEntrys.push(package);
                                 readFiles++;
 
@@ -138,7 +186,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                             zipEntry.async("string").then(function success(content) {
                                 var package = {packagename:chackPackage[0]};
                                 package.filename = folder[folder.length-1];
-                                package.id= readFiles;
+
                                 package.code = content;
                                 zipEntrys.push(package);
                                 readFiles++;
@@ -161,7 +209,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         function  runMe(code){
             console.log(code);
         }
-    $scope.aceValue;
+
     $scope.$watch(function () { return $scope.numberFile; }, function (newData, oldData) {
         $scope.numberFile = newData;
 

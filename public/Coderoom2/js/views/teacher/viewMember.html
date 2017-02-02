@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a ng-click="go('/dashboardstudent')">CODEROOM</a>
+            <a ng-click="go('/dashboardteacher')">CODEROOM</a>
         </div>
         <div class="navbar-user">
             <div class="circle-user" ng-click="openCarduser()">
@@ -50,57 +50,15 @@
             <input class="form-control left-border-none" placeholder="Search Students..." type="text" name="Search" style="border: 0;border-radius: 0;float: left" ng-model="nameCourse">
         </div>
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-12"  >
+    <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="student in viewMember.students" >
         <div class="card-student" >
             <img src="{{student.image}}">
             <div style="float: left">
-                <p>07570497</p>
-                <p>Thanadej Phadtong</p>
+                <p>{{student.student_id}}</p>
+                <p>{{student.name}}</p>
             </div>
             <div class="right-card-student">
-                <div class="button-right-card-student">
-                    <p>Delete</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-12"  >
-        <div class="card-student" >
-            <img src="{{student.image}}">
-            <div style="float: left">
-                <p>07570497</p>
-                <p>Thanadej Phadtong</p>
-            </div>
-            <div class="right-card-student">
-                <div class="button-right-card-student">
-                    <p>Delete</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-12"  >
-        <div class="card-student" >
-            <img src="{{student.image}}">
-            <div style="float: left">
-                <p>07570497</p>
-                <p>Thanadej Phadtong</p>
-            </div>
-            <div class="right-card-student">
-                <div class="button-right-card-student">
-                    <p>Delete</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-12"  >
-        <div class="card-student">
-            <img src="{{student.image}}">
-            <div style="float: left">
-                <p>07570497</p>
-                <p>Thanadej Phadtong</p>
-            </div>
-            <div class="right-card-student">
-                <div class="button-right-card-student">
+                <div class="button-right-card-student" ng-click="deleteStudent()">
                     <p>Delete</p>
                 </div>
             </div>

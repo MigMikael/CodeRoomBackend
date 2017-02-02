@@ -1,13 +1,14 @@
 
-app.controller('viewMemberteacherController',function($scope,viewMember,$localStorage,$http,$routeParams,$location) {
+app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$localStorage,$http,$routeParams,$location) {
     $scope.viewMember;
     $scope.cardUser = false;
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
     getData($localStorage.user.token,$localStorage.course_id);
+
     function getData(token,course_id) {
 
-        viewMember.getData(token,course_id).then(
+        viewMemberTeacher.getData(token,course_id).then(
             function(response){
                 $scope.viewMember = addPathimage(response.data);
                 console.log($scope.viewMember);
@@ -46,6 +47,38 @@ app.controller('viewMemberteacherController',function($scope,viewMember,$localSt
         }
         $scope.cardUser = !$scope.cardUser;
     };
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
+
+    $scope.logout = function () {
+
+        $http.get('/logout', {headders:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    delete $localStorage.user;
+                    $location.path('/home');
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
+
+    $scope.deleteStudent = function(student_id){
+        $http.post('', student_id)
+            .then(
+                function(response){
+                    location.reload();
+                    getData($localStorage.user.token,$localStorage.course_id);
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
 });
 
 /**
