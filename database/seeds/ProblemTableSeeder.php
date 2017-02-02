@@ -19,7 +19,7 @@ class ProblemTableSeeder extends Seeder
             'evaluator' => 'java',
             'timelimit' => 1,
             'memorylimit' => 32000,
-            'is_parse' => 'true',
+            'is_parse' => 'false',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -31,7 +31,7 @@ class ProblemTableSeeder extends Seeder
             'evaluator' => 'java',
             'timelimit' => 1,
             'memorylimit' => 32000,
-            'is_parse' => 'true',
+            'is_parse' => 'false',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -43,7 +43,7 @@ class ProblemTableSeeder extends Seeder
             'evaluator' => 'java',
             'timelimit' => 1,
             'memorylimit' => 32000,
-            'is_parse' => 'true',
+            'is_parse' => 'false',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

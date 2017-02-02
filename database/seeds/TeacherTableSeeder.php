@@ -17,6 +17,7 @@ class TeacherTableSeeder extends Seeder
             'image' => 19,
             'username' => 'Pinyo',
             'password' => password_hash('Pinyo', PASSWORD_DEFAULT),
+            'role' => 'admin',
             'token' => 'WfHp37ebFTHwP12esAPrvJVWkXWLpsDf',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -27,6 +28,7 @@ class TeacherTableSeeder extends Seeder
             'image' => 20,
             'username' => 'Sirak',
             'password' => password_hash('Sirak', PASSWORD_DEFAULT),
+            'role' => 'normal',
             'token' => 'uDhNjRjBOSvpdLsV9vzqfdOibUusKUVw',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -37,6 +39,7 @@ class TeacherTableSeeder extends Seeder
             'image' => 21,
             'username' => 'Ratchadaporn',
             'password' => password_hash('Ratchadaporn', PASSWORD_DEFAULT),
+            'role' => 'normal',
             'token' => 'GAT1gY1QUW9FKMAKQnD5sFMY8aE0VZfr',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -47,6 +50,7 @@ class TeacherTableSeeder extends Seeder
             'image' => 22,
             'username' => 'Sethalat',
             'password' => password_hash('Sethalat', PASSWORD_DEFAULT),
+            'role' => 'normal',
             'token' => 'c8NDwllHQSBnkQKG5SF6aNmxeDYMg7PQ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -57,6 +61,7 @@ class TeacherTableSeeder extends Seeder
             'image' => 23,
             'username' => 'Orawan',
             'password' => password_hash('Orawan', PASSWORD_DEFAULT),
+            'role' => 'normal',
             'token' => 'dN26Dm2s5sJordo8eE6qT3nsnYNRqqWR',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -67,6 +72,7 @@ class TeacherTableSeeder extends Seeder
             'image' => 24,
             'username' => 'Tasanawan',
             'password' => password_hash('Tasanawan', PASSWORD_DEFAULT),
+            'role' => 'normal',
             'token' => 'tNA3wfIDKk9WmULU6V8WGZ7TcmeHvkSn',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

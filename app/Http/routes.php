@@ -98,25 +98,25 @@ Route::get('register', 'UserAuthController@register');
 #--------------------------------------------------------------------------------------------------------
 #                               Student API
 #--------------------------------------------------------------------------------------------------------
-//Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
     Route::get('api/student/course/{id}', 'CourseController@getDetail');
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
-    Route::get('api/student/lesson/{id}', 'LessonController@getDetail');
+    Route::get('api/student/lesson/{id}', 'LessonController@showLesson');
 
     Route::get('api/student/problem/{problem_id}/{student_id}', 'ProblemController@getResult');
 
     // Todo api for submission
     //Route::post('api/')
 
-//});
+});
 
 
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/course/{id}', 'CourseController@getDetail');
@@ -143,7 +143,7 @@ Route::get('register', 'UserAuthController@register');
     Route::post('api/teacher/students/store', 'StudentController@addStudentsMember');                           //  store Many
     Route::get('api/teacher/student/deactivate/{student_id}/{course_id}', 'StudentController@deactivateStudent');// deactivate
 
-//});
+});
 
 
 #--------------------------------------------------------------------------------------------------------
