@@ -39,8 +39,7 @@ class UserAuthController extends Controller
         }elseif($teacher != null){
             if(password_verify($password, $teacher->password)){
                 $request->session()->put('userID', $teacher->id);
-                $request->session()->put('userRole', 'teacher');
-                $teacher['role'] = 'teacher';
+                $request->session()->put('userRole', $teacher->role);
                 return $teacher;
 
             }else{
