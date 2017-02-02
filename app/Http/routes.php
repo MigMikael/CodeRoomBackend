@@ -101,8 +101,10 @@ Route::get('register', 'UserAuthController@register');
 Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
-    Route::get('api/student/course/{id}', 'CourseController@getDetail');
+
+    Route::get('api/student/course/{student_id}/{course_id}', 'CourseController@showCourseStudent');
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
+
     Route::get('api/student/lesson/{id}', 'LessonController@showLesson');
 
     Route::get('api/student/problem/{problem_id}/{student_id}', 'ProblemController@getResult');
@@ -119,7 +121,8 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
-    Route::get('api/teacher/course/{id}', 'CourseController@getDetail');
+
+    Route::get('api/teacher/course/{course_id}', 'CourseController@showCourseTeacher');
     Route::get('api/teacher/course/{id}/member', 'CourseController@getMember');
 
     Route::get('api/teacher/lesson/{id}', 'LessonController@showLesson');               //  show

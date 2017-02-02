@@ -258,16 +258,16 @@ class CourseController extends Controller
 
     #--------------------------------------------------------------------------------------------------------
 
-    public function getDetail($id)
+    public function showCourseStudent($student_id, $course_id)
     {
         $course = Course::withCount([
             'students', 'teachers', 'lessons', 'badges', 'announcements'
-        ])->findOrFail($id);
+        ])->findOrFail($course_id);
 
-        $student = Student::findOrFail($id);
+        $student = Student::findOrFail($student_id);
 
         foreach ($course->lessons as $lesson){
-            $student_course = StudentCourse::where([
+            /*$student_course = StudentCourse::where([
                 ['student_id', '=', $student->id],
                 ['course_id', '=', $course->id]
             ])->first();
@@ -281,11 +281,24 @@ class CourseController extends Controller
                 $lesson['progress'] = 0;
             }else{
                 $lesson['progress'] = $student_lesson->progress;
-            }
+            }*/
 
             $lesson['problems_count'] = $lesson->problems()->count();
         }
 
+        $course->badges;
+        $course->announcements;
+
+        return $course;
+    }
+
+    public function showCourseTeacher($course_id)
+    {
+        $course = Course::withCount([
+            'students', 'teachers', 'lessons', 'badges', 'announcements'
+        ])->findOrFail($course_id);
+
+        $course->lessons;
         $course->badges;
         $course->announcements;
 

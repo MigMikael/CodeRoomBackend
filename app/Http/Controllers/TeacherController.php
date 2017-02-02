@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\TeacherCourse;
 use App\Teacher;
-use Request;
+use Illuminate\Http\Request;
 use Log;
 use App\Http\Requests;
+use App\Course;
 
 class TeacherController extends Controller
 {
@@ -26,17 +27,17 @@ class TeacherController extends Controller
         return view('teacher.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $password = Request::get('password');
-        $confirmPassword = Request::get('confirm_password');
+        $password = $request->get('password');
+        /*$confirmPassword = $request->get('confirm_password');
         if($password != $confirmPassword){
             return 'password not match';
-        }
+        }*/
 
         $teacher = [
-            'name' => Request::get('name'),
-            'username' => Request::get('username'),
+            'name' => $request->get('name'),
+            'username' => $request->get('username'),
             'password' => bcrypt($password),
         ];
         $teacher = Teacher::firstOrCreate($teacher);
@@ -87,10 +88,10 @@ class TeacherController extends Controller
         return 'Delete Finish';
     }
 
-    public function storeOneTeacherMember()
+    public function storeOneTeacherMember(Request $request)
     {
-        $course_id = Request::get('course_id');
-        $teacher_id = Request::get('teacher_id');
+        $course_id = $request->get('course_id');
+        $teacher_id = $request->get('teacher_id');
 
         $teacherCourse = [
             'teacher_id' => $teacher_id,
@@ -136,8 +137,24 @@ class TeacherController extends Controller
 
     #--------------------------------------------------------------------------------------------------------
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
+        $userID = $request->session()->get('userID');
+        //$userRole = $request->session()->get('userRole');
 
+        $teacher = Teacher::findOrFail($userID);
+        $teacher['courses'] = $teacher->courses()->withCount([
+            'students', 'teachers', 'lessons',
+        ])->get();
+
+        $data = [];
+        $data['teacher'] = $teacher;
+
+        /*$courses = Course::withCount([
+            'students', 'teachers', 'lessons'
+        ])->get();
+        $data['courses'] = $courses;*/
+
+        return $data;
     }
 }
