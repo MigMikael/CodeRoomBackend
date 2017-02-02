@@ -39,6 +39,7 @@ Route::resource('teacher', 'TeacherController');
 Route::resource('teacher_course', 'TeacherCourseController');
 Route::resource('announcement', 'AnnouncementController');
 
+
 #--------------------------------------------------------------------------------------------------------
 #                              Student API
 #--------------------------------------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::get('course/{course}/status', 'CourseController@changeStatus');
 Route::get('student_course/{student_id}/{course_id}/status', 'StudentController@changeStatus');
 Route::get('student_badge/{student_id}/{badge_id}/delete', 'StudentController@deleteBadge');
 Route::get('teacher_course/{teacher_id}/{course_id}/status', 'TeacherController@changeStatus');
+
 
 #--------------------------------------------------------------------------------------------------------
 #                              ProblemFile API
@@ -57,25 +59,23 @@ Route::post('problemfile/add', ['as' => 'addfile', 'uses' => 'ProblemFileControl
 Route::post('problemfile/edit', ['as' => 'editfile', 'uses' => 'ProblemFileController@edit']);
 Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 
+
 #--------------------------------------------------------------------------------------------------------
 #                              Test API
 #--------------------------------------------------------------------------------------------------------
-Route::get('test', 'TestController@index');
-Route::get('test/file/{folderName}', 'TestController@getFile');
-Route::get('test/string_pos', 'TestController@testStrPos');
-Route::get('test/template2', 'TestController@testTemplate2');
-Route::get('test/token', 'TestController@testToken');
-Route::get('test/current_user_profile','TestController@getUserProfile');
-Route::get('test/getQuestion', 'TestController@testGetQuestion');
+#Route::get('test', 'TestController@index');
+#Route::get('test/file/{folderName}', 'TestController@getFile');
+#Route::get('test/string_pos', 'TestController@testStrPos');
+#Route::get('test/template2', 'TestController@testTemplate2');
+#Route::get('test/token', 'TestController@testToken');
+#Route::get('test/current_user_profile','TestController@getUserProfile');
+#Route::get('test/getQuestion', 'TestController@testGetQuestion');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
 #--------------------------------------------------------------------------------------------------------
 Route::get('image/gen_user_avatar_image', 'ImageController@genAvatarImage');
 Route::get('image/{id}', 'ImageController@getImage');
-
-
-
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -93,6 +93,8 @@ Route::get('logout', 'UserAuthController@logout');
 
 Route::post('register', 'UserAuthController@registerUser');
 Route::get('register', 'UserAuthController@register');
+
+
 #--------------------------------------------------------------------------------------------------------
 #                               Student API
 #--------------------------------------------------------------------------------------------------------
@@ -103,16 +105,45 @@ Route::get('register', 'UserAuthController@register');
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
     Route::get('api/student/lesson/{id}', 'LessonController@getDetail');
 
+    Route::get('api/student/problem/{problem_id}/{student_id}', 'ProblemController@getResult');
+
+    // Todo api for submission
+    //Route::post('api/')
+
 //});
+
 
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
+    Route::get('api/teacher/course/{id}', 'CourseController@getDetail');
+    Route::get('api/teacher/course/{id}/member', 'CourseController@getMember');
 
-});
+    Route::get('api/teacher/lesson/{id}', 'LessonController@showLesson');               //  show
+    Route::patch('api/teacher/lesson/{id}/edit', 'LessonController@updateLesson');      //  update
+    Route::post('api/teacher/lesson/store', 'LessonController@storeLesson');            //  store
+    Route::delete('api/teacher/lesson/delete/{id}', 'LessonController@deleteLesson');   //  delete
+    Route::post('api/teacher/lesson/change_order', 'LessonController@changeLessonOrder');
+
+    Route::get('api/teacher/problem/{id}', 'ProblemController@showProblem');                //  show
+    Route::patch('api/teacher/problem/{id}/edit', 'ProblemController@updateProblem');       //  update
+    Route::post('api/teacher/problem/store', 'ProblemController@storeProblem');             //  store
+    Route::delete('api/teacher/problem/delete/{id}', 'ProblemController@deleteProblem');    //  delete
+
+    Route::get('api/teacher/announcement/{id}', 'AnnouncementController@showAnnouncement');             //  show
+    Route::patch('api/teacher/announcement/{id}/edit', 'AnnouncementController@updateAnnouncement');    //  update
+    Route::post('api/teacher/announcement/store', 'AnnouncementController@storeAnnouncement');          //  store
+    Route::delete('api/teacher/announcement/delete/{id}', 'AnnouncementController@deleteAnnouncement'); //  delete
+
+    Route::get('api/teacher/student/{id}', 'StudentController@showStudent');                                    //  show
+    Route::post('api/teacher/student/store', 'StudentController@addStudentMember');                             //  store One
+    Route::post('api/teacher/students/store', 'StudentController@addStudentsMember');                           //  store Many
+    Route::get('api/teacher/student/deactivate/{student_id}/{course_id}', 'StudentController@deactivateStudent');// deactivate
+
+//});
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -120,7 +151,6 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 #--------------------------------------------------------------------------------------------------------
 Route::get('api/image/{id}', 'ImageController@getImage');
 Route::get('api/course/image/{name}', 'CourseController@getCourseImage');
-
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -146,11 +176,10 @@ Route::get('api/course/student_member/{course_id}','CourseController@getStudentM
 Route::get('api/course/teacher_member/{course_id}','CourseController@getTeacherMember');
 Route::get('api/course/add_student_member', 'CourseController@addStudentMember');
 Route::get('api/course/add_teacher_member', 'CourseController@addTeacherMember');
-Route::post('api/lesson/change_order', 'LessonController@changeLessonOrder');
 
 Route::get('api/student/profile/{student_id}', 'StudentController@getStudentProfile');
-Route::post('api/student/add_one_student_member', 'StudentController@storeOneStudentMember');
-Route::post('api/student/add_many_student_member', 'StudentController@storeManyStudentMember');
+Route::post('api/student/add_one_student_member', 'StudentController@addStudentMember');
+Route::post('api/student/add_many_student_member', 'StudentController@addStudentsMember');
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/student_course/delete/{student_id}/{course_id}', 'StudentCourseController@destroyById');
 

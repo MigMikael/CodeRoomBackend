@@ -101,76 +101,6 @@ class StudentController extends Controller
         return 'Delete Finish';
     }
 
-    public function storeOneStudentMember()
-    {
-        $course_id = Request::get('course_id');
-        $student_id = Request::get('student_id');
-        $name = Request::get('name');
-
-        $student = [
-            'student_id' => $student_id,
-            'name' => $name,
-        ];
-        $student = Student::firstOrCreate($student);
-        if($student->image == ''){
-            $student->image = self::getAvatarImage();
-            $student->username = $student->student_id;  // auto generate username & pass from student_id ex. 07560550
-            $student->password = bcrypt($student->student_id);
-            $student->save();
-        }
-
-        $studentCourse = [
-            'student_id' => $student->id,
-            'course_id' => $course_id,
-            'status' => 'active',
-        ];
-        StudentCourse::firstOrCreate($studentCourse);
-
-        return 'add student complete';
-    }
-
-    public function storeManyStudentMember()
-    {
-        $course_id = Request::get('course_id');
-        $studentListFile = Request::file('studentList');
-
-        $fileName = $studentListFile->getClientOriginalName();
-        Storage::disk('public')->put($fileName, File::get($studentListFile));
-        $path = storage_path().'\\app\\public\\' . $fileName;
-        $data = Excel::load($path, function ($reader){
-        })->get();
-
-        $students = [];
-        if(!empty($data) && $data->count()){
-            foreach ($data as $key => $value) {
-                $students[] = ['student_id' => $value->id, 'name' => $value->name];
-                //Log::info('###### '. $value->student_id.' '.$value->name);
-            }
-            if(empty($students)){
-                return 'error in data File';
-            }
-        }
-
-        foreach ($students as $student){
-            $student = Student::firstOrCreate($student);
-            if($student->image == ''){
-                $student->image = self::getAvatarImage();
-                $student->username = $student->student_id;
-                $student->password = bcrypt($student->student_id);
-                $student->save();
-            }
-
-            $studentCourse = [
-                'student_id' => $student->id,
-                'course_id' => $course_id,
-                'status' => 'active',
-            ];
-            StudentCourse::firstOrCreate($studentCourse);
-        }
-
-        return 'add student complete';
-    }
-
     public function getAvatarImage()
     {
         $request = Request::create('api/image/gen_user_avatar_image', 'GET');
@@ -256,5 +186,120 @@ class StudentController extends Controller
         $data['courses'] = $courses;
 
         return $data;
+    }
+
+    public function showStudent($id)
+    {
+        $student = Student::findOrFail($id);
+        return $student;
+    }
+
+    public function deactivateStudent($student_id, $course_id)
+    {
+        $student_course = StudentCourse::where([
+            ['student_id', '=', $student_id],
+            ['course_id', '=', $course_id]
+        ])->first();
+
+        if($student_course->status == 'enable'){
+            $student_course->status = 'disable';
+        }else{
+            $student_course->status = 'enable';
+        }
+        $student_course->save();
+
+        return response()->json(['msg' => 'success']);
+    }
+
+    public function addStudentMember()
+    {
+        $course_id = Request::get('course_id');
+        $student_id = Request::get('student_id');
+        $name = Request::get('name');
+
+        $student = [
+            'student_id' => $student_id,
+            'name' => $name,
+        ];
+        $student = Student::firstOrCreate($student);
+        if($student->image == ''){
+            $student->image = self::getAvatarImage();
+            $student->username = $student->student_id;  // auto generate username & pass from student_id ex. 07560550
+            $student->password = bcrypt($student->student_id);
+            $student->save();
+        }
+
+        $studentCourse = [
+            'student_id' => $student->id,
+            'course_id' => $course_id,
+            'status' => 'active',
+        ];
+        StudentCourse::firstOrCreate($studentCourse);
+
+        return response()->json(['msg' => 'success']);
+    }
+
+    public function addStudentsMember()
+    {
+        $course_id = Request::get('course_id');
+        $studentListFile = Request::file('studentList');
+
+        $fileName = $studentListFile->getClientOriginalName();
+        Storage::disk('public')->put($fileName, File::get($studentListFile));
+        $path = storage_path().'\\app\\public\\' . $fileName;
+        $data = Excel::load($path, function ($reader){
+        })->get();
+
+        $students = [];
+        if(!empty($data) && $data->count()){
+            foreach ($data as $key => $value) {
+                $students[] = ['student_id' => $value->id, 'name' => $value->name];
+                //Log::info('###### '. $value->student_id.' '.$value->name);
+            }
+            if(empty($students)){
+                return 'error in data File';
+            }
+        }
+
+        foreach ($students as $student){
+            $student = Student::firstOrCreate($student);
+            if($student->image == ''){
+                $student->image = self::getAvatarImage();
+                $student->username = $student->student_id;
+                $student->password = bcrypt($student->student_id);
+                $student->save();
+            }
+
+            $studentCourse = [
+                'student_id' => $student->id,
+                'course_id' => $course_id,
+                'status' => 'active',
+            ];
+            StudentCourse::firstOrCreate($studentCourse);
+        }
+
+        return response()->json(['msg' => 'success']);
+    }
+
+    public function storeStudent(Request $request)
+    {
+        $password = $request->get('password');
+        /*$confirmPassword = $request->get('confirm_password');
+        if($password != $confirmPassword){
+            return response()->json(['msg' => 'password not match']);
+        }*/
+
+        $student = [
+            'student_id' => $request->get('student_id'),
+            'name' => $request->get('name'),
+            'username' => $request->get('username'),
+            'password' => bcrypt($password),
+        ];
+        $student = Student::firstOrCreate($student);
+        if($student->image == ''){
+            $student->image = self::getAvatarImage();
+            $student->save();
+        }
+        return $student;
     }
 }

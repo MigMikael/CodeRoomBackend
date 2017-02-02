@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Problem;
 use App\ProblemAnalysis;
-use Request;
+use Illuminate\Http\Request;
 use App\Http\Requests;
 use GuzzleHttp\Client;
 use Log;
@@ -34,16 +34,16 @@ class ProblemController extends Controller
         return view('problem.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $problem = [
-            'lesson_id' => Request::get('lesson_id'),
-            'name' => Request::get('name'),
-            'description' => Request::get('description'),
-            'evaluator' => Request::get('evaluator'),
-            'timelimit' => Request::get('timelimit'),
-            'memorylimit' => Request::get('memorylimit'),
-            'is_parse' => Request::get('is_parse'),
+            'lesson_id' => $request->get('lesson_id'),
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'evaluator' => $request->get('evaluator'),
+            'timelimit' => $request->get('timelimit'),
+            'memorylimit' => $request->get('memorylimit'),
+            'is_parse' => $request->get('is_parse'),
         ];
 
         if(Request::hasFile('file')){
@@ -84,22 +84,22 @@ class ProblemController extends Controller
         return view('problem.edit')->with('problem', $problem);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $problem = Problem::findOrFail($id);
         $newProblem = [
-            'name' => Request::get('name'),
-            'description' => Request::get('description'),
-            'evaluator' => Request::get('evaluator'),
-            'timelimit' => Request::get('timelimit'),
-            'memorylimit' => Request::get('memorylimit'),
-            'lesson_id' => Request::get('lesson_id'),
-            'is_parse' => Request::get('is_parse'),
+            'name'          => $request->get('name'),
+            'description'   => $request->get('description'),
+            'evaluator'     => $request->get('evaluator'),
+            'timelimit'     => $request->get('timelimit'),
+            'memorylimit'   => $request->get('memorylimit'),
+            'lesson_id'     => $request->get('lesson_id'),
+            'is_parse'      => $request->get('is_parse'),
         ];
         $problem->update($newProblem);
 
-        if(Request::hasFile('file')){
-            $file = Request::file('file');
+        if($request->hasFile('file')){
+            $file = $request->file('file');
             self::sendToProblemFile($problem, $file, 'edit');
         }
 
@@ -112,6 +112,103 @@ class ProblemController extends Controller
 
         $problem->delete();
         return 'Delete Finish';
+    }
+
+    public function getProblemAnalysis($prob_id)
+    {
+        $problem_analysis = ProblemAnalysis::where('problem_id', '=', $prob_id)->get();
+        return $problem_analysis;
+    }
+
+    #--------------------------------------------------------------------------------------------------------
+
+    public function getQuestion($problem_id)
+    {
+        $problem = Problem::findOrFail($problem_id);
+
+        $dirName = 'problem/'.$problem->id.'_'.$problem->name.
+            '/'.$problem->name.
+            '/question/'.$problem->name.'.pdf';
+
+        $file = Storage::disk('public')->get($dirName);
+
+        return response($file, 200)->header('Content-Type', 'application/pdf');
+    }
+
+    public function getResult($problem_id, $student_id)
+    {
+        $submission = Submission::where([
+            ['problem_id', '=', $problem_id],
+            ['student_id', '=', $student_id]
+        ])->orderBy('id', 'desc')->first();
+
+        foreach ($submission->submissionFiles as $submissionFile){
+            foreach ($submissionFile->results as $result){
+                $result->attributes;
+                $result->constructors;
+                $result->methods;
+            }
+        }
+        return $submission;
+    }
+
+    public function showProblem($id)
+    {
+        $problem = Problem::findOrFail($id);
+        $problem['question'] = url('problem/getQuestion/'.$problem->id);
+
+        return $problem;
+    }
+
+    public function storeProblem(Request $request)
+    {
+        $problem = [
+            'lesson_id'     =>  $request->get('lesson_id'),
+            'name'          =>  $request->get('name'),
+            'description'   =>  $request->get('description'),
+            'evaluator'     =>  $request->get('evaluator'),
+            'timelimit'     =>  $request->get('timelimit'),
+            'memorylimit'   =>  $request->get('memorylimit'),
+            'is_parse'      =>  $request->get('is_parse'),
+        ];
+
+        if(Request::hasFile('file')){
+            $problem = Problem::create($problem);
+            $file = Request::file('file');
+            return self::sendToProblemFile($problem, $file, 'create');
+        } else {
+            return response()->json(['msg' => 'fail (file not Found)']);
+        }
+    }
+
+    public function updateProblem(Request $request, $id)
+    {
+        $problem = Problem::findOrFail($id);
+        $newProblem = [
+            'name'          => $request->get('name'),
+            'description'   => $request->get('description'),
+            'evaluator'     => $request->get('evaluator'),
+            'timelimit'     => $request->get('timelimit'),
+            'memorylimit'   => $request->get('memorylimit'),
+            'lesson_id'     => $request->get('lesson_id'),
+            'is_parse'      => $request->get('is_parse'),
+        ];
+        $problem->update($newProblem);
+
+        if($request->hasFile('file')){
+            $file = $request->file('file');
+            self::sendToProblemFile($problem, $file, 'edit');
+        }
+
+        return response()->json(['msg' => 'success']);
+    }
+
+    public function deleteProblem($id)
+    {
+        $problem = Problem::findOrFail($id);
+        $problem->delete();
+
+        return response()->json(['msg' => 'success']);
     }
 
     public function sendToProblemFile($problem, $file, $mode)
@@ -134,21 +231,5 @@ class ProblemController extends Controller
         $res = app()->handle($request);
         return $res;
     }
-
-    public function getProblemAnalysis($prob_id)
-    {
-        $problem_analysis = ProblemAnalysis::where('problem_id', '=', $prob_id)->get();
-        return $problem_analysis;
-    }
-
-    //Todo rewrite this method
-    public function getQuestion($problem_id)
-    {
-        $problem = Problem::findOrFail($problem_id);
-
-        $dirName = 'problem/'.$problem->id.'_'.$problem->name.'/'.$problem->name.'/question/'.$problem->name.'.pdf';
-        $file = Storage::disk('public')->get($dirName);
-
-        return response($file, 200)->header('Content-Type', 'application/pdf');
-    }
+    
 }

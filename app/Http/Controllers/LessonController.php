@@ -10,7 +10,7 @@ use App\Problem;
 use App\ProblemAnalysis;
 use App\ProblemStructureScore;
 use App\ResultStructureScore;
-use Request;
+use Illuminate\Http\Request;
 use Log;
 use App\Http\Requests;
 
@@ -33,10 +33,10 @@ class LessonController extends Controller
         return view('lesson.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        Log::info('#### this is LessonController');
-        $input = Request::all();
+        //Log::info('#### this is LessonController');
+        $input = $request->all();
         $lesson = Lesson::create($input);
 
         $request = Request::create('api/gen_lesson_badge', 'POST', $input);
@@ -69,10 +69,10 @@ class LessonController extends Controller
         return view('lesson.edit')->with('lesson', $lesson);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $lesson = Lesson::findOrFail($id);
-        $newLesson = Request::all();
+        $newLesson = $request->all();
         $lesson->update($newLesson);
 
         return redirect('lesson');
@@ -99,6 +99,46 @@ class LessonController extends Controller
         return $lesson;
     }
 
+    #--------------------------------------------------------------------------------------------------------
+
+    public function showLesson($id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        foreach ($lesson->problems as $problem){
+            $problem['question'] = url('problem/getQuestion/'.$problem->id);
+        }
+
+        return $lesson;
+    }
+
+    public function updateLesson(Request $request, $id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        $updatedLesson = $request->all();
+        $lesson->update($updatedLesson);
+
+        return response()->json(['msg' => 'success']);
+    }
+
+    public function storeLesson(Request $request)
+    {
+        $input = $request->all();
+        $lesson = Lesson::create($input);
+
+        $request = Request::create('api/gen_lesson_badge', 'POST', $input);
+        $res = app()->handle($request);
+
+        return response()->json(['msg' => 'success']);
+    }
+
+    public function deleteLesson($id)
+    {
+        $lesson = Lesson::findOrFail($id);
+        $lesson->delete();
+
+        return response()->json(['msg' => 'success']);
+    }
+
     public function changeLessonOrder()
     {
         $data = Request::all();
@@ -111,18 +151,5 @@ class LessonController extends Controller
             $lesson->save();
             Log::info($lesson->name);
         }
-
-    }
-
-    #--------------------------------------------------------------------------------------------------------
-
-    public function getDetail($id)
-    {
-        $lesson = Lesson::findOrFail($id);
-        foreach ($lesson->problems as $problem){
-            $problem['question'] = url('problem/getQuestion/'.$problem->id);
-        }
-
-        return $lesson;
     }
 }

@@ -628,7 +628,7 @@ class SubmissionController extends Controller
                             'score' => $score['score'],
                         ];
                         $output = SubmissionOutput::create($output);
-                        Log::info('#### '.$output->submissionfile_id);
+                        //Log::info('#### '.$output->submissionfile_id);
                     }
                 }
             }

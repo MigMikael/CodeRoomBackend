@@ -16,7 +16,7 @@ class StudentCourseTableSeeder extends Seeder
             'student_id' => 1, //'07560550'
             'course_id' => 1,
             'progress' => 69,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -25,7 +25,7 @@ class StudentCourseTableSeeder extends Seeder
             'student_id' => 2, //'07560445'
             'course_id' => 1,
             'progress' => 71,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -34,7 +34,7 @@ class StudentCourseTableSeeder extends Seeder
             'student_id' => 3, //'07570497'
             'course_id' => 1,
             'progress' => 42,
-            'status' => 'inactive',
+            'status' => 'disable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -43,7 +43,7 @@ class StudentCourseTableSeeder extends Seeder
             'student_id' => 3, //'07570497'
             'course_id' => 4,
             'progress' => 56,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -52,7 +52,7 @@ class StudentCourseTableSeeder extends Seeder
             'student_id' => 3, //'07570497'
             'course_id' => 2,
             'progress' => 88,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -61,7 +61,7 @@ class StudentCourseTableSeeder extends Seeder
             'student_id' => 1,//'07560550'
             'course_id' => 3,
             'progress' => 67,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
