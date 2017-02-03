@@ -125,10 +125,10 @@ class TeacherController extends Controller
             ['course_id', '=', $course_id]
         ])->first();
 
-        if($teacherCourse->status == 'active'){
-            $teacherCourse->status = 'inactive';
+        if($teacherCourse->status == 'enable'){
+            $teacherCourse->status = 'disable';
         }else{
-            $teacherCourse->status = 'active';
+            $teacherCourse->status = 'enable';
         }
         $teacherCourse->save();
 

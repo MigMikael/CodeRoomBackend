@@ -103,8 +103,9 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
 
-    Route::get('api/student/course/{student_id}/{course_id}', 'CourseController@showCourseStudent');
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
+
+    Route::get('api/student/course/{student_id}/{course_id}', 'CourseController@showCourseStudent');
 
     Route::get('api/student/lesson/{id}', 'LessonController@showLesson');
 

@@ -15,7 +15,7 @@ class TeacherCourseTableSeeder extends Seeder
         DB::table('teacher_course')->insert([
             'teacher_id' => 1,
             'course_id' => 1,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -23,7 +23,7 @@ class TeacherCourseTableSeeder extends Seeder
         DB::table('teacher_course')->insert([
             'teacher_id' => 1,
             'course_id' => 2,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -31,7 +31,7 @@ class TeacherCourseTableSeeder extends Seeder
         DB::table('teacher_course')->insert([
             'teacher_id' => 2,
             'course_id' => 1,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -39,7 +39,7 @@ class TeacherCourseTableSeeder extends Seeder
         DB::table('teacher_course')->insert([
             'teacher_id' => 3,
             'course_id' => 2,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -47,7 +47,7 @@ class TeacherCourseTableSeeder extends Seeder
         DB::table('teacher_course')->insert([
             'teacher_id' => 4,
             'course_id' => 3,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -55,7 +55,7 @@ class TeacherCourseTableSeeder extends Seeder
         DB::table('teacher_course')->insert([
             'teacher_id' => 5,
             'course_id' => 4,
-            'status' => 'active',
+            'status' => 'enable',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

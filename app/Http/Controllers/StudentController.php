@@ -139,10 +139,10 @@ class StudentController extends Controller
             ['course_id', '=', $course_id]
         ])->first();
 
-        if($studentCourse->status == 'active'){
-            $studentCourse->status = 'inactive';
+        if($studentCourse->status == 'enable'){
+            $studentCourse->status = 'disable';
         }else{
-            $studentCourse->status = 'active';
+            $studentCourse->status = 'enable';
         }
         $studentCourse->save();
 

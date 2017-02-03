@@ -98,7 +98,7 @@
     </div>
     @foreach($course->students as $student)
         <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp
-            @if($student->pivot->status == 'inactive') disable-card @endif">
+            @if($student->pivot->status == 'disable') disable-card @endif">
 
             <div class="mdl-card__media" style="background-color: #FFFFFF">
                 <img src="{{ url('api/image/'.$student->image) }}" alt="Student Image" class="article-image" border="0"/>
@@ -118,7 +118,7 @@
                 </a>
 
                 <a href="{{ url('student_course/'.$student->id.'/'.$course->id.'/status') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    @if($student->pivot->status == 'active')
+                    @if($student->pivot->status == 'enable')
                         inactive
                     @else
                         active
@@ -140,7 +140,7 @@
     </div>
     @foreach($course->teachers as $teacher)
         <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--2-col-tablet mdl-card mdl-shadow--2dp
-            @if($teacher->pivot->status == 'inactive') disable-card @endif">
+            @if($teacher->pivot->status == 'disable') disable-card @endif">
 
             <div class="mdl-card__media" style="background-color: #FFFFFF">
                 <img src="{{ url('api/image/'.$teacher->image) }}" alt="Student Image" class="article-image" border="0"/>
@@ -156,7 +156,7 @@
                     view
                 </a>
                 <a href="{{ url('teacher_course/'.$teacher->id.'/'.$course->id.'/status') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    @if($teacher->pivot->status == 'active')
+                    @if($teacher->pivot->status == 'enable')
                         inactive
                     @else
                         active
