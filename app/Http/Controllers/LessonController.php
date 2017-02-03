@@ -103,7 +103,10 @@ class LessonController extends Controller
 
     public function showLesson($id)
     {
-        $lesson = Lesson::findOrFail($id);
+        $lesson = Lesson::withCount([
+            'problems'
+        ])->findOrFail($id);
+
         foreach ($lesson->problems as $problem){
             $problem['question'] = url('problem/getQuestion/'.$problem->id);
         }
@@ -139,17 +142,16 @@ class LessonController extends Controller
         return response()->json(['msg' => 'success']);
     }
 
-    public function changeLessonOrder()
+    // Todo fix bug with UI
+    public function changeLessonOrder(Request $request)
     {
-        $data = Request::all();
-        $newLessons = $data['lessons'];
+        $newLessons = $request->all();
         $count = 0;
         foreach ($newLessons as $newLesson){
             $count++;
             $lesson = Lesson::findOrFail($newLesson['id']);
             $lesson->order = $count;
             $lesson->save();
-            Log::info($lesson->name);
         }
     }
 }

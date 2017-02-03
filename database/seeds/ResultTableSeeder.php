@@ -33,5 +33,16 @@ class ResultTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+
+        DB::table('result')->insert([
+            'submissionfile_id' => 2,
+            'class' => 'public;PrimeNumberFinder',
+            'package' => 'default package',
+            'enclose' => 'null',
+            'extends' => 'null',
+            'implements' => 'null',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }

@@ -59,5 +59,17 @@ class ProblemTableSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+
+        DB::table('problem')->insert([
+            'lesson_id' => 1,
+            'name' => 'PrimeNumber',
+            'description' => 'ฝึกทักษะการใช้ Loop',
+            'evaluator' => 'java',
+            'timelimit' => 1,
+            'memorylimit' => 32000,
+            'is_parse' => 'true',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }

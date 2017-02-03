@@ -64,5 +64,14 @@ class ResultAttributeTableSeeder extends Seeder
             'name' => 'totalTime',
             'score' => 10,
         ]);
+
+        DB::table('result_attribute')->insert([
+            'result_id' => 3,
+            'access_modifier' => 'default',
+            'non_access_modifier' => '',
+            'data_type' => 'int',
+            'name' => 'num',
+            'score' => 10,
+        ]);
     }
 }

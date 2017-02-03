@@ -118,5 +118,17 @@ class ResultMethodTableSeeder extends Seeder
             'loop' => '',
             'score' => 20,
         ]);
+
+        DB::table('result_method')->insert([
+            'result_id' => 3,
+            'access_modifier' => 'default',
+            'non_access_modifier' => '',
+            'return_type' => 'boolean',
+            'name' => 'isPrime',
+            'parameter' => 'int n|',
+            'recursive' => '',
+            'loop' => '',
+            'score' => 20,
+        ]);
     }
 }

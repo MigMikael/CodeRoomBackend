@@ -11,6 +11,12 @@ class ResultConstructorTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('result_constructor')->insert([
+            'result_id' => 3,
+            'access_modifier' => 'public',
+            'name' => 'PrimeNumberFinder',
+            'parameter' => '',
+            'score' => 10,
+        ]);
     }
 }

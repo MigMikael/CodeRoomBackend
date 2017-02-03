@@ -94,11 +94,12 @@ Route::get('logout', 'UserAuthController@logout');
 Route::post('register', 'UserAuthController@registerUser');
 Route::get('register', 'UserAuthController@register');
 
-
 #--------------------------------------------------------------------------------------------------------
 #                               Student API
 #--------------------------------------------------------------------------------------------------------
-Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
+Route::get('api/user/home', 'CourseController@showCourseUser');
+
+//Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
 
@@ -112,13 +113,13 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
     // Todo api for submission
     //Route::post('api/')
 
-});
+//});
 
 
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
 
@@ -146,7 +147,7 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
     Route::post('api/teacher/students/store', 'StudentController@addStudentsMember');                           //  store Many
     Route::get('api/teacher/student/deactivate/{student_id}/{course_id}', 'StudentController@deactivateStudent');// deactivate
 
-});
+//});
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -200,7 +201,6 @@ Route::post('api/gen_lesson_badge', 'BadgeController@genLessonBadge');
 Route::get('api/image/gen_lesson_badge_image/{course_name}/{lesson_name}/{color}', 'ImageController@genLessonBadgeImage');
 Route::get('api/image/gen_normal_badge_image/{course_name}/{criteria}/{color}', 'ImageController@genNormalBadgeImage');
 Route::get('api/image/gen_user_avatar_image', 'ImageController@genAvatarImage');
-
 
 //api for submission
 Route::post('api/submission/code', 'SubmissionController@storeCode');
