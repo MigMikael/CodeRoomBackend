@@ -276,7 +276,7 @@ class CourseController extends Controller
                                 ->orderBy('order')->get();
 
         foreach ($course['lessons'] as $lesson){
-            $lesson['problem_count'] = $lesson->problems()->count();
+            $lesson['problems_count'] = $lesson->problems()->count();
         }
         //foreach ($course->lessons as $lesson){
             /*$student_course = StudentCourse::where([
@@ -310,7 +310,7 @@ class CourseController extends Controller
             'students', 'teachers', 'lessons', 'badges', 'announcements'
         ])->findOrFail($course_id);
 
-        $course['lessons'] = Lesson::where('course_id', '=', $course)
+        $course['lessons'] = Lesson::where('course_id', '=', $course_id)
                                 ->orderBy('order')->get();
         foreach ($course['lessons'] as $lesson){
             $lesson['problems_count'] = $lesson->problems()->count();
