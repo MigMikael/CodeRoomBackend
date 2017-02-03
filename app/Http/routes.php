@@ -127,25 +127,27 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
     Route::get('api/teacher/course/{id}/member', 'CourseController@getMember');
 
     Route::get('api/teacher/lesson/{id}', 'LessonController@showLesson');               //  show
-    Route::patch('api/teacher/lesson/{id}/edit', 'LessonController@updateLesson');      //  update
+    Route::post('api/teacher/lesson/edit', 'LessonController@updateLesson');            //  update
     Route::post('api/teacher/lesson/store', 'LessonController@storeLesson');            //  store
     Route::delete('api/teacher/lesson/delete/{id}', 'LessonController@deleteLesson');   //  delete
     Route::post('api/teacher/lesson/change_order', 'LessonController@changeLessonOrder');
 
+
     Route::get('api/teacher/problem/{id}', 'ProblemController@showProblem');                //  show
+    // Todo fix edit problem (method)
     Route::patch('api/teacher/problem/{id}/edit', 'ProblemController@updateProblem');       //  update
     Route::post('api/teacher/problem/store', 'ProblemController@storeProblem');             //  store
     Route::delete('api/teacher/problem/delete/{id}', 'ProblemController@deleteProblem');    //  delete
 
     Route::get('api/teacher/announcement/{id}', 'AnnouncementController@showAnnouncement');             //  show
-    Route::patch('api/teacher/announcement/{id}/edit', 'AnnouncementController@updateAnnouncement');    //  update
+    Route::patch('api/teacher/announcement/edit', 'AnnouncementController@updateAnnouncement');    //  update
     Route::post('api/teacher/announcement/store', 'AnnouncementController@storeAnnouncement');          //  store
     Route::delete('api/teacher/announcement/delete/{id}', 'AnnouncementController@deleteAnnouncement'); //  delete
 
     Route::get('api/teacher/student/{id}', 'StudentController@showStudent');                                    //  show
     Route::post('api/teacher/student/store', 'StudentController@addStudentMember');                             //  store One
     Route::post('api/teacher/students/store', 'StudentController@addStudentsMember');                           //  store Many
-    Route::get('api/teacher/student/deactivate/{student_id}/{course_id}', 'StudentController@deactivateStudent');// deactivate
+    Route::get('api/teacher/student/disable/{student_id}/{course_id}', 'StudentController@disableStudent');// deactivate
 
 //});
 

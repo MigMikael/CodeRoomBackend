@@ -194,7 +194,7 @@ class StudentController extends Controller
         return $student;
     }
 
-    public function deactivateStudent($student_id, $course_id)
+    public function disableStudent($student_id, $course_id)
     {
         $student_course = StudentCourse::where([
             ['student_id', '=', $student_id],

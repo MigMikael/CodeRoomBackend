@@ -310,7 +310,9 @@ class CourseController extends Controller
             'students', 'teachers', 'lessons', 'badges', 'announcements'
         ])->findOrFail($course_id);
 
-        foreach ($course->lessons as $lesson){
+        $course['lessons'] = Lesson::where('course_id', '=', $course)
+                                ->orderBy('order')->get();
+        foreach ($course['lessons'] as $lesson){
             $lesson['problems_count'] = $lesson->problems()->count();
         }
         $course->badges;

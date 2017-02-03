@@ -92,11 +92,16 @@ class AnnouncementController extends Controller
         return response()->json(['msg' => 'success']);
     }
 
-    public function updateAnnouncement(Request $request, $id)
+    public function updateAnnouncement(Request $request)
     {
+        $id = $request->get('id');
+        $title = $request->get('title');
+        $content = $request->get('content');
+
         $announcement = Announcement::findOrFail($id);
-        $updatedAnnouncement = $request->all();
-        $announcement->update($updatedAnnouncement);
+        $announcement->title = $title;
+        $announcement->content = $content;
+        $announcement->save();
 
         return response()->json(['msg' => 'success']);
     }

@@ -114,21 +114,29 @@ class LessonController extends Controller
         return $lesson;
     }
 
-    public function updateLesson(Request $request, $id)
+    public function updateLesson(Request $request)
     {
-        $lesson = Lesson::findOrFail($id);
-        $updatedLesson = $request->all();
-        $lesson->update($updatedLesson);
+        $updatedLessonId = $request->get('id');
+        $updatedLessonName = $request->get('name');
+        $lesson = Lesson::findOrFail($updatedLessonId);
+        $lesson->name = $updatedLessonName;
+        $lesson->save();
 
         return response()->json(['msg' => 'success']);
     }
 
     public function storeLesson(Request $request)
     {
-        $input = $request->all();
+        $input = [
+            'name' => $request->get('name'),
+            'course_id' => $request->get('course_id'),
+            'status' => 'false',
+            'order' => Lesson::count()
+        ];
+
         $lesson = Lesson::create($input);
 
-        $request = Request::create('api/gen_lesson_badge', 'POST', $input);
+        $request = Request::create('api/gen_lesson_badge', 'POST', $lesson);
         $res = app()->handle($request);
 
         return response()->json(['msg' => 'success']);
