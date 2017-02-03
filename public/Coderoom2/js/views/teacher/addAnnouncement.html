@@ -36,7 +36,7 @@
         <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
             <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Add Announcement</h3>
         </div>
-        <form ng-form="addAnnouncement()">
+
             <div class="card-all-add">
 
                 <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
@@ -45,10 +45,10 @@
                 </div>
 
                 <textarea class="form-control" rows="7" id="comment" style="resize: none;border: 1px solid #204056" placeholder="Content" ng-model="announcement.content"></textarea>
-                <button class="submit-card-all-add" type="submit" value="submit">Submit</button>
+                <button class="submit-card-all-add" type="submit" value="submit" ng-click="addAnnouncement()">Submit</button>
 
             </div>
-        </form>
+
 
     </div>
     <div class="col-md-3">

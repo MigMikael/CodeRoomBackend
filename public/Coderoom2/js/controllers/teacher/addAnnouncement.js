@@ -1,6 +1,8 @@
 
 app.controller('addAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location) {
+    $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
+
     $scope.openCarduser  = function(){
         if($scope.cardUser){
             document.getElementById("showCarduser").style.display = "none";
@@ -34,10 +36,13 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
 
     $scope.announcement = {
         course_id: $localStorage.course_id,
+
     };
 
     $scope.addAnnouncement = function(){
-        $http.post('api/teacher/announcement/store', $scope.announcement)
+        $http.post('/api/teacher/announcement/store', $scope.announcement,{headders:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
             .then(
                 function(response){
                     $location.path('/courseteacher/'+$localStorage.course_id);

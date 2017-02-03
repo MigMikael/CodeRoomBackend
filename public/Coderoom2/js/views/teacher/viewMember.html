@@ -50,7 +50,7 @@
             <input class="form-control left-border-none" placeholder="Search Students..." type="text" name="Search" style="border: 0;border-radius: 0;float: left" ng-model="nameCourse">
         </div>
     </div>
-    <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="student in viewMember.students" >
+    <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="student in viewMember.students" ng-show="student.pivot.status == 'enable'">
         <div class="card-student" >
             <img src="{{student.image}}">
             <div style="float: left">
@@ -58,8 +58,8 @@
                 <p>{{student.name}}</p>
             </div>
             <div class="right-card-student">
-                <div class="button-right-card-student" ng-click="deleteStudent()">
-                    <p>Delete</p>
+                <div class="button-right-card-student" ng-click="disableStudent(student.id)">
+                    <p>Disable</p>
                 </div>
             </div>
         </div>

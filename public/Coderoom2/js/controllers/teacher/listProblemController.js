@@ -54,7 +54,7 @@ app.controller('listProblemteacherController',function($scope,$localStorage,$rou
             );
     }
     $scope.deleteProblem = function(prob_id){
-        $http.delete('/api/teacher/problem/delete/', prob_id)
+        $http.delete('/api/teacher/problem/delete/'+ prob_id)
             .then(
                 function(response){
                     location.reload();

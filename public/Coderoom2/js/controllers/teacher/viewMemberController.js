@@ -67,12 +67,14 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
             );
     }
 
-    $scope.deleteStudent = function(student_id){
-        $http.post('', student_id)
+    $scope.disableStudent = function(student_id){
+        $http.get('/api/teacher/student/disable/'+student_id+"/"+$localStorage.course_id,{headders:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
             .then(
                 function(response){
+
                     location.reload();
-                    getData($localStorage.user.token,$localStorage.course_id);
                 },
                 function(response){
                     // failure callback

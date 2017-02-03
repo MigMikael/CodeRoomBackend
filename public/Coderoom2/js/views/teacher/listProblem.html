@@ -58,11 +58,11 @@
         <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Problems</h3>
     </div>
     <div class="col-md-6 col-sm-12 col-xs-12" ng-repeat="problem in lesson.problems">
-        <div class="list-course" style="padding-left: 15px" ng-click="go('/problemteacher/'+problem.id)">
+        <div class="list-course" style="padding-left: 15px" >
 
 
 
-            <div class="list-course-headder" style="height: 60px" >
+            <div class="list-course-headder" style="height: 60px" ng-click="go('/problemteacher/'+problem.id)">
                 <h4 style="margin: 0;line-height: 50px">{{$index +1}}.{{problem.name}}</h4>
             </div>
 

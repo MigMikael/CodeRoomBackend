@@ -2,8 +2,8 @@
 app.controller('editLessonteacherController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher) {
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lesson_id;
-    console.log($localStorage.lesson_id);
-    getData($localStorage.user.token,$localStorage.lesson_id );
+
+    getData($localStorage.user.token,$localStorage.lesson_id);
 
     $scope.openCarduser  = function(){
         if($scope.cardUser){
@@ -20,7 +20,7 @@ app.controller('editLessonteacherController',function($scope,$localStorage,$rout
         $location.path( path );
     };
 
-
+    $scope.lesson;
     function getData(token,lesson_id) {
 
         lessonTeacher.getData(token,lesson_id).then(
@@ -36,16 +36,18 @@ app.controller('editLessonteacherController',function($scope,$localStorage,$rout
     }
 
     $scope.editLesson = function(){
-        $http.post('', $scope.lesson)
+        $http.post('api/teacher/lesson/', $scope.lesson,{headders:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
             .then(
                 function(response){
-                    $location.path('/courseteacher/'+$scope.lesson.course_id)
+                    $location.path('/courseteacher/'+$scope.lesson.course_id);
                 },
                 function(response){
                     // failure callback
                 }
             );
-    }
+    };
     $scope.logout = function () {
 
         $http.get('/logout', {headders:{

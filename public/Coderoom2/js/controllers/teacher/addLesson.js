@@ -38,7 +38,9 @@ app.controller('addLessonteacherController',function($scope,$localStorage,$route
     };
 
     $scope.addLesson = function(){
-        $http.post('api/teacher/lesson/store', $scope.lesson)
+        $http.post('/api/teacher/lesson/store', $scope.lesson,{headders:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
             .then(
                 function(response){
                     $location.path('/courseteacher/'+$localStorage.course_id);

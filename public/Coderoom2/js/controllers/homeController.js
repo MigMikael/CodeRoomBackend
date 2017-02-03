@@ -1,7 +1,10 @@
 
-app.controller('homeController',function($scope,$http,$localStorage,$location) {
+app.controller('homeController',function($scope,$http,$localStorage,$location,home) {
     $scope.buttonLogin = true;
     $scope.buttonRegister = false;
+    $scope.postUser ={};
+    $localStorage.user;
+    getData();
     $scope.switchMode = function(status){
         if(status == "login"){
 
@@ -15,9 +18,21 @@ app.controller('homeController',function($scope,$http,$localStorage,$location) {
 
     };
 
+    function getData() {
 
-    $scope.postUser ={};
-    $localStorage.user;
+        home.getData().then(
+            function(response){
+                $scope.courses = response.data;
+                console.log($scope.courses);
+
+            },
+            function(response){
+                // failure call back
+            });
+
+    }
+
+
 
     $scope.login = function () {
         $http.post('/login', $scope.postUser)

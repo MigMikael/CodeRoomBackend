@@ -31,7 +31,7 @@
         <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">My Courses</h3>
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="course in dataDashboard.teacher.courses">
-        <div class="card-course" ng-click="go('/courseteacher/'+course.id)">
+        <div class="card-course" ng-click="go('/courseteacher/'+course.course_id)">
             <img src="{{course.image}}">
             <div class="card-headder">
                 <h4 style="margin: 0">{{course.name}}</h4>
