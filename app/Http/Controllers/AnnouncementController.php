@@ -78,8 +78,18 @@ class AnnouncementController extends Controller
 
     public function storeAnnouncement(Request $request)
     {
-        $input = $request->all();
-        Announcement::create($input);
+        $course_id = $request->get('course_id');
+        $title = $request->get('title');
+        $content = $request->get('content');
+
+        $announcement = [
+            'course_id' => $course_id,
+            'title' => $title,
+            'content' => $content,
+            'priority' => 2
+        ];
+
+        Announcement::create($announcement);
 
         return response()->json(['msg' => 'success']);
     }

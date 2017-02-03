@@ -131,13 +131,14 @@ class LessonController extends Controller
             'name' => $request->get('name'),
             'course_id' => $request->get('course_id'),
             'status' => 'false',
-            'order' => Lesson::count()
+            'order' => Lesson::count()+1
         ];
 
         $lesson = Lesson::create($input);
 
-        $request = Request::create('api/gen_lesson_badge', 'POST', $lesson);
-        $res = app()->handle($request);
+        // Todo fix it
+        //$request = $request->create('api/gen_lesson_badge', 'POST', $lesson);
+        //$res = app()->handle($request);
 
         return response()->json(['msg' => 'success']);
     }
