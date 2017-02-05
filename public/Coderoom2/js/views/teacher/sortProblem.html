@@ -37,20 +37,20 @@
         </div>
         <div class="col-md-6">
             <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
-                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Sort Lessons</h3>
+                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Sort Problems</h3>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel" style="border-radius: 0">
                         <div class="panel-body">
-                            <ul dnd-list="course.lessons">
+                            <ul dnd-list="lesson.problems">
                                 <!-- The dnd-draggable directive makes an element draggable and will
                                      transfer the object that was assigned to it. If an element was
                                      dragged away, you have to remove it from the original list
                                      yourself using the dnd-moved attribute -->
-                                <li ng-repeat="item in course.lessons"
+                                <li ng-repeat="item in lesson.problems"
                                     dnd-draggable="item"
-                                    dnd-moved="course.lessons.splice($index, 1)"
+                                    dnd-moved="lesson.problems.splice($index, 1)"
                                     dnd-effect-allowed="move"
 
                                 >
@@ -60,7 +60,7 @@
 
                                 </li>
                             </ul>
-                            <button style="float: right;background-color: #204056;color: white;border: none;padding: 10px" ng-click="sortLesson()">Submit</button>
+                            <button style="float: right;background-color: #204056;color: white;border: none;padding: 10px" ng-click="sortProblem()">Submit</button>
                         </div>
                     </div>
                 </div>

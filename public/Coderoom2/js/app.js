@@ -1,4 +1,4 @@
-var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists']);
+var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists','ui.bootstrap']);
 app.config(function($routeProvider) {
     $routeProvider
 
@@ -7,7 +7,12 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/selectRole.html",
             controller: "selectRoleController"
         })
+
         //student
+        .when("/profilestudent", {
+            templateUrl : "js/views/student/profile.html",
+            controller: "profileStudentController"
+        })
         .when("/dashboardstudent", {
             templateUrl : "js/views/student/dashBoard.html",
             controller: "dashBoardstudentController"
@@ -28,8 +33,16 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/student/viewMember.html",
             controller: "viewMemberController"
         })
+        .when("/readannouncementstudent/:announcement_id", {
+            templateUrl : "js/views/student/readAnnouncemnet.html",
+            controller: "readAnnouncementstudentController"
+        })
 
         //teacher
+        .when("/profileteacher", {
+            templateUrl : "js/views/teacher/profile.html",
+            controller: "profileTeacherController"
+        })
         .when("/dashboardteacher", {
             templateUrl : "js/views/teacher/dashBoard.html",
             controller: "dashBoardteacherController"
@@ -70,6 +83,10 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/teacher/sortLesson.html",
             controller: "sortLessonController"
         })
+        .when("/sortproblemteacher/:lesson_id", {
+            templateUrl : "js/views/teacher/sortProblem.html",
+            controller: "sortProblemController"
+        })
         .when("/editlessonteacher/:lesson_id", {
             templateUrl : "js/views/teacher/editLesson.html",
             controller: "editLessonteacherController"
@@ -78,7 +95,24 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/teacher/editProblem.html",
             controller: "editProblemteacherController"
         })
+        .when("/readannouncementteacher/:announcement_id", {
+            templateUrl : "js/views/teacher/readAnnouncement.html",
+            controller: "readAnnouncementteacherController"
+        })
+        .when("/editannouncementteacher", {
+            templateUrl : "js/views/teacher/editAnnouncement.html",
+            controller: "editAnnouncementteacherController"
+        })
 
+        //admin
+        .when("/profileadmin", {
+            templateUrl : "js/views/admin/profile.html",
+            controller: "profileStudentController"
+        })
+        .when("/dashboardadmin", {
+            templateUrl : "js/views/admin/dashBoard.html",
+            controller: "dashboardAdminController"
+        })
 
 
         .otherwise({

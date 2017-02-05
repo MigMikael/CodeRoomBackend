@@ -34,6 +34,9 @@
     <!--JsZip-->
     <script src="lib/jszip.min.js"></script>
 
+    <!--ui-boostrap-->
+    <script src="lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
     <!--ICON-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,15 +50,21 @@
 
 <div ng-view></div>
 <script src="js/app.js"></script>
+<!--Controller All-->
 <script src="js/controllers/homeController.js"></script>
 <script src="js/controllers/selectRoleController.js"></script>
+
+<!--Service All-->
 <script src="js/services/home.js"></script>
+<script src="js/services/announcementStudentTeacher.js"></script>
 <!--Student Controller-->
 <script src="js/controllers/student/dashBoardcontroller.js"></script>
 <script src="js/controllers/student/courseController.js"></script>
 <script src="js/controllers/student/studyController.js"></script>
 <script src="js/controllers/student/viewMemberController.js"></script>
 <script src="js/controllers/student/viewCourseController.js"></script>
+<script src="js/controllers/student/readAnnouncementController.js"></script>
+<script src="js/controllers/student/profileController.js"></script>
 <!--Teacher Controller-->
 <script src="js/controllers/teacher/dashBoardController.js"></script>
 <script src="js/controllers/teacher/couseController.js"></script>
@@ -67,7 +76,14 @@
 <script src="js/controllers/teacher/addLesson.js"></script>
 <script src="js/controllers/teacher/sortLessonController.js"></script>
 <script src="js/controllers/teacher/addStudentSortController.js"></script>
+<script src="js/controllers/teacher/sortProblemController.js"></script>
 <script src="js/controllers/teacher/editLesson.js"></script>
+<script src="js/controllers/teacher/readAnnouncementController.js"></script>
+<script src="js/controllers/teacher/editAnnouncementController.js"></script>
+<script src="js/controllers/teacher/profileController.js"></script>
+<!--Admin Controller-->
+<script src="js/controllers/admin/dashboardAdminController.js"></script>
+<script src="js/controllers/admin/profileController.js"></script>
 <!--Service Student-->
 <script src="js/services/student/dashBoard.js"></script>
 <script src="js/services/student/course.js"></script>
@@ -80,5 +96,7 @@
 <script src="js/services/teacher/lesson.js"></script>
 <script src="js/services/teacher/viewMember.js"></script>
 <script src="js/services/teacher/problem.js"></script>
+<!--Service Admin-->
+<script src="js/services/admin/dashboard.js"></script>
 </body>
 </html>

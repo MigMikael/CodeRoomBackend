@@ -80,7 +80,7 @@ app.controller('homeController',function($scope,$http,$localStorage,$location,ho
         }else if(role=="teacher"){
             $location.path('/dashboardteacher');
         }else if(role==="admin"){
-
+            $location.path('/selectrole');
         }
     }
 });

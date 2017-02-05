@@ -943,3 +943,52 @@ body{
     background-color: #dff0d8;
     color: #00b4a2;
 }
+
+.nav-profile{
+     width: 100%;
+
+ }
+.nav-profile a{
+     width: 100%;
+     display: block;
+     padding: 10px;
+     text-align: center;
+
+    cursor: pointer;
+    background-color: white;
+
+ }
+.nav-profile a.active{
+    background-color: #EEEEEE;
+}
+.nav-profile a.inactive{
+    background-color: white;
+}
+
+.card-profile{
+    width: 100%;
+    display: block;
+
+
+}
+.list-lesson-profile{
+        width: 100%;
+        height: 40px;
+
+
+    }
+.list-lesson-profile .left-name-lesson-profile{
+     float: left;
+ }
+.list-lesson-profile .left-name-lesson-profile p{
+    font-size: 16px;
+}
+.list-lesson-profile .right-prograss-lesson-profile{
+    float: right;
+
+}
+.list-lesson-profile .right-prograss-lesson-profile p{
+    color: #00b4a2;
+    font-size: 16px;
+
+}

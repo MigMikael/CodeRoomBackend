@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a ng-click="go('/dashboardteacher')">CODEROOM</a>
+            <a ng-click="go('/dashboardstudent')">CODEROOM</a>
         </div>
         <div class="navbar-user">
             <div class="circle-user" ng-click="openCarduser()">
@@ -27,24 +27,15 @@
 
 </nav>
 <div class="container">
-    <div style="width: 100%;background-color: #204060;height: 60px;text-align: center;margin-bottom: 20px">
-        <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">My Courses</h3>
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="course in dataDashboard.teacher.courses">
-        <div class="card-course" ng-click="go('/courseteacher/'+course.course_id)">
-            <img src="{{course.image}}">
-            <div class="card-headder">
-                <h4 style="margin: 0">{{course.name}}</h4>
-            </div>
-            <div class="list-icon">
-                <span class="glyphicon glyphicon glyphicon-user"></span>
-                <span>{{course.students_count + course.teachers_count}}</span>
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                <span>{{course.lessons_count}}</span>
-            </div>
-
-
+    <div class="col-md-12">
+        <div style="width: 100%;background-color: #204060;height: 60px;padding: 0 0 0 10px">
+            <h3 style="color: white;line-height: 60px">Announcement titel</h3>
+        </div>
+        <div style="width: 100%;padding: 10px;overflow: hidden;background-color: white">
+            <p style="display: inline">texttt</p>
         </div>
     </div>
 
+
 </div>
+

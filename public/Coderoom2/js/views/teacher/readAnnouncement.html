@@ -27,29 +27,21 @@
 
 </nav>
 <div class="container">
-    <div class="col-md-3">
-        <div style="width: 100%">
-
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
-            <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Add Lesson</h3>
-        </div>
-        <div class="card-all-add">
-
-            <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
-                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-bullhorn" aria-hidden="true"></i></span></span>
-                <input class="form-control left-border-none" placeholder="Lesson name" type="text" name="name"  ng-model="lesson.name" style="border: 0;border-radius: 0">
+    <div class="col-md-12">
+        <div style="width: 100%;background-color: #204060;height: 60px;padding: 0 0 0 10px">
+            <h3 style="color: white;line-height: 60px;display: inline">{{announcement.title}}</h3>
+            <div style="display: inline;float: right;height: 60px;;padding: 0 10px;cursor: pointer">
+                <p style="color: white;line-height: 60px;" ng-click="go('/editannouncementteacher')">Edit</p>
             </div>
-            <button class="submit-card-all-add" type="submit" ng-click="addLesson()">Submit</button>
-
-
+            <div style="display: inline;float: right;height: 60px;;padding: 0 10px;cursor: pointer">
+                <p style="color: white;line-height: 60px;" ng-click="deleteAnnouncement(announcement.id)">Delete</p>
+            </div>
+        </div>
+        <div style="width: 100%;overflow: hidden;background-color: white;padding: 10px">
+            <p style="display: inline;line-height: 60px">{{announcement.content}}</p>
         </div>
     </div>
-    <div class="col-md-3">
-        <div style="width: 100%">
 
-        </div>
-    </div>
+
 </div>
+

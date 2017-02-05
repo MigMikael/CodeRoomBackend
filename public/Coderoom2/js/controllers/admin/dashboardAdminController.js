@@ -1,7 +1,21 @@
 
-app.controller('selectRoleController',function($scope,$http,$localStorage,$location) {
+app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$localStorage,$routeParams,$location) {
     $scope.user = $localStorage.user;
+    $scope.dashBorad;
+    getData($localStorage.user.token);
+    function getData(token) {
 
+        dashBoardAdmin.getData(token).then(
+            function(response){
+                $scope.dashBorad = response.data;
+                console.log($scope.dashBorad);
+
+            },
+            function(response){
+                // failure call back
+            });
+
+    }
 
     $scope.openCarduser  = function(){
         if($scope.cardUser){
@@ -17,6 +31,7 @@ app.controller('selectRoleController',function($scope,$http,$localStorage,$locat
     $scope.go = function ( path ) {
         $location.path( path );
     };
+
     $scope.logout = function () {
 
         $http.get('/logout', {headders:{
@@ -24,14 +39,15 @@ app.controller('selectRoleController',function($scope,$http,$localStorage,$locat
             }})
             .then(
                 function(response){
-                    console.log(response);
                     delete $localStorage.user;
-                    $location.path('#/home');
+                    $location.path('/home');
                 },
                 function(response){
                     // failure callback
                 }
             );
     }
-});
 
+
+
+});
