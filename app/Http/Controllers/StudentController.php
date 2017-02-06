@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BadgeStudent;
 use App\Course;
+use App\StudentLesson;
 use Excel;
 use App\Student;
 use App\StudentCourse;
@@ -301,5 +302,44 @@ class StudentController extends Controller
             $student->save();
         }
         return $student;
+    }
+
+    public function getProfile($id)
+    {
+        $student = Student::findOrFail($id);
+        foreach ($student->courses as $course){
+
+            $student_course = StudentCourse::where([
+                ['student_id', '=', $student->id],
+                ['course_id', '=', $course->id]
+            ])->first();
+
+            foreach ($course->lessons as $lesson){
+                $student_lesson = StudentLesson::where([
+                    ['student_course_id', '=', $student_course->id],
+                    ['lesson_id', '=', $lesson->id]
+                ])->first();
+
+                if($student_lesson == null){
+                    $lesson['progress'] = 0;
+                }else{
+                    $lesson['progress'] = $student_lesson->progress;
+                }
+            }
+        }
+        return $student;
+    }
+
+    public function getAll($course_id)
+    {
+        $data = [];
+
+        $students = Student::all();
+        $data['students'] = $students;
+
+        $course = Course::findOrFail($course_id);
+        $data['students_course'] = $course->students;
+
+        return $data;
     }
 }

@@ -181,26 +181,25 @@ class ProblemController extends Controller
         }
     }
 
-    public function updateProblem(Request $request, $id)
+    public function updateProblem(Request $request)
     {
-        $problem = Problem::findOrFail($id);
-        $newProblem = [
-            'name'          => $request->get('name'),
-            'description'   => $request->get('description'),
-            'evaluator'     => $request->get('evaluator'),
-            'timelimit'     => $request->get('timelimit'),
-            'memorylimit'   => $request->get('memorylimit'),
-            'lesson_id'     => $request->get('lesson_id'),
-            'is_parse'      => $request->get('is_parse'),
-        ];
-        $problem->update($newProblem);
+        /*$id = $request->get('id');
+        $problem = Problem::findOfFail($id);
+
+        $problem->name = $request->get('name');
+        $problem->description = $request->get('description');
+        $problem->evaluator = $request->get('evaluator');
+        $problem->timelimit = $request->get('timelimit');
+        $problem->memorylimit = $request->get('memorylimit');
+        $problem->lesson_id = $request->get('lesson_id');
+        $problem->is_parse = $request->get('is_parse');
 
         if($request->hasFile('file')){
             $file = $request->file('file');
             self::sendToProblemFile($problem, $file, 'edit');
         }
 
-        return response()->json(['msg' => 'success']);
+        return response()->json(['msg' => 'success']);*/
     }
 
     public function deleteProblem($id)

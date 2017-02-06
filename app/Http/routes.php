@@ -103,6 +103,8 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
 
+    Route::get('api/student/profile/{id}', 'StudentController@getProfile');
+
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
 
     Route::get('api/student/course/{student_id}/{course_id}', 'CourseController@showCourseStudent');
@@ -123,6 +125,7 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
 //Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
+    Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
 
     Route::get('api/teacher/course/{course_id}', 'CourseController@showCourseTeacher');
     Route::get('api/teacher/course/{id}/member', 'CourseController@getMember');
@@ -133,15 +136,14 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
     Route::delete('api/teacher/lesson/delete/{id}', 'LessonController@deleteLesson');   //  delete
     Route::post('api/teacher/lesson/change_order', 'LessonController@changeLessonOrder');
 
-
     Route::get('api/teacher/problem/{id}', 'ProblemController@showProblem');                //  show
     // Todo fix edit problem (method)
-    Route::patch('api/teacher/problem/{id}/edit', 'ProblemController@updateProblem');       //  update
+    Route::post('api/teacher/problem/edit', 'ProblemController@updateProblem');             //  update
     Route::post('api/teacher/problem/store', 'ProblemController@storeProblem');             //  store
     Route::delete('api/teacher/problem/delete/{id}', 'ProblemController@deleteProblem');    //  delete
 
     Route::get('api/teacher/announcement/{id}', 'AnnouncementController@showAnnouncement');             //  show
-    Route::patch('api/teacher/announcement/edit', 'AnnouncementController@updateAnnouncement');    //  update
+    Route::post('api/teacher/announcement/edit', 'AnnouncementController@updateAnnouncement');          //  update
     Route::post('api/teacher/announcement/store', 'AnnouncementController@storeAnnouncement');          //  store
     Route::delete('api/teacher/announcement/delete/{id}', 'AnnouncementController@deleteAnnouncement'); //  delete
 
@@ -149,6 +151,7 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
     Route::post('api/teacher/student/store', 'StudentController@addStudentMember');                             //  store One
     Route::post('api/teacher/students/store', 'StudentController@addStudentsMember');                           //  store Many
     Route::get('api/teacher/student/disable/{student_id}/{course_id}', 'StudentController@disableStudent');// deactivate
+    Route::get('api/teacher/student/all/{course_id}', 'StudentController@getAll');
 
 //});
 

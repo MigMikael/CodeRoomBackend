@@ -157,4 +157,11 @@ class TeacherController extends Controller
 
         return $data;
     }
+
+    public function getProfile($id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        $teacher->courses;
+        return $teacher;
+    }
 }

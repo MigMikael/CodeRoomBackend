@@ -118,6 +118,7 @@ class LessonController extends Controller
     {
         $updatedLessonId = $request->get('id');
         $updatedLessonName = $request->get('name');
+
         $lesson = Lesson::findOrFail($updatedLessonId);
         $lesson->name = $updatedLessonName;
         $lesson->save();
@@ -151,7 +152,6 @@ class LessonController extends Controller
         return response()->json(['msg' => 'success']);
     }
 
-    // Todo fix bug with UI
     public function changeLessonOrder(Request $request)
     {
         $newLessons = $request->all();
