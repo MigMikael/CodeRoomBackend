@@ -342,4 +342,24 @@ class StudentController extends Controller
 
         return $data;
     }
+
+    public function changePassword(Request $request)
+    {
+        $student_id = $request->get('student_id');
+        $old_password = $request->get('old_password');
+        $new_password = $request->get('new_password');
+
+        $student = Student::findOrFail($student_id);
+        $current_password_hash = $student->password;
+
+        if(password_verify($old_password, $current_password_hash)){
+            $student->password = password_hash($new_password, PASSWORD_DEFAULT);
+            $student->save();
+
+            return response()->json(['msg' => 'change password complete']);
+
+        }else{
+            return response()->json(['msg' => 'password is incorrect']);
+        }
+    }
 }

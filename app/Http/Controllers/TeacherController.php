@@ -164,4 +164,24 @@ class TeacherController extends Controller
         $teacher->courses;
         return $teacher;
     }
+
+    public function changePassword(Request $request)
+    {
+        $teacher_id = $request->get('teacher_id');
+        $old_password = $request->get('old_password');
+        $new_password = $request->get('new_password');
+
+        $teacher = Teacher::findOrFail($teacher_id);
+        $current_password_hash = $teacher->password;
+
+        if(password_verify($old_password, $current_password_hash)){
+            $teacher->password = password_hash($new_password, PASSWORD_DEFAULT);
+            $teacher->save();
+
+            return response()->json(['msg' => 'change password complete']);
+
+        }else{
+            return response()->json(['msg' => 'password is incorrect']);
+        }
+    }
 }

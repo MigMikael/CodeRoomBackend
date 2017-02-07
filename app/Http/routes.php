@@ -85,7 +85,7 @@ Route::get('image/{id}', 'ImageController@getImage');
 #
 #
 #--------------------------------------------------------------------------------------------------------
-#                               Auth API
+#                               General API
 #--------------------------------------------------------------------------------------------------------
 Route::post('login', 'UserAuthController@loginUser');
 Route::get('login', 'UserAuthController@login');
@@ -94,16 +94,20 @@ Route::get('logout', 'UserAuthController@logout');
 Route::post('register', 'UserAuthController@registerUser');
 Route::get('register', 'UserAuthController@register');
 
+Route::get('api/user/home', 'CourseController@showCourseUser');
+
+
 #--------------------------------------------------------------------------------------------------------
 #                               Student API
 #--------------------------------------------------------------------------------------------------------
-Route::get('api/user/home', 'CourseController@showCourseUser');
 
 //Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
 
     Route::get('api/student/profile/{id}', 'StudentController@getProfile');
+
+    Route::post('api/student/change_password', 'StudentController@changePassword');
 
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
 
@@ -126,6 +130,7 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
+    Route::post('api/teacher/change_password', 'TeacherController@changePassword');
 
     Route::get('api/teacher/course/{course_id}', 'CourseController@showCourseTeacher');
     Route::get('api/teacher/course/{id}/member', 'CourseController@getMember');
