@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProblemController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProblemController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_06_23_081916_create_problem_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_06_23_081916_create_problem_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_31_064405_create_student_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_31_064405_create_student_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_10_20_132949_create_teacher_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_10_20_132949_create_teacher_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/ProblemTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/ProblemTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/StudentTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/StudentTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/TeacherTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/TeacherTableSeeder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Student.php" afterPath="$PROJECT_DIR$/app/Student.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Teacher.php" afterPath="$PROJECT_DIR$/app/Teacher.php" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +64,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="151" column="29" lean-forward="false" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
               <folding>
                 <element signature="e#3006#3111#0#PHP" expanded="false" />
               </folding>
@@ -184,14 +175,12 @@
         <option value="$PROJECT_DIR$/public/Coderoom2/js/services/student/dashBoard.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/home.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/homeController.js" />
-        <option value="$PROJECT_DIR$/app/Student.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/StudentAuthenticate.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/TeacherAuthenticate.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/UserAuthenticate.php" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/dashBoardcontroller.js" />
-        <option value="$PROJECT_DIR$/app/Teacher.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_11_23_175042_create_submission_output_table.php" />
         <option value="$PROJECT_DIR$/app/SubmissionOutput.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/AdminAuthenticate.php" />
@@ -226,6 +215,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProblemController.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Student.php" />
+        <option value="$PROJECT_DIR$/app/Teacher.php" />
       </list>
     </option>
   </component>
@@ -326,10 +317,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="1358" />
+    <option name="y" value="-138" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -447,6 +438,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="submission" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -1090,14 +1107,7 @@
       <workItem from="1486490997964" duration="54000" />
       <workItem from="1486533132314" duration="1741000" />
       <workItem from="1486557445174" duration="3724000" />
-      <workItem from="1486616120325" duration="5025000" />
-    </task>
-    <task id="LOCAL-00062" summary="create Lesson and auto gen badge">
-      <created>1477557167318</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1477557167318</updated>
+      <workItem from="1486616120325" duration="6809000" />
     </task>
     <task id="LOCAL-00063" summary="implement share dialog">
       <created>1477922833454</created>
@@ -1435,11 +1445,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486476624440</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="api edit student profile">
+      <created>1486625167437</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1486625167438</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1325025000" />
+    <option name="totallyTimeSpent" value="1326809000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1451,11 +1468,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1358" y="-138" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20468278" sideWeight="0.5088282" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1709531" sideWeight="0.49117175" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20558739" sideWeight="0.49117175" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32669324" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270525" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18986385" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1493,7 +1510,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="read and handle test case file" />
     <MESSAGE value="edit view problem &amp; problem_Input_Output version" />
     <MESSAGE value="check in and sol version with Evaluator" />
     <MESSAGE value="success check student code" />
@@ -1518,7 +1534,8 @@
     <MESSAGE value="fix bug in store api" />
     <MESSAGE value="add more api" />
     <MESSAGE value="api change user password" />
-    <option name="LAST_COMMIT_MESSAGE" value="api change user password" />
+    <MESSAGE value="api edit student profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="api edit student profile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1527,20 +1544,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage/app/public/problem/2_StudentRecord/StudentRecord/src/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/SubmissionTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/SubmissionFileTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1998,10 +2001,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Teacher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="151" column="29" lean-forward="false" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
+        <state relative-caret-position="204">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding>
             <element signature="e#3006#3111#0#PHP" expanded="false" />
           </folding>
