@@ -13,6 +13,7 @@ class CreateProblemTable extends Migration {
 			$table->string('name', 100);
 			$table->string('description', 100);
 			$table->string('evaluator', 100);
+			$table->integer('order');
 			$table->float('timelimit')->default('1');
 			$table->float('memorylimit')->default('32');
             $table->string('is_parse')->default('false');

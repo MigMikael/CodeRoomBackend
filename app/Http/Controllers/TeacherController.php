@@ -165,6 +165,22 @@ class TeacherController extends Controller
         return $teacher;
     }
 
+    public function updateProfile(Request $request)
+    {
+        $teacher = Teacher::findOrFail($request->get('id'));
+
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $username = $request->get('username');
+
+        $teacher->name = $name;
+        $teacher->email = $email;
+        $teacher->username = $username;
+        $teacher->save();
+
+        return response()->json(['msg' => 'edit complete']);
+    }
+
     public function changePassword(Request $request)
     {
         $teacher_id = $request->get('teacher_id');

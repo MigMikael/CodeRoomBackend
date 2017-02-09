@@ -36,19 +36,24 @@ class ProblemController extends Controller
 
     public function store(Request $request)
     {
+        $lesson_id = $request->get('lesson_id');
+        $order = Problem::where('lesson_id', '=', $lesson_id)->count();
+        $order++;
+
         $problem = [
-            'lesson_id' => $request->get('lesson_id'),
+            'lesson_id' => $lesson_id,
             'name' => $request->get('name'),
             'description' => $request->get('description'),
             'evaluator' => $request->get('evaluator'),
+            'order' => $order,
             'timelimit' => $request->get('timelimit'),
             'memorylimit' => $request->get('memorylimit'),
             'is_parse' => $request->get('is_parse'),
         ];
 
-        if(Request::hasFile('file')){
+        if($request->hasFile('file')){
             $problem = Problem::create($problem);
-            $file = Request::file('file');
+            $file = $request->file('file');
             return self::sendToProblemFile($problem, $file, 'create');
         } else {
             return 'file not found';
@@ -162,11 +167,16 @@ class ProblemController extends Controller
 
     public function storeProblem(Request $request)
     {
+        $lesson_id = $request->get('lesson_id');
+        $order = Problem::where('lesson_id', '=', $lesson_id)->count();
+        $order++;
+
         $problem = [
-            'lesson_id'     =>  $request->get('lesson_id'),
+            'lesson_id'     =>  $lesson_id,
             'name'          =>  $request->get('name'),
             'description'   =>  $request->get('description'),
             'evaluator'     =>  $request->get('evaluator'),
+            'order'         =>  $order,
             'timelimit'     =>  $request->get('timelimit'),
             'memorylimit'   =>  $request->get('memorylimit'),
             'is_parse'      =>  $request->get('is_parse'),
@@ -183,6 +193,7 @@ class ProblemController extends Controller
 
     public function updateProblem(Request $request)
     {
+        // Todo determine
         /*$id = $request->get('id');
         $problem = Problem::findOfFail($id);
 
@@ -229,6 +240,20 @@ class ProblemController extends Controller
         $request = Request::create($url, 'POST', $problemFile);
         $res = app()->handle($request);
         return $res;
+    }
+
+    public function changeProblemOrder(Request $request)
+    {
+        $newProblems = $request->all();
+        $count = 0;
+        foreach ($newProblems as $newProblem){
+            $count++;
+            $problem = Problem::findOrFail($newProblem['id']);
+            $problem->order = $count;
+            $problem->save();
+        }
+
+        return response()->json(['msg' => 'success']);
     }
     
 }

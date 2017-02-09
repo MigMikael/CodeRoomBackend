@@ -15,6 +15,7 @@ class CreateTeacherTable extends Migration
         Schema::create('teacher', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('email');
             $table->integer('image')->unsigned();
             $table->string('token')->unique();
             $table->enum('role', ['admin', 'teacher']);

@@ -162,5 +162,7 @@ class LessonController extends Controller
             $lesson->order = $count;
             $lesson->save();
         }
+
+        return response()->json(['msg' => 'success']);
     }
 }

@@ -330,6 +330,22 @@ class StudentController extends Controller
         return $student;
     }
 
+    public function updateProfile(Request $request)
+    {
+        $student = Student::findOrFail($request->get('id'));
+
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $username = $request->get('username');
+
+        $student->name = $name;
+        $student->email = $email;
+        $student->username = $username;
+        $student->save();
+
+        return response()->json(['msg' => 'edit complete']);
+    }
+
     public function getAll($course_id)
     {
         $data = [];

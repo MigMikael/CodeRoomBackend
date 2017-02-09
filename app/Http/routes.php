@@ -101,11 +101,13 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
 #                               Student API
 #--------------------------------------------------------------------------------------------------------
 
-//Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
 
     Route::get('api/student/profile/{id}', 'StudentController@getProfile');
+    // new
+    Route::post('api/student/profile/edit', 'StudentController@updateProfile');
 
     Route::post('api/student/change_password', 'StudentController@changePassword');
 
@@ -120,7 +122,7 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
     // Todo api for submission
     //Route::post('api/')
 
-//});
+});
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -130,6 +132,8 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
+    // new
+    Route::post('api/teacher/profile/edit', 'TeacherController@updateProfile');
     Route::post('api/teacher/change_password', 'TeacherController@changePassword');
 
     Route::get('api/teacher/course/{course_id}', 'CourseController@showCourseTeacher');
@@ -146,8 +150,11 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
     Route::post('api/teacher/problem/edit', 'ProblemController@updateProblem');             //  update
     Route::post('api/teacher/problem/store', 'ProblemController@storeProblem');             //  store
     Route::delete('api/teacher/problem/delete/{id}', 'ProblemController@deleteProblem');    //  delete
+    // new
+    Route::post('api/teacher/problem/change_order', 'ProblemController@changeProblemOrder');
 
     Route::get('api/teacher/announcement/{id}', 'AnnouncementController@showAnnouncement');             //  show
+    // new
     Route::post('api/teacher/announcement/edit', 'AnnouncementController@updateAnnouncement');          //  update
     Route::post('api/teacher/announcement/store', 'AnnouncementController@storeAnnouncement');          //  store
     Route::delete('api/teacher/announcement/delete/{id}', 'AnnouncementController@deleteAnnouncement'); //  delete

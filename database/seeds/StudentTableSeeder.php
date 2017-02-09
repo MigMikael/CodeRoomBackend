@@ -15,6 +15,7 @@ class StudentTableSeeder extends Seeder
         DB::table('student')->insert([
             'student_id' => '07560550',
             'name' => 'Chanachai Puttaruksa',
+            'email' => 'chanachai@example.com',
             'image' => 25,
             'username' => 'MigMikael',
             'password' => password_hash('mig39525G', PASSWORD_DEFAULT),
@@ -26,6 +27,7 @@ class StudentTableSeeder extends Seeder
         DB::table('student')->insert([
             'student_id' => '07560445',
             'name' => 'นันทิพัฒน์ พลบดี',
+            'email' => 'nanthiphat@example.com',
             'image' => 26,
             'username' => 'Manny',
             'password' => password_hash('Manny', PASSWORD_DEFAULT),
@@ -37,6 +39,7 @@ class StudentTableSeeder extends Seeder
         DB::table('student')->insert([
             'student_id' => '07570497',
             'name' => 'ธนเดช พัดทอง',
+            'email' => 'thanadej@example.com',
             'image' => 27,
             'username' => 'Au',
             'password' => password_hash('Au', PASSWORD_DEFAULT),

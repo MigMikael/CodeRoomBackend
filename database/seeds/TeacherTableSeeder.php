@@ -14,6 +14,7 @@ class TeacherTableSeeder extends Seeder
     {
         DB::table('teacher')->insert([
             'name' => 'อ.ดร.ภิญโญ แท้ประสาทสิทธิ์',
+            'email' => 'pinyo@example.com',
             'image' => 19,
             'username' => 'Pinyo',
             'password' => password_hash('Pinyo', PASSWORD_DEFAULT),
@@ -25,6 +26,7 @@ class TeacherTableSeeder extends Seeder
 
         DB::table('teacher')->insert([
             'name' => 'อ.ดร.สิรักข์ แก้วจำนงค์',
+            'email' => 'sirak@example.com',
             'image' => 20,
             'username' => 'Sirak',
             'password' => password_hash('Sirak', PASSWORD_DEFAULT),
@@ -36,6 +38,7 @@ class TeacherTableSeeder extends Seeder
 
         DB::table('teacher')->insert([
             'name' => 'อ.ดร.รัชดาพร คณาวงษ์',
+            'email' => 'ratchadaporn@example.com',
             'image' => 21,
             'username' => 'Ratchadaporn',
             'password' => password_hash('Ratchadaporn', PASSWORD_DEFAULT),
@@ -47,6 +50,7 @@ class TeacherTableSeeder extends Seeder
 
         DB::table('teacher')->insert([
             'name' => 'อ.เสฐลัทธ์ รอดเหตุภัย',
+            'email' => 'sethalat@example.com',
             'image' => 22,
             'username' => 'Sethalat',
             'password' => password_hash('Sethalat', PASSWORD_DEFAULT),
@@ -58,6 +62,7 @@ class TeacherTableSeeder extends Seeder
 
         DB::table('teacher')->insert([
             'name' => 'อ.ดร.อรวรรณ เชาวลิต',
+            'email' => 'orawan@example.com',
             'image' => 23,
             'username' => 'Orawan',
             'password' => password_hash('Orawan', PASSWORD_DEFAULT),
@@ -69,6 +74,7 @@ class TeacherTableSeeder extends Seeder
 
         DB::table('teacher')->insert([
             'name' => 'อ.ดร.ทัศนวรรณ ศูนย์กลาง',
+            'email' => 'tasanawan@example.com',
             'image' => 24,
             'username' => 'Tasanawan',
             'password' => password_hash('Tasanawan', PASSWORD_DEFAULT),
