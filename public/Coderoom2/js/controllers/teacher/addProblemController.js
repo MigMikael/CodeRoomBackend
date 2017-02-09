@@ -41,8 +41,16 @@ app.controller('addProblemteacherController',function($scope,$localStorage,$rout
 
         file.upload = Upload.upload({
             url: '/api/teacher/problem/store',
-            data: {zip: $scope.zip,lesson_id:$localStorage.lessons_id,},
-
+            data: {file: $scope.zip,
+                lesson_id:$localStorage.lessons_id,
+                name:$scope.name,
+                description:$scope.description,
+                evaluator:$scope.evaluator,
+                timelimit:$scope.timelimit,
+                memmorylimit:$scope.memmorylimit,
+                is_parse:$scope.is_parse
+            },
+            headers:{'Authorization_Token' : $localStorage.user.token},
         });
 
         file.upload.then(function (response) {
