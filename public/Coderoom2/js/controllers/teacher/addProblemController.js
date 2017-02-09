@@ -1,5 +1,5 @@
 
-app.controller('addProblemteacherController',function($scope,$localStorage,$routeParams,$http,$location) {
+app.controller('addProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location) {
 
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lessons_id;
@@ -36,18 +36,23 @@ app.controller('addProblemteacherController',function($scope,$localStorage,$rout
             );
     }
     //upload
-    $scope.uploadFiles = function() {
-
-
+    $scope.uploadFiles = function(file) {
+        console.log($scope.name);
+        console.log($scope.description);
+        console.log($scope.evaluator);
+        console.log($scope.timelimit);
+        console.log($scope.memorylimit);
+        console.log($scope.is_parse);
+        console.log(file);
         file.upload = Upload.upload({
             url: '/api/teacher/problem/store',
-            data: {file: $scope.zip,
+            data: {file: file,
                 lesson_id:$localStorage.lessons_id,
                 name:$scope.name,
                 description:$scope.description,
                 evaluator:$scope.evaluator,
                 timelimit:$scope.timelimit,
-                memmorylimit:$scope.memmorylimit,
+                memorylimit:$scope.memorylimit,
                 is_parse:$scope.is_parse
             },
             headers:{'Authorization_Token' : $localStorage.user.token},
@@ -55,8 +60,8 @@ app.controller('addProblemteacherController',function($scope,$localStorage,$rout
 
         file.upload.then(function (response) {
             $timeout(function () {
-                console.log(response);
-            });
+                console.log(response.data);
+            })
         }, function (response) {
             if (response.status > 0)
                 $scope.errorMsg = response.status + ': ' + response.data;

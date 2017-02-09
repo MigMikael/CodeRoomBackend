@@ -172,28 +172,27 @@ class ProblemController extends Controller
         $order++;
 
         $problem = [
-            'lesson_id'     =>  $lesson_id,
-            'name'          =>  $request->get('name'),
-            'description'   =>  $request->get('description'),
-            'evaluator'     =>  $request->get('evaluator'),
-            'order'         =>  $order,
-            'timelimit'     =>  $request->get('timelimit'),
-            'memorylimit'   =>  $request->get('memorylimit'),
-            'is_parse'      =>  $request->get('is_parse'),
+            'lesson_id' => $lesson_id,
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'evaluator' => $request->get('evaluator'),
+            'order' => $order,
+            'timelimit' => $request->get('timelimit'),
+            'memorylimit' => $request->get('memorylimit'),
+            'is_parse' => $request->get('is_parse'),
         ];
 
-        if(Request::hasFile('file')){
+        if($request->hasFile('file')){
             $problem = Problem::create($problem);
-            $file = Request::file('file');
+            $file = $request->file('file');
             return self::sendToProblemFile($problem, $file, 'create');
         } else {
-            return response()->json(['msg' => 'fail (file not Found)']);
+            return response()->json(['msg' => 'file not found']);
         }
     }
 
     public function updateProblem(Request $request)
     {
-        // Todo determine
         /*$id = $request->get('id');
         $problem = Problem::findOfFail($id);
 
