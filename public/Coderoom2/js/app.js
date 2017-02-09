@@ -75,7 +75,7 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/teacher/addAnnouncement.html",
             controller: "addAnnouncementteacherController"
         })
-        .when("/addstudentsortteacher", {
+        .when("/addstudentsortteacher/:course_id", {
             templateUrl : "js/views/teacher/addStudentSort.html",
             controller: "addStudentSortController"
         })
@@ -102,6 +102,10 @@ app.config(function($routeProvider) {
         .when("/editannouncementteacher", {
             templateUrl : "js/views/teacher/editAnnouncement.html",
             controller: "editAnnouncementteacherController"
+        })
+        .when("/uploadstudentlist/:course_id", {
+            templateUrl : "js/views/teacher/uploadStudentlist.html",
+            controller: "uploadStudentlistController"
         })
 
         //admin

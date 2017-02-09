@@ -36,12 +36,12 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
     }
 
     $scope.editAnnouncement = function(){
-        $http.post('', $scope.announcement,{headders:{
+        $http.post('/api/teacher/announcement/edit', $scope.announcement,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
                 function(response){
-                    $location.path('/readannouncementteacher/'+$$localStorage.announcement_id);
+                    $location.path('/readannouncementteacher/'+$localStorage.announcement_id);
                 },
                 function(response){
                     // failure callback
@@ -50,7 +50,7 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
     };
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

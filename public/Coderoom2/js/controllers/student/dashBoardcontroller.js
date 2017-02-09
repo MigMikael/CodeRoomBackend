@@ -55,7 +55,7 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

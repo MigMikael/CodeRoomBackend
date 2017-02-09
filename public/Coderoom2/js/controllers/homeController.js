@@ -47,7 +47,7 @@ app.controller('homeController',function($scope,$http,$localStorage,$location,ho
                     // failure callback
                 }
             );
-    }
+    };
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -59,7 +59,7 @@ app.controller('homeController',function($scope,$http,$localStorage,$location,ho
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(

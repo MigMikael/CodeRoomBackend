@@ -40,7 +40,7 @@ app.controller('listProblemteacherController',function($scope,$localStorage,$rou
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -54,7 +54,9 @@ app.controller('listProblemteacherController',function($scope,$localStorage,$rou
             );
     }
     $scope.deleteProblem = function(prob_id){
-        $http.delete('/api/teacher/problem/delete/'+ prob_id)
+        $http.delete('/api/teacher/problem/delete/'+ prob_id, {headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
             .then(
                 function(response){
                     location.reload();

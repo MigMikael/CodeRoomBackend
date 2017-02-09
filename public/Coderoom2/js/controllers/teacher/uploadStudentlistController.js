@@ -1,10 +1,7 @@
 
-app.controller('addProblemteacherController',function($scope,$localStorage,$routeParams,$http,$location) {
-
+app.controller('uploadStudentlistController',function($scope,$localStorage,$routeParams,$http,$location) {
+    $localStorage.course_id = $routeParams.course_id;
     $scope.user = $localStorage.user;
-    $localStorage.lesson_id = $routeParams.lessons_id;
-
-
     $scope.openCarduser  = function(){
         if($scope.cardUser){
             document.getElementById("showCarduser").style.display = "none";
@@ -16,13 +13,14 @@ app.controller('addProblemteacherController',function($scope,$localStorage,$rout
         }
         $scope.cardUser = !$scope.cardUser;
     };
+
     $scope.go = function ( path ) {
         $location.path( path );
     };
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -35,14 +33,13 @@ app.controller('addProblemteacherController',function($scope,$localStorage,$rout
                 }
             );
     }
-    //upload
+
     $scope.uploadFiles = function() {
 
 
         file.upload = Upload.upload({
-            url: '/api/teacher/problem/store',
-            data: {zip: $scope.zip,lesson_id:$localStorage.lessons_id,},
-
+            url: '/',
+            data: {zip: $scope.zip,course_id: $localStorage.course_id},
         });
 
         file.upload.then(function (response) {
@@ -58,7 +55,6 @@ app.controller('addProblemteacherController',function($scope,$localStorage,$rout
         });
     };
 });
-
 
 
 

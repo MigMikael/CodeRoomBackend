@@ -80,25 +80,16 @@
             <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Lessons</h3>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0" ng-repeat="lesson in course.lessons">
-            <div class="list-course" style="cursor: default">
-
-                <div class="progress-list-course">
-                    <span>{{100}}%</span>
-                </div>
-
+            <div class="list-course" style="padding-left: 15px;cursor: default">
                 <div class="list-course-headder">
                     <h4 style="margin: 0">{{lesson.name}}</h4>
                 </div>
                 <div style="position: relative;display: block">
-                    <div class="list-course-icon">
+                    <div class="list-course-icon" style="left: 0" >
                         <span>Problems</span>
                         <span>{{lesson.problems_count}}</span>
-                        <span>Quiz</span>
-                        <span>{{lesson.quizs_count}}</span>
-
                     </div>
                 </div>
-
             </div>
         </div>
 

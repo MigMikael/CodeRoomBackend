@@ -53,7 +53,7 @@ app.controller('profileAdminController',function($scope,$localStorage,$location,
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

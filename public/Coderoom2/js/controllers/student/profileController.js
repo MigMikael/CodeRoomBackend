@@ -1,19 +1,21 @@
 
-app.controller('profileStudentController',function($scope,$localStorage,$location, $http,$routeParams) {
+app.controller('profileStudentController',function($scope,$localStorage,$location, $http,$routeParams,profileStudent) {
     $scope.user = $localStorage.user;
-    $scope.profile = true;
-    $scope.changePassword = false;
-    $scope.editProfile = false;
+    $scope.profileView = true;
+    $scope.changePasswordView = false;
+    $scope.editProfileView = false;
+    $scope.oneAtATime = true;
+    $scope.dataEditProfile;
+    getData($localStorage.user.token,$localStorage.user.id);
 
+    function getData(token,user_id) {
 
-    //getData($localStorage.user.token,$localStorage.course_id);
-
-    function getData(token,course_id) {
-
-        courseTeacher.getData(token,course_id).then(
+        profileStudent.getData(token,user_id).then(
             function(response){
-                $scope.course = response.data;
-                console.log($scope.course);
+
+                $scope.dataProfile = addPathimg(response.data);
+                $scope.dataEditProfile = $scope.dataProfile;
+                    console.log($scope.dataProfile);
 
             },
             function(response){
@@ -21,20 +23,29 @@ app.controller('profileStudentController',function($scope,$localStorage,$locatio
             });
 
     }
+    function addPathimg(data){
+        data.image = "http://localhost:8000/api/image/"+data.image;
+        return data;
+    }
     $scope.changeView = function(view){
+
         if(view === "profile"){
-            $scope.profile = true;
-            $scope.changePassword = false;
-            $scope.editProfile = false;
+            $scope.profileView = true;
+            $scope.changePasswordView = false;
+            $scope.editProfileView = false;
+
         }else if(view === "changePassword"){
-            $scope.profile = false;
-            $scope.changePassword = true;
-            $scope.editProfile = false;
+            $scope.profileView = false;
+            $scope.changePasswordView = true;
+            $scope.editProfileView = false;
+
+
         }else if(view === "editProfile"){
-            $scope.editProfile = true;
-            $scope.profile = false;
-            $scope.changePassword = false;
+            $scope.editProfileView = true;
+            $scope.profileView = false;
+            $scope.changePasswordView = false;
         }
+
     };
     $scope.openCarduser  = function(){
         if($scope.cardUser){
@@ -53,7 +64,7 @@ app.controller('profileStudentController',function($scope,$localStorage,$locatio
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -65,21 +76,57 @@ app.controller('profileStudentController',function($scope,$localStorage,$locatio
                     // failure callback
                 }
             );
+    };
+
+    $scope.editProfile = function(){
+        $http.post('/api', $scope.dataEditProfile,{headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    location.reload();
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    };
+    $scope.massageChangePassword;
+    $scope.dataPassword = {
+      student_id:$localStorage.user.id,
+    };
+    this.comparePassword = function () {
+        if (angular.equals($scope.dataPassword.newPassword, $scope.dataPassword.confirmPassword)) {
+            $scope.changePassword.confirmpassword.$setValidity('matchValidate', true);
+        } else {
+            $scope.changePassword.confirmpassword.$setValidity('matchValidate', false);
+        }
+    };
+    $scope.submitChangepassword = function(){
+
+            $http.post('/api/student/change_password', $scope.dataPassword,{headers:{
+                    'Authorization_Token' : $localStorage.user.token
+                }})
+                .then(
+                    function(response){
+                        if(response.data.msg === "password is incorrect"){
+                            $scope.massageChangePassword = "Old password incorrect";
+                        }else{
+
+                            location.reload();
+                        }
+
+                    },
+                    function(response){
+                        // failure callback
+                    }
+                );
+
+
     }
 
 
-    $scope.oneAtATime = true;
 
-    $scope.groups = [
-        {
-            title: 'Comprogramming I',
-            content: 'Dynamic Group Body - 1'
-        },
-        {
-            title: 'Comprogramming II',
-            content: 'Dynamic Group Body - 2'
-        }
-    ];
 
 
 });

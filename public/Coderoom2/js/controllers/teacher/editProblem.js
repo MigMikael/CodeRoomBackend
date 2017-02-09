@@ -35,17 +35,7 @@ app.controller('editProblemteacherController',function($scope,$localStorage,$rou
 
     }
 
-    $scope.editLesson = function(){
-        $http.post('', $scope.lesson)
-            .then(
-                function(response){
-                    $location.path('/courseteacher/'+$scope.lesson.course_id)
-                },
-                function(response){
-                    // failure callback
-                }
-            );
-    }
+
     $scope.logout = function () {
 
         $http.get('/logout', {headders:{

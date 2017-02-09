@@ -22,7 +22,7 @@ app.controller('readAnnouncementteacherController',function($scope,$localStorage
     }
     $scope.deleteAnnouncement = function(announcement_id){
 
-        $http.delete('/api/teacher/announcement/delete/'+announcement_id,{headders:{
+        $http.delete('/api/teacher/announcement/delete/'+announcement_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -56,7 +56,7 @@ app.controller('readAnnouncementteacherController',function($scope,$localStorage
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

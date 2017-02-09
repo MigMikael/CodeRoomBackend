@@ -53,7 +53,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -68,7 +68,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     }
 
     $scope.disableStudent = function(student_id){
-        $http.get('/api/teacher/student/disable/'+student_id+"/"+$localStorage.course_id,{headders:{
+        $http.get('/api/teacher/student/disable/'+student_id+"/"+$localStorage.course_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

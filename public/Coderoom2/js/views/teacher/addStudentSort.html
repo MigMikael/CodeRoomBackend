@@ -10,7 +10,7 @@
             <div class="navber-user-content" id="showCarduser">
                 <div class="card-navbar-content">
                     <img src="{{user.image}}">
-                    <p>{{user.student_id}}</p>
+
                     <h4>{{user.name}}</h4>
                 </div>
                 <div class="zone-button-navbar-user-content" >
@@ -32,7 +32,7 @@
         <div class="col-md-12">
 
             <div class="row">
-                <div class="col-md-6" ng-repeat="(listName, student) in students">
+                <div class="col-md-6" ng-repeat="(listName, student) in addStudentsort">
                     <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
                         <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">{{listName}}</h3>
                     </div>
@@ -43,14 +43,16 @@
                                      transfer the object that was assigned to it. If an element was
                                      dragged away, you have to remove it from the original list
                                      yourself using the dnd-moved attribute -->
-                                <li ng-repeat="item in student"
+                                <li ng-repeat="item in student" ng-show="item.pivot.status == 'enable'"
                                     dnd-draggable="item"
                                     dnd-moved="student.splice($index, 1)"
                                     dnd-effect-allowed="move"
 
                                 >
-                                    <div class="chapter">
-                                        <p>{{item.name}}</p>
+                                    <div class="chapter" >
+                                        <p style="margin-right: 5px;display: inline">{{item.student_id}}</p>
+                                        <p style=";display: inline">{{item.name}}</p>
+
                                     </div>
 
                                 </li>

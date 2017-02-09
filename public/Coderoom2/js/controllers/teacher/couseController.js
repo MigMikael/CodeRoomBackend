@@ -38,7 +38,7 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -53,7 +53,7 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
     }
     $scope.deleteLesson = function(lesson_id){
 
-        $http.delete('/api/teacher/lesson/delete/'+lesson_id,{headders:{
+        $http.delete('/api/teacher/lesson/delete/'+lesson_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
         }})
             .then(

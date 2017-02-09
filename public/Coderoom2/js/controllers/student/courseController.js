@@ -39,7 +39,7 @@ app.controller('courseController',function($scope,$http,courseStudent,$localStor
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

@@ -69,7 +69,7 @@ body{
     position: absolute;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 5;
     width: 100%;
     height: 170px;
     margin-top: 50px;
@@ -78,6 +78,7 @@ body{
     width: 100%;
     height: 120px;
     padding: 10px;
+
 }
 .navbar .navbar-user .navber-user-content .card-navbar-content img{
     width: 90px;
@@ -990,5 +991,28 @@ body{
 .list-lesson-profile .right-prograss-lesson-profile p{
     color: #00b4a2;
     font-size: 16px;
+
+}
+
+.nav-add-student{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 30px;
+
+
+}
+.nav-add-student .center-nav-add-student{
+    display: table;
+    margin: auto;
+    height: 100%;
+
+}
+.nav-add-student .center-nav-add-student a{
+    line-height: 50px;
+    background-color: #00b4a2;
+    padding: 10px 15px;
+    color: white;
+    margin-right: 5px;
+    cursor: pointer;
 
 }

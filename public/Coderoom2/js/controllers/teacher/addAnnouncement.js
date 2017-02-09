@@ -20,7 +20,7 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -40,7 +40,7 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
     };
 
     $scope.addAnnouncement = function(){
-        $http.post('/api/teacher/announcement/store', $scope.announcement,{headders:{
+        $http.post('/api/teacher/announcement/store', $scope.announcement,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

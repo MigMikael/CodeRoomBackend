@@ -19,7 +19,7 @@ app.controller('selectRoleController',function($scope,$http,$localStorage,$locat
     };
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

@@ -20,7 +20,7 @@ app.controller('addLessonteacherController',function($scope,$localStorage,$route
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -38,7 +38,7 @@ app.controller('addLessonteacherController',function($scope,$localStorage,$route
     };
 
     $scope.addLesson = function(){
-        $http.post('/api/teacher/lesson/store', $scope.lesson,{headders:{
+        $http.post('/api/teacher/lesson/store', $scope.lesson,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

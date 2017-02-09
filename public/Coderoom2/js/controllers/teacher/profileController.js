@@ -53,7 +53,7 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get('/logout', {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -70,16 +70,7 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
 
     $scope.oneAtATime = true;
 
-    $scope.groups = [
-        {
-            title: 'Comprogramming I',
-            content: 'Dynamic Group Body - 1'
-        },
-        {
-            title: 'Comprogramming II',
-            content: 'Dynamic Group Body - 2'
-        }
-    ];
+
 
 
 });
