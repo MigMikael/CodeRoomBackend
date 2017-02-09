@@ -12,6 +12,7 @@ class Problem extends Model {
     protected $fillable = [
         'lesson_id',
         'name',
+        'order',
         'description',
         'evaluator',
         'timelimit',
@@ -32,5 +33,10 @@ class Problem extends Model {
     public function problemFiles()
     {
         return $this->hasMany('App\ProblemFile');
+    }
+
+    public function orderProblem($query)
+    {
+        return $query->orderBy('order');
     }
 }

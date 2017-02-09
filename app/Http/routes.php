@@ -70,6 +70,7 @@ Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 #Route::get('test/token', 'TestController@testToken');
 #Route::get('test/current_user_profile','TestController@getUserProfile');
 #Route::get('test/getQuestion', 'TestController@testGetQuestion');
+Route::get('test/count', 'TestController@testCount');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
@@ -128,7 +129,7 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
@@ -162,10 +163,10 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
     Route::get('api/teacher/student/{id}', 'StudentController@showStudent');                                    //  show
     Route::post('api/teacher/student/store', 'StudentController@addStudentMember');                             //  store One
     Route::post('api/teacher/students/store', 'StudentController@addStudentsMember');                           //  store Many
-    Route::get('api/teacher/student/disable/{student_id}/{course_id}', 'StudentController@disableStudent');// deactivate
+    Route::get('api/teacher/student/disable/{student_id}/{course_id}', 'StudentController@disableStudent');     // deactivate
     Route::get('api/teacher/student/all/{course_id}', 'StudentController@getAll');
 
-//});
+});
 
 
 #--------------------------------------------------------------------------------------------------------

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\TokenGenerate;
 use App\Image;
+use App\Problem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -93,6 +94,12 @@ class TestController extends Controller
         $file = Storage::disk('public')->get($dirName);
 
         return response($file, 200)->header('Content-Type', 'application/pdf');
+    }
+
+    public function testCount()
+    {
+        $count = Problem::where('lesson_id', '=', 1)->count();
+        return $count;
     }
 
 
