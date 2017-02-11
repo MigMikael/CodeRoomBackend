@@ -14,7 +14,7 @@
                     <h4>{{user.name}}</h4>
                 </div>
                 <div class="zone-button-navbar-user-content" >
-                    <div class="button-navbar-user-content-profile" ng-click="go('/profilestudent')">
+                    <div class="button-navbar-user-content-profile" ng-click="go('/profileteacher')">
                         Profile
                     </div>
                     <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
@@ -46,14 +46,14 @@
                 <h4>Time</h4>
             </div>
             <div class="card-problem-detail-right">
-                <p>{{problem.timelimit}}</p>
+                <p>{{problem.timelimit}} s</p>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card-problem-detail">
             <div class="card-problem-detail-left">
-                <i class="material-icons">memory</i>
+                <i class="fa fa-bullhorn"></i>
                 <h4>Description</h4>
             </div>
             <div class="card-problem-detail-right">
@@ -68,23 +68,132 @@
                 <h4>Memory</h4>
             </div>
             <div class="card-problem-detail-right">
-                <p>{{problem.memorylimit}}</p>
+                <p>{{problem.memorylimit}} KB</p>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card-problem-detail">
             <div class="card-problem-detail-left">
-                <p style="line-height: 60px;padding-left: 10px">Pass Structures</p>
+                <p style="line-height: 60px;padding-left: 10px">Parse Structure</p>
             </div>
             <div class="card-problem-detail-right">
-                <p>{{problem.is_parse}}</p>
+                <p ng-show="problem.is_pase==='true'">Parse</p>
+                <p ng-show="problem.is_pase==='false'">Parse</p>
             </div>
         </div>
     </div>
 
 </div>
+<div class="container">
+    <div class="col-md-12">
+        <div class="panel panel-default" style="border-radius: 0">
+            <div class="panel-heading" style="background-color: white;background-image: none">Panel heading without title</div>
+            <div class="panel-body">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>1</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>100</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
+        <div class="panel panel-default"ng-repeat="file in result.submission_files" style="border-radius: 0">
+                        <span ng-repeat="class in file.results">
+                            <div class="panel-heading" style="padding: 0px 10px;margin:5px 0;font-size: 20px">
+                                {{class.class}}
+                            </div>
+                        <div class="panel-body" style="overflow: auto;padding: 0">
+                            <table class="table" >
+                                <thead class="thead-inverse">
+                                <tr>
+                                    <th>Type</th>
+                                    <th>access_modifier</th>
+                                    <th>non_access_modifier</th>
+                                    <th>data_type</th>
+                                    <th>return_type</th>
+                                    <th>name</th>
+                                    <th>parameter</th>
+                                    <th>recursive</th>
+                                    <th>loop</th>
+                                    <th>Score</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="constructor in class.constructors">
+                                    <td>Constructor</td>
+                                    <td ng-show="constructor.access_modifier!==''">{{constructor.access_modifier}}</td>
+                                    <td ng-show="constructor.access_modifier===''">-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="constructor.name!==''">{{constructor.name}}</td>
+                                    <td ng-show="constructor.name===''">-</td>
+                                    <td ng-show="constructor.parameter!==''">{{constructor.parameter}}</td>
+                                    <td ng-show="constructor.parameter===''">-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="constructor.score!==''">{{constructor.score}}</td>
+                                    <td ng-show="constructor.score===''">-</td>
+                                </tr>
+                                <tr ng-repeat="attribute in class.attributes">
+                                    <td>Attribute</td>
+                                    <td ng-show="attribute.access_modifier!==''">{{attribute.access_modifier}}</td>
+                                    <td ng-show="attribute.access_modifier===''">-</td>
+                                    <td ng-show="attribute.non_access_modifier!==''">{{attribute.non_access_modifier}}</td>
+                                    <td ng-show="attribute.non_access_modifier===''">-</td>
+                                    <td ng-show="attribute.data_type!==''">{{attribute.data_type}}</td>
+                                    <td ng-show="attribute.data_type===''">-</td>
+                                    <td>-</td>
+                                    <td ng-show="attribute.name!==''">{{attribute.name}}</td>
+                                    <td ng-show="attribute.name===''">-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="attribute.score!==''">{{attribute.score}}</td>
+                                    <td ng-show="attribute.score===''">-</td>
+
+                                </tr>
+                                <tr ng-repeat="method in class.methods">
+                                    <td>Method</td>
+                                    <td ng-show="method.access_modifier!==''">{{method.access_modifier}}</td>
+                                    <td ng-show="method.access_modifier===''">-</td>
+                                    <td ng-show="method.non_access_modifier!==''">{{method.non_access_modifier}}</td>
+                                    <td ng-show="method.non_access_modifier===''">-</td>
+                                    <td>-</td>
+                                    <td ng-show="method.return_type!==''">{{method.return_type}}</td>
+                                    <td ng-show="method.return_type===''">-</td>
+                                    <td ng-show="method.name!==''">{{method.name}}</td>
+                                    <td ng-show="method.name===''">-</td>
+                                    <td ng-show="method.parameter!==''">{{method.parameter}}</td>
+                                    <td ng-show="method.parameter===''">-</td>
+                                    <td ng-show="method.recursive!==''">{{method.recursive}}</td>
+                                    <td ng-show="method.recursive===''">-</td>
+                                    <td ng-show="method.loop!==''">{{method.loop}}</td>
+                                    <td ng-show="method.loop===''">-</td>
+                                    <td ng-show="method.score!==''">{{method.score}}</td>
+                                    <td ng-show="method.score===''">-</td>
+
+                                </tr>
+                                </tbody>
+
+
+
+
+                            </table>
+                        </div>
+                        </span>
+
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="col-md-6">
         <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">

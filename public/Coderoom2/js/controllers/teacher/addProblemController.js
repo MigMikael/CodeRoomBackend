@@ -3,7 +3,38 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lessons_id;
+    $scope.problemView = true;
+    $scope.parseProblemView = false;
 
+
+    $scope.evaluator = {
+        values:[
+            {
+                value:'java',
+                name:'Java'
+            },
+            {
+                value:'c',
+                name:'C'
+            },
+
+        ],
+        selectValue:{value:'java',name:'Java'}
+    };
+    $scope.is_parse = {
+        values:[
+            {
+                value:true,
+                name:'Parse'
+            },
+            {
+                value:false,
+                name:'Not Parse'
+            },
+
+        ],
+        selectValue:{value:true,name:'Parse'}
+    };
 
     $scope.openCarduser  = function(){
         if($scope.cardUser){
@@ -20,6 +51,17 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         $location.path( path );
     };
 
+    $scope.changeView = function(view){
+        if(view === "problemView"){
+            $scope.problemView = true;
+            $scope.parseProblemView = false;
+            $scope.notParseProblemView = false;
+        }else if(view === "parseProblemView"){
+            $scope.problemView = false;
+            $scope.parseProblemView = true;
+            $scope.notParseProblemView = false;
+        }
+    };
     $scope.logout = function () {
 
         $http.get('/logout', {headders:{
@@ -37,23 +79,16 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
     }
     //upload
     $scope.uploadFiles = function(file) {
-        console.log($scope.name);
-        console.log($scope.description);
-        console.log($scope.evaluator);
-        console.log($scope.timelimit);
-        console.log($scope.memorylimit);
-        console.log($scope.is_parse);
-        console.log(file);
         file.upload = Upload.upload({
             url: '/api/teacher/problem/store',
             data: {file: file,
                 lesson_id:$localStorage.lessons_id,
                 name:$scope.name,
                 description:$scope.description,
-                evaluator:$scope.evaluator,
+                evaluator:$scope.evaluator.selectValue.values,
                 timelimit:$scope.timelimit,
                 memorylimit:$scope.memorylimit,
-                is_parse:$scope.is_parse
+                is_parse:$scope.is_parse.selectValue.values
             },
             headers:{'Authorization_Token' : $localStorage.user.token},
         });
@@ -61,6 +96,12 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         file.upload.then(function (response) {
             $timeout(function () {
                 console.log(response.data);
+                //parse and not parse go
+                if(true){
+
+                }else{
+
+                }
             })
         }, function (response) {
             if (response.status > 0)

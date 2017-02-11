@@ -79,7 +79,7 @@ app.controller('profileStudentController',function($scope,$localStorage,$locatio
     };
 
     $scope.editProfile = function(){
-        $http.post('/api', $scope.dataEditProfile,{headers:{
+        $http.post('/api/student/profile/edit', $scope.dataEditProfile,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

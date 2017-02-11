@@ -10,11 +10,11 @@
             <div class="navber-user-content" id="showCarduser">
                 <div class="card-navbar-content">
                     <img src="{{user.image}}">
-                    <p>{{user.student_id}}</p>
+
                     <h4>{{user.name}}</h4>
                 </div>
                 <div class="zone-button-navbar-user-content" >
-                    <div class="button-navbar-user-content-profile" ng-click="go('/profilestudent')">
+                    <div class="button-navbar-user-content-profile" ng-click="go('/profileteacher')">
                         Profile
                     </div>
                     <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
@@ -32,96 +32,131 @@
             <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
                 <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Menu</h3>
             </div>
-            <a  ng-class="profile ? 'active':'inactive'" ng-click="changeView('profile')">Profile</a>
-            <a  ng-class="changePassword ? 'active':'inactive'"ng-click="changeView('changePassword')">Change Password</a>
+            <a  ng-class="profileView ? 'active':'inactive'" ng-click="changeView('profile')">Profile</a>
+            <a  ng-class="changePasswordView ? 'active':'inactive'"ng-click="changeView('changePassword')">Change Password</a>
             <a style="background-color: #00b4a2;color: white" ng-click="logout()">Log Out</a>
         </div>
     </div>
     <div class="col-md-8" >
         <div class="card-profile">
             <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
-                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px" ng-show="profile">Profile</h3>
-                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px" ng-show="changePassword">Change Password</h3>
-                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px" ng-show="editProfile">Edit Profile</h3>
+                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px" ng-show="profileView">Profile</h3>
+                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px" ng-show="changePasswordView">Change Password</h3>
+                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px" ng-show="editProfileView">Edit Profile</h3>
             </div>
-            <div ng-show="profile" style="padding: 10px;">
+            <div ng-show="profileView" style="padding: 10px;">
                 <div class="col-md-12" style="margin-bottom: 10px">
-                    <img style="border-radius: 100%;width: 150px;height: 150px;margin: auto;display: block;margin-bottom: 10px" src="Thanadej.jpg">
+                    <div style="border-radius: 100%;width: 150px;height: 150px;margin: auto;display: block;margin-bottom: 10px;background-color: white">
+                        <img style="width: 100%;height: 100%;border-radius: 100%" src="{{dataProfile.image}}">
+                    </div>
                 </div>
                 <div class="col-md-12" style="margin-bottom: 10px">
                     <div class="input-group" style="border: 1px solid #204060">
                         <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-user"></span></span>
-                        <input class="form-control left-border-none" placeholder="Username" type="text" name="username" style="border: 0;border-radius: 0" ng-disabled="true">
+                        <input class="form-control left-border-none" placeholder="Username" type="text" name="username" style="border: 0;border-radius: 0" ng-disabled="true" ng-model="dataProfile.username">
                     </div>
                 </div>
-                <div class="col-md-12" style="margin-bottom: 10px">
-                    <div class="input-group" style="border: 1px solid #204060">
-                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
-                        <input class="form-control left-border-none" placeholder="Password" type="password" name="password" style="border: 0;border-radius: 0" ng-disabled="true">
-                    </div>
-                </div>
+
+
 
                 <div class="col-md-12" style="margin-bottom: 10px">
                     <div class="input-group" style="border: 1px solid #204060">
                         <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-user"></span></span>
-                        <input class="form-control left-border-none" placeholder="name" type="text" name="name" style="border: 0;border-radius: 0" ng-disabled="true">
+                        <input class="form-control left-border-none" placeholder="name" type="text" name="name" style="border: 0;border-radius: 0" ng-disabled="true" ng-model="dataProfile.name">
                     </div>
                 </div>
 
                 <div class="col-md-12" style="margin-bottom: 10px">
                     <div class="input-group" style="border: 1px solid #204060">
                         <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon-envelope"></span></span>
-                        <input class="form-control left-border-none" placeholder="Email" type="text" name="email" style="border: 0;border-radius: 0" ng-disabled="true">
+                        <input class="form-control left-border-none" placeholder="Email" type="text" name="email" style="border: 0;border-radius: 0" ng-disabled="true" ng-model="dataProfile.email">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <button style="background-color: #204056;width: 100%;height: 50px;line-height: 50px;color: white;border: none" ng-click="changeView('editProfile')">Edit Profile</button>
                 </div>
 
+                <div class="col-md-12" style="padding: 0">
+                    <div style="width: 100%;background-color: #00b4a2;height: 60px;text-align: center;margin-top: 20px">
+                        <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Courses</h3>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="margin-top: 10px" ng-repeat="course in dataProfile.courses">
+                    <div class="col-md-6">
+                        <div class="card-course" style="height: 270px">
+                            <img src="{{course.image}}">
+                            <div class="card-headder">
+                                <h4 style="margin: 0">{{course.name}}</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div ng-show="editProfile" style="padding: 10px">
-                <div class="col-md-12" style="margin-bottom: 10px">
-                    <img style="border-radius: 100%;width: 150px;height: 150px;margin: auto;display: block;margin-bottom: 20px" src="Thanadej.jpg">
-                    <input type="file" style="display: block;margin: auto;">
-                </div>
-                <div class="col-md-12" style="margin-bottom: 10px">
-                    <div class="input-group" style="border: 1px solid #204060">
-                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-user"></span></span>
-                        <input class="form-control left-border-none" placeholder="name" type="text" name="name" style="border: 0;border-radius: 0">
+            <div ng-show="editProfileView" style="padding: 10px">
+                <form name="formEditProfile" ng-submit="editProfile()">
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <img style="border-radius: 100%;width: 150px;height: 150px;margin: auto;display: block;margin-bottom: 20px" src="{{dataEditProfile.image}}">
+                        <input type="file" style="display: block;margin: auto;">
                     </div>
-                </div>
-                <div class="col-md-12" style="margin-bottom: 10px">
-                    <div class="input-group" style="border: 1px solid #204060">
-                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon-envelope"></span></span>
-                        <input class="form-control left-border-none" placeholder="Email" type="text" name="email" style="border: 0;border-radius: 0">
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <div class="input-group" style="border: 1px solid #204060">
+                            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-user"></span></span>
+                            <input class="form-control left-border-none ng-" placeholder="username" type="text"  style="border: 0;border-radius: 0" ng-model="dataEditProfile.username">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <button style="background-color: #204056;width: 100%;height: 50px;line-height: 50px;color: white;border: none">Submit</button>
-                </div>
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <div class="input-group" style="border: 1px solid #204060">
+                            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-user"></span></span>
+                            <input class="form-control left-border-none" placeholder="name" type="text"  style="border: 0;border-radius: 0" ng-model="dataEditProfile.name">
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <div class="input-group" style="border: 1px solid #204060">
+                            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon-envelope"></span></span>
+                            <input class="form-control left-border-none" placeholder="Email" type="text"  style="border: 0;border-radius: 0" ng-model="dataEditProfile.email">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <button style="background-color: #204056;width: 100%;height: 50px;line-height: 50px;color: white;border: none" type="submit">Submit</button>
+                    </div>
+                </form>
+
+
             </div>
-            <div ng-show="changePassword" style="padding: 10px">
-                <div class="col-md-12" style="margin-bottom: 10px">
-                    <div class="input-group" style="border: 1px solid #204060">
-                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
-                        <input class="form-control left-border-none" placeholder="Old Password" type="password" name="password" style="border: 0;border-radius: 0" >
+            <div ng-show="changePasswordView" style="padding: 10px">
+                <form name="changePassword" ng-submit="submitChangepassword()">
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <div class="input-group" style="border: 1px solid #204060">
+                            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
+                            <input class="form-control left-border-none" placeholder="Old Password" type="password" name="oldpassword" style="border: 0;border-radius: 0" ng-model="dataPassword.old_password">
+                        </div>
+
                     </div>
-                </div>
-                <div class="col-md-12" style="margin-bottom: 10px">
-                    <div class="input-group" style="border: 1px solid #204060">
-                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
-                        <input class="form-control left-border-none" placeholder="New Password" type="password" name="password" style="border: 0;border-radius: 0">
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <div class="input-group" style="border: 1px solid #204060">
+                            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
+                            <input class="form-control left-border-none " placeholder="New Password" type="password" name="newpassword" style="border: 0;border-radius: 0" ng-model="dataPassword.new_password">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12" style="margin-bottom: 10px">
-                    <div class="input-group" style="border: 1px solid #204060">
-                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
-                        <input class="form-control left-border-none" placeholder="Confirm Password" type="password" name="password" style="border: 0;border-radius: 0">
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <div class="input-group " style="border: 1px solid #204056">
+                            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
+                            <input class="form-control left-border-none " placeholder="Confirm Password" type="password" name="confirmpassword" style="border: 0;border-radius: 0" ng-model="dataPassword.confirm_password">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <button style="background-color: #204056;width: 100%;height: 50px;line-height: 50px;color: white;border: none">Submit</button>
-                </div>
+                    <div class="col-md-12" style="margin-bottom: 10px">
+                        <p style="color: red;font-size: 12px">{{massageChangePassword}}</p>
+                    </div>
+                    <div class="col-md-12">
+                        <button style="background-color: #204056;width: 100%;height: 50px;line-height: 50px;color: white;border: none">Submit</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>

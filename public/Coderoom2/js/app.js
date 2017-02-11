@@ -1,4 +1,4 @@
-var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists','ui.bootstrap']);
+var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists','ui.bootstrap','evgenyneu.markdown-preview']);
 app.config(function($routeProvider) {
     $routeProvider
 

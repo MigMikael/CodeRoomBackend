@@ -1,5 +1,5 @@
 
-app.controller('addAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location) {
+app.controller('addAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope) {
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
@@ -38,8 +38,9 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
         course_id: $localStorage.course_id,
 
     };
-
     $scope.addAnnouncement = function(){
+
+        console.log($rootScope.content);
         $http.post('/api/teacher/announcement/store', $scope.announcement,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})

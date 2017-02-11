@@ -1,19 +1,21 @@
 
-app.controller('profileTeacherController',function($scope,$localStorage,$location, $http,$routeParams) {
+app.controller('profileTeacherController',function($scope,$localStorage,$location, $http,$routeParams,profileTeacher) {
     $scope.user = $localStorage.user;
-    $scope.profile = true;
-    $scope.changePassword = false;
-    $scope.editProfile = false;
+    $scope.profileView = true;
+    $scope.changePasswordView = false;
+    $scope.editProfileView = false;
 
+    $scope.dataEditProfile;
+    getData($localStorage.user.token,$localStorage.user.id);
 
-    //getData($localStorage.user.token,$localStorage.course_id);
+    function getData(token,user_id) {
 
-    function getData(token,course_id) {
-
-        courseTeacher.getData(token,course_id).then(
+        profileTeacher.getData(token,user_id).then(
             function(response){
-                $scope.course = response.data;
-                console.log($scope.course);
+
+                $scope.dataProfile = addPathimg(response.data);
+                $scope.dataEditProfile = $scope.dataProfile;
+                console.log($scope.dataProfile);
 
             },
             function(response){
@@ -21,20 +23,29 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
             });
 
     }
+    function addPathimg(data){
+        data.image = "http://localhost:8000/api/image/"+data.image;
+        return data;
+    }
     $scope.changeView = function(view){
+
         if(view === "profile"){
-            $scope.profile = true;
-            $scope.changePassword = false;
-            $scope.editProfile = false;
+            $scope.profileView = true;
+            $scope.changePasswordView = false;
+            $scope.editProfileView = false;
+
         }else if(view === "changePassword"){
-            $scope.profile = false;
-            $scope.changePassword = true;
-            $scope.editProfile = false;
+            $scope.profileView = false;
+            $scope.changePasswordView = true;
+            $scope.editProfileView = false;
+
+
         }else if(view === "editProfile"){
-            $scope.editProfile = true;
-            $scope.profile = false;
-            $scope.changePassword = false;
+            $scope.editProfileView = true;
+            $scope.profileView = false;
+            $scope.changePasswordView = false;
         }
+
     };
     $scope.openCarduser  = function(){
         if($scope.cardUser){
@@ -65,10 +76,55 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
                     // failure callback
                 }
             );
+    };
+
+    $scope.editProfile = function(){
+        $http.post('/api/teacher/profile/edit', $scope.dataEditProfile,{headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    location.reload();
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    };
+    $scope.massageChangePassword;
+    $scope.dataPassword = {
+        teacher_id:$localStorage.user.id,
+    };
+    this.comparePassword = function () {
+        if (angular.equals($scope.dataPassword.newPassword, $scope.dataPassword.confirmPassword)) {
+            $scope.changePassword.confirmpassword.$setValidity('matchValidate', true);
+        } else {
+            $scope.changePassword.confirmpassword.$setValidity('matchValidate', false);
+        }
+    };
+    $scope.submitChangepassword = function(){
+
+        $http.post('/api/teacher/change_password', $scope.dataPassword,{headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    if(response.data.msg === "password is incorrect"){
+                        $scope.massageChangePassword = "Old password incorrect";
+                    }else{
+
+                        location.reload();
+                    }
+
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+
+
     }
 
-
-    $scope.oneAtATime = true;
 
 
 

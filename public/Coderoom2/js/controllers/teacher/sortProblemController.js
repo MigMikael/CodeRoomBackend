@@ -19,14 +19,15 @@ app.controller('sortProblemController',function($scope,$localStorage,$routeParam
 
     }
     $scope.sortProblem = function(){
+
         var problems = $scope.lesson.problems;
-        $http.post('', problems,{
+        $http.post('/api/teacher/problem/change_order', problems,{
                 headers:{'Authorization_Token': $localStorage.user.token}
             })
             .then(
                 function(response){
 
-                    $location.path('/courseteacher/'+$scope.course.id);
+                    $location.path('/listproblemteacher/'+$localStorage.lessons_id);
 
                 },
                 function(response){

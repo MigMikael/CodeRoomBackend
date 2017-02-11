@@ -75,23 +75,43 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
 
         studyStudent.getData(token,lesson_id).then(
             function(response){
-                $scope.study = response.data;
-                $scope.problem = $scope.study.problems[0];
+                $scope.study = numberProblem(response.data);
+                console.log();
+                if($scope.study.problems[0] !== null){
+                    $scope.problem = $scope.study.problems[0];
+                    getResult(token,$localStorage.user.id,$scope.problem.id);
+                    console.log($scope.study);
+                    console.log($scope.problem);
+                }
 
-                getResult(token,$localStorage.user.id,$scope.problem.id);
 
-                console.log($scope.study);
-                console.log($scope.problem);
+
             },
             function(response){
                 // failure call back
             });
 
     }
+    function numberProblem(data){
+        var count = 1;
+        for(i=0 ; i<data.problems.length ; i++){
+            data.problems[i].name = count+"."+data.problems[i].name;
+            if(i===0){
+                data.problems[i].active = true;
+            }else if(i>0){
+                data.problems[i].active = false;
+            }
+
+            count++;
+        }
+        return data;
+    }
+
     function  getResult(token,student_id,problem_id){
         resultProblem.getData(token,student_id,problem_id).then(
             function(response){
-                $scope.result = response.data;
+
+                $scope.result = splitclass(response.data);
                 $scope.allFiles = $scope.result.submission_files;
                 console.log($scope.result);
             },
@@ -99,10 +119,22 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 // failure call back
             });
     }
+    function splitclass(data){
+        for(i=0 ; i<data.submission_files.length ;i++){
+            for(j=0 ;j<data.submission_files[i].results.length ; j++){
+                var splitClass = data.submission_files[i].results[j].class.split(';');
+                data.submission_files[i].results[j].class = splitClass[0]+" "+splitClass[1];
+            }
 
-    $scope.selectProblem = function(prob_id){
-        console.log(prob_id);
+        }
+        return data;
+    }
+    $scope.selectProblem = function (prob_id){
+
+        $scope.study.problems[$scope.problem.order-1].active = false;
+        $scope.study.problems[prob_id].active = true;
         $scope.problem = $scope.study.problems[prob_id];
+        console.log($scope.problem);
         getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
         openNav();
     };
@@ -221,6 +253,24 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     });
     $scope.changeFiles = function(id){
         $scope.numberFile = id;
+
+    }
+    $scope.submitFile = function(){
+        var dataSubmit = {
+            files:$scope.allFiles,
+            prob_id:$scope.problem.id,
+        };
+        $http.post('', dataSubmit,{headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    console.log(response.data);
+                },
+                function(response){
+                    // failure callback
+                }
+            );
 
     }
 });

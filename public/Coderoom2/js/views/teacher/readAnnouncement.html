@@ -14,7 +14,7 @@
                     <h4>{{user.name}}</h4>
                 </div>
                 <div class="zone-button-navbar-user-content" >
-                    <div class="button-navbar-user-content-profile" ng-click="go('/profilestudent')">
+                    <div class="button-navbar-user-content-profile" ng-click="go('/profileteacher')">
                         Profile
                     </div>
                     <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
@@ -38,7 +38,9 @@
             </div>
         </div>
         <div style="width: 100%;overflow: hidden;background-color: white;padding: 10px">
-            <p style="display: inline;line-height: 60px">{{announcement.content}}</p>
+
+            {{announcement.content}}
+
         </div>
     </div>
 

@@ -9,6 +9,25 @@
 #showCarduser{
     display: none;
 }
+table{
+    width: 100%;
+    height: 100%;
+}
+table thead{
+    background-color: #204056;
+    color: white;
+}
+table thead tr th{
+    text-align: center;
+}
+table tbody{
+    background-color: white;
+
+}
+table tbody tr td{
+    text-align: center;
+
+}
 body{
     font-family: "WorkSans-Regular";
     background-color: #eee;
@@ -240,7 +259,7 @@ body{
     height: 60px;
     background-color: white;
     overflow: hidden;
-    cursor: pointer;
+
     margin: 5px 0 0 0;
 
 
@@ -285,6 +304,9 @@ body{
 
 
 }
+.list-course .list-course-headder h4{
+    cursor: pointer;
+}
 
 .list-course .list-course-icon{
     display: block;
@@ -302,10 +324,11 @@ body{
     color: #204056;
     margin-right: 10px;
     display: inline;
+    cursor: pointer;
 }
 .list-course .list-course-join{
     float: right;
-
+    cursor: pointer;
     height: 100%;
     background-color: #00b4a2;
     padding: 10px 15px;
@@ -436,18 +459,30 @@ body{
      float: left;
     overflow-y: auto;
  }
-.hover-nav .list-problem .hedder-list-problem{
-    width: 100%;
-    height: 40px;
-    background-color: #204056;
-    display: block;
+.hover-nav .list-problem .problem-name{
+     width: 100%;
+     height: 40px;
+     display: block;
+    cursor: pointer;
+
+
+ }
+.hover-nav .list-problem .problem-name:hover{
+    background-color: #EEEEEE;
 
 }
-.hover-nav .list-problem .hedder-list-problem p{
-    color: white;
+.hover-nav .list-problem .problem-name p{
+    padding-left: 20px;
     line-height: 40px;
-    margin-left: 20px;
+
+
 }
+.hover-nav .list-problem .problem-name p.active{
+    background-color: #00b4a2;
+    color: white;
+
+}
+
 .hover-nav .list-problem .problem{
 
      border-bottom: 1px solid #204056;
@@ -474,13 +509,9 @@ body{
      float: right;
      background-color: #EEEEEE;
      padding: 10px;
-    overflow-x: auto;
-     overflow-y: auto;
+    overflow-y: auto;
  }
-.hover-nav .show-problem-detail2 table.table tr{
-    background-color: white;
 
-}
 
 
 

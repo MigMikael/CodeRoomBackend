@@ -1,5 +1,5 @@
 
-app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http, $location,$rootScope,$routeParams,announcementStudentTeacher,$routeParams) {
+app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http, $location,$rootScope,$routeParams,announcementStudent,$routeParams) {
 
 
     $scope.announcement;
@@ -8,7 +8,7 @@ app.controller('readAnnouncementstudentController',function($scope,$localStorage
     getData($localStorage.user.token,$localStorage.announcement_id);
     function getData(token,announcement_id) {
 
-        announcementStudentTeacher.getData(token,announcement_id).then(
+        announcementStudent.getData(token,announcement_id).then(
             function(response){
 
                 $scope.announcement = response.data;

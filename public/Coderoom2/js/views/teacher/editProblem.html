@@ -14,7 +14,7 @@
                     <h4>{{user.name}}</h4>
                 </div>
                 <div class="zone-button-navbar-user-content" >
-                    <div class="button-navbar-user-content-profile" ng-click="go('/profilestudent')">
+                    <div class="button-navbar-user-content-profile" ng-click="go('/profileteacher')">
                         Profile
                     </div>
                     <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
@@ -27,44 +27,157 @@
 
 </nav>
 <div class="container">
-    <div class="col-md-3">
-        <div style="width: 100%">
+    <div ng-show="problemView">
+        <div class="col-md-3">
+            <div style="width: 100%">
 
+            </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
-            <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Edit Problem</h3>
-        </div>
-        <div class="card-all-add" >
+        <div class="col-md-6">
+            <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
+                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Edit Problem</h3>
+            </div>
+            <form name="myForm">
+                <div class="card-all-add" >
 
-            <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
-                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-bullhorn" aria-hidden="true"></i></span></span>
-                <input class="form-control left-border-none" placeholder="filename" type="text" name="filename" style="border: 0;border-radius: 0">
-            </div>
-            <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
-                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-bullhorn" aria-hidden="true"></i></span></span>
-                <input class="form-control left-border-none" placeholder="package" type="text" name="package" style="border: 0;border-radius: 0">
-            </div>
-            <button class="select-file" type="file" ngf-select ng-model="zip" name="zip" accept="/*" style="background-color: red;color: white;margin-bottom: 10px;border: none;padding: 10px">Select Files</button>
-            <div class="progress-main" >
-                <div class="progress" ng-show="filefield.progress >= 0">
-                    <div class="progress-bar" style="width: {{filefield.progress}}%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                    <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
+                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><span class="glyphicon glyphicon-book" style="font-size: 16px"></span></span></span>
+                        <input class="form-control left-border-none" placeholder="Problem Name" type="text" name="name" style="border: 0;border-radius: 0" ng-model="name">
                     </div>
-                </div>
-                <div class="current-work" ng-show="filefield.progress >= 0">
-                    <p>{{filefield.progress}}%</p>
+                    <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
+                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-bullhorn" aria-hidden="true" style="font-size: 16px"></i></span></span>
+                        <input class="form-control left-border-none" placeholder="Description" type="text" name="description" style="border: 0;border-radius: 0" ng-model="description">
+                    </div>
+                    <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
+                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="fa fa-clock-o" style="font-size: 16px"></i></span></span>
+                        <input class="form-control left-border-none" placeholder="Time Limit (s)" type="text" name="timelimit" style="border: 0;border-radius: 0" ng-model="timelimit">
+                    </div>
+                    <div class="input-group" style="border: 1px solid #204056;margin-bottom: 10px">
+                        <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204056;color: #204056"><i class="material-icons" style="font-size: 16px">memory</i></span></span>
+                        <input class="form-control left-border-none" placeholder="Memory Limit (KB)" type="text" name="memorylimit" style="border: 0;border-radius: 0" ng-model="memorylimit">
+                    </div>
+                    <div class="input-group" style="margin-bottom: 10px">
+                        <label style="margin-right: 5px;font-size: 16px">Language :</label>
+                        <select ng-model="evaluator.selectValue" ng-options="option.name for option in evaluator.values track by option.value" style="border: 1px solid #204056;border-radius: 0">
+
+                        </select>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 10px">
+                        <label style="margin-right: 5px;font-size: 16px">Parse Structure :</label>
+                        <select ng-model="is_parse.selectValue" ng-options="option.name for option in is_parse.values track by option.value" style="border: 1px solid #204056;border-radius: 0">
+
+                        </select>
+                    </div>
+
+                    <button class="select-file" type="file" ngf-select ng-model="zip" name="file" accept="/*" style="background-color: #00b4a2;color: white;margin-bottom: 10px;border: none;padding: 10px">Select Files</button>
+                    <p style="display: inline;margin-left: 15px">{{zip.name}}</p>
+                    <div class="progress-main" >
+                        <div class="progress" ng-show="zip.progress >= 0">
+                            <div class="progress-bar" style="width: {{zip.progress}}%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                        <div class="current-work" ng-show="zip.progress >= 0">
+                            <p>{{zip.progress}}%</p>
+
+                        </div>
+                    </div>
+
+                    <button class="submit-card-all-add" ng-click="uploadFiles(zip)" ng-disabled="!myForm.$valid" value="submit">Submit</button>
 
                 </div>
+            </form>
+
+        </div>
+        <div class="col-md-3">
+            <div style="width: 100%">
+
             </div>
+        </div>
+    </div>
+    <div ng-show="parseProblemView">
+        <div class="col-md-12">
+            <span>
+                <table class="table" >
+                    <thead>
+                    <tr>
+                        <td>access_modifier</td>
+                        <td>non_access_modifier</td>
+                        <td>data_type</td>
+                        <td>return_type</td>
+                        <td>name</td>
+                        <td>parameter</td>
+                        <td>recursive</td>
+                        <td>loop</td>
+                        <td>Score</td>
+                    </tr>
 
-            <button class="submit-card-all-add" >Submit</button>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="constructor in class.constructors">
+                        <td ng-show="constructor.access_modifier!==''">{{constructor.access_modifier}}</td>
+                        <td ng-show="constructor.access_modifier===''">-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td ng-show="constructor.name!==''">{{constructor.name}}</td>
+                        <td ng-show="constructor.name===''">-</td>
+                        <td ng-show="constructor.parameter!==''">{{constructor.parameter}}</td>
+                        <td ng-show="constructor.parameter===''">-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><input type="number"></td>
+                    </tr>
+                    <tr ng-repeat="attribute in class.attributes">
+                        <td ng-show="attribute.access_modifier!==''">{{attribute.access_modifier}}</td>
+                        <td ng-show="attribute.access_modifier===''">-</td>
+                        <td ng-show="attribute.non_access_modifier!==''">{{attribute.non_access_modifier}}</td>
+                        <td ng-show="attribute.non_access_modifier===''">-</td>
+                        <td ng-show="attribute.data_type!==''">{{attribute.data_type}}</td>
+                        <td ng-show="attribute.data_type===''">-</td>
+                        <td>-</td>
+                        <td ng-show="attribute.name!==''">{{attribute.name}}</td>
+                        <td ng-show="attribute.name===''">-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><input type="number"></td>
+
+                    </tr>
+                    <tr ng-repeat="method in class.methods">
+                        <td ng-show="method.access_modifier!==''">{{method.access_modifier}}</td>
+                        <td ng-show="method.access_modifier===''">-</td>
+                        <td ng-show="method.non_access_modifier!==''">{{method.non_access_modifier}}</td>
+                        <td ng-show="method.non_access_modifier===''">-</td>
+                        <td>-</td>
+                        <td ng-show="method.return_type!==''">{{method.return_type}}</td>
+                        <td ng-show="method.return_type===''">-</td>
+                        <td ng-show="method.name!==''">{{method.name}}</td>
+                        <td ng-show="method.name===''">-</td>
+                        <td ng-show="method.parameter!==''">{{method.parameter}}</td>
+                        <td ng-show="method.parameter===''">-</td>
+                        <td ng-show="method.recursive!==''">{{method.recursive}}</td>
+                        <td ng-show="method.recursive===''">-</td>
+                        <td ng-show="method.loop!==''">{{method.loop}}</td>
+                        <td ng-show="method.loop===''">-</td>
+                        <td><input type="number"></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </span>
 
         </div>
     </div>
-    <div class="col-md-3">
-        <div style="width: 100%">
-
+    <div ng-show="notParseProblemView">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th colspan="2"></th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </div>
