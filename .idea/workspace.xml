@@ -2,152 +2,224 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/services/student/announcementStudent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/services/teacher/announcementTeacher.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/services/teacher/profile.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/js/services/announcementStudentTeacher.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/.eslintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/.jscs.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/dist/progressbar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/dist/progressbar.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/dist/progressbar.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/api/general.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/api/parameters.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/api/path.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/api/shape.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/contributing.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/img/animate-call.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/img/animate-init.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/img/animation.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/docs/pip-requirements.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/karma.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/local-dev/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/local-dev/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/local-dev/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/mkdocs.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/saucelabs-browsers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/circle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/line.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/path.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/semicircle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/shape.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/square.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/src/utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/test/path-behaviour.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/test/shape-behaviour.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/test/test-all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/test/test-utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/test/testem.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/testem.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/tools/lint.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/tools/release.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/progressbar.js/tools/test.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/.codepainterrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/LICENSE-MIT" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/asset/img/forkme.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/asset/img/shifty-logo-200.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/asset/img/shifty-logo-600.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/attachment-demo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/attachment-demo2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/api.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/css/external-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/css/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/css/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/img/spinner.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/js/api-filter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/js/api-list.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/js/api-search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/js/apidocs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/js/yui-prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/vendor/prettify/CHANGES.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/vendor/prettify/COPYING" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/vendor/prettify/README.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/vendor/prettify/prettify-min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/assets/vendor/prettify/prettify-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/classes/Tweenable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/classes/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/data.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/files/dist_shifty.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/files/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/modules/Tweenable.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/modules/Tweenable.token.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/modules/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/src/shifty.bezier.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/src/shifty.core.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/src/shifty.interpolate.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/doc/src/shifty.token.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/shifty.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/dist/shifty.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/redirects/src/shifty.bezier.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/redirects/src/shifty.core.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/redirects/src/shifty.interpolate.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/redirects/src/shifty.token.js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/src/shifty.bezier.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/src/shifty.core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/src/shifty.formulas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/src/shifty.interpolate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/src/shifty.intro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/src/shifty.outro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/src/shifty.token.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/tests/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/tests/qunit/qunit.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/tests/qunit/qunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/node_modules/shifty/tests/utils/require.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/markdown_preview.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/bin/marked" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/lib/marked.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/man/marked.1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/browser/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/browser/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/browser/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/autolink_lines.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/autolink_lines.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/blockquote_list_item.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/blockquote_list_item.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/case_insensitive_refs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/case_insensitive_refs.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/def_blocks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/def_blocks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/double_link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/double_link.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/escaped_angles.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/escaped_angles.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_break.breaks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_break.breaks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_code.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_code.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_code_hr_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_code_hr_list.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_del.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_del.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_em.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_em.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_links.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_links.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_tables.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/gfm_tables.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/hr_list_break.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/hr_list_break.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/lazy_blockquotes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/lazy_blockquotes.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/list_item_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/list_item_text.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/loose_lists.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/loose_lists.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/main.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/main.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/nested_code.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/nested_code.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/nested_em.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/nested_em.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/nested_square_link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/nested_square_link.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/not_a_link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/not_a_link.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/ref_paren.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/ref_paren.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/same_bullet.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/same_bullet.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/text.smartypants.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/text.smartypants.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/toplevel_paragraphs.gfm.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/toplevel_paragraphs.gfm.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/tricky_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/new/tricky_list.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/amps_and_angles_encoding.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/amps_and_angles_encoding.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/auto_links.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/auto_links.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/backslash_escapes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/backslash_escapes.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/blockquotes_with_code_blocks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/blockquotes_with_code_blocks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/code_blocks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/code_blocks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/code_spans.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/code_spans.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/hard_wrapped_paragraphs_with_list_like_lines.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/hard_wrapped_paragraphs_with_list_like_lines.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/horizontal_rules.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/horizontal_rules.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/inline_html_advanced.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/inline_html_advanced.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/inline_html_comments.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/inline_html_comments.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/inline_html_simple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/inline_html_simple.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/links_inline_style.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/links_inline_style.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/links_reference_style.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/links_reference_style.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/links_shortcut_references.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/links_shortcut_references.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/literal_quotes_in_titles.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/literal_quotes_in_titles.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/markdown_documentation_basics.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/markdown_documentation_basics.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/markdown_documentation_syntax.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/markdown_documentation_syntax.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/nested_blockquotes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/nested_blockquotes.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/ordered_and_unordered_lists.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/ordered_and_unordered_lists.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/strong_and_em_together.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/strong_and_em_together.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/tabs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/tabs.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/tidyness.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/original/tidyness.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/amps_and_angles_encoding.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/amps_and_angles_encoding.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/auto_links.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/auto_links.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/autolink_lines.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/autolink_lines.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/backslash_escapes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/backslash_escapes.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/blockquote_list_item.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/blockquote_list_item.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/blockquotes_with_code_blocks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/blockquotes_with_code_blocks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/case_insensitive_refs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/case_insensitive_refs.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/code_blocks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/code_blocks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/code_spans.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/code_spans.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/def_blocks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/def_blocks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/double_link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/double_link.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/escaped_angles.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/escaped_angles.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_break.breaks.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_break.breaks.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_code.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_code.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_code_hr_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_code_hr_list.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_del.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_del.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_em.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_em.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_links.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_links.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_tables.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/gfm_tables.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/hard_wrapped_paragraphs_with_list_like_lines.nogfm.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/hard_wrapped_paragraphs_with_list_like_lines.nogfm.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/horizontal_rules.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/horizontal_rules.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/hr_list_break.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/hr_list_break.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/inline_html_advanced.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/inline_html_advanced.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/inline_html_comments.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/inline_html_comments.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/inline_html_simple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/inline_html_simple.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/lazy_blockquotes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/lazy_blockquotes.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/links_inline_style.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/links_inline_style.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/links_reference_style.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/links_reference_style.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/links_shortcut_references.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/links_shortcut_references.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/list_item_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/list_item_text.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/literal_quotes_in_titles.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/literal_quotes_in_titles.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/loose_lists.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/loose_lists.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/main.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/main.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/markdown_documentation_basics.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/markdown_documentation_basics.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/markdown_documentation_syntax.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/markdown_documentation_syntax.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_blockquotes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_blockquotes.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_code.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_code.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_em.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_em.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_square_link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/nested_square_link.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/not_a_link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/not_a_link.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/ordered_and_unordered_lists.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/ordered_and_unordered_lists.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/ref_paren.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/ref_paren.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/same_bullet.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/same_bullet.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/strong_and_em_together.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/strong_and_em_together.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/tabs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/tabs.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/text.smartypants.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/text.smartypants.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/tidyness.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/tidyness.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/toplevel_paragraphs.gfm.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/toplevel_paragraphs.gfm.text" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/tricky_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/marked/test/tests/tricky_list.text" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/coderoom.html" afterPath="$PROJECT_DIR$/public/Coderoom2/coderoom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/css/main.css" afterPath="$PROJECT_DIR$/public/Coderoom2/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/app.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/profileController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/profileController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/readAnnouncementController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/readAnnouncementController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editProblem.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editProblem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/profileController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/profileController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/readAnnouncementController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/readAnnouncementController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/sortProblemController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/sortProblemController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/profile.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/readAnnouncemnet.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/readAnnouncemnet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addLesson.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addLesson.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addStudentSort.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addStudentSort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/dashBoard.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/dashBoard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editLesson.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editLesson.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editProblem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editProblem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/listProblem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/listProblem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/profile.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/readAnnouncement.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/readAnnouncement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/sortLesson.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/sortLesson.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/sortProblem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/sortProblem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/uploadStudentlist.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/uploadStudentlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -232,7 +304,7 @@
       <file leaf-file-name="study.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.958333">
+            <state vertical-scroll-proportion="0.0">
               <caret line="171" column="50" selection-start-line="171" selection-start-column="50" selection-end-line="171" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -248,7 +320,7 @@
       <file leaf-file-name="studyController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29284164">
+            <state vertical-scroll-proportion="0.4773218">
               <caret line="257" column="11" selection-start-line="257" selection-start-column="11" selection-end-line="257" selection-end-column="21" />
               <folding />
             </state>
@@ -268,7 +340,7 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4583335">
+            <state vertical-scroll-proportion="0.0">
               <caret line="466" column="0" selection-start-line="466" selection-start-column="0" selection-end-line="466" selection-end-column="0" />
               <folding />
             </state>
@@ -278,7 +350,7 @@
       <file leaf-file-name="problem.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-72.583336">
+            <state vertical-scroll-proportion="0.0">
               <caret line="193" column="14" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -511,7 +583,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1065,6 +1136,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1098,119 +1170,6 @@
       <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\storage\app\public\submission\1_Runners" />
       <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\storage\app\public\problem\1_Runners" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/ProblemController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Node.js.sortLessonController.js">
     <configuration default="false" name="sortLessonController.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="sortLessonController.js" working-dir="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher">
@@ -1538,12 +1497,6 @@
       <workItem from="1485266374514" duration="6359000" />
       <workItem from="1485319541686" duration="12795000" />
     </task>
-    <task id="LOCAL-00056" summary="rewrite analyze teacher code process">
-      <created>1476441407017</created>
-      <option name="number" value="00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1476441407017</updated>
-    </task>
     <task id="LOCAL-00057" summary="complete procress analyze teacher code">
       <created>1476613108182</created>
       <option name="number" value="00057" />
@@ -1832,7 +1785,13 @@
       <option name="project" value="LOCAL" />
       <updated>1486636366075</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="update study add edit problem table(view)">
+      <created>1486805769636</created>
+      <option name="number" value="00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1486805769637</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1849,29 +1808,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="708" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20468278" sideWeight="0.5088282" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2621128" sideWeight="0.49117175" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2621128" sideWeight="0.49117175" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32561985" sideWeight="0.49722" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25123966" sideWeight="0.5361398" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24837662" sideWeight="0.4638602" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20616883" sideWeight="0.45909452" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20550162" sideWeight="0.45909452" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20468278" sideWeight="0.5088282" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3612218" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34902596" sideWeight="0.49722" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17475729" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1890,7 +1849,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="order lesson by drag and drop" />
     <MESSAGE value="add student result migration" />
     <MESSAGE value="rewrite Keep Problem Process" />
     <MESSAGE value="rewrite Keep Submission Process" />
@@ -1915,7 +1873,8 @@
     <MESSAGE value="add ui-bootstrap module" />
     <MESSAGE value="fix bug allpost (headers)" />
     <MESSAGE value="test add problem first" />
-    <option name="LAST_COMMIT_MESSAGE" value="test add problem first" />
+    <MESSAGE value="update study add edit problem table(view)" />
+    <option name="LAST_COMMIT_MESSAGE" value="update study add edit problem table(view)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1938,7 +1897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23529412">
           <caret line="38" column="67" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1946,7 +1904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.52287585">
           <caret line="58" column="15" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1954,7 +1911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4379085">
           <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1962,7 +1918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21568628">
           <caret line="70" column="93" selection-start-line="70" selection-start-column="93" selection-end-line="70" selection-end-column="93" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1970,7 +1925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4117647">
           <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1978,7 +1932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.69518715">
           <caret line="245" column="33" selection-start-line="245" selection-start-column="33" selection-end-line="245" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1986,7 +1939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4285715">
           <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1994,7 +1946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2002,7 +1953,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06507592">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2010,7 +1960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6052061">
           <caret line="80" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2018,7 +1967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2026,7 +1974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2034,7 +1981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2042,7 +1988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2050,7 +1995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2058,7 +2002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2066,7 +2009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3778802">
           <caret line="185" column="37" selection-start-line="185" selection-start-column="37" selection-end-line="185" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2074,7 +2016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3253796">
           <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2082,7 +2023,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37757438">
           <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="46" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2110,7 +2050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2118,7 +2057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2126,7 +2064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.617849">
           <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2160,7 +2097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2168,7 +2104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19522777">
           <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2176,7 +2111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03253796">
           <caret line="1" column="141" selection-start-line="1" selection-start-column="141" selection-end-line="1" selection-end-column="141" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2194,7 +2128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65217394">
           <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2202,7 +2135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="82" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2210,7 +2142,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2218,7 +2149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03253796">
           <caret line="1" column="67" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2226,7 +2156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13015184">
           <caret line="4" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2245,7 +2174,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5491991">
           <caret line="45" column="64" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2253,7 +2181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.071428575">
           <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2269,7 +2196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.617849">
           <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="37" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2285,7 +2211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2294,8 +2219,8 @@
         <state vertical-scroll-proportion="3.1624713">
           <caret line="181" column="31" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#span#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#span#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#span#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#span#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2305,31 +2230,31 @@
         <state vertical-scroll-proportion="0.39816934">
           <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="60" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#3;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#h3#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#h3#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#3;n#form#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-72.583336">
+        <state vertical-scroll-proportion="0.0">
           <caret line="193" column="14" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -2343,7 +2268,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4583335">
+        <state vertical-scroll-proportion="0.0">
           <caret line="466" column="0" selection-start-line="466" selection-start-column="0" selection-end-line="466" selection-end-column="0" />
           <folding />
         </state>
@@ -2359,7 +2284,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.958333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="171" column="50" selection-start-line="171" selection-start-column="50" selection-end-line="171" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -2389,7 +2314,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29284164">
+        <state vertical-scroll-proportion="0.4773218">
           <caret line="257" column="11" selection-start-line="257" selection-start-column="11" selection-end-line="257" selection-end-column="21" />
           <folding />
         </state>
