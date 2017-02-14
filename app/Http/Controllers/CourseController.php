@@ -260,7 +260,7 @@ class CourseController extends Controller
 
     public function showCourseUser()
     {
-        $courses = Course::where('status', '=', 'enable')->get();
+        $courses = Course::enable()->get();
         return $courses;
     }
 
@@ -272,8 +272,7 @@ class CourseController extends Controller
 
         //$student = Student::findOrFail($student_id);
 
-        $course['lessons'] = Lesson::where('course_id', '=', $course_id)
-                                ->orderBy('order')->get();
+        $course['lessons'] = Lesson::where('course_id', '=', $course_id)->ordered()->get();
 
         foreach ($course['lessons'] as $lesson){
             $lesson['problems_count'] = $lesson->problems()->count();
@@ -310,8 +309,7 @@ class CourseController extends Controller
             'students', 'teachers', 'lessons', 'badges', 'announcements'
         ])->findOrFail($course_id);
 
-        $course['lessons'] = Lesson::where('course_id', '=', $course_id)
-                                ->orderBy('order')->get();
+        $course['lessons'] = Lesson::where('course_id', '=', $course_id)->ordered()->get();
         foreach ($course['lessons'] as $lesson){
             $lesson['problems_count'] = $lesson->problems()->count();
         }

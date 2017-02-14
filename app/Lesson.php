@@ -25,4 +25,9 @@ class Lesson extends Model
     {
         return $this->hasMany('App\Problem');
     }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('order');
+    }
 }

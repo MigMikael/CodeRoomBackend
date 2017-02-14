@@ -14,4 +14,14 @@ class TeacherCourse extends Model
         'course_id',
         'status',
     ];
+
+    public function scopeEnable($query)
+    {
+        return $query->where('status', '=', 'enable');
+    }
+
+    public function scopeDisable($query)
+    {
+        return $query->where('status', '=', 'disable');
+    }
 }

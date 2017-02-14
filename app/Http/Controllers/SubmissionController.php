@@ -34,7 +34,7 @@ class SubmissionController extends Controller
         return view('submission.create');
     }
 
-    public function store()    
+    public function store()
     {
         $student_id = Request::get('student_id');
         $problem_id = Request::get('problem_id');
@@ -63,6 +63,76 @@ class SubmissionController extends Controller
         } else {
             return 'file not found';
         }
+
+        $currentVersion = 0;
+        $problemFiles = $submission->problem->problemFiles;
+        foreach ($problemFiles as $problemFile){
+            if(sizeof($problemFile->inputs) > 0){
+                $input = $problemFile->inputs()->first();
+                $currentVersion = $input->version;
+            }
+        }
+
+        $problem = $submission->problem;
+
+        //$scores = '';
+        if(!$hasDriver){
+            //Log::info('##### This Submission not have driver');
+            $data = self::getInputVersion($problem);
+            if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
+                self::sendTeacherInput($problem);
+            }
+
+            $data = self::getOutputVersion($problem);
+            if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
+                self::sendTeacherOutput($problem);
+            }
+            $scores = self::sendStudentFile($submission);
+            self::keepSubmissionScore($scores, $submission);
+        } else {
+            //Log::info('##### This Submission have driver');
+            $data = self::getInputVersion2($problem);
+            if($data['in'] == null || $data['in'][0]['version'] != $currentVersion){
+                self::sendTeacherInput2($problem);
+            }
+
+            $data = self::getOutputVersion2($problem);
+            if($data['sol'] == null || $data['sol'][0]['version'] != $currentVersion){
+                self::sendTeacherOutput2($problem);
+            }
+            self::sendDriver($problem);
+            $scores = self::sendStudentFile2($submission);
+            self::keepSubmissionScore2($scores, $submission);
+        }
+
+        return $scores;
+    }
+
+    public function store2()
+    {
+        $student_id = Request::get('student_id');
+        $problem_id = Request::get('problem_id');
+
+        $sub_num = self::getSubNum($student_id, $problem_id);
+
+        $submission = [
+            'student_id' => $student_id,
+            'problem_id' => $problem_id,
+            'sub_num' => $sub_num,
+        ];
+        $hasDriver = false;
+
+        $submission = Submission::create($submission);
+        $problem = $submission->problem;
+        $problemFiles = $problem->problemFiles;
+        foreach ($problemFiles as $problemFile){
+            if($problemFile->package == 'driver'){
+                $hasDriver = true;
+            }
+        }
+
+        $files = Request::get('files');
+        self::sendToSubmissionFile2($submission, $files);
 
         $currentVersion = 0;
         $problemFiles = $submission->problem->problemFiles;
@@ -144,6 +214,23 @@ class SubmissionController extends Controller
         ];
 
         $request = Request::create('submissionfile', 'POST', $submissionFile);
+
+        $res = app()->handle($request);
+        $result = $res->getContent();
+        return $result;
+    }
+
+    public function sendToSubmissionFile2($submission, $files)
+    {
+        $currentIP = env('CURRENT_IP');
+        $submissionFile = [
+            'submission_id' => $submission->id,
+            'problem_name' => $submission->problem->name,
+            'file' => $files,
+            'currentIP' => $currentIP,
+        ];
+
+        $request = Request::create('submissionfile2', 'POST', $submissionFile);
 
         $res = app()->handle($request);
         $result = $res->getContent();
@@ -685,6 +772,28 @@ class SubmissionController extends Controller
         $sub_num++;
 
         return $sub_num;
+    }
+
+    public function getSubmissionCode($id)
+    {
+        $submissionFiles = SubmissionFile::where('submission_id', '=', $id)->get();
+        return $submissionFiles;
+    }
+
+    public function getResult($id)
+    {
+        $submission = Submission::findOrFail($id);
+
+        //$problem = $submission->problem;
+
+        foreach ($submission->submissionFiles as $submissionFile){
+            foreach ($submissionFile->results as $result){
+                $result->attributes;
+                $result->constructors;
+                $result->methods;
+            }
+        }
+        return $submission;
     }
 
 }

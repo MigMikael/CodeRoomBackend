@@ -35,7 +35,7 @@ class Problem extends Model {
         return $this->hasMany('App\ProblemFile');
     }
 
-    public function orderProblem($query)
+    public function scopeOrdered($query)
     {
         return $query->orderBy('order');
     }

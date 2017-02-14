@@ -93,6 +93,36 @@ class SubmissionFileController extends Controller
         return 'finish';
     }
 
+    // Todo continue | store2 >> sendToSubmissionFile2 >> this.store2(below)
+    public function store2()
+    {
+        $submission_id = Request::get('submission_id');
+        $problem_name = Request::get('problem_name');
+        $files = Request::get('files');
+        $currentIP = Request::get('currentIP');
+
+        foreach ($files as $file){
+            $f = [
+                'submission_id' => $submission_id,
+                'package' => $file['package'],
+                'filename' => $file['filename'],
+                'mime' => 'java',
+                'code' => $file['code'],
+            ];
+            $submissionFile = SubmissionFile::create($f);
+
+            $submission = $submissionFile->submission;
+            $problem = $submission->problem;
+            if($problem->is_parse == 'true'){
+                $classes = self::analyzeSubmission($submissionFile, $currentIP);
+                self::keepResult($submissionFile, $classes);
+                self::calculateScore($submissionFile);
+            }
+        }
+
+        return 'finish';
+    }
+
     public function analyzeSubmission($submissionFile, $currentIP)
     {
         $codes = [];

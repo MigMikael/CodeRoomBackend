@@ -40,6 +40,7 @@ Route::resource('teacher_course', 'TeacherCourseController');
 Route::resource('announcement', 'AnnouncementController');
 
 
+Route::post('submissionfile2', 'SubmissionFileController@store2');
 #--------------------------------------------------------------------------------------------------------
 #                              Student API
 #--------------------------------------------------------------------------------------------------------
@@ -71,6 +72,7 @@ Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 #Route::get('test/current_user_profile','TestController@getUserProfile');
 #Route::get('test/getQuestion', 'TestController@testGetQuestion');
 Route::get('test/count', 'TestController@testCount');
+Route::get('test/order_problem', 'TestController@testProblemOrder');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
@@ -102,7 +104,7 @@ Route::get('api/user/home', 'CourseController@showCourseUser');
 #                               Student API
 #--------------------------------------------------------------------------------------------------------
 
-Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
+//Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/dashboard', 'StudentController@dashboard');
 
@@ -118,22 +120,23 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/lesson/{id}', 'LessonController@showLesson');
 
-    Route::get('api/student/problem/{problem_id}/{student_id}', 'ProblemController@getResult');
+    Route::get('api/student/announcement/{id}', 'AnnouncementController@showAnnouncement');
 
-    // Todo api for submission
-    //Route::post('api/')
+    //Route::get('api/student/submission/{problem_id}/{student_id}', 'SubmissionController@getResult');
+    Route::get('api/student/submission/{id}', 'SubmissionController@getResult');
 
-});
+    Route::post('api/student/submission', 'SubmissionController@store2');
+
+//});
 
 
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
-    // new
     Route::post('api/teacher/profile/edit', 'TeacherController@updateProfile');
     Route::post('api/teacher/change_password', 'TeacherController@changePassword');
 
@@ -151,11 +154,12 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
     Route::post('api/teacher/problem/edit', 'ProblemController@updateProblem');             //  update
     Route::post('api/teacher/problem/store', 'ProblemController@storeProblem');             //  store
     Route::delete('api/teacher/problem/delete/{id}', 'ProblemController@deleteProblem');    //  delete
-    // new
     Route::post('api/teacher/problem/change_order', 'ProblemController@changeProblemOrder');
+    Route::get('api/teacher/problem/{id}/submission', 'ProblemController@getProblemSubmission');
+
+    Route::get('api/teacher/submission/{id}/code', 'SubmissionController@getSubmissionCode');
 
     Route::get('api/teacher/announcement/{id}', 'AnnouncementController@showAnnouncement');             //  show
-    // new
     Route::post('api/teacher/announcement/edit', 'AnnouncementController@updateAnnouncement');          //  update
     Route::post('api/teacher/announcement/store', 'AnnouncementController@storeAnnouncement');          //  store
     Route::delete('api/teacher/announcement/delete/{id}', 'AnnouncementController@deleteAnnouncement'); //  delete
@@ -166,7 +170,7 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
     Route::get('api/teacher/student/disable/{student_id}/{course_id}', 'StudentController@disableStudent');     // deactivate
     Route::get('api/teacher/student/all/{course_id}', 'StudentController@getAll');
 
-});
+//});
 
 
 #--------------------------------------------------------------------------------------------------------

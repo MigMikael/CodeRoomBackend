@@ -42,4 +42,14 @@ class Course extends Model
         return $this->belongsToMany('App\Student', 'student_course', 'course_id', 'student_id')
             ->withPivot('status', 'progress');
     }
+
+    public function scopeEnable($query)
+    {
+        return $query->where('status', '=', 'enable');
+    }
+
+    public function scopeDisable($query)
+    {
+        return $query->where('status', '=', 'disable');
+    }
 }

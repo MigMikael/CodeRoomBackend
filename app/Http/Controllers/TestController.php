@@ -102,5 +102,10 @@ class TestController extends Controller
         return $count;
     }
 
+    public function testProblemOrder()
+    {
+        $problem = Problem::where('lesson_id', '=', 1)->ordered()->get();
+        return $problem;
+    }
 
 }

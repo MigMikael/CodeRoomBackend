@@ -140,23 +140,6 @@ class ProblemController extends Controller
         return response($file, 200)->header('Content-Type', 'application/pdf');
     }
 
-    public function getResult($problem_id, $student_id)
-    {
-        $submission = Submission::where([
-            ['problem_id', '=', $problem_id],
-            ['student_id', '=', $student_id]
-        ])->orderBy('id', 'desc')->first();
-
-        foreach ($submission->submissionFiles as $submissionFile){
-            foreach ($submissionFile->results as $result){
-                $result->attributes;
-                $result->constructors;
-                $result->methods;
-            }
-        }
-        return $submission;
-    }
-
     public function showProblem($id)
     {
         $problem = Problem::findOrFail($id);
@@ -253,6 +236,17 @@ class ProblemController extends Controller
         }
 
         return response()->json(['msg' => 'success']);
+    }
+
+    public function getProblemSubmission($id)
+    {
+        $submissions = Submission::where('problem_id', '=', $id)->get();
+        foreach ($submissions as $submission){
+            $submission->student;
+            $submission->problem;
+        }
+
+        return $submissions;
     }
     
 }

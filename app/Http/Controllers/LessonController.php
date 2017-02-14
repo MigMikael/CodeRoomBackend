@@ -107,7 +107,9 @@ class LessonController extends Controller
             'problems'
         ])->findOrFail($id);
 
-        foreach ($lesson->problems as $problem){
+        $problems = Problem::where('lesson_id', '=', $lesson->id)->ordered()->get();
+        $lesson['problems'] = $problems;
+        foreach ($lesson['problems'] as $problem){
             $problem['question'] = url('problem/getQuestion/'.$problem->id);
         }
 
