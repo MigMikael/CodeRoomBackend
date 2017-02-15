@@ -200,7 +200,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                         if(chackPackage[1]== "java"){
                             zipEntry.async("string").then(function success(content) {
 
-                                var package = {packagename:"default package"};
+                                var package = {package:"default package"};
                                 package.filename = folder[folder.length-1];
                                 package.code = content;
 
@@ -216,7 +216,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                             });
                         }else{
                             zipEntry.async("string").then(function success(content) {
-                                var package = {packagename:chackPackage[0]};
+                                var package = {package:chackPackage[0]};
                                 package.filename = folder[folder.length-1];
 
                                 package.code = content;
@@ -258,14 +258,16 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     $scope.submitFile = function(){
         var dataSubmit = {
             files:$scope.allFiles,
-            prob_id:$scope.problem.id,
+            problem_id:$scope.problem.id,
+            student_id:$localStorage.user.id,
         };
-        $http.post('', dataSubmit,{headers:{
+        console.log(dataSubmit);
+        $http.post('/api/student/submission', dataSubmit,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
                 function(response){
-                    console.log(response.data);
+                    console.log(response);
                 },
                 function(response){
                     // failure callback

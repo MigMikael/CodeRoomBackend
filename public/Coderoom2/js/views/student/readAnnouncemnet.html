@@ -31,9 +31,7 @@
         <div style="width: 100%;background-color: #204060;height: 60px;padding: 0 0 0 10px">
             <h3 style="color: white;line-height: 60px">{{announcement.title}}</h3>
         </div>
-        <div style="width: 100%;padding: 10px;overflow: hidden;background-color: white">
-
-            <div class='iiMdPreview'>{{announcement.content}}</div>
+        <div style="width: 100%;overflow: hidden;background-color: white;padding: 10px" ng-bind-html='announcement.content'>
 
         </div>
     </div>

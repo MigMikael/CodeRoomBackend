@@ -1,5 +1,5 @@
 
-app.controller('problemTeacherController',function($scope,$localStorage,$routeParams,$http,$location,problemTeacher) {
+app.controller('problemTeacherController',function($scope,$localStorage,$routeParams,$http,$location,problemTeacher,studentSubmitProblem,viewCodeSubmit) {
     $scope.user = $localStorage.user;
     $localStorage.prob_id = $routeParams.prob_id;
 
@@ -12,6 +12,24 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
             function(response){
                 $scope.problem = response.data;
                 console.log($scope.problem);
+                getStudentsubmitProblem($localStorage.user.token,$localStorage.prob_id);
+            },
+            function(response){
+                // failure call back
+            });
+
+    }
+
+    function getStudentsubmitProblem(token,prob_id) {
+
+        studentSubmitProblem.getData(token,prob_id).then(
+            function(response){
+                if(response.data.length >0){
+                    $scope.studentSubmit = addPathimage(response.data);
+                    console.log($scope.studentSubmit);
+                    $scope.clickViewCode($scope.studentSubmit[0].sub_num);
+                }
+
 
             },
             function(response){
@@ -48,6 +66,31 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
                     // failure callback
                 }
             );
+    }
+    function addPathimage(data){
+        for(i=0 ; i<data.length ; i++){
+            data[i].student.image = "http://localhost:8000/api/image/"+data[i].student.image;
+
+        }
+
+        return data;
+    }
+    $scope.clickViewCode = function(submit_id){
+        viewCodeSubmit.getData($localStorage.user.token,submit_id).then(
+            function(response){
+                if(response.data.length > 0){
+                    $scope.allFiles = response.data;
+                    console.log($scope.allFiles);
+                    $scope.aceValue = $scope.allFiles[0].code;
+                }
+
+            },
+            function(response){
+                // failure call back
+            });
+    }
+    $scope.clickChangeFile = function(index){
+        $scope.aceValue = $scope.allFiles[index].code
     }
 });
 

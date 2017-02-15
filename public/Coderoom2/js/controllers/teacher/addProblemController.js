@@ -6,17 +6,13 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
     $scope.problemView = true;
     $scope.parseProblemView = false;
 
-
     $scope.evaluator = {
         values:[
             {
                 value:'java',
                 name:'Java'
             },
-            {
-                value:'c',
-                name:'C'
-            },
+
 
         ],
         selectValue:{value:'java',name:'Java'}
@@ -55,11 +51,11 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         if(view === "problemView"){
             $scope.problemView = true;
             $scope.parseProblemView = false;
-            $scope.notParseProblemView = false;
+
         }else if(view === "parseProblemView"){
             $scope.problemView = false;
             $scope.parseProblemView = true;
-            $scope.notParseProblemView = false;
+
         }
     };
     $scope.logout = function () {
@@ -95,12 +91,13 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
         file.upload.then(function (response) {
             $timeout(function () {
-                console.log(response.data);
+                //console.log(response.data);
                 //parse and not parse go
                 if(true){
-
+                    $scope.resultAnalyze = response.data;
+                    $scope.changeView("parseProblemView");
                 }else{
-
+                    $scope.go('/listproblemteacher/'+$localStorage.lessons_id);
                 }
             })
         }, function (response) {

@@ -741,7 +741,7 @@ body{
     display: inline;
 }
 .navbar-study-bottom .right-navber-study-bottom button.select-file{
-    background-color: red;
+    background-color: #00b4a2;
     color: white;
 }
 .navbar-study-bottom .right-navber-study-bottom p{
@@ -772,11 +772,16 @@ body{
     margin:0 10px;
 
 }
-.card-student p{
+.card-student .left-card-student{
+    float: left;
+
+}
+.card-student .left-card-student p{
     display: block;
     line-height: 20px;
 
 }
+
 .card-student .right-card-student{
      float: right;
 
@@ -789,19 +794,22 @@ body{
     text-align: center;
 
 }
-.card-student .right-card-student .button-right-card-student{
 
-    height: 100%;
-    background-color: white;
-    color: #00b4a2;
-    text-align: center;
-
-
-}
 .card-student .right-card-student .button-right-card-student p{
     line-height: 50px;
     cursor: pointer;
  }
+.card-student .right-card-student .num-submit{
+    height: 100%;
+    text-align: center;
+    background-color: white;
+
+}
+.card-student .right-card-student .num-submit p{
+    line-height: 50px;
+    color: #204056;
+
+}
 .card-problem-detail{
     background-color: white;
     width: 100%;

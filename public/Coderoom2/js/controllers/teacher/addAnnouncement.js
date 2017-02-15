@@ -39,8 +39,8 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
 
     };
     $scope.addAnnouncement = function(){
-
-        console.log($rootScope.content);
+        $scope.announcement.content  = $rootScope.announcement_content;
+        console.log($rootScope.announcement_content);
         $http.post('/api/teacher/announcement/store', $scope.announcement,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})

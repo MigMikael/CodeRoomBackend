@@ -1,5 +1,5 @@
 
-app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http, $location,$rootScope,$routeParams,announcementStudent,$routeParams) {
+app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementStudent,$routeParams) {
 
 
     $scope.announcement;
@@ -11,7 +11,7 @@ app.controller('readAnnouncementstudentController',function($scope,$localStorage
         announcementStudent.getData(token,announcement_id).then(
             function(response){
 
-                $scope.announcement = response.data;
+                $scope.announcement = parseStringtoHTML(response.data);
                 console.log($scope.announcement);
 
             },
@@ -20,7 +20,10 @@ app.controller('readAnnouncementstudentController',function($scope,$localStorage
             });
 
     }
-
+    function parseStringtoHTML(data){
+        data.content = $sce.trustAsHtml(data.content);
+        return data;
+    }
 
     $scope.openCarduser  = function(){
         if($scope.cardUser){

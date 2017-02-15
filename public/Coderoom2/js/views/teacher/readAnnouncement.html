@@ -37,9 +37,7 @@
                 <p style="color: white;line-height: 60px;" ng-click="deleteAnnouncement(announcement.id)">Delete</p>
             </div>
         </div>
-        <div style="width: 100%;overflow: hidden;background-color: white;padding: 10px">
-
-            {{announcement.content}}
+        <div style="width: 100%;overflow: hidden;background-color: white;padding: 10px" ng-bind-html='announcement.content'>
 
         </div>
     </div>

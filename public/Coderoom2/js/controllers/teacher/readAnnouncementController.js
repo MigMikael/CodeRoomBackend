@@ -1,5 +1,5 @@
 
-app.controller('readAnnouncementteacherController',function($scope,$localStorage,$http, $location,$rootScope,$routeParams,announcementTeacher) {
+app.controller('readAnnouncementteacherController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementTeacher) {
 
 
     $scope.announcement;
@@ -11,7 +11,7 @@ app.controller('readAnnouncementteacherController',function($scope,$localStorage
         announcementTeacher.getData(token,announcement_id).then(
             function(response){
 
-                $scope.announcement = response.data;
+                $scope.announcement = parseStringtoHTML(response.data);
                 console.log($scope.announcement);
 
             },
@@ -19,6 +19,10 @@ app.controller('readAnnouncementteacherController',function($scope,$localStorage
                 // failure call back
             });
 
+    }
+    function parseStringtoHTML(data){
+        data.content = $sce.trustAsHtml(data.content);
+        return data;
     }
     $scope.deleteAnnouncement = function(announcement_id){
 
