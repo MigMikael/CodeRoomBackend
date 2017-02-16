@@ -110,8 +110,8 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     function  getResult(token,student_id,problem_id){
         resultProblem.getData(token,student_id,problem_id).then(
             function(response){
-
-                $scope.result = response.data;
+                console.log("hello");
+                $scope.result = splitclass(response.data);
                 $scope.allFiles = $scope.result.submission_files;
                 console.log($scope.result);
             },

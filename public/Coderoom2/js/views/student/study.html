@@ -38,23 +38,26 @@
 
                 </div>
                 <div class="show-problem-detail2">
-                    <div class="panel panel-default" style="border-radius: 0">
-                        <div class="panel-heading" style="background-color: white;background-image: none">Panel heading without title</div>
-                        <div class="panel-body">
-                            <table>
-                                <thead>
+                    <span ng-repeat=" file in result.submission_files">
+                        <div class="panel panel-default" style="border-radius: 0">
+                            <div class="panel-heading" style="background-color: white;background-image: none">{{file.filename}}</div>
+                            <div class="panel-body">
+                                <table>
+                                    <thead>
                                     <tr>
-                                        <th>1</th>
+                                        <th ng-repeat="score in file.outputs">{{$index}}</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     <tr>
-                                        <td>100</td>
+                                        <td ng-repeat="score in file.outputs">{{score.score}}</td>
                                     </tr>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                    </span>
+
 
                     <div class="panel panel-default" ng-repeat="file in result.submission_files" style="border-radius: 0">
                         <span ng-repeat="class in file.results">
