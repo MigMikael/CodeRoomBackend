@@ -4,6 +4,7 @@
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,8 +115,8 @@
       <file leaf-file-name="study.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.5">
-              <caret line="0" column="47" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
+            <state vertical-scroll-proportion="-15.0">
+              <caret line="87" column="48" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -127,8 +128,8 @@
       <file leaf-file-name="studyController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38265306">
-              <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.13265306">
+              <caret line="114" column="25" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -224,9 +225,9 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/public/Coderoom2/css/main.css" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/coderoom.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" />
       </list>
     </option>
@@ -1456,12 +1457,6 @@
       <workItem from="1487072388933" duration="5930000" />
       <workItem from="1487219651006" duration="7477000" />
     </task>
-    <task id="LOCAL-00082" summary="add student result migration">
-      <created>1479629517786</created>
-      <option name="number" value="00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1479629517786</updated>
-    </task>
     <task id="LOCAL-00083" summary="rewrite Keep Problem Process">
       <created>1479670608878</created>
       <option name="number" value="00083" />
@@ -1750,7 +1745,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487238393302</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="fix bug study">
+      <created>1487238686357</created>
+      <option name="number" value="00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1487238686358</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2278,14 +2279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/coderoom.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.25">
@@ -2294,10 +2287,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.5">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.5">
-          <caret line="0" column="47" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="87" column="48" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -2307,8 +2308,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38265306">
-          <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.13265306">
+          <caret line="114" column="25" selection-start-line="114" selection-start-column="25" selection-end-line="114" selection-end-column="25" />
           <folding />
         </state>
       </provider>

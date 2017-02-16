@@ -79,7 +79,6 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 //console.log();
                 if($scope.study.problems[0] !== null){
                     $scope.problem = $scope.study.problems[0];
-                    $scope.numberFile = 0;
                     getResult(token,$localStorage.user.id,$scope.problem.id);
                     console.log($scope.study);
                     console.log($scope.problem);
@@ -114,6 +113,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
 
                 $scope.result = response.data;
                 $scope.allFiles = $scope.result.submission_files;
+
                 console.log($scope.result);
             },
             function(response){
@@ -140,6 +140,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         $scope.problem = $scope.study.problems[prob_id];
         console.log($scope.problem);
         $scope.allFiles = [];
+
         getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
         openNav();
     };
@@ -258,7 +259,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     });
     $scope.changeFiles = function(id){
         $scope.numberFile = id;
-    };
+    }
     $scope.submitFile = function(){
         var dataSubmit = {
             files:$scope.allFiles,
