@@ -93,7 +93,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             $scope.loading = false;
             if($scope.is_parse.selectValue.value){
                 $scope.resultAnalyze = response.data;
-                //console.log($scope.resultAnalyze);
+                console.log($scope.resultAnalyze);
                 $scope.changeView("parseProblemView");
             }else{
                 $location.path('/listproblemteacher/'+$localStorage.lessons_id);
@@ -354,6 +354,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         ]
     };*/
     $scope.addScoreProblem = function(){
+        $scope.loading = true;
         console.log($scope.resultAnalyze);
         $http.post('/api/teacher/problem/store_score', $scope.resultAnalyze, {headers:{
                 'Authorization_Token' : $localStorage.user.token
@@ -361,6 +362,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             .then(
                 function(response){
                     $scope.changeView("problemView");
+                    $scope.loading = false;
                 },
                 function(response){
                     // failure callback
