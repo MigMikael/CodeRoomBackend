@@ -4,13 +4,7 @@
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/SubmissionFileController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubmissionFileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UserAuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserAuthController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_11_23_175042_create_submission_output_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_11_23_175042_create_submission_output_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/ProblemFileTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/ProblemFileTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/ProblemInputTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/ProblemInputTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/ProblemOutputTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/ProblemOutputTableSeeder.php" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,74 +61,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LessonController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LessonController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubmissionController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="686" column="5" lean-forward="true" selection-start-line="686" selection-start-column="5" selection-end-line="686" selection-end-column="5" />
-              <folding>
-                <element signature="e#40#64#0#PHP" expanded="true" />
-                <element signature="e#369#706#0#PHP" expanded="false" />
-                <element signature="e#712#790#0#PHP" expanded="false" />
-                <element signature="e#796#3381#0#PHP" expanded="false" />
-                <element signature="e#5872#6460#0#PHP" expanded="false" />
-                <element signature="e#6466#6620#0#PHP" expanded="false" />
-                <element signature="e#6626#7130#0#PHP" expanded="false" />
-                <element signature="e#7651#8356#0#PHP" expanded="false" />
-                <element signature="e#8362#9075#0#PHP" expanded="false" />
-                <element signature="e#9081#9786#0#PHP" expanded="false" />
-                <element signature="e#9792#10505#0#PHP" expanded="false" />
-                <element signature="e#10511#11754#0#PHP" expanded="false" />
-                <element signature="e#11760#13130#0#PHP" expanded="false" />
-                <element signature="e#13136#14401#0#PHP" expanded="false" />
-                <element signature="e#14407#15799#0#PHP" expanded="false" />
-                <element signature="e#15805#17322#0#PHP" expanded="false" />
-                <element signature="e#19816#21588#0#PHP" expanded="false" />
-                <element signature="e#21594#22750#0#PHP" expanded="false" />
-                <element signature="e#22756#24382#0#PHP" expanded="false" />
-                <element signature="e#24388#25461#0#PHP" expanded="false" />
-                <element signature="e#25467#25741#0#PHP" expanded="false" />
-                <element signature="e#25747#25914#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubmissionFile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/SubmissionFile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Submission.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Submission.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+            <state relative-caret-position="369">
+              <caret line="153" column="42" lean-forward="false" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -143,10 +74,68 @@
       <file leaf-file-name="ProblemController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="129" column="22" lean-forward="true" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
+            <state relative-caret-position="539">
+              <caret line="244" column="16" lean-forward="true" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
               <folding>
                 <element signature="e#6245#6805#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LessonController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LessonController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-481">
+              <caret line="107" column="28" lean-forward="true" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubmissionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="808" column="0" lean-forward="true" selection-start-line="808" selection-start-column="0" selection-end-line="808" selection-end-column="0" />
+              <folding>
+                <element signature="e#40#64#0#PHP" expanded="true" />
+                <element signature="e#369#706#0#PHP" expanded="false" />
+                <element signature="e#712#790#0#PHP" expanded="false" />
+                <element signature="e#796#3381#0#PHP" expanded="false" />
+                <element signature="e#5917#6505#0#PHP" expanded="false" />
+                <element signature="e#6511#6665#0#PHP" expanded="false" />
+                <element signature="e#6671#7175#0#PHP" expanded="false" />
+                <element signature="e#7696#8401#0#PHP" expanded="false" />
+                <element signature="e#8407#9120#0#PHP" expanded="false" />
+                <element signature="e#9126#9831#0#PHP" expanded="false" />
+                <element signature="e#9837#10550#0#PHP" expanded="false" />
+                <element signature="e#10556#11799#0#PHP" expanded="false" />
+                <element signature="e#11805#13175#0#PHP" expanded="false" />
+                <element signature="e#13181#14446#0#PHP" expanded="false" />
+                <element signature="e#14452#15844#0#PHP" expanded="false" />
+                <element signature="e#15850#17367#0#PHP" expanded="false" />
+                <element signature="e#17373#19855#0#PHP" expanded="false" />
+                <element signature="e#19861#21633#0#PHP" expanded="false" />
+                <element signature="e#21639#22795#0#PHP" expanded="false" />
+                <element signature="e#22801#24427#0#PHP" expanded="false" />
+                <element signature="e#24433#25506#0#PHP" expanded="false" />
+                <element signature="e#25512#25786#0#PHP" expanded="false" />
+                <element signature="e#25792#25959#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubmissionFileController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubmissionFileController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2686">
+              <caret line="321" column="46" lean-forward="false" selection-start-line="321" selection-start-column="46" selection-end-line="321" selection-end-column="46" />
+              <folding>
+                <element signature="e#526#3295#0#PHP" expanded="false" />
+                <element signature="e#4483#4977#0#PHP" expanded="false" />
+                <element signature="e#4983#7391#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -233,9 +222,9 @@
         <option value="$PROJECT_DIR$/database/seeds/ProblemInputTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/ProblemOutputTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserAuthController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_11_23_175042_create_submission_output_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -1249,14 +1238,7 @@
       <workItem from="1486713514601" duration="7714000" />
       <workItem from="1486974656917" duration="692000" />
       <workItem from="1487072388933" duration="5930000" />
-      <workItem from="1487219651006" duration="5861000" />
-    </task>
-    <task id="LOCAL-00067" summary="import many student to course from excel file">
-      <created>1478106996690</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1478106996690</updated>
+      <workItem from="1487219651006" duration="7477000" />
     </task>
     <task id="LOCAL-00068" summary="add and delete student course from Web Submission">
       <created>1478157336875</created>
@@ -1594,11 +1576,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487078281992</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="submission in non parse problem">
+      <created>1487225527239</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1487225527240</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1360617000" />
+    <option name="totallyTimeSpent" value="1362233000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1684,21 +1673,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php</url>
-          <line>665</line>
+          <line>666</line>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php</url>
-          <line>541</line>
-          <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/SubmissionFileController.php</url>
           <line>218</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php</url>
+          <line>542</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="65" />
+      <option name="time" value="68" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2062,16 +2051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubmissionFileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="77" column="74" lean-forward="true" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
-          <folding>
-            <element signature="e#4483#4977#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserAuthController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -2135,36 +2114,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="129" column="22" lean-forward="true" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
-          <folding>
-            <element signature="e#6245#6805#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LessonController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Submission.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/SubmissionFile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -2190,14 +2143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/4077e0be/a64485c3-8611-4f84-94b5-728bbe99a8cb/seniorproject.submission">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2211,34 +2156,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/SubmissionFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LessonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-481">
+          <caret line="107" column="28" lean-forward="true" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubmissionFileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2686">
+          <caret line="321" column="46" lean-forward="false" selection-start-line="321" selection-start-column="46" selection-end-line="321" selection-end-column="46" />
+          <folding>
+            <element signature="e#526#3295#0#PHP" expanded="false" />
+            <element signature="e#4483#4977#0#PHP" expanded="false" />
+            <element signature="e#4983#7391#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProblemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="244" column="16" lean-forward="true" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
+          <folding>
+            <element signature="e#6245#6805#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubmissionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="686" column="5" lean-forward="true" selection-start-line="686" selection-start-column="5" selection-end-line="686" selection-end-column="5" />
+        <state relative-caret-position="1440">
+          <caret line="808" column="0" lean-forward="true" selection-start-line="808" selection-start-column="0" selection-end-line="808" selection-end-column="0" />
           <folding>
             <element signature="e#40#64#0#PHP" expanded="true" />
             <element signature="e#369#706#0#PHP" expanded="false" />
             <element signature="e#712#790#0#PHP" expanded="false" />
             <element signature="e#796#3381#0#PHP" expanded="false" />
-            <element signature="e#5872#6460#0#PHP" expanded="false" />
-            <element signature="e#6466#6620#0#PHP" expanded="false" />
-            <element signature="e#6626#7130#0#PHP" expanded="false" />
-            <element signature="e#7651#8356#0#PHP" expanded="false" />
-            <element signature="e#8362#9075#0#PHP" expanded="false" />
-            <element signature="e#9081#9786#0#PHP" expanded="false" />
-            <element signature="e#9792#10505#0#PHP" expanded="false" />
-            <element signature="e#10511#11754#0#PHP" expanded="false" />
-            <element signature="e#11760#13130#0#PHP" expanded="false" />
-            <element signature="e#13136#14401#0#PHP" expanded="false" />
-            <element signature="e#14407#15799#0#PHP" expanded="false" />
-            <element signature="e#15805#17322#0#PHP" expanded="false" />
-            <element signature="e#19816#21588#0#PHP" expanded="false" />
-            <element signature="e#21594#22750#0#PHP" expanded="false" />
-            <element signature="e#22756#24382#0#PHP" expanded="false" />
-            <element signature="e#24388#25461#0#PHP" expanded="false" />
-            <element signature="e#25467#25741#0#PHP" expanded="false" />
-            <element signature="e#25747#25914#0#PHP" expanded="false" />
+            <element signature="e#5917#6505#0#PHP" expanded="false" />
+            <element signature="e#6511#6665#0#PHP" expanded="false" />
+            <element signature="e#6671#7175#0#PHP" expanded="false" />
+            <element signature="e#7696#8401#0#PHP" expanded="false" />
+            <element signature="e#8407#9120#0#PHP" expanded="false" />
+            <element signature="e#9126#9831#0#PHP" expanded="false" />
+            <element signature="e#9837#10550#0#PHP" expanded="false" />
+            <element signature="e#10556#11799#0#PHP" expanded="false" />
+            <element signature="e#11805#13175#0#PHP" expanded="false" />
+            <element signature="e#13181#14446#0#PHP" expanded="false" />
+            <element signature="e#14452#15844#0#PHP" expanded="false" />
+            <element signature="e#15850#17367#0#PHP" expanded="false" />
+            <element signature="e#17373#19855#0#PHP" expanded="false" />
+            <element signature="e#19861#21633#0#PHP" expanded="false" />
+            <element signature="e#21639#22795#0#PHP" expanded="false" />
+            <element signature="e#22801#24427#0#PHP" expanded="false" />
+            <element signature="e#24433#25506#0#PHP" expanded="false" />
+            <element signature="e#25512#25786#0#PHP" expanded="false" />
+            <element signature="e#25792#25959#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="153" column="42" lean-forward="false" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

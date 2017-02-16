@@ -131,6 +131,7 @@ class SubmissionController extends Controller
             }
         }
 
+        // Send to analyze code in each file
         $files = Request::get('files');
         self::sendToSubmissionFile2($submission, $files);
 
@@ -789,7 +790,6 @@ class SubmissionController extends Controller
 
         if($submission != null){
             foreach ($submission->submissionFiles as $submissionFile){
-                $submissionFile->code = '';
                 $submissionFile->outputs;
             }
         }
