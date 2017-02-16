@@ -58,6 +58,18 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         }
 
     };
+    function changeViewCard(view){
+        console.log(view);
+        if(view === "problemView"){
+            $scope.problemView = true;
+            $scope.parseProblemView = false;
+            console.log("update view problemView");
+        }else if(view === "parseProblemView"){
+            $scope.problemView = false;
+            $scope.parseProblemView = true;
+            console.log("update view parseProblemView");
+        }
+    }
     $scope.logout = function () {
 
         $http.get('/logout', {headders:{
@@ -96,7 +108,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
                 $scope.resultAnalyze = response.data;
 
                 console.log($scope.resultAnalyze);
-                $scope.changeView("parseProblemView");
+                changeViewCard("parseProblemView");
             }else{
                 $location.path('/listproblemteacher/'+$localStorage.lessons_id);
             }
@@ -363,8 +375,9 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             }})
             .then(
                 function(response){
-                    $scope.changeView("problemView");
                     $scope.loading = false;
+                    changeViewCard("problemView");
+
                 },
                 function(response){
                     // failure callback
