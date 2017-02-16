@@ -76,7 +76,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         studyStudent.getData(token,lesson_id).then(
             function(response){
                 $scope.study = numberProblem(response.data);
-                console.log();
+                //console.log();
                 if($scope.study.problems[0] !== null){
                     $scope.problem = $scope.study.problems[0];
                     getResult(token,$localStorage.user.id,$scope.problem.id);
@@ -110,9 +110,13 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     function  getResult(token,student_id,problem_id){
         resultProblem.getData(token,student_id,problem_id).then(
             function(response){
-                console.log("hello");
+
                 $scope.result = splitclass(response.data);
-                $scope.allFiles = $scope.result.submission_files;
+                if($scope.result.submission_files.length >0){
+                    $scope.allFiles = $scope.result.submission_files;
+                }else{
+                    $scope.allFiles = [];
+                }
                 console.log($scope.result);
             },
             function(response){
@@ -134,7 +138,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         $scope.study.problems[$scope.problem.order-1].active = false;
         $scope.study.problems[prob_id].active = true;
         $scope.problem = $scope.study.problems[prob_id];
-        console.log($scope.problem);
+        //console.log($scope.problem);
         getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
         openNav();
     };
@@ -267,7 +271,9 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             }})
             .then(
                 function(response){
-                    console.log(response);
+
+                    $scope.result = splitclass(response.data);
+                    console.log($scope.result);
                 },
                 function(response){
                     // failure callback

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="(edit)view add problem (add fuction)">
+    <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="study.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="study.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5583524">
+            <state vertical-scroll-proportion="-10.166667">
               <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -94,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="studyController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="studyController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
+            <state vertical-scroll-proportion="-0.71583515">
+              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -2075,12 +2074,6 @@
       <workItem from="1487072388933" duration="5930000" />
       <workItem from="1487219651006" duration="7477000" />
     </task>
-    <task id="LOCAL-00068" summary="add and delete student course from Web Submission">
-      <created>1478157336875</created>
-      <option name="number" value="00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1478157336875</updated>
-    </task>
     <task id="LOCAL-00069" summary="add student profile api">
       <created>1478176194331</created>
       <option name="number" value="00069" />
@@ -2369,7 +2362,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487225527240</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="show score testcase">
+      <created>1487228915882</created>
+      <option name="number" value="00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1487228915882</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2427,7 +2426,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="analyze teacher code &amp; keep ProblemAnalysis" />
     <MESSAGE value="calculate student structure score" />
     <MESSAGE value="before final project" />
     <MESSAGE value="api authentication system" />
@@ -2452,7 +2450,8 @@
     <MESSAGE value="create problem from web submission" />
     <MESSAGE value="add submission api for student" />
     <MESSAGE value="submission in non parse problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="submission in non parse problem" />
+    <MESSAGE value="show score testcase" />
+    <option name="LAST_COMMIT_MESSAGE" value="show score testcase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2885,21 +2884,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5583524">
+        <state vertical-scroll-proportion="-10.166667">
           <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.71583515">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
