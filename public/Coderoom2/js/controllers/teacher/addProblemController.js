@@ -74,7 +74,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
     }
     //upload
     $scope.uploadFiles = function(file) {
-
+        $scope.loading = true;
         file.upload = Upload.upload({
             url: '/api/teacher/problem/store',
             data: {file: file,
@@ -90,6 +90,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         });
 
         file.upload.then(function (response) {
+            $scope.loading = false;
             if($scope.is_parse.selectValue.value){
                 $scope.resultAnalyze = response.data;
                 console.log($scope.resultAnalyze);
