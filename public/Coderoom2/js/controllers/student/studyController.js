@@ -111,8 +111,8 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         resultProblem.getData(token,student_id,problem_id).then(
             function(response){
 
-                $scope.result = splitclass(response.data);
-
+                $scope.result = response.data;
+                console.log($scope.result.submission_files.length);
                     $scope.allFiles = $scope.result.submission_files;
 
                     //$scope.allFiles = [];
@@ -138,7 +138,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         $scope.study.problems[$scope.problem.order-1].active = false;
         $scope.study.problems[prob_id].active = true;
         $scope.problem = $scope.study.problems[prob_id];
-        //console.log($scope.problem);
+        console.log($scope.problem);
         getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
         openNav();
     };
