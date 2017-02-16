@@ -66,7 +66,23 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 }
             );
     }
+    $scope.$watch(function () { return $scope.numberFile; }, function (newData, oldData) {
+        if($scope.numberFile !== null){
+            $scope.numberFile = newData;
+            console.log($scope.numberFile);
+            if($scope.aceValue!== undefined && $scope.aceValue !== ""){
+                $scope.allFiles[oldData].code = $scope.aceValue;
+            }
 
+            $scope.aceValue = $scope.allFiles[$scope.numberFile].code;
+        }
+
+
+
+    });
+    $scope.changeFiles = function(id){
+        $scope.numberFile = id;
+    };
 
 
 
@@ -113,7 +129,8 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
 
                 $scope.result = response.data;
                 $scope.allFiles = $scope.result.submission_files;
-
+                $scope.changeFiles(0);
+                console.log($scope.aceValue);
                 console.log($scope.result);
             },
             function(response){
@@ -139,7 +156,10 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         $scope.study.problems[prob_id].active = true;
         $scope.problem = $scope.study.problems[prob_id];
         console.log($scope.problem);
+        $scope.changeFiles(null);
         $scope.allFiles = [];
+        $scope.aceValue = "";
+
 
         getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
         openNav();
@@ -149,6 +169,9 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     $scope.$watch(function () { return $scope.zip; }, function (newData, oldData) {
         $scope.zip = newData;
         if($scope.zip !== undefined && $scope.zip.length !== 0 && $scope.zip.length !== null){
+            $scope.allFiles = [];
+            $scope.aceValue = null;
+            $scope.changeFiles(null);
             readZip();
 
         }
@@ -166,12 +189,16 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             return;
         $scope.readSuccess = true;
         $scope.allFiles = zipEntrys;
+        $scope.changeFiles(0);
+        $scope.aceValue = "";
+
         $scope.$applyAsync();
         console.log($scope.allFiles);
 
     }
 
     function readZip(){
+
         var files = [];
         var zip = new JSZip();
         var zipEntrys = [];
@@ -248,18 +275,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             console.log(code);
         }
 
-    $scope.$watch(function () { return $scope.numberFile; }, function (newData, oldData) {
-        $scope.numberFile = newData;
 
-        if($scope.aceValue!== undefined){
-            $scope.allFiles[oldData].code = $scope.aceValue;
-        }
-        $scope.aceValue = $scope.allFiles[$scope.numberFile].code;
-
-    });
-    $scope.changeFiles = function(id){
-        $scope.numberFile = id;
-    }
     $scope.submitFile = function(){
         var dataSubmit = {
             files:$scope.allFiles,
