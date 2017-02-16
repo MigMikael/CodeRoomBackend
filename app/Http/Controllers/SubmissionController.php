@@ -176,7 +176,17 @@ class SubmissionController extends Controller
             self::keepSubmissionScore2($scores, $submission);
         }
 
-        return $scores;
+        foreach ($submission->submissionFiles as $submissionFile){
+            $submissionFile->outputs;
+
+            foreach ($submissionFile->results as $result){
+                $result->score;
+                $result->attributes;
+                $result->constructors;
+                $result->methods;
+            }
+        }
+        return $submission;
     }
 
     public function show($id)
@@ -791,17 +801,18 @@ class SubmissionController extends Controller
         if($submission != null){
             foreach ($submission->submissionFiles as $submissionFile){
                 $submissionFile->outputs;
-            }
-        }
-        //$problem = $submission->problem;
 
-        foreach ($submission->submissionFiles as $submissionFile){
-            foreach ($submissionFile->results as $result){
-                $result->attributes;
-                $result->constructors;
-                $result->methods;
+                foreach ($submissionFile->results as $result){
+                    $result->score;
+                    $result->attributes;
+                    $result->constructors;
+                    $result->methods;
+                }
             }
+        }else{
+            $submission = [];
         }
+
         return $submission;
     }
 

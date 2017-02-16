@@ -22,11 +22,11 @@ class DatabaseSeeder extends Seeder
         $this->call(TeacherTableSeeder::class);
         $this->call(TeacherCourseTableSeeder::class);
 
-        $this->call(BadgeTableSeeder::class);
-        $this->call(BadgeStudentSeeder::class);
+        //$this->call(BadgeTableSeeder::class);
+        //$this->call(BadgeStudentSeeder::class);
         $this->call(AnnouncementTableSeeder::class);
 
-        $this->call(ProblemTableSeeder::class);
+        /*$this->call(ProblemTableSeeder::class);
         $this->call(ProblemFileTableSeeder::class);
         $this->call(ProblemAnalysisTableSeeder::class);
         $this->call(ProblemScoreTableSeeder::class);
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ResultAttributeTableSeeder::class);
         $this->call(ResultConstructorTableSeeder::class);
         $this->call(ResultMethodTableSeeder::class);
-        $this->call(SubmissionOutputTableSeeder::class);
+        $this->call(SubmissionOutputTableSeeder::class);*/
 
     }
 }

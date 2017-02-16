@@ -132,7 +132,7 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
@@ -169,7 +169,7 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
     Route::get('api/teacher/student/disable/{student_id}/{course_id}', 'StudentController@disableStudent');     // deactivate
     Route::get('api/teacher/student/all/{course_id}', 'StudentController@getAll');
 
-//});
+});
 
 
 #--------------------------------------------------------------------------------------------------------

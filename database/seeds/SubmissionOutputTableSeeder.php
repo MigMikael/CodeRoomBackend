@@ -11,19 +11,19 @@ class SubmissionOutputTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('submission_output')->insert([
+            'submissionfile_id' => 2,
+            'content' => '',
+            'score' => 100,
+        ]);
+
+        DB::table('submission_output')->insert([
+            'submissionfile_id' => 2,
+            'content' => '',
+            'score' => 100,
+        ]);
+
         /*DB::table('submission_output')->insert([
-            'submissionfile_id' => 1,
-            'content' => '2376',
-            'score' => 100,
-        ]);
-
-        DB::table('submission_output')->insert([
-            'submissionfile_id' => 1,
-            'content' => '2543',
-            'score' => 100,
-        ]);
-
-        DB::table('submission_output')->insert([
             'submissionfile_id' => 1,
             'content' => '2537',
             'score' => 100,
