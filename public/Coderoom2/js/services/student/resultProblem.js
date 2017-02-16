@@ -1,6 +1,6 @@
 
 app.factory('resultProblem', function($http) {
-    var urlBase = "/api/student/problem/";
+    var urlBase = "/api/student/submission/";
     var resultProblem = {};
 
     resultProblem.getData = function (token,student_id,problem_id) {

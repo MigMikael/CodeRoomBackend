@@ -111,7 +111,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         resultProblem.getData(token,student_id,problem_id).then(
             function(response){
 
-                $scope.result = splitclass(response.data);
+                $scope.result = response.data;
                 $scope.allFiles = $scope.result.submission_files;
                 console.log($scope.result);
             },
