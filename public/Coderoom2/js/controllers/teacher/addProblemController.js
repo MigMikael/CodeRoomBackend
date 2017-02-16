@@ -91,9 +91,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
         file.upload.then(function (response) {
             $timeout(function () {
-                //console.log(response.data);
-                //parse and not parse go
-                if(true){
+                if($scope.is_parse.selectValue.value){
                     $scope.resultAnalyze = response.data;
                     $scope.changeView("parseProblemView");
                 }else{
