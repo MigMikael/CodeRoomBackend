@@ -94,9 +94,10 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
                 console.log($scope.is_parse.selectValue.value);
                 if($scope.is_parse.selectValue.value){
                     $scope.resultAnalyze = response.data;
+                    console.log($scope.resultAnalyze);
                     $scope.changeView("parseProblemView");
                 }else{
-                    $scope.go('/listproblemteacher/'+$localStorage.lessons_id);
+                    $location.go('/listproblemteacher/'+$localStorage.lessons_id)
                 }
             })
         }, function (response) {
