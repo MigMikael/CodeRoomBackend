@@ -96,12 +96,15 @@ class SubmissionFileController extends Controller
     // Todo continue | store2 >> sendToSubmissionFile2 >> this.store2(below)
     public function store2()
     {
+        Log::info('this is store 2');
         $submission_id = Request::get('submission_id');
         $problem_name = Request::get('problem_name');
         $files = Request::get('files');
         $currentIP = Request::get('currentIP');
 
-        foreach ($files as $file){
+        for($i = 0; $i < sizeof($files); $i++){
+            Log::info('In the Loop');
+            $file = $files[$i];
             $f = [
                 'submission_id' => $submission_id,
                 'package' => $file['package'],

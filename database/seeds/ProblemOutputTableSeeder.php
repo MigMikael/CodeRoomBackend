@@ -11,46 +11,18 @@ class ProblemOutputTableSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('problem_output')->insert([
+        DB::table('problem_output')->insert([
             'problemfile_id' => 1,
-            'version' => 1,
+            'version' => 2,
             'filename' => '1.sol',
-            'content' => '2376',
+            'content' => '0.2689414213699951',
         ]);
 
         DB::table('problem_output')->insert([
             'problemfile_id' => 1,
-            'version' => 1,
+            'version' => 2,
             'filename' => '2.sol',
-            'content' => '2543',
+            'content' => '0.11920292202211755',
         ]);
-
-        DB::table('problem_output')->insert([
-            'problemfile_id' => 1,
-            'version' => 1,
-            'filename' => '3.sol',
-            'content' => '2537',
-        ]);
-
-        DB::table('problem_output')->insert([
-            'problemfile_id' => 1,
-            'version' => 1,
-            'filename' => '4.sol',
-            'content' => '2310',
-        ]);
-
-        DB::table('problem_output')->insert([
-            'problemfile_id' => 1,
-            'version' => 1,
-            'filename' => '5.sol',
-            'content' => '2112',
-        ]);
-
-        DB::table('problem_output')->insert([
-            'problemfile_id' => 1,
-            'version' => 1,
-            'filename' => '6.sol',
-            'content' => '2555',
-        ]);*/
     }
 }

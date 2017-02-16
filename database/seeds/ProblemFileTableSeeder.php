@@ -11,14 +11,28 @@ class ProblemFileTableSeeder extends Seeder
      */
     public function run()
     {
-
-        // Todo rewrite this according to ProblemTableSeeder
-        /*DB::table('problemfile')->insert([
+        DB::table('problemfile')->insert([
             'problem_id' => 1,
             'package' => 'default package',
-            'filename' => 'Runners.java',
+            'filename' => 'CalculateSigmoid.java',
             'mime' => 'java',
-            'code' => '',
-        ]);*/
+            'code' => 'import java.util.Scanner;
+
+public class CalculateSigmoid {
+	
+	public static double calculate(double num){
+		double value = 1 / (1 + Math.exp(num));
+		return value;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		double value = in.nextDouble();
+		System.out.print(calculate(value));
+	}
+
+}',
+        ]);
     }
 }

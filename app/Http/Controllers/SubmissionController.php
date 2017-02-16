@@ -226,7 +226,7 @@ class SubmissionController extends Controller
         $submissionFile = [
             'submission_id' => $submission->id,
             'problem_name' => $submission->problem->name,
-            'file' => $files,
+            'files' => $files,
             'currentIP' => $currentIP,
         ];
 
@@ -780,10 +780,19 @@ class SubmissionController extends Controller
         return $submissionFiles;
     }
 
-    public function getResult($id)
+    public function getResult($problem_id, $student_id)
     {
-        $submission = Submission::findOrFail($id);
+        $submission = Submission::where([
+            ['student_id', '=', $student_id],
+            ['problem_id', '=', $problem_id]
+        ])->orderBy('id', 'desc')->first();
 
+        if($submission != null){
+            foreach ($submission->submissionFiles as $submissionFile){
+                $submissionFile->code = '';
+                $submissionFile->outputs;
+            }
+        }
         //$problem = $submission->problem;
 
         foreach ($submission->submissionFiles as $submissionFile){

@@ -21,7 +21,7 @@ class UserAuthController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
 
-        Log::info('password: '.$password);
+        //Log::info('password: '.$password);
 
         $student = Student::where('username', '=', $username)->first();
         $teacher = Teacher::where('username', '=', $username)->first();

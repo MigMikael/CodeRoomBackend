@@ -18,7 +18,7 @@ class CreateSubmissionOutputTable extends Migration
             $table->integer('submissionfile_id')->unsigned();
             $table->text('content');
             $table->float('score');
-            $table->enum('error', ['Time Out', 'Memory Exceed']);
+            $table->enum('error', ['No Error', 'Time Out', 'Memory Exceed']);
 
             $table->foreign('submissionfile_id')
                 ->references('id')
