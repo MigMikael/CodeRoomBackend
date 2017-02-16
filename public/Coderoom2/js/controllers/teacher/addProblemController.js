@@ -93,6 +93,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             $scope.loading = false;
             if($scope.is_parse.selectValue.value){
                 $scope.resultAnalyze = response.data;
+                $scope.$applyAsync();
                 console.log($scope.resultAnalyze);
                 $scope.changeView("parseProblemView");
             }else{
