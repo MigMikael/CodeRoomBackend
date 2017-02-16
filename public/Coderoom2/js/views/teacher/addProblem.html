@@ -96,10 +96,17 @@
     </div>
     <div ng-show="parseProblemView">
         <div class="col-md-12">
-            <span ng-repeat="class in file.results">
-                            <div class="panel-heading" style="padding: 0px 10px;margin:5px 0;font-size: 20px">
-                                {{class.class}}
-                            </div>
+
+            <span ng-repeat="file in resultAnalyze.problem_files">
+                <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
+                    <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">{{file.filename}}</h3>
+                </div>
+                <span ng-repeat="class in file.problem_analysis" >
+
+
+                        <div class="panel-heading" style="padding: 0px 10px;margin:5px 0;font-size: 20px">
+                            {{class.class}}
+                        </div>
                         <div class="panel-body" style="overflow: auto;padding: 0">
                             <table class="table" >
                                 <thead class="thead-inverse">
@@ -117,6 +124,64 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+
+                                <tr>
+                                    <td>Class</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+
+                                    <td ng-show="class.class === ''">-</td>
+                                    <td ng-show="class.class !== ''">{{class.class}}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="class.class=== ''">-</td>
+                                    <td ng-show="class.class!== ''"><input ng-model="class.score.class"></td>
+                                </tr>
+                                <tr>
+                                    <td>Package</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="class.package === ''">-</td>
+                                    <td ng-show="class.package !== ''">{{class.package}}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="class.package === ''">-</td>
+                                    <td ng-show="class.package!== ''"><input ng-model="class.score.package"></td>
+                                </tr>
+                                <tr>
+                                    <td>Enclose</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="class.enclose === ''">-</td>
+                                    <td ng-show="class.enclose !== ''">{{class.enclose}}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="class.enclose === ''">-</td>
+                                    <td ng-show="class.enclose !== ''"><input ng-model="class.score.enclose"></td>
+                                </tr>
+                                <tr>
+                                    <td>Extends</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="class.extends === ''">-</td>
+                                    <td ng-show="class.extends !== ''">{{class.extends}}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td ng-show="class.extends === ''">-</td>
+                                    <td ng-show="class.extends !== ''"><input ng-model="class.score.extends"></td>
+                                </tr>
                                 <tr ng-repeat="constructor in class.constructors">
                                     <td>Constructor</td>
                                     <td ng-show="constructor.access_modifier!==''">{{constructor.access_modifier}}</td>
@@ -130,8 +195,7 @@
                                     <td ng-show="constructor.parameter===''">-</td>
                                     <td>-</td>
                                     <td>-</td>
-                                    <td ng-show="constructor.score!==''">{{constructor.score}}</td>
-                                    <td ng-show="constructor.score===''">-</td>
+                                    <td><input ng-model="constructor.score"></td>
                                 </tr>
                                 <tr ng-repeat="attribute in class.attributes">
                                     <td>Attribute</td>
@@ -147,8 +211,7 @@
                                     <td>-</td>
                                     <td>-</td>
                                     <td>-</td>
-                                    <td ng-show="attribute.score!==''">{{attribute.score}}</td>
-                                    <td ng-show="attribute.score===''">-</td>
+                                    <td><input ng-model="attribute.score"></td>
 
                                 </tr>
                                 <tr ng-repeat="method in class.methods">
@@ -164,22 +227,21 @@
                                     <td ng-show="method.name===''">-</td>
                                     <td ng-show="method.parameter!==''">{{method.parameter}}</td>
                                     <td ng-show="method.parameter===''">-</td>
-                                    <td ng-show="method.recursive!==''">{{method.recursive}}</td>
-                                    <td ng-show="method.recursive===''">-</td>
-                                    <td ng-show="method.loop!==''">{{method.loop}}</td>
-                                    <td ng-show="method.loop===''">-</td>
-                                    <td ng-show="method.score!==''">{{method.score}}</td>
-                                    <td ng-show="method.score===''">-</td>
+                                    <td><input type="checkbox" ng-model="method.recursive" ng-true-value="'true'" ng-false-value="'false'"></td>
+                                    <td><input type="checkbox" ng-model="method.loop" ng-true-value="'true'" ng-false-value="'false'"></td>
 
+                                    <td><input ng-model="method.score"></td>
                                 </tr>
                                 </tbody>
 
-
-
-
                             </table>
                         </div>
-                        </span>
+                    </span>
+            </span>
+            <div style="float: right;margin-top: 10px">
+                <button style="background-color: #204056;border: 0;color: white;height: 60px;" ng-click="addScoreProblem()"  value="submit">Submit</button>
+
+            </div>
 
         </div>
     </div>
