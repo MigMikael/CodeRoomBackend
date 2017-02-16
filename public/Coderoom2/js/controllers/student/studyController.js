@@ -111,7 +111,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         resultProblem.getData(token,student_id,problem_id).then(
             function(response){
 
-                $scope.result = response.data;
+                $scope.result = splitclass(response.data);
                 $scope.allFiles = $scope.result.submission_files;
                 console.log($scope.result);
             },
@@ -121,10 +121,13 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     }
     function splitclass(data){
         for(i=0 ; i<data.submission_files.length ;i++){
-            for(j=0 ;j<data.submission_files[i].results.length ; j++){
-                var splitClass = data.submission_files[i].results[j].class.split(';');
-                data.submission_files[i].results[j].class = splitClass[0]+" "+splitClass[1];
+            if(data.submission_files[i].results.length > 0){
+                for(j=0 ;j<data.submission_files[i].results.length ; j++){
+                    var splitClass = data.submission_files[i].results[j].class.split(';');
+                    data.submission_files[i].results[j].class = splitClass[0]+" "+splitClass[1];
+                }
             }
+
 
         }
         return data;
