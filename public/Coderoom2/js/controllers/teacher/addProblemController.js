@@ -83,7 +83,11 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         file.upload.then(function (response) {
             $scope.loading = false;
             if($scope.is_parse.selectValue.value){
+                console.log("before problemView"+problemView);
+                console.log("before parseProblemView"+$scope.parseProblemView);
                 changeViewCard("parseProblemView");
+                console.log("after problemView"+problemView);
+                console.log("after parseProblemView"+$scope.parseProblemView);
                 $scope.resultAnalyze = response.data;
                 console.log($scope.resultAnalyze);
             }else{
