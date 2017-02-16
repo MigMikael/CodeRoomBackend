@@ -19,16 +19,16 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
     $scope.is_parse = {
         values:[
             {
-                value:true,
+                value: true,
                 name:'Parse'
             },
             {
-                value:false,
+                value: false,
                 name:'Not Parse'
             },
 
         ],
-        selectValue:{value:true,name:'Parse'}
+        selectValue:{value: true ,name:'Parse'}
     };
 
     $scope.openCarduser  = function(){
@@ -91,7 +91,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
         file.upload.then(function (response) {
             $timeout(function () {
-
+                console.log($scope.is_parse.selectValue.value);
                 if($scope.is_parse.selectValue.value){
                     $scope.resultAnalyze = response.data;
                     $scope.changeView("parseProblemView");
