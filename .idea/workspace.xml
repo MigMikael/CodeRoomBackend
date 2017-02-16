@@ -127,8 +127,8 @@
       <file leaf-file-name="studyController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38265306">
-              <caret line="116" column="22" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.26020408">
+              <caret line="115" column="50" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -1456,12 +1456,6 @@
       <workItem from="1487072388933" duration="5930000" />
       <workItem from="1487219651006" duration="7477000" />
     </task>
-    <task id="LOCAL-00076" summary="ProblemFileController read many file">
-      <created>1478806224275</created>
-      <option name="number" value="00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1478806224275</updated>
-    </task>
     <task id="LOCAL-00077" summary="complete CRUD in Course and Announcement">
       <created>1478985782016</created>
       <option name="number" value="00077" />
@@ -1750,7 +1744,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487235004107</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="fix bug study">
+      <created>1487235756608</created>
+      <option name="number" value="00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1487235756608</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1831,7 +1831,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="add web submission and userRole middleware" />
     <MESSAGE value="change some route" />
     <MESSAGE value="fix bug in Dashboard" />
     <MESSAGE value="api for lesson page" />
@@ -1856,7 +1855,8 @@
     <MESSAGE value="show resulte" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="update addProblem (notparse)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update addProblem (notparse)" />
+    <MESSAGE value="fix bug study" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug study" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2307,8 +2307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38265306">
-          <caret line="116" column="22" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.26020408">
+          <caret line="115" column="50" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
           <folding />
         </state>
       </provider>

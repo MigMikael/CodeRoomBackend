@@ -112,11 +112,11 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             function(response){
 
                 $scope.result = splitclass(response.data);
-                if($scope.result.submission_files.length>0){
+
                     $scope.allFiles = $scope.result.submission_files;
-                }else{
-                    $scope.allFiles = [];
-                }
+
+                    //$scope.allFiles = [];
+
                 console.log($scope.result);
             },
             function(response){
