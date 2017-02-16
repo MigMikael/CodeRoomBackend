@@ -235,20 +235,23 @@ class ProblemController extends Controller
                 foreach ($atts as $att){
                     $attribute = Attribute::findOrFail($att['id']);
                     $attribute->score = $att['score'];
+                    $attribute->save();
                 }
 
                 $cons = $pA['constructors'];
                 foreach ($cons as $con){
                     $constructor = Attribute::findOrFail($con['id']);
                     $constructor->score = $con['score'];
+                    $constructor->save();
                 }
 
                 $mets = $pA['methods'];
                 foreach ($mets as $met){
-                    $method = Method::findOfFail($met['id']);
+                    $method = Method::findOrFail($met['id']);
                     $method->recursive = $met['recursive'];
                     $method->loop = $met['loop'];
                     $method->score = $met['score'];
+                    $method->save();
                 }
             }
         }

@@ -139,7 +139,7 @@
                                     <td>-</td>
                                     <td>-</td>
                                     <td ng-show="class.class=== ''">-</td>
-                                    <td ng-show="class.class!== ''"><input ng-model="class.score.class"></td>
+                                    <td ng-show="class.class!== ''"><input type="number" ng-model="class.score.class"></td>
                                 </tr>
                                 <tr>
                                     <td>Package</td>
@@ -153,7 +153,7 @@
                                     <td>-</td>
                                     <td>-</td>
                                     <td ng-show="class.package === ''">-</td>
-                                    <td ng-show="class.package!== ''"><input ng-model="class.score.package"></td>
+                                    <td ng-show="class.package!== ''"><input type="number" ng-model="class.score.package"></td>
                                 </tr>
                                 <tr>
                                     <td>Enclose</td>
@@ -167,7 +167,7 @@
                                     <td>-</td>
                                     <td>-</td>
                                     <td ng-show="class.enclose === ''">-</td>
-                                    <td ng-show="class.enclose !== ''"><input ng-model="class.score.enclose"></td>
+                                    <td ng-show="class.enclose !== ''"><input type="number" ng-model="class.score.enclose"></td>
                                 </tr>
                                 <tr>
                                     <td>Extends</td>
@@ -181,7 +181,7 @@
                                     <td>-</td>
                                     <td>-</td>
                                     <td ng-show="class.extends === ''">-</td>
-                                    <td ng-show="class.extends !== ''"><input ng-model="class.score.extends"></td>
+                                    <td ng-show="class.extends !== ''"><input type="number" ng-model="class.score.extends"></td>
                                 </tr>
                                 <tr ng-repeat="constructor in class.constructors">
                                     <td>Constructor</td>
@@ -196,7 +196,7 @@
                                     <td ng-show="constructor.parameter===''">-</td>
                                     <td>-</td>
                                     <td>-</td>
-                                    <td><input ng-model="constructor.score"></td>
+                                    <td><input type="number" ng-model="constructor.score"></td>
                                 </tr>
                                 <tr ng-repeat="attribute in class.attributes">
                                     <td>Attribute</td>
@@ -212,7 +212,7 @@
                                     <td>-</td>
                                     <td>-</td>
                                     <td>-</td>
-                                    <td><input ng-model="attribute.score"></td>
+                                    <td><input type="number" ng-model="attribute.score"></td>
 
                                 </tr>
                                 <tr ng-repeat="method in class.methods">
@@ -231,7 +231,7 @@
                                     <td><input type="checkbox" ng-model="method.recursive" ng-true-value="'true'" ng-false-value="'false'"></td>
                                     <td><input type="checkbox" ng-model="method.loop" ng-true-value="'true'" ng-false-value="'false'"></td>
 
-                                    <td><input ng-model="method.score"></td>
+                                    <td><input type="number" ng-model="method.score"></td>
                                 </tr>
                                 </tbody>
 

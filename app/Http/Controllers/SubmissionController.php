@@ -793,6 +793,7 @@ class SubmissionController extends Controller
 
     public function getResult($problem_id, $student_id)
     {
+        $data = [];
         $submission = Submission::where([
             ['student_id', '=', $student_id],
             ['problem_id', '=', $problem_id]
@@ -812,6 +813,18 @@ class SubmissionController extends Controller
         }else{
             $submission = [];
         }
+        $data['submission'] = $submission;
+
+        $problem = $submission->problem;
+        foreach ($problem->problemFiles as $problemFile){
+            $problemFile->code = '';
+            foreach ($problemFile->problemAnalysis as $probAnalysis){
+                $probAnalysis->attributes;
+                $probAnalysis->constructors;
+                $probAnalysis->methods;
+            }
+        }
+        $data['problem'] = $problem;
 
         return $submission;
     }
