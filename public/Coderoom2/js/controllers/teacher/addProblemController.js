@@ -50,12 +50,13 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         if(view === "problemView"){
             $scope.problemView = true;
             $scope.parseProblemView = false;
-
+            console.log("update view problemView");
         }else if(view === "parseProblemView"){
             $scope.problemView = false;
             $scope.parseProblemView = true;
-
+            console.log("update view parseProblemView");
         }
+
     };
     $scope.logout = function () {
 
@@ -93,7 +94,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             $scope.loading = false;
             if($scope.is_parse.selectValue.value){
                 $scope.resultAnalyze = response.data;
-                $scope.$applyAsync();
+
                 console.log($scope.resultAnalyze);
                 $scope.changeView("parseProblemView");
             }else{
