@@ -46,30 +46,8 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         $location.path( path );
     };
 
-    $scope.changeView = function(view){
-        if(view === "problemView"){
-            $scope.problemView = true;
-            $scope.parseProblemView = false;
-            console.log("update view problemView");
-        }else if(view === "parseProblemView"){
-            $scope.problemView = false;
-            $scope.parseProblemView = true;
-            console.log("update view parseProblemView");
-        }
 
-    };
-    function changeViewCard(view){
-        console.log(view);
-        if(view === "problemView"){
-            $scope.problemView = true;
-            $scope.parseProblemView = false;
-            console.log("update view problemView");
-        }else if(view === "parseProblemView"){
-            $scope.problemView = false;
-            $scope.parseProblemView = true;
-            console.log("update view parseProblemView");
-        }
-    }
+
     $scope.logout = function () {
 
         $http.get('/logout', {headders:{
@@ -105,10 +83,9 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         file.upload.then(function (response) {
             $scope.loading = false;
             if($scope.is_parse.selectValue.value){
-                $scope.resultAnalyze = response.data;
-
-                console.log($scope.resultAnalyze);
                 changeViewCard("parseProblemView");
+                $scope.resultAnalyze = response.data;
+                console.log($scope.resultAnalyze);
             }else{
                 $location.path('/listproblemteacher/'+$localStorage.lessons_id);
             }
@@ -383,6 +360,30 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
                     // failure callback
                 }
            );
+    }
+    $scope.changeView = function(view){
+        if(view === "problemView"){
+            $scope.problemView = true;
+            $scope.parseProblemView = false;
+            console.log("update view problemView");
+        }else if(view === "parseProblemView"){
+            $scope.problemView = false;
+            $scope.parseProblemView = true;
+            console.log("update view parseProblemView");
+        }
+
+    };
+    function changeViewCard(view){
+        console.log(view);
+        if(view === "problemView"){
+            $scope.problemView = true;
+            $scope.parseProblemView = false;
+            console.log("update view problemView");
+        }else if(view === "parseProblemView"){
+            $scope.problemView = false;
+            $scope.parseProblemView = true;
+            console.log("update view parseProblemView");
+        }
     }
 });
 

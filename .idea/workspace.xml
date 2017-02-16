@@ -84,8 +84,8 @@
       <file leaf-file-name="addProblemController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.507772">
-              <caret line="377" column="43" selection-start-line="377" selection-start-column="43" selection-end-line="377" selection-end-column="43" />
+            <state vertical-scroll-proportion="-0.63212436">
+              <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -1457,12 +1457,6 @@
       <workItem from="1487072388933" duration="5930000" />
       <workItem from="1487219651006" duration="7477000" />
     </task>
-    <task id="LOCAL-00089" summary="success check student code">
-      <created>1480260502115</created>
-      <option name="number" value="00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1480260502115</updated>
-    </task>
     <task id="LOCAL-00090" summary="change db structures">
       <created>1480278483598</created>
       <option name="number" value="00090" />
@@ -1751,7 +1745,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487255155677</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="addproblem parse">
+      <created>1487255422159</created>
+      <option name="number" value="00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1487255422159</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2262,8 +2262,8 @@
         <state vertical-scroll-proportion="1.3513514">
           <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#span#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2294,8 +2294,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.507772">
-          <caret line="377" column="43" selection-start-line="377" selection-start-column="43" selection-end-line="377" selection-end-column="43" />
+        <state vertical-scroll-proportion="-0.63212436">
+          <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
           <folding />
         </state>
       </provider>
