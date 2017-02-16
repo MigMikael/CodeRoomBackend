@@ -84,8 +84,8 @@
       <file leaf-file-name="addProblemController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7396963">
-              <caret line="99" column="81" selection-start-line="99" selection-start-column="81" selection-end-line="99" selection-end-column="81" />
+            <state vertical-scroll-proportion="0.5119306">
+              <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -2084,12 +2084,6 @@
       <workItem from="1487072388933" duration="5930000" />
       <workItem from="1487219651006" duration="7477000" />
     </task>
-    <task id="LOCAL-00072" summary="change default student id">
-      <created>1478180283940</created>
-      <option name="number" value="00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1478180283940</updated>
-    </task>
     <task id="LOCAL-00073" summary="add course status">
       <created>1478523260654</created>
       <option name="number" value="00073" />
@@ -2378,7 +2372,13 @@
       <option name="project" value="LOCAL" />
       <updated>1487232157051</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="fix bug">
+      <created>1487232260696</created>
+      <option name="number" value="00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1487232260696</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2906,8 +2906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7396963">
-          <caret line="99" column="81" selection-start-line="99" selection-start-column="81" selection-end-line="99" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.5119306">
+          <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
           <folding />
         </state>
       </provider>

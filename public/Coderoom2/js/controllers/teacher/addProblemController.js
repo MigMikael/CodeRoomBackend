@@ -90,16 +90,14 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         });
 
         file.upload.then(function (response) {
-            $timeout(function () {
                 console.log($scope.is_parse.selectValue.value);
                 if($scope.is_parse.selectValue.value){
                     $scope.resultAnalyze = response.data;
                     console.log($scope.resultAnalyze);
                     $scope.changeView("parseProblemView");
                 }else{
-                    $location.go('/listproblemteacher/'+$localStorage.lessons_id)
+                    $location.path('/listproblemteacher/'+$localStorage.lessons_id);
                 }
-            })
         }, function (response) {
             if (response.status > 0)
                 $scope.errorMsg = response.status + ': ' + response.data;
