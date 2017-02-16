@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Attribute;
+use App\Method;
 use App\Problem;
 use App\ProblemAnalysis;
+use App\ProblemFile;
+use App\ProblemScore;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use GuzzleHttp\Client;
@@ -168,7 +172,24 @@ class ProblemController extends Controller
         if($request->hasFile('file')){
             $problem = Problem::create($problem);
             $file = $request->file('file');
-            return self::sendToProblemFile($problem, $file, 'create');
+            $msg = self::sendToProblemFile($problem, $file, 'create');
+
+            if(strpos($msg, 'finish') !== false){
+                foreach ($problem->problemFiles as $problemFile){
+                    $problemFile['code'] = '';
+                    foreach ($problemFile->problemAnalysis as $analysis){
+                        $analysis->score;
+                        $analysis->attributes;
+                        $analysis->constructors;
+                        $analysis->methods;
+                    }
+                }
+                return $problem;
+
+            }else{
+                return response()->json(['msg' => 'error while parse code']);
+            }
+
         } else {
             return response()->json(['msg' => 'file not found']);
         }
@@ -193,6 +214,44 @@ class ProblemController extends Controller
         }
 
         return response()->json(['msg' => 'success']);*/
+    }
+
+    public function storeProblemScore(Request $request)
+    {
+        $pFiles = $request->get('problem_files');
+        foreach ($pFiles as $pFile){
+            $pAs = $pFile['problem_analysis'];
+            foreach ($pAs as $pA){
+                $score = $pA['score'];
+                $problem_score = ProblemScore::findOrFail($score['id']);
+                $problem_score->class = $score['class'];
+                $problem_score->package = $score['package'];
+                $problem_score->enclose = $score['enclose'];
+                $problem_score->extends = $score['extends'];
+                $problem_score->implements = $score['implements'];
+                $problem_score->save();
+
+                $atts = $pA['attributes'];
+                foreach ($atts as $att){
+                    $attribute = Attribute::findOrFail($att['id']);
+                    $attribute->score = $att['score'];
+                }
+
+                $cons = $pA['constructors'];
+                foreach ($cons as $con){
+                    $constructor = Attribute::findOrFail($con['id']);
+                    $constructor->score = $con['score'];
+                }
+
+                $mets = $pA['methods'];
+                foreach ($mets as $met){
+                    $method = Method::findOfFail($met['id']);
+                    $method->recursive = $met['recursive'];
+                    $method->loop = $met['loop'];
+                    $method->score = $met['score'];
+                }
+            }
+        }
     }
 
     public function deleteProblem($id)

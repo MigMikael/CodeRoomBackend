@@ -82,11 +82,12 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
         file.upload.then(function (response) {
             $scope.loading = false;
+            console.log($scope.is_parse.selectValue.value);
             if($scope.is_parse.selectValue.value){
-                console.log("before problemView"+problemView);
+                console.log("before problemView"+$scope.problemView);
                 console.log("before parseProblemView"+$scope.parseProblemView);
                 changeViewCard("parseProblemView");
-                console.log("after problemView"+problemView);
+                console.log("after problemView"+$scope.problemView);
                 console.log("after parseProblemView"+$scope.parseProblemView);
                 $scope.resultAnalyze = response.data;
                 console.log($scope.resultAnalyze);
@@ -357,7 +358,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             .then(
                 function(response){
                     $scope.loading = false;
-                    changeViewCard("problemView");
+                    $location.path('/listproblemteacher/'+$localStorage.lessons_id);
 
                 },
                 function(response){

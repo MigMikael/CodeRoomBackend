@@ -40,7 +40,7 @@ class ProblemFileController extends Controller
         $currentIP = Request::get('currentIP');
         $version = 1;
 
-        self::keepFile($problem_id, $problem_name, $file, $version, $currentIP);
+        return self::keepFile($problem_id, $problem_name, $file, $version, $currentIP);
     }
 
     public function edit()
@@ -191,11 +191,11 @@ class ProblemFileController extends Controller
 
             $problem_score = [
                 'analysis_id' => $problemAnalysis->id,
-                'class' => 10,
-                'package' => 10,
-                'enclose' => 10,
-                'extends' => 10,
-                'implements' => 10,
+                'class' => 0,
+                'package' => 0,
+                'enclose' => 0,
+                'extends' => 0,
+                'implements' => 0,
             ];
             ProblemScore::create($problem_score);
 

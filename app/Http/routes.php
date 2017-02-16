@@ -152,6 +152,7 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
     // Todo fix edit problem (method)
     Route::post('api/teacher/problem/edit', 'ProblemController@updateProblem');             //  update
     Route::post('api/teacher/problem/store', 'ProblemController@storeProblem');             //  store
+    Route::post('api/teacher/problem/store_score', 'ProblemController@storeProblemScore');
     Route::delete('api/teacher/problem/delete/{id}', 'ProblemController@deleteProblem');    //  delete
     Route::post('api/teacher/problem/change_order', 'ProblemController@changeProblemOrder');
     Route::get('api/teacher/problem/{id}/submission', 'ProblemController@getProblemSubmission');
