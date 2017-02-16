@@ -9,7 +9,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     $scope.allFiles;
     $scope.aceValue;
     $scope.result;
-
+    $scope.numberFile = 0;
     $localStorage.lesson_id = $routeParams.lesson_id;
     getData($localStorage.user.token,$localStorage.lesson_id);
 
@@ -111,7 +111,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         resultProblem.getData(token,student_id,problem_id).then(
             function(response){
 
-                $scope.result = splitclass(response.data);
+                $scope.result = response.data;
                 $scope.allFiles = $scope.result.submission_files;
                 console.log($scope.result);
             },
