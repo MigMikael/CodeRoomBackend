@@ -112,11 +112,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             function(response){
 
                 $scope.result = response.data;
-                console.log($scope.result.submission_files.length);
-                    $scope.allFiles = $scope.result.submission_files;
-
-                    //$scope.allFiles = [];
-
+                $scope.allFiles = $scope.result.submission_files;
                 console.log($scope.result);
             },
             function(response){
@@ -139,6 +135,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         $scope.study.problems[prob_id].active = true;
         $scope.problem = $scope.study.problems[prob_id];
         console.log($scope.problem);
+        $scope.allFiles = [];
         getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
         openNav();
     };
@@ -152,7 +149,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         }
 
     });
-    $scope.allFiles = [];
+
 
 
 
