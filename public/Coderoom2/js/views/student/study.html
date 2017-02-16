@@ -45,7 +45,7 @@
                                 <table>
                                     <thead>
                                     <tr>
-                                        <th ng-repeat="score in file.outputs">{{$index}}</th>
+                                        <th ng-repeat="score in file.outputs">{{$index+1}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -81,6 +81,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <tr>
+                                    <td>Class</td>
+                                </tr>
+                                <tr>
+                                    <td>Package</td>
+                                </tr>
+                                <tr>
+                                    <td>Enclose</td>
+                                </tr>
+                                <tr>
+                                    <td>Extends</td>
+                                </tr>
                                 <tr ng-repeat="constructor in class.constructors">
                                     <td>Constructor</td>
                                     <td ng-show="constructor.access_modifier!==''">{{constructor.access_modifier}}</td>

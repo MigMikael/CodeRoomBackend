@@ -13,7 +13,6 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
                 name:'Java'
             },
 
-
         ],
         selectValue:{value:'java',name:'Java'}
     };
@@ -75,22 +74,24 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
     }
     //upload
     $scope.uploadFiles = function(file) {
+
         file.upload = Upload.upload({
             url: '/api/teacher/problem/store',
             data: {file: file,
                 lesson_id:$localStorage.lessons_id,
                 name:$scope.name,
                 description:$scope.description,
-                evaluator:$scope.evaluator.selectValue.values,
+                evaluator:$scope.evaluator.selectValue.value,
                 timelimit:$scope.timelimit,
                 memorylimit:$scope.memorylimit,
-                is_parse:$scope.is_parse.selectValue.values
+                is_parse:$scope.is_parse.selectValue.value
             },
             headers:{'Authorization_Token' : $localStorage.user.token},
         });
 
         file.upload.then(function (response) {
             $timeout(function () {
+
                 if($scope.is_parse.selectValue.value){
                     $scope.resultAnalyze = response.data;
                     $scope.changeView("parseProblemView");
