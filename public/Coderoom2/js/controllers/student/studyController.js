@@ -9,7 +9,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     $scope.allFiles;
     $scope.aceValue;
     $scope.result;
-    $scope.numberFile = 0;
+
     $localStorage.lesson_id = $routeParams.lesson_id;
     getData($localStorage.user.token,$localStorage.lesson_id);
 
@@ -79,6 +79,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 //console.log();
                 if($scope.study.problems[0] !== null){
                     $scope.problem = $scope.study.problems[0];
+                    $scope.numberFile = 0;
                     getResult(token,$localStorage.user.id,$scope.problem.id);
                     console.log($scope.study);
                     console.log($scope.problem);
@@ -257,8 +258,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     });
     $scope.changeFiles = function(id){
         $scope.numberFile = id;
-
-    }
+    };
     $scope.submitFile = function(){
         var dataSubmit = {
             files:$scope.allFiles,
