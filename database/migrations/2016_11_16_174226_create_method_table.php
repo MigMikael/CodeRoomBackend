@@ -23,7 +23,7 @@ class CreateMethodTable extends Migration
             $table->string('parameter');
             $table->string('recursive');
             $table->string('loop');
-            $table->float('score')->default(10);
+            $table->float('score')->default(0);
 
             $table->foreign('analysis_id')
                 ->references('id')
