@@ -59,7 +59,7 @@
                     </span>
 
 
-                    <div class="panel panel-default" ng-repeat="file in result.results" style="border-radius: 0">
+                    <div class="panel panel-default" ng-repeat="file in result.submission_files" style="border-radius: 0">
                         <span ng-repeat="class in file.results">
                             <div class="panel-heading" style="padding: 0px 10px;margin:5px 0;font-size: 20px">
                                 {{class.class}}
@@ -222,7 +222,7 @@
             </div>
             <div class="navbar-study-bottom">
                 <div class="left-navber-study-bottom">
-                    <p>{{massageCompare}}</p>
+                    <p style="font-size: 18px" ng-class="massageCompare.status ? 'complete':'error'">{{massageCompare.content}}</p>
                 </div>
                 <div class="right-navber-study-bottom">
                     <button class="select-file" type="file" ngf-select ng-model="zip" name="zip" accept="/*" >Select Files</button>

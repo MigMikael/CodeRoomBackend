@@ -8,6 +8,8 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     $scope.problem;
     $scope.allFiles;
     $scope.aceValue;
+    $scope.result;
+    $scope.massageCompare = {};
     /*$scope.result = {
         "id": 1,
         "student_id": 3,
@@ -595,7 +597,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 //console.log();
                 if($scope.study.problems[0] !== null){
                     $scope.problem = $scope.study.problems[0];
-                    //getResult(token,$localStorage.user.id,$scope.problem.id);
+                    getResult(token,$localStorage.user.id,$scope.problem.id);
                     console.log($scope.study);
                     console.log($scope.problem);
                 }
@@ -769,33 +771,39 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 var haveClass = 0;
                 var splitClassTeacher = teacherResult[i].problem_analysis[j].class.split(';');
                 for(x=0 ; x<studentResult[i].results.length ; x++){
-                    if(teacherResult[i].problem_analysis[j].class === studentResult[i].results[x].class && teacherResult[i].problem_analysis[j].score.class === studentResult[i].problem_analysis[x].score.class){
+                    if(teacherResult[i].problem_analysis[j].class === studentResult[i].results[x].class && teacherResult[i].problem_analysis[j].score.class === studentResult[i].results[x].score.class){
                         haveClass++;
                         if(teacherResult[i].problem_analysis[j].score.package !== studentResult[i].results[x].score.package){
-                            $scope.massageCompare = "package faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.content = "package faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.status = false;
                             return;
                         }
                         if(teacherResult[i].problem_analysis[j].score.enclose !== studentResult[i].results[x].score.enclose){
-                            $scope.massageCompare = "enclose faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.content = "enclose faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.status = false;
                             return;
                         }
                         if(teacherResult[i].problem_analysis[j].score.extends !== studentResult[i].results[x].score.extends){
-                            $scope.massageCompare = "extends faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.content = "extends faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.status = false;
                             return;
                         }
                         if(teacherResult[i].problem_analysis[j].score.implements !== studentResult[i].results[x].score.implements){
-                            $scope.massageCompare = "implements faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.content = "implements faill in class "+splitClassTeacher[2];
+                            $scope.massageCompare.status = false;
                             return;
                         }
                         for(y=0 ; y<teacherResult[i].problem_analysis[j].constructors.length ; y++){
                             var haveConstructors = 0;
                             for(z=0 ; z<studentResult[i].results[x].constructors.length ; z++){
-                                if(teacherResult[i].problem_analysis[j].constructors[y].name === studentResult[i].results[x].constructors.name && teacherResult[i].problem_analysis[j].constructors[y].score === studentResult[i].results[x].constructors.score && teacherResult[i].problem_analysis[j].constructors[y].parameter === studentResult[i].results[x].constructors.parameter){
+
+                                if(teacherResult[i].problem_analysis[j].constructors[y].name === studentResult[i].results[x].constructors[z].name && teacherResult[i].problem_analysis[j].constructors[y].score === studentResult[i].results[x].constructors[z].score && teacherResult[i].problem_analysis[j].constructors[y].parameter === studentResult[i].results[x].constructors[z].parameter){
                                     haveConstructors++;
                                 }
                             }
                             if(haveConstructors === 0){
-                                $scope.massageCompare = "None Constructor "+ teacherResult[i].problem_analysis[j].constructors[y].name+"("+teacherResult[i].problem_analysis[j].constructors[y].parameter+")";
+                                $scope.massageCompare.content = "None Constructor "+ teacherResult[i].problem_analysis[j].constructors[y].name+"("+teacherResult[i].problem_analysis[j].constructors[y].parameter+")";
+                                $scope.massageCompare.status = false;
                                 return;
                             }
                         }
@@ -805,21 +813,25 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                                 if(teacherResult[i].problem_analysis[j].attributes[y].name ===studentResult[i].results[x].attributes[z].name){
                                     haveAttribute++
                                     if(teacherResult[i].problem_analysis[j].attributes[y].access_modifier !== studentResult[i].results[x].attributes[z].access_modifier){
-                                        $scope.massageCompare = "access_modifier faill in attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                        $scope.massageCompare.content = "access_modifier faill in attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                     if(teacherResult[i].problem_analysis[j].attributes[y].non_access_modifier !== studentResult[i].results[x].attributes[z].non_access_modifier){
-                                        $scope.massageCompare = "non_access_modifier faill in attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                        $scope.massageCompare.content = "non_access_modifier faill in attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                     if(teacherResult[i].problem_analysis[j].attributes[y].data_type !== studentResult[i].results[x].attributes[z].data_type){
-                                        $scope.massageCompare = "data_type faill in attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                        $scope.massageCompare.content = "data_type faill in attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                 }
                             }
                             if(haveAttribute === 0){
-                                $scope.massageCompare = "None Attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                $scope.massageCompare.content = "None Attribute "+ teacherResult[i].problem_analysis[j].attributes[y].name;
+                                $scope.massageCompare.status = false;
                                 return;
                             }
                         }
@@ -829,32 +841,39 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                                 if(teacherResult[i].problem_analysis[j].methods[y].name ===studentResult[i].results[x].methods[z].name){
                                     haveMethod++
                                     if(teacherResult[i].problem_analysis[j].methods[y].access_modifier !== studentResult[i].results[x].methods[z].access_modifier){
-                                        $scope.massageCompare = "access_modifier faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.content = "access_modifier faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                     if(teacherResult[i].problem_analysis[j].methods[y].non_access_modifier !== studentResult[i].results[x].methods[z].non_access_modifier){
-                                        $scope.massageCompare = "non_access_modifier faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.content = "non_access_modifier faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                     if(teacherResult[i].problem_analysis[j].methods[y].return_type !== studentResult[i].results[x].methods[z].return_type){
-                                        $scope.massageCompare = "return_type faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.content = "return_type faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }if(teacherResult[i].problem_analysis[j].methods[y].parameter !== studentResult[i].results[x].methods[z].parameter){
-                                        $scope.massageCompare = "parameter faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name+"("+teacherResult[i].problem_analysis[j].methods[y].parameter+")";
+                                        $scope.massageCompare.content = "parameter faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name+"("+teacherResult[i].problem_analysis[j].methods[y].parameter+")";
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                     if(teacherResult[i].problem_analysis[j].methods[y].recursive !== studentResult[i].results[x].methods[z].recursive){
-                                        $scope.massageCompare = "recursive faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.content = "recursive faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                     if(teacherResult[i].problem_analysis[j].methods[y].loop !== studentResult[i].results[x].methods[z].loop){
-                                        $scope.massageCompare = "loop faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.content = "loop faill in methods "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                        $scope.massageCompare.status = false;
                                         return;
                                     }
                                 }
                             }
                             if(haveMethod === 0){
-                                $scope.massageCompare = "None Method "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                $scope.massageCompare.content = "None Method "+ teacherResult[i].problem_analysis[j].methods[y].name;
+                                $scope.massageCompare.status = false;
                                 return;
                             }
                         }
@@ -864,17 +883,21 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                     }else{
                         var splitClassStudent = studentResult[i].results[x].class.split(';');
                         if(splitClassTeacher[0] !== splitClassStudent[0] && splitClassTeacher[2] === splitClassStudent[2]){
-                            $scope.massageCompare = "Access modifier Class fail";
+                            $scope.massageCompare.content = "Access modifier Class fail";
+                            $scope.massageCompare.status = false;
                             return;
                         }
                     }
                 }
                 if(haveClass === 0){
-                    $scope.massageCompare = "None class"+ splitClassTeacher[2] + "in require techer"
+                    $scope.massageCompare.content = "None class"+ splitClassTeacher[2] + "in require techer";
+                    $scope.massageCompare.status = false;
                     return;
                 }
             }
         }
+        $scope.massageCompare.content = "Success";
+        $scope.massageCompare.status = true;
 
     }
 
@@ -891,11 +914,15 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             }})
             .then(
                 function(response){
-
-                    $scope.result.problem_files = response.data;
-                    compareResult($scope.result.submission_files , $scope.result.problem.problem_files);
-
+                    //console.log(response.data);
+                    //console.log($scope.result);
+                    $scope.result.submission_files = response.data.submission_files;
                     console.log($scope.result);
+                    compareResult($scope.result.submission_files , $scope.result.problem.problem_files)
+                    console.log($scope.massageCompare.status);
+                    console.log($scope.massageCompare.content);
+
+
                 },
                 function(response){
                     // failure callback

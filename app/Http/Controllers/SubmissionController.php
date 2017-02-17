@@ -819,6 +819,7 @@ class SubmissionController extends Controller
         foreach ($problem->problemFiles as $problemFile){
             $problemFile->code = '';
             foreach ($problemFile->problemAnalysis as $probAnalysis){
+                $probAnalysis->score;
                 $probAnalysis->attributes;
                 $probAnalysis->constructors;
                 $probAnalysis->methods;
