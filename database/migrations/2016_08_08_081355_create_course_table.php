@@ -17,6 +17,7 @@ class CreateCourseTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('instructor');
+            $table->string('token');
             $table->timestamps();
         });
     }
