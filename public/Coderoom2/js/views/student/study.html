@@ -1,32 +1,41 @@
         <div style="height: 100%;width: 100%;" >
 
-            <div class="navbar-study-top">
+            <nav class="navbar navbar-default navbar-fixed-top" style="margin: 0;">
 
-                <div class="navber-button-problem">
-                    <button ng-click="openNavview()">{{problem.name}}</button>
-                </div>
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header" style="float: left">
+                        <button type="button" class="btn btn-default navbar-btn" ng-click="openHover()">{{problem.name}}</button>
+                    </div>
 
-                <div class="navbar-user-study-top">
-                    <div class="circle-user-study" ng-click="openCarduser()">
-                        <img src="{{user.image}}">
-                    </div>
-                    <div class="navber-user-study-top-content" id="showCarduser">
-                        <div class="card-navber-user-study-content">
-                            <img src="{{user.image}}">
-                            <p>{{user.student_id}}</p>
-                            <h4>{{user.name}}</h4>
-                        </div>
-                        <div class="button-navber-user-study-content">
-                            <div class="profile-button-navber-user-study-content" ng-click="go('/profilestudent')">
-                                Profile
-                            </div>
-                            <div class="logout-button-navber-user-study-content" ng-click="logout()">
-                                Logout
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float: right">
+
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li class="dropdown" >
+                                <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 5px 10px 5px">
+                                    <div class="cricle-user-dropdown">
+                                        <img src="{{user.image}}">
+                                    </div>
+                                    <span style="margin-right: 5px">{{user.name}}</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                    <a style="text-align: center;" ng-click="go('/coursestudent/'+study.course_id)">
+                        <h4 style="margin: 0;line-height: 50px">{{course_name}}</h4>
+                    </a>
+                </div><!-- /.container-fluid -->
+            </nav>
             <div class="hover-nav" id="hover">
                 <div class="hadder-hover-nav">
                     <h4>{{study.name}}</h4>
@@ -36,8 +45,214 @@
                         <p ng-class="{'active': problem.active }">{{problem.name}}</p>
                     </div>
 
+
                 </div>
                 <div class="show-problem-detail2">
+
+                <span>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Class {{class.class}}Runners</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card-detail-class class">
+                                        <p>Class</p>
+
+                                        <div style="float: left">
+                                            <h4>Runners</h4>
+                                        </div>
+                                        <div style="float: right">
+                                            <h4>10 Point</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-detail-class package">
+                                        <p>Package</p>
+                                        <div style="float: left">
+                                            <h4>Runners</h4>
+                                        </div>
+                                        <div style="float: right">
+                                            <h4>5 Point</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-detail-class enclose">
+                                        <p>Enclose</p>
+                                        <div style="float: left">
+                                            <h4>Runner</h4>
+                                        </div>
+                                        <div style="float: right">
+                                            <h4>10 Point</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card-detail-class extend">
+                                        <p>Extend</p>
+                                        <div style="float: left">
+                                            <h4>-</h4>
+                                        </div>
+                                        <div style="float: right">
+                                            <h4>0 Point</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-detail-class constructor">
+                                        <p class="type-card-detail-class">Constructor</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name">Runners</h4>
+                                            <h4 class="point">10 Point</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>public</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>non_access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>data_type</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>parameter</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>(int x, String y)</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>recursive</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>loop</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-detail-class attribute">
+                                        <p class="type-card-detail-class">Attribute</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name">Speed</h4>
+                                            <h4 class="point">5 Point</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>public</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>non_access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>static final</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>data_type</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>String</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>parameter</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>recursive</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>loop</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-detail-class method">
+                                        <p class="type-card-detail-class">Method</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name">Run</h4>
+                                            <h4 class="point">10 Point</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>public</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>non_access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>static final</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>return_type</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>String</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>parameter</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>(int x, String y)</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>recursive</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>true</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>loop</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>true</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                    </span>
+            </div>
+
+
                     <span ng-repeat=" file in result.submission_files">
                         <div class="panel panel-default" style="border-radius: 0">
                             <div class="panel-heading" style="background-color: white;background-image: none">{{file.filename}}</div>

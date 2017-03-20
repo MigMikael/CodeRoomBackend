@@ -1,91 +1,103 @@
-<nav class="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <a ng-click="go('/dashboardstudent')">CODEROOM</a>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                Menu
+            </button>
+            <a class="navbar-brand" ng-click="go('/dashboardstudent')" style="cursor: pointer">CodeRoom</a>
         </div>
-        <div class="navbar-user">
-            <div class="circle-user" ng-click="openCarduser()">
-                <img src="{{user.image}}">
-            </div>
-            <div class="navber-user-content" id="showCarduser">
-                <div class="card-navbar-content">
-                    <img src="{{user.image}}">
-                    <p>{{user.student_id}}</p>
-                    <h4>{{user.name}}</h4>
-                </div>
-                <div class="zone-button-navbar-user-content" >
-                    <div class="button-navbar-user-content-profile" ng-click="go('/profilestudent')">
-                        Profile
-                    </div>
-                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
-                        Logout
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown" >
+                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 0 10px 5px">
+                        <div class="cricle-user-dropdown">
+                            <img src="{{user.image}}">
+                        </div>
+                        <span style="margin-right: 5px">{{user.name}}</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-    <div style="width: 100%;background-color: #204060;height: 60px;text-align: center;margin-bottom: 20px">
-        <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">My Courses</h3>
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="myCourse in dataDashboard.student.courses">
-
-            <div class="card-course" ng-click="go('/coursestudent/'+myCourse.course_id)" >
-                <img src="{{myCourse.image}}">
-                <div class="card-headder">
-                    <h4 style="margin: 0">{{myCourse.name}}</h4>
-                </div>
-                <div class="list-icon">
-                    <span class="glyphicon glyphicon glyphicon-user"></span>
-                    <span>{{myCourse.students_count + myCourse.teachers_count}}</span>
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    <span>{{myCourse.lessons_count}}</span>
-                </div>
-
-
-            </div>
-
-
-    </div>
+    <h2 style="text-align: center;color: #00b4a2">Courses</h2>
 </div>
 <div class="container">
-    <div style="width: 100%;background-color: #204060;height: 60px;text-align: center;margin-bottom: 20px">
-        <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">Courses</h3>
-    </div>
-    <div class="col-md-12" style="margin-bottom: 10px">
-        <div class="input-group" style="border: 1px solid #204060">
-            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060;"><span class="glyphicon glyphicon-search"></span></span>
-            <input class="form-control left-border-none" placeholder="Search Courses..." type="text" name="Search" style="border: 0;border-radius: 0;float: left" ng-model="nameCourse">
-        </div>
-    </div>
+    <div class="row">
 
+        <div class="col-md-4 col-xs-12" ng-repeat="myCourse in dataDashboard.student.courses">
+            <div class="card-course">
+                <img src="{{myCourse.image}}">
+                <div class="headder-card-course">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <h3>{{myCourse.name}}</h3>
 
-    <div class="col-md-12 col-sm-12 col-xs-12" ng-repeat="course in dataDashboard.courses | filter: nameCourse">
-        <div class="list-course" ng-click="go('/viewcoursestudent/'+course.id)">
-            <div class="img-list-course">
-                <img src="{{course.image}}">
-            </div>
-            <div class="list-course-headder">
-                <h4 style="margin: 0">{{course.name}}</h4>
-            </div>
-            <div style="position: relative;display: block">
-                <div class="list-course-icon">
-                    <span class="glyphicon glyphicon glyphicon-user"></span>
-                    <span>{{course.students_count + course.teachers_count}}</span>
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                    <span>{{course.lessons_count}}</span>
 
                 </div>
+                <div class="button-all-card">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button ng-click="go('/coursestudent/'+myCourse.course_id)">Join</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
             </div>
-            <div class="list-course-join">
-                <p>Join</p>
-            </div>
-
-
-
         </div>
     </div>
 
 </div>
+<div class="container">
+    <h2 style="text-align: center;color: #fc6e51">Courses</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th style="text-align: center">#</th>
+                    <th>Courses</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="course in dataDashboard.courses">
+                    <td style="text-align: center">{{$index+1}}</td>
+                    <td>
+                        <div class="list-card-course" style="background-color: inherit">
+                            <div class="square-img-card-course">
+                                <img src="{{course.image}}">
+                            </div>
+                            <div class="content-list-card-course">
+                                <h3>{{course.name}}</h3>
+                                <h4>Teachers: <span>{{course.teachers_count}}</span> Students: <span>{{course.students_count}}</span> Lessons: <span>{{course.lessons_count}}</span></h4>
+                            </div>
+                        </div>
+                    </td>
+                    <td><button class="btn btn-default" style="margin: auto;display: block;margin-top: 25px" ng-click="go('/viewcoursestudent/'+course.id)">View Course</button></td>
+                    <td><button class="btn btn-success" style="margin: auto;display: block;margin-top: 25px" ng-click="joinCourse ('sm')">Join</button></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,7 +1,15 @@
-var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists','ui.bootstrap','evgenyneu.markdown-preview']);
+var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists','ui.bootstrap','evgenyneu.markdown-preview','angular-svg-round-progressbar']);
 app.config(function($routeProvider) {
     $routeProvider
 
+        .when("/login", {
+            templateUrl : "js/views/login.html",
+            controller: "loginController"
+        })
+        .when("/register", {
+            templateUrl : "js/views/register.html",
+            controller: "registerController"
+        })
 
         .when("/selectrole", {
             templateUrl : "js/views/selectRole.html",
@@ -25,7 +33,7 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/student/course.html",
             controller: "courseController"
         })
-        .when("/studystudent/:lesson_id", {
+        .when("/studystudent/:lesson_id/:course_name", {
             templateUrl : "js/views/student/study.html",
             controller: "studyController"
         })
@@ -36,6 +44,14 @@ app.config(function($routeProvider) {
         .when("/readannouncementstudent/:announcement_id", {
             templateUrl : "js/views/student/readAnnouncemnet.html",
             controller: "readAnnouncementstudentController"
+        })
+        .when("/changepasswordstudent", {
+            templateUrl : "js/views/student/changePassword.html",
+            controller: "changePasswordController"
+        })
+        .when("/editprofilestudent", {
+            templateUrl : "js/views/student/editProfile.html",
+            controller: "editProfileController"
         })
 
         //teacher

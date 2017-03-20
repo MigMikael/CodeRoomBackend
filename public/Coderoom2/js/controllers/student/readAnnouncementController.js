@@ -1,5 +1,5 @@
 
-app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementStudent,$routeParams) {
+app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementStudent,$routeParams,$uibModal) {
 
 
     $scope.announcement;
@@ -10,10 +10,14 @@ app.controller('readAnnouncementstudentController',function($scope,$localStorage
 
         announcementStudent.getData(token,announcement_id).then(
             function(response){
+                var data = response.data;
 
-                $scope.announcement = parseStringtoHTML(response.data);
-                console.log($scope.announcement);
-
+                if(data.status === "session expired"){
+                    $scope.timeOut();
+                }else{
+                    $scope.announcement = parseStringtoHTML(data);
+                    console.log($scope.announcement);
+                }
             },
             function(response){
                 // failure call back
@@ -55,6 +59,36 @@ app.controller('readAnnouncementstudentController',function($scope,$localStorage
                     // failure callback
                 }
             );
+    }
+
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
     }
 
 });

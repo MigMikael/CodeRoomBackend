@@ -1,30 +1,36 @@
-<nav class="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <a ng-click="go('/dashboardteacher')">CODEROOM</a>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                Menu
+            </button>
+            <a class="navbar-brand" ng-click="go('/dashboardteacher')" style="cursor: pointer">CodeRoom</a>
         </div>
-        <div class="navbar-user">
-            <div class="circle-user" ng-click="openCarduser()">
-                <img src="{{user.image}}">
-            </div>
-            <div class="navber-user-content" id="showCarduser">
-                <div class="card-navbar-content">
-                    <img src="{{user.image}}">
-                    <p>{{user.student_id}}</p>
-                    <h4>{{user.name}}</h4>
-                </div>
-                <div class="zone-button-navbar-user-content" >
-                    <div class="button-navbar-user-content-profile" ng-click="go('/profileteacher')">
-                        Profile
-                    </div>
-                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
-                        Logout
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown" >
+                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 0 10px 5px">
+                        <div class="cricle-user-dropdown">
+                            <img src="{{user.image}}">
+                        </div>
+                        <span style="margin-right: 5px">{{user.name}}</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
     <div class="col-md-4" style="padding: 0">

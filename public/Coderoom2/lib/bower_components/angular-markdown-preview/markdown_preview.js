@@ -30,7 +30,7 @@
 
   .directive('iiMdPreview', function() {
     return {
-      template: "<div style='display: block;width: 100%'><textarea class='MdPreview-markdown' style='width: 100%;resize: none;border:1px solid #204056;padding-left: 10px;height: 200px' name='{{textareaName}}' ng-model='markdown' ng-change='md2Html()' placeholder='Content' ></textarea><h3 style='text-align: center'>Show Content</h3><div class='MdPreview-html'  ng-bind-html='htmlSafe' /></div>",
+      template: "<div style='display: block;width: 100%'><textarea class='MdPreview-markdown' style='width: 100%;resize: none;border:1px solid #204056;padding-left: 10px;height: 200px' name='{{textareaName}}' ng-model='markdown' ng-change='md2Html()' placeholder='Content' ></textarea><h4 style='text-align: center'>Show Content</h4><div class='MdPreview-html'  ng-bind-html='htmlSafe' /></div>",
       restrict: 'C',
       replace: true,
       controller: 'Ctrl',

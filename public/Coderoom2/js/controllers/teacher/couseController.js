@@ -1,5 +1,5 @@
 
-app.controller('courseTeacherController',function($scope,$localStorage,$location, $http,courseTeacher,$routeParams) {
+app.controller('courseTeacherController',function($scope,$localStorage,$location, $http,courseTeacher,$routeParams, $uibModal) {
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
@@ -67,6 +67,37 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
                     // failure callback
                 }
             );
+    }
+
+
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
     }
 
 

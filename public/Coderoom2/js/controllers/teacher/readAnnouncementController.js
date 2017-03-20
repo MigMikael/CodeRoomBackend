@@ -1,5 +1,5 @@
 
-app.controller('readAnnouncementteacherController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementTeacher) {
+app.controller('readAnnouncementteacherController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementTeacher, $uibModal) {
 
 
     $scope.announcement;
@@ -72,6 +72,36 @@ app.controller('readAnnouncementteacherController',function($scope,$localStorage
                     // failure callback
                 }
             );
+    }
+
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
     }
 
 });

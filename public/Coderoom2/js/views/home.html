@@ -1,123 +1,19 @@
-
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <a href="#/">CODEROOM</a>
-            </div>
-
+<div class="img-background-homepage">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <img>
         </div>
 
-    </nav>
-    <div class="container">
-        <div class="col-md-5 col-sm-5 col-xs-12" style="padding: 0">
-            <div class="nav-login-register">
-                <img src="trophy.gif" >
-                <h3>Start Coding!!</h3>
-                <div>
-                    <hr>
-
-                    <a class="register" ng-click="switchMode('register')" ng-class="{active:buttonRegister==true}">REGISTER</a>
-                    <a class="login" ng-click="switchMode('login')" ng-class="{active:buttonLogin==true}">SIGN IN</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7 col-sm-7 col-xs-12" style="padding: 0" ng-show="buttonLogin">
-            <div class="login-register">
-                <h3 style="text-align: center;margin-bottom: 30px">SIGN IN</h3>
-
-                <form ng-submit="login()">
-                    <div class="form-group">
-                        <div class="col-md-12" style="margin-bottom: 10px">
-                            <div class="input-group" style="border: 1px solid #204060">
-                                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-user"></span></span>
-                                <input class="form-control left-border-none" placeholder="Username" type="text" name="username" style="border: 0;border-radius: 0" ng-model="postUser.username">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12" style="margin-bottom: 10px">
-                            <div class="input-group" style="border: 1px solid #204060">
-                                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
-                                <input class="form-control left-border-none" placeholder="Password" type="password" name="password" style="border: 0;border-radius: 0" ng-model="postUser.password">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <a style="font-size: 13px;cursor: pointer">Forgot Password</a>
-                            <button type="submit" value="submit">SIGN IN</button>
-                        </div>
-                        <div class="col-md-12" style="height: 20px;text-align: center;">
-                            <br>
-                            <hr style="float: left;width: 40%;border: 1px solid #204060;display: inline">
-                            <span style="line-height: 40px">OR</span>
-                            <hr style="float: right;width: 40%;border: 1px solid #204060;display: inline">
-                        </div>
-                        <div class="col-md-12" style="margin: 50px 0 0 0">
-                            <img src="facebook.png" style=";width: 35px;height: 35px;display: block;margin: auto">
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-        <div class="col-md-7 col-sm-7 col-sx-12" style="padding: 0" ng-show="buttonRegister">
-            <div class="login-register">
-                <h3 style="text-align: center;margin-bottom: 30px">REGISTER</h3>
-
-                <form>
-                    <div class="form-group">
-
-                        <div class="col-md-12" style="margin-bottom: 10px">
-                            <div class="input-group" style="border: 1px solid #204060">
-                                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon-credit-card"></span></span>
-                                <input class="form-control left-border-none" placeholder="StudentCode" type="text" name="studentcode" style="border: 0;border-radius: 0">
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 10px">
-                            <div class="input-group" style="border: 1px solid #204060">
-                                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-user"></span></span>
-                                <input class="form-control left-border-none" placeholder="Username" type="text" name="username" style="border: 0;border-radius: 0">
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 10px">
-                            <div class="input-group" style="border: 1px solid #204060">
-                                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon glyphicon-lock"></span></span>
-                                <input class="form-control left-border-none" placeholder="Password" type="text" name="password" style="border: 0;border-radius: 0">
-                            </div>
-                        </div>
-                        <div class="col-md-12" style="margin-bottom: 10px">
-                            <div class="input-group" style="border: 1px solid #204060">
-                                <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060"><span class="glyphicon glyphicon-envelope"></span></span>
-                                <input class="form-control left-border-none" placeholder="Email" type="text" name="email" style="border: 0;border-radius: 0">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-
-                            <button>SUBMIT</button>
-                        </div>
-
-
-                    </div>
-                </form>
-            </div>
-
-        </div>
     </div>
-
-    <div class="container">
-
-        <div style="width: 100%;background-color: #204056;height: 60px;text-align: center;margin-bottom: 20px">
-            <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">Courses</h3>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="course in courses" >
-            <div class="card-course" style="height: 270px">
-                <img src="{{course.image}}">
-                <div class="card-headder">
-                    <h4 style="margin: 0">{{course.name}}</h4>
-                </div>
-
+    <div class="row" >
+        <div class="col-md-offset-3 col-md-6">
+            <div class="col-md-6">
+                <button ng-click="go('/register')">Register</button>
+            </div>
+            <div class="col-md-6">
+                <button ng-click="go('/login')">Log In</button>
             </div>
         </div>
 
     </div>
-
+</div>

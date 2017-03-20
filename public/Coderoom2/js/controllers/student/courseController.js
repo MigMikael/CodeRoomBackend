@@ -1,5 +1,5 @@
 
-app.controller('courseController',function($scope,$http,courseStudent,$localStorage,$routeParams,$location) {
+app.controller('courseController',function($scope,$http,courseStudent,$localStorage,$routeParams,$location,$uibModal) {
     $scope.course;
     $scope.cardUser = false;
     $localStorage.course_id = $routeParams.course_id;
@@ -12,9 +12,15 @@ app.controller('courseController',function($scope,$http,courseStudent,$localStor
 
         courseStudent.getData(token,course_id,student_id).then(
             function(response){
-                $scope.course = response.data;
-                console.log($scope.course);
 
+                var data = response.data;
+                console.log(data);
+                if(data.status === "session expired"){
+                    $scope.timeOut();
+                }else{
+                    $scope.course = data;
+                    console.log($scope.course);
+                }
             },
             function(response){
                 // failure call back
@@ -53,6 +59,35 @@ app.controller('courseController',function($scope,$http,courseStudent,$localStor
             );
     }
 
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
 
 
 });

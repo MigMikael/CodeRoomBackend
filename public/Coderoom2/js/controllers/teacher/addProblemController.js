@@ -1,11 +1,11 @@
 
-app.controller('addProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location) {
+app.controller('addProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal) {
 
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lessons_id;
     $scope.problemView = true;
     $scope.parseProblemView = false;
-
+    $scope.statusFile = false;
     $scope.evaluator = {
         values:[
             {
@@ -31,17 +31,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         selectValue:{value: true ,name:'Parse'}
     };
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -63,8 +53,19 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
                 }
             );
     }
+
+    $scope.checkZip = function(zip){
+
+        if(zip === null){
+            $scope.statusFile = false;
+        }else{
+            $scope.statusFile = true;
+        }
+    };
     //upload
+
     $scope.uploadFiles = function(file) {
+
         $scope.loading = true;
         file.upload = Upload.upload({
             url: '/api/teacher/problem/store',
@@ -82,18 +83,20 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
         file.upload.then(function (response) {
             $scope.loading = false;
-            console.log($scope.is_parse.selectValue.value);
-            if($scope.is_parse.selectValue.value){
-                console.log("before problemView"+$scope.problemView);
-                console.log("before parseProblemView"+$scope.parseProblemView);
-                changeViewCard("parseProblemView");
-                console.log("after problemView"+$scope.problemView);
-                console.log("after parseProblemView"+$scope.parseProblemView);
-                $scope.resultAnalyze = response.data;
-                console.log($scope.resultAnalyze);
+            var data = response.data;
+            if(data.status === "session expired"){
+                $scope.timeOut();
             }else{
-                $location.path('/listproblemteacher/'+$localStorage.lessons_id);
+
+                if($scope.is_parse.selectValue.value){
+                    changeViewCard("parseProblemView");
+                    $scope.resultAnalysis = cutClass(data);
+                    console.log($scope.resultAnalysis);
+                }else{
+                    $location.path('/listproblemteacher/'+$localStorage.lessons_id);
+                }
             }
+
 
         }, function (response) {
             if (response.status > 0)
@@ -103,7 +106,25 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     };
-    /*$scope.resultAnalyze = {
+
+    function cutClass(data){
+        for(var i in data){
+            if(i === "problem_files"){
+                for(j=0 ; j<data[i].length ; j++){
+                    for(z=0 ; z<data[i][j].problem_analysis.length ; z++){
+                        var splitClass = data[i][j].problem_analysis[z].class.split(';');
+                        data[i][j].problem_analysis[z].access_modifier_class = splitClass[0];
+                        data[i][j].problem_analysis[z].non_access_modifier_class = splitClass[1];
+                        data[i][j].problem_analysis[z].name_class = splitClass[2];
+                    }
+
+                }
+            }
+        }
+        return data;
+    }
+
+   /* $scope.resultAnalysis = {
         "lesson_id": "2",
         "name": "Runners",
         "description": "ฝึกการใช้ method",
@@ -366,6 +387,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
                 }
            );
     }
+    cutClass($scope.resultAnalysis);
     $scope.changeView = function(view){
         if(view === "problemView"){
             $scope.problemView = true;
@@ -390,6 +412,37 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             console.log("update view parseProblemView");
         }
     }
+
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
+
 });
 
 

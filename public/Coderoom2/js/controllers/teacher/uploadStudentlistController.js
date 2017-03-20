@@ -1,5 +1,5 @@
 
-app.controller('uploadStudentlistController',function($scope,$localStorage,$routeParams,$http,$location) {
+app.controller('uploadStudentlistController',function($scope,$localStorage,$routeParams,$http,$location, $uibModal) {
     $localStorage.course_id = $routeParams.course_id;
     $scope.user = $localStorage.user;
     $scope.openCarduser  = function(){
@@ -54,6 +54,38 @@ app.controller('uploadStudentlistController',function($scope,$localStorage,$rout
             file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     };
+
+
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
+
 });
 
 

@@ -1,5 +1,5 @@
 
-app.controller('editProblemteacherController',function($scope,$localStorage,$routeParams,$http,$location,problemTeacher,Upload) {
+app.controller('editProblemteacherController',function($scope,$localStorage,$routeParams,$http,$location,problemTeacher,Upload, $uibModal) {
     $scope.user = $localStorage.user;
     $localStorage.prob_id = $routeParams.prob_id;
     $scope.problemView = true;
@@ -129,6 +129,37 @@ app.controller('editProblemteacherController',function($scope,$localStorage,$rou
         });
     };
 
+
+
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
 });
 
 
