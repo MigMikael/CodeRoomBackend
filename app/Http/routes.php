@@ -71,8 +71,8 @@ Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 #Route::get('test/token', 'TestController@testToken');
 #Route::get('test/current_user_profile','TestController@getUserProfile');
 #Route::get('test/getQuestion', 'TestController@testGetQuestion');
-Route::get('test/count', 'TestController@testCount');
-Route::get('test/order_problem', 'TestController@testProblemOrder');
+#Route::get('test/count', 'TestController@testCount');
+#Route::get('test/order_problem', 'TestController@testProblemOrder');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
@@ -170,6 +170,9 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
     Route::get('api/teacher/student/disable/{student_id}/{course_id}', 'StudentController@disableStudent');     // deactivate
     Route::get('api/teacher/student/all/{course_id}', 'StudentController@getAll');
 
+    Route::post('api/teacher/student/add/member', 'StudentController@addStudentMember');
+    Route::post('api/teacher/student/add/members', 'StudentController@addStudentMembers');
+
 });
 
 
@@ -205,8 +208,7 @@ Route::get('api/course/add_student_member', 'CourseController@addStudentMember')
 Route::get('api/course/add_teacher_member', 'CourseController@addTeacherMember');
 
 Route::get('api/student/profile/{student_id}', 'StudentController@getStudentProfile');
-Route::post('api/student/add_one_student_member', 'StudentController@addStudentMember');
-Route::post('api/student/add_many_student_member', 'StudentController@addStudentsMember');
+
 Route::get('api/student_course/{student_id}', 'StudentCourseController@getById');
 Route::get('api/student_course/delete/{student_id}/{course_id}', 'StudentCourseController@destroyById');
 

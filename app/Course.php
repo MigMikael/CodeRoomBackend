@@ -12,6 +12,7 @@ class Course extends Model
     protected $fillable = [
         'name',
         'image',
+        'token',
         'color',
         'status',
     ];

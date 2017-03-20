@@ -387,9 +387,13 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 function(response){
                     //console.log(response.data);
                     //console.log($scope.result);
+                    $scope.massageCompare = {};
                     $scope.result.submission_files = response.data.submission_files;
                     console.log($scope.result);
-                    compareResult($scope.result.submission_files , $scope.result.problem.problem_files)
+                    if($scope.result.submission_files[0].results.length >0){
+
+                        compareResult($scope.result.submission_files , $scope.result.problem.problem_files)
+                    }
                     console.log($scope.massageCompare.status);
                     console.log($scope.massageCompare.content);
 

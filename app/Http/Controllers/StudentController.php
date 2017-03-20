@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BadgeStudent;
 use App\Course;
+use App\Helper\TokenGenerate;
 use App\StudentLesson;
 use Excel;
 use App\Student;
@@ -225,22 +226,23 @@ class StudentController extends Controller
         $student = Student::firstOrCreate($student);
         if($student->image == ''){
             $student->image = self::getAvatarImage();
+            $student->token = (new TokenGenerate())->generate(32);
             $student->username = $student->student_id;  // auto generate username & pass from student_id ex. 07560550
-            $student->password = bcrypt($student->student_id);
+            $student->password = password_hash($student_id, PASSWORD_DEFAULT);
             $student->save();
         }
 
         $studentCourse = [
             'student_id' => $student->id,
             'course_id' => $course_id,
-            'status' => 'active',
+            'status' => 'enable',
         ];
         StudentCourse::firstOrCreate($studentCourse);
 
         return response()->json(['msg' => 'success']);
     }
 
-    public function addStudentsMember()
+    public function addStudentMembers()
     {
         $course_id = Request::get('course_id');
         $studentListFile = Request::file('studentList');
