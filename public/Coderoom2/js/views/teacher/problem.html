@@ -25,8 +25,8 @@
             </tr>
             <tr>
                 <td>Structure</td>
-                <td ng-hide="problem.is_pase==='false'">Parse</td>
-                <td ng-hide="problem.is_pase==='true'">Not Parse</td>
+                <td ng-show="problem.is_pase==='true'">Parse</td>
+                <td ng-show="problem.is_pase==='false'">Not Parse</td>
             </tr>
             </tbody>
         </table>
