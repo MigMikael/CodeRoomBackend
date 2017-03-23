@@ -4,7 +4,7 @@
 app.controller('editProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal,$log,problemTeacher) {
 
     $scope.user = $localStorage.user;
-    $localStorage.lesson_id = $routeParams.lessons_id;
+    $localStorage.prob_id = $routeParams.prob_id;
 
     $scope.problemView = true;
     $scope.parseProblemView = false;
@@ -55,15 +55,16 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
                 var data = response.data;
                 $scope.checkTimeOut(data);
                 $scope.problem = data;
+                $scope.evaluator.selectValue.value =  $scope.problem.evaluator;
+                $scope.evaluator.selectValue.name = $scope.problem.evaluator;
+                if($scope.problem.is_parse === "true"){
+                    $scope.is_parse.selectValue.value = "true";
+                    $scope.is_parse.selectValue.name = "Parse";
+                }else{
+                    $scope.is_parse.selectValue.value = "false";
+                    $scope.is_parse.selectValue.name = "Not Parse";
+                }
 
-                $scope.evaluator.selectValue = {
-                    value:true,
-                    name:$scope.problem.evaluator,
-                }
-                $scope.is_parse.selectValue = {
-                    value:true,
-                    name:$scope.problem.evaluator,
-                }
                 console.log($scope.problem);
             },
             function(response){
