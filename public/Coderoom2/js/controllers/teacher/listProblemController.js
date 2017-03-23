@@ -111,7 +111,7 @@ app.controller('listProblemteacherController',function($scope,$localStorage,$rou
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             backdrop:'static',
-            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            templateUrl: '../Coderoom2/js/views/teacher/model/deleteProblem.html',
             controller: function($scope,$uibModalInstance){
                 $scope.problemName = problem_name;
 
