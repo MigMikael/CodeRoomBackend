@@ -5,8 +5,10 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
 
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lessons_id;
+
     $scope.problemView = true;
     $scope.parseProblemView = false;
+
     $scope.statusFile = false;
     $scope.evaluator = {
         values:[
@@ -53,6 +55,15 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
                 var data = response.data;
                 $scope.checkTimeOut(data);
                 $scope.problem = data;
+
+                $scope.evaluator.selectValue = {
+                    value:true,
+                    name:$scope.problem.evaluator,
+                }
+                $scope.is_parse.selectValue = {
+                    value:true,
+                    name:$scope.problem.evaluator,
+                }
                 console.log($scope.problem);
             },
             function(response){
@@ -100,12 +111,12 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
         file.upload = Upload.upload({
             url: '/api/teacher/problem/store',
             data: {file: file,
-                lesson_id:$localStorage.lessons_id,
-                name:$scope.name,
-                description:$scope.description,
+                problem_id:$scope.problem.id,
+                name:$scope.problem.name,
+                description:$scope.problem.description,
                 evaluator:$scope.evaluator.selectValue.value,
-                timelimit:$scope.timelimit,
-                memorylimit:$scope.memorylimit,
+                timelimit:$scope.problem.timelimit,
+                memorylimit:$scope.problem.memorylimit,
                 is_parse:$scope.is_parse.selectValue.value
             },
             headers:{'Authorization_Token' : $localStorage.user.token},
@@ -114,18 +125,17 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
         file.upload.then(function (response) {
             $scope.loading = false;
             var data = response.data;
-            if(data.status === "session expired"){
-                $scope.timeOut();
+            $scope.checkTimeOut(data);
+            if($scope.is_parse.selectValue.value){
+                changeViewCard("parseProblemView");
+                //cutClass ยังไม่ได้ทำ เพราะไม่แน่ใจที่ข้อมูลคืนกลัยมา
+                $scope.resultAnalysis = data;
+                console.log($scope.resultAnalysis);
             }else{
-
-                if($scope.is_parse.selectValue.value){
-                    changeViewCard("parseProblemView");
-                    $scope.resultAnalysis = cutClass(data);
-                    console.log($scope.resultAnalysis);
-                }else{
-                    $location.path('/listproblemteacher/'+$localStorage.lessons_id);
-                }
+                $location.path('/listproblemteacher/'+$localStorage.lessons_id);
             }
+
+
 
 
         }, function (response) {
@@ -403,7 +413,7 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
     $scope.addScoreProblem = function(){
         $scope.loading = true;
         console.log($scope.resultAnalyze);
-        $http.post('/api/teacher/problem/store_score', $scope.resultAnalyze, {headers:{
+        $http.post('/api/teacher/problem/store_score', $scope.resultAnalysis, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -417,7 +427,7 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
                 }
             );
     }
-    cutClass($scope.resultAnalysis);
+
     $scope.changeView = function(view){
         if(view === "problemView"){
             $scope.problemView = true;
