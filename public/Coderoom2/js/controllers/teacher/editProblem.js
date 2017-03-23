@@ -1,7 +1,7 @@
 
 
 
-app.controller('editProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal) {
+app.controller('editProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal,$log,problemTeacher) {
 
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lessons_id;
@@ -33,12 +33,31 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
         selectValue:{value: true ,name:'Parse'}
     };
 
+
+    getData($localStorage.user.token,$localStorage.prob_id);
+
+
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
             if(data.status === "session expired"){
                 $scope.timeOut()
             }
         }
+
+    }
+    getData($localStorage.user.token,$localStorage.prob_id);
+    function getData(token,prob_id) {
+
+        problemTeacher.getData(token,prob_id).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.problem = data;
+                console.log($scope.problem);
+            },
+            function(response){
+                // failure call back
+            });
 
     }
 
