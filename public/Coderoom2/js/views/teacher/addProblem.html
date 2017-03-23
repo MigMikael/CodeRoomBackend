@@ -1,37 +1,4 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                Menu
-            </button>
-            <a class="navbar-brand" ng-click="go('/dashboardteacher')" style="cursor: pointer">CodeRoom</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li class="dropdown" >
-                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 0 10px 5px">
-                        <div class="cricle-user-dropdown">
-                            <img src="{{user.image}}">
-                        </div>
-                        <span style="margin-right: 5px">{{user.name}}</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+<div ng-include="'js/views/teacher/navbar.html'"></div>
 <div class="container" ng-show="problemView">
 
     <div class="col-md-8 col-md-offset-2">
@@ -48,7 +15,7 @@
                 <label  class="col-xs-2 control-label">Description</label>
                 <div class="col-xs-10">
 
-                    <textarea class="form-control" rows="4" name="description" placeholder="Description" ng-model="description" required></textarea>
+                    <textarea class="form-control" rows="4" name="description" placeholder="Description" ng-model="description" style="resize: none" required></textarea>
                 </div>
             </div>
             <div class="form-group" ng-class="formAddProblem.timelimit.$valid ? 'has-success':'has-error'">
@@ -81,16 +48,6 @@
                 <div class="col-xs-10">
                     <button class="select-file" type="file" ngf-select ng-model="zip" name="file" accept="/*" style="background-color: #00b4a2;color: white;margin-bottom: 10px;border: none;padding: 10px" ng-change="checkZip(zip)">Select Files</button>
                     <p style="display: inline;margin-left: 15px">{{zip.name}}</p>
-                    <div class="progress-main" >
-                        <div class="progress" ng-show="zip.progress >= 0">
-                            <div class="progress-bar" style="width: {{zip.progress}}%" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                            </div>
-                        </div>
-                        <div class="current-work" ng-show="zip.progress >= 0">
-                            <p>{{zip.progress}}%</p>
-
-                        </div>
-                    </div>
                 </div>
             </div>
 

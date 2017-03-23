@@ -2,29 +2,31 @@
 app.controller('editLessonteacherController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher, $uibModal) {
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lesson_id;
+    $scope.lesson;
 
     getData($localStorage.user.token,$localStorage.lesson_id);
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
-
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
         }
-        $scope.cardUser = !$scope.cardUser;
-    };
+
+    }
+
+
     $scope.go = function ( path ) {
         $location.path( path );
     };
 
-    $scope.lesson;
+
     function getData(token,lesson_id) {
 
         lessonTeacher.getData(token,lesson_id).then(
             function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
                 $scope.lesson = response.data;
                 console.log($scope.lesson);
 
@@ -41,6 +43,8 @@ app.controller('editLessonteacherController',function($scope,$localStorage,$rout
             }})
             .then(
                 function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data)
                     $location.path('/courseteacher/'+$scope.lesson.course_id);
                 },
                 function(response){
@@ -93,6 +97,7 @@ app.controller('editLessonteacherController',function($scope,$localStorage,$rout
         });
 
     }
+
 
 });
 

@@ -1,86 +1,38 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                Menu
-            </button>
-            <a class="navbar-brand" ng-click="go('/dashboardteacher')" style="cursor: pointer">CodeRoom</a>
-        </div>
+<div ng-include="'js/views/teacher/navbar.html'"></div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<div class=" simpleDemo container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
 
-            <ul class="nav navbar-nav navbar-right">
+            <div class="panel" style="border-radius: 0">
+                <h3 style="text-align: center;margin-bottom: 15px">Sort Problems</h3>
 
-                <li class="dropdown" >
-                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 0 10px 5px">
-                        <div class="cricle-user-dropdown">
-                            <img src="{{user.image}}">
-                        </div>
-                        <span style="margin-right: 5px">{{user.name}}</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
+                <div class="panel-body">
+                    <ul dnd-list="lesson.problems">
+                        <!-- The dnd-draggable directive makes an element draggable and will
+                             transfer the object that was assigned to it. If an element was
+                             dragged away, you have to remove it from the original list
+                             yourself using the dnd-moved attribute -->
+                        <li ng-repeat="item in lesson.problems"
+                            dnd-draggable="item"
+                            dnd-moved="lesson.problems.splice($index, 1)"
+                            dnd-effect-allowed="move"
+
+                        >
+                            <div class="chapter">
+                                <p>{{$index+1}}.{{item.name}}</p>
+                            </div>
+
+                        </li>
                     </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-
-<div class="simpleDemo row">
-    <div class="container">
-        <div class="col-md-3" >
-            <div style="width: 100%">
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div style="width: 100%;background-color: #204060;height: 60px;text-align: center">
-                <h3 style="text-align: center;margin:0px 0;color: white;line-height: 60px">Sort Problems</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel" style="border-radius: 0">
-                        <div class="panel-body">
-                            <ul dnd-list="lesson.problems">
-                                <!-- The dnd-draggable directive makes an element draggable and will
-                                     transfer the object that was assigned to it. If an element was
-                                     dragged away, you have to remove it from the original list
-                                     yourself using the dnd-moved attribute -->
-                                <li ng-repeat="item in lesson.problems"
-                                    dnd-draggable="item"
-                                    dnd-moved="lesson.problems.splice($index, 1)"
-                                    dnd-effect-allowed="move"
-
-                                >
-                                    <div class="chapter">
-                                        <p>{{item.name}}</p>
-                                    </div>
-
-                                </li>
-                            </ul>
-                            <button style="float: right;background-color: #204056;color: white;border: none;padding: 10px" ng-click="sortProblem()">Submit</button>
-                        </div>
-                    </div>
+                    <button style="float: right;background-color: #204056;color: white;border: none;padding: 10px" ng-click="sortProblem()">Submit</button>
                 </div>
             </div>
 
-        </div>
-        <div class="col-md-3">
-            <div style="width: 100%">
 
-            </div>
         </div>
     </div>
-
-
 
 
 </div>

@@ -2,16 +2,24 @@
 app.controller('uploadStudentlistController',function($scope,$localStorage,$routeParams,$http,$location, $uibModal) {
     $localStorage.course_id = $routeParams.course_id;
     $scope.user = $localStorage.user;
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
+    $scope.statusFile = false;
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
         }
-        $scope.cardUser = !$scope.cardUser;
+
+    }
+
+    $scope.checkZip = function(zip){
+
+        if(zip === null){
+            $scope.statusFile = false;
+        }else{
+            $scope.statusFile = true;
+        }
     };
 
     $scope.go = function ( path ) {
@@ -44,7 +52,9 @@ app.controller('uploadStudentlistController',function($scope,$localStorage,$rout
 
         file.upload.then(function (response) {
             $timeout(function () {
-                console.log(response);
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                console.log(data);
             });
         }, function (response) {
             if (response.status > 0)

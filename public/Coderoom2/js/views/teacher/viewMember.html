@@ -1,51 +1,81 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                Menu
-            </button>
-            <a class="navbar-brand" ng-click="go('/dashboardteacher')" style="cursor: pointer">CodeRoom</a>
-        </div>
+<div ng-include="'js/views/teacher/navbar.html'"></div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li class="dropdown" >
-                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 0 10px 5px">
-                        <div class="cricle-user-dropdown">
-                            <img src="{{user.image}}">
-                        </div>
-                        <span style="margin-right: 5px">{{user.name}}</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
 
 <div class="container">
-    <div style="width: 100%;background-color: #204060;height: 60px;text-align: center;margin-bottom: 20px">
-        <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">Teachers</h3>
+    <h1 style="text-align: center; color: #00b4a2">Teachers</h1>
+
+    <div class="row">
+        <div class="col-md-4" ng-repeat="teacher in viewMember.teachers">
+            <div class="card-square-user">
+                <div class="background-circle-user">
+                    <div class="cricle-user-img">
+                        <img src="{{teacher.image}}">
+                    </div>
+
+                </div>
+                <div class="content-card-user-teacher">
+                    <h3>{{teacher.name}}</h3>
+                    <h4>Course</h4>
+                    <div class="col-md-6 col-xs-12" >
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-    <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="teacher in viewMember.teachers">
-        <div class="card-teacher">
-            <img src="{{teacher.image}}">
-            <h4>{{teacher.name}}</h4>
+</div>
+
+<div class="container">
+    <h1 style="color: #49176d;text-align: center">Students</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="button-all-card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button ng-click="showCodeCourse('sm',undefined,'รอapi ทีคืนtoken course')">Show Codecourse</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button ng-click="go('/uploadstudentlist/'+viewMember.id)">Add Students file</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover" style="margin-top: 0">
+                <thead class="thead-default">
+                <tr>
+                    <th style="text-align: center">#</th>
+                    <th>Students</th>
+                    <th style="text-align: center">Disable</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="student in viewMember.students">
+                    <td style="text-align: center">{{$index+1}}</td>
+                    <td>
+                        <div class="card-user-student" style="box-shadow: none;margin: 0;background-color: inherit">
+                            <div class="circle-img-card-user-student">
+                                <img src="{{student.image}}">
+                            </div>
+                            <div class="content-card-user-student">
+                                <h5>Student Code: {{student.student_id}}</h5>
+                                <h3>{{student.name}}</h3>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td><button class="btn btn-danger" style="margin: auto;display: block;margin-top: 25px" ng-click="chackDisableStudent('lg',undefined,student.id,student.name)">Disable</button></td>
+
+                </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
-
-
 </div>
+
 <div class="container">
     <div style="width: 100%;background-color:#204060;height: 60px;text-align: center;margin-bottom: 20px">
         <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">Students</h3>
@@ -82,3 +112,5 @@
     </div>
 
 </div>
+
+

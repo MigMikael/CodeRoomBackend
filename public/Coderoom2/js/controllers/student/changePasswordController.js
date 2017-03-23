@@ -13,7 +13,14 @@ app.controller('changePasswordController',function($scope,$localStorage,$locatio
         }
     };
 
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
 
+    }
     $scope.go = function (path) {
         $location.path(path);
     };
@@ -55,10 +62,9 @@ app.controller('changePasswordController',function($scope,$localStorage,$locatio
                 function (response) {
                     console.log(response.data);
                     var data = response.data;
+                    $scope.checkTimeOut(data);
                     if (data.msg === "password is incorrect") {
-                        $scope.massageError = "password incorrect";
-                    } else if(data.status === "session expired"){
-                        $scope.timeOut();
+                        $scope.massageError = "Old password incorrect";
                     }else{
                         $location.path('/profilestudent');
                     }

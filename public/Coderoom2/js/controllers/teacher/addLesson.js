@@ -3,6 +3,14 @@ app.controller('addLessonteacherController',function($scope,$localStorage,$route
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
 
     $scope.go = function ( path ) {
         $location.path( path );
@@ -77,7 +85,9 @@ app.controller('addLessonteacherController',function($scope,$localStorage,$route
             $log.info('Modal dismissed at: ' + new Date());
         });
 
+
     }
+
 
 });
 

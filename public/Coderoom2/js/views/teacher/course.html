@@ -1,130 +1,125 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                Menu
-            </button>
-            <a class="navbar-brand" ng-click="go('/dashboardteacher')" style="cursor: pointer">CodeRoom</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<div ng-include="'js/views/teacher/navbar.html'"></div>
+<div class="container" style="margin-bottom: 40px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="card-course">
+                <img src="{{course.image}}">
+                <div class="headder-card-course">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <h3>{{course.name}}</h3>
 
 
-            <ul class="nav navbar-nav navbar-right">
-
-                <li class="dropdown" >
-                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 0 10px 5px">
-                        <div class="cricle-user-dropdown">
-                            <img src="{{user.image}}">
+                </div>
+                <div class="button-all-card">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4 >Lessons</h4>
                         </div>
-                        <span style="margin-right: 5px">{{user.name}}</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-<div class="container">
-    <div class="col-md-4" style="padding: 0">
-        <div class="img-card-coursepage">
-            <img src="{{course.image}}">
-        </div>
-    </div>
-    <div class="col-md-8" style="padding: 0">
-        <div class="detail-card-coursepage" >
-            <div class="headder-card-coursepage">
-                <h3>{{course.name}} </h3>
-            </div>
-            <div class="l-a-f-card-course" >
-                <div class="col-md-12" style="margin-bottom: 30px;padding: 0">
-                    <div class="icon-l-a-f-card-course" style="padding: 10px 0px 10px 10px;">
-                        <span class="glyphicon glyphicon-book"></span>
-                        <span style="margin-left: 5px">{{course.lessons_count}}</span>
-
-                        <a style="color: #00b4a2;" ng-click="go('/sortlessonteacher/'+course.id)">Sort</a>
-                        <a style="background-color: #00b4a2;color: white;" ng-click="go('/addlessonteacher/'+course.id)">Add</a>
+                        <div class="col-md-8">
+                            <div class="col-md-6">
+                                <button ng-click="go('/sortlessonteacher/'+course.id)">Sort Lessons</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button ng-click="go('/addlessonteacher/'+course.id)">Add Lesson</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Announcements</h4>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="col-md-12">
+                                <button ng-click="go('/addannouncementteacher/'+course.id)">Add Announcment</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        <h4>Teachers&Students</h4>
                     </div>
-
-
-                </div>
-                <div class="col-md-12" style="margin-bottom: 30px;padding: 0">
-                    <div class="icon-l-a-f-card-course" style="padding: 10px 0px 10px 10px;">
-                        <i class="fa fa-bullhorn" aria-hidden="true"></i>
-
-                        <span style="margin-left: 5px">{{course.announcements_count}}</span>
-                        <a style="background-color: #00b4a2;color: white;border-left: none;" ng-click="go('/addannouncementteacher/'+course.id)">Add</a>
-
+                        <div class="col-md-8">
+                            <div class="col-md-12">
+                                <button ng-click="go('/viewMemberteacher/'+course.id)">View</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Show Codecourse</h4>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="col-md-12">
+                                <button ng-click="showCodeCourse('sm',undefined,'รอ api ทีคืน codecourse')">Show</button>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-                <div class="col-md-12" style="margin-bottom: 30px;padding: 0">
-                    <div class="icon-l-a-f-card-course" style="padding: 10px 0px 10px 10px;">
-                        <i class="fa fa-users"></i>
-                        <span style="margin-left: 5px">{{course.students_count + course.teachers_count}}</span>
-                        <a style="background-color: #00b4a2;color: white;border-left: none" ng-click="go('/viewMemberteacher/'+course.id)">View</a>
-                    </div>
-
-                </div>
-
-
-
-
-
 
 
             </div>
         </div>
     </div>
 </div>
+
+
 <div class="container">
-    <div class="col-md-8 col-sm-8 col-xs-12" >
-        <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">
-            <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Lessons</h3>
-        </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0" ng-repeat="lesson in course.lessons">
-            <div class="list-course" style="padding-left: 15px">
-                <div class="list-course-headder" ng-click="go('/listproblemteacher/'+lesson.id)">
-                    <h4 style="margin: 0">{{lesson.name}}</h4>
-                </div>
-                <div style="position: relative;display: block">
-                    <div class="list-course-icon" style="left: 0" ng-click="go('/listproblemteacher/'+lesson.id)">
-                        <span>Problems</span>
-                        <span>{{lesson.problems_count}}</span>
+    <div class="row">
+        <div class="col-md-8"><h1 style="color: #49176d;text-align: center">Lessons</h1></div>
+        <div class="col-md-4"><h1 style="color: #d20962;text-align: center">Announcements</h1></div>
+        <div class="col-md-8" >
+
+        <div class="col-md-12" ng-repeat="lesson in course.lessons">
+            <div class="card-lesson"  >
+                <div class="content-card-lesson"  ng-click="go('/listproblemteacher/'+lesson.id)">
+
+                    <div class="col-md-4 col-xs-6" style="padding: 0;margin: 0">
+                        <div class="text-content-card-lesson">
+                            <h3>{{lesson.name}}</h3>
+                            <h4>Problems: <span>{{lesson.problems_count}}</span></h4>
+                        </div>
                     </div>
                 </div>
-                <div class="list-course-join" ng-click="go('/editlessonteacher/'+ lesson.id)">
-                    <p>Edit</p>
-                </div>
-                <div class="list-course-join" style="background-color: white" ng-click="deleteLesson(lesson.id)">
-                    <p style="color: #00b4a2">Delete</p>
+                <div class="button-all-card">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button ng-click="go('/editlessonteacher/'+ lesson.id)">Edit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button ng-click="checkDeleteLesson('lg',undefined,lesson.id,lesson.name)">Delete</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-
-
-    </div>
-    <div class="col-md-4 col-sm-4 col-xs-12" >
-        <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">
-            <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Announces</h3>
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0" ng-repeat="announcement in course.announcements">
-            <div class="announce-list" ng-click="go('/readannouncementteacher/'+announcement.id)">
-                <div class="announce-date">
-                    {{announcement.created_at}}
+        <div class="col-md-4" >
+            <div class="col-md-12" ng-repeat="announcement in course.announcements">
+                <div class="card-announcement" style="margin-bottom: 0;">
+                    <div class="content-card-announcement" ng-click="go('/readannouncementteacher/'+announcement.id)">
+
+                        <div class="text-content-card-announcement">
+                            <h3>{{announcement.title}}</h3>
+                            <p><span class="glyphicon glyphicon-time"></span>{{announcement.created_at}}</p>
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="announce-detail">
-                    <h4>{{announcement.title}}</h4>
+                <div class="button-all-card" style="margin: 0 10px 0 10px;width: 100%;    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button ng-click="go('/editannouncementteacher/'+ announcement.id)">Edit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button ng-click="checkDeleteAnnouncement('lg',undefined,announcement.id,announcement.title)">Delete</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
+
+
+
+
+

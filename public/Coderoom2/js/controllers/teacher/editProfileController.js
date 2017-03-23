@@ -1,22 +1,30 @@
 
-app.controller('addStudentSortController',function($scope,$localStorage,$routeParams,$http,$location,addStudentteacher, $uibModal) {
-    $localStorage.course_id = $routeParams.course_id;
+app.controller('editProfileTeacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal,profileTeacher) {
     $scope.user = $localStorage.user;
-    getData($localStorage.user.token,$localStorage.course_id);
-    $scope.addStudentsort = {};
 
 
 
-    $scope.go = function ( path ) {
-        $location.path( path );
-    };
 
-    function getData(token,course_id) {
 
-        addStudentteacher.getData(token,course_id).then(
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
+
+    getData($localStorage.user.token,$localStorage.user.id);
+
+    function getData(token,user_id) {
+
+        profileTeacher.getData(token,user_id).then(
             function(response){
-                console.log(response.data);
-                $scope.addStudentsort = dupicateStudent(response.data);
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.dataEditProfile = addPathimg(data);
+                console.log($scope.dataEditProfile);
 
             },
             function(response){
@@ -24,19 +32,15 @@ app.controller('addStudentSortController',function($scope,$localStorage,$routePa
             });
 
     }
-    function dupicateStudent(data){
-        for(i=0 ; i<data.students_course.length ; i++){
-
-            for(j=0 ; j<data.students.length ;j++){
-                if(data.students_course.id===data.students.id){
-                    data.students.splice(j,1);
-
-
-                }
-            }
-        }
+    function addPathimg(data){
+        data.image = "http://localhost:8000/api/image/"+data.image;
         return data;
     }
+
+    $scope.go = function ( path ) {
+        $location.path( path );
+    };
+
     $scope.logout = function () {
 
         $http.get('/logout', {headers:{
@@ -53,20 +57,6 @@ app.controller('addStudentSortController',function($scope,$localStorage,$routePa
             );
     }
 
-    $scope.addStudent = function(){
-
-        $http.post('/', $scope.addStudentsort,{headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
-            .then(
-                function(response){
-                    $location.path('/viewMemberteacher/'+$localStorage.course_id);
-                },
-                function(response){
-                    // failure callback
-                }
-            );
-    }
 
     $scope.timeOut = function (size, parentSelector) {
         var parentElem = parentSelector ?
@@ -97,8 +87,25 @@ app.controller('addStudentSortController',function($scope,$localStorage,$routePa
         });
 
     }
+    $scope.editProfile = function(){
+        $http.post('/api/teacher/profile/edit', $scope.dataEditProfile,{headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    if(data.msg === "edit complete"){
+                        $location.path('/profileteacher');
+                    }else{
+                        $scope.massageError = "Error";
+                    }
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    };
+
 
 });
-
-
-

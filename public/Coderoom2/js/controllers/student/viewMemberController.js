@@ -1,7 +1,7 @@
 
 app.controller('viewMemberController',function($scope,viewMember,$localStorage,$http,$routeParams,$location,$uibModal) {
     $scope.viewMember;
-    $scope.cardUser = false;
+
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
     getData($localStorage.user.token,$localStorage.course_id);
@@ -11,12 +11,9 @@ app.controller('viewMemberController',function($scope,viewMember,$localStorage,$
         viewMember.getData(token,course_id).then(
             function(response){
                 var data = response.data;
-                if(data.status === "session expired"){
-                    $scope.timeOut();
-                }else if(data.status === undefined){
-                    $scope.viewMember = addPathimage(data);
-                    console.log($scope.viewMember);
-                }
+                $scope.checkTimeOut(data);
+                $scope.viewMember = addPathimage(data);
+                console.log($scope.viewMember);
 
             },
             function(response){
@@ -39,19 +36,16 @@ app.controller('viewMemberController',function($scope,viewMember,$localStorage,$
         return data;
     }
 
-
-
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
-
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
         }
-        $scope.cardUser = !$scope.cardUser;
-    };
+
+    }
+
+
     $scope.go = function ( path ) {
         $location.path( path );
     };

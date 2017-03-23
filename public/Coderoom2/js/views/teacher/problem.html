@@ -1,96 +1,52 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                Menu
-            </button>
-            <a class="navbar-brand" ng-click="go('/dashboardteacher')" style="cursor: pointer">CodeRoom</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li class="dropdown" >
-                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding: 10px 0 10px 5px">
-                        <div class="cricle-user-dropdown">
-                            <img src="{{user.image}}">
-                        </div>
-                        <span style="margin-right: 5px">{{user.name}}</span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a ng-click="go('/profilestudent')" style="cursor: pointer">Profile</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a ng-click="logout()" style="cursor: pointer">Log out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+<div ng-include="'js/views/teacher/navbar.html'"></div>
 
 <div class="container">
-    <div class="col-md-6">
-        <div class="card-problem-detail">
-            <div class="card-problem-detail-left">
-                <span class="glyphicon glyphicon-book"></span>
-                <h4>Problem</h4>
-            </div>
-            <div class="card-problem-detail-right">
-                <p>{{problem.name}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card-problem-detail">
-            <div class="card-problem-detail-left">
-                <i class="fa fa-clock-o"></i>
-                <h4>Time</h4>
-            </div>
-            <div class="card-problem-detail-right">
-                <p>{{problem.timelimit}} s</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card-problem-detail">
-            <div class="card-problem-detail-left">
-                <i class="fa fa-bullhorn"></i>
-                <h4>Description</h4>
-            </div>
-            <div class="card-problem-detail-right">
-                <p>{{problem.description}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card-problem-detail">
-            <div class="card-problem-detail-left">
-                <i class="material-icons">memory</i>
-                <h4>Memory</h4>
-            </div>
-            <div class="card-problem-detail-right">
-                <p>{{problem.memorylimit}} KB</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card-problem-detail">
-            <div class="card-problem-detail-left">
-                <p style="line-height: 60px;padding-left: 10px">Parse Structure</p>
-            </div>
-            <div class="card-problem-detail-right">
-                <p ng-show="problem.is_pase==='true'">Parse</p>
-                <p ng-show="problem.is_pase==='false'">Parse</p>
+    <div style=" box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
+        <table class="table table-hover" style="margin-bottom: 0;box-shadow: none;margin: 10px 0 0 0">
+            <thead >
+            <tr style="background-color: #e6e9ed">
+                <td>Problem Name</td>
+                <td>{{problem.name}}</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td>Description</td>
+                <td>{{problem.description}}</td>
+            </tr>
+            <tr>
+                <td>Time Limit</td>
+                <td>{{problem.timelimit}} s</td>
+            </tr>
+            <tr>
+                <td>Memory Limit</td>
+                <td>{{problem.memorylimit}} KB</td>
+            </tr>
+            <tr>
+                <td>Structure</td>
+                <td ng-show="problem.is_pase==='true'">Parse</td>
+                <td ng-show="problem.is_pase==='false'">Not Parse</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="button-all-card" style="margin-top: 0;margin-bottom: 10px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <button ng-click="go('/editproblem/'+problem.id)">Edit</button>
+                </div>
+                <div class="col-md-6">
+                    <button ng-click="checkDeleteProblem('lg',undefined,problem.id,problem.name)">Delete</button>
+                </div>
             </div>
         </div>
     </div>
 
+
+
 </div>
+
+
 <div class="container">
     <div class="col-md-12">
         <div class="panel panel-default" style="border-radius: 0">
@@ -110,134 +66,293 @@
                 </table>
             </div>
         </div>
-
-        <div class="panel panel-default"ng-repeat="file in result.submission_files" style="border-radius: 0">
-                        <span ng-repeat="class in file.results">
-                            <div class="panel-heading" style="padding: 0px 10px;margin:5px 0;font-size: 20px">
-                                {{class.class}}
-                            </div>
-                        <div class="panel-body" style="overflow: auto;padding: 0">
-                            <table class="table" >
-                                <thead class="thead-inverse">
-                                <tr>
-                                    <th>Type</th>
-                                    <th>access_modifier</th>
-                                    <th>non_access_modifier</th>
-                                    <th>data_type</th>
-                                    <th>return_type</th>
-                                    <th>name</th>
-                                    <th>parameter</th>
-                                    <th>recursive</th>
-                                    <th>loop</th>
-                                    <th>Score</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr ng-repeat="constructor in class.constructors">
-                                    <td>Constructor</td>
-                                    <td ng-show="constructor.access_modifier!==''">{{constructor.access_modifier}}</td>
-                                    <td ng-show="constructor.access_modifier===''">-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td ng-show="constructor.name!==''">{{constructor.name}}</td>
-                                    <td ng-show="constructor.name===''">-</td>
-                                    <td ng-show="constructor.parameter!==''">{{constructor.parameter}}</td>
-                                    <td ng-show="constructor.parameter===''">-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td ng-show="constructor.score!==''">{{constructor.score}}</td>
-                                    <td ng-show="constructor.score===''">-</td>
-                                </tr>
-                                <tr ng-repeat="attribute in class.attributes">
-                                    <td>Attribute</td>
-                                    <td ng-show="attribute.access_modifier!==''">{{attribute.access_modifier}}</td>
-                                    <td ng-show="attribute.access_modifier===''">-</td>
-                                    <td ng-show="attribute.non_access_modifier!==''">{{attribute.non_access_modifier}}</td>
-                                    <td ng-show="attribute.non_access_modifier===''">-</td>
-                                    <td ng-show="attribute.data_type!==''">{{attribute.data_type}}</td>
-                                    <td ng-show="attribute.data_type===''">-</td>
-                                    <td>-</td>
-                                    <td ng-show="attribute.name!==''">{{attribute.name}}</td>
-                                    <td ng-show="attribute.name===''">-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td ng-show="attribute.score!==''">{{attribute.score}}</td>
-                                    <td ng-show="attribute.score===''">-</td>
-
-                                </tr>
-                                <tr ng-repeat="method in class.methods">
-                                    <td>Method</td>
-                                    <td ng-show="method.access_modifier!==''">{{method.access_modifier}}</td>
-                                    <td ng-show="method.access_modifier===''">-</td>
-                                    <td ng-show="method.non_access_modifier!==''">{{method.non_access_modifier}}</td>
-                                    <td ng-show="method.non_access_modifier===''">-</td>
-                                    <td>-</td>
-                                    <td ng-show="method.return_type!==''">{{method.return_type}}</td>
-                                    <td ng-show="method.return_type===''">-</td>
-                                    <td ng-show="method.name!==''">{{method.name}}</td>
-                                    <td ng-show="method.name===''">-</td>
-                                    <td ng-show="method.parameter!==''">{{method.parameter}}</td>
-                                    <td ng-show="method.parameter===''">-</td>
-                                    <td ng-show="method.recursive!==''">{{method.recursive}}</td>
-                                    <td ng-show="method.recursive===''">-</td>
-                                    <td ng-show="method.loop!==''">{{method.loop}}</td>
-                                    <td ng-show="method.loop===''">-</td>
-                                    <td ng-show="method.score!==''">{{method.score}}</td>
-                                    <td ng-show="method.score===''">-</td>
-
-                                </tr>
-                                </tbody>
-
-
-
-
-                            </table>
-                        </div>
-                        </span>
-
-        </div>
     </div>
+
 </div>
-<div class="container">
-    <div class="col-md-6">
-        <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">
-            <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Students</h3>
+
+
+<div class="container" ng-show="parseView">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="text-align: center;color: #e01563">Structure</h1>
         </div>
-        <div class="input-group" style="border: 1px solid #204060">
-            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060;"><span class="glyphicon glyphicon-search"></span></span>
-            <input class="form-control left-border-none" placeholder="Search Students..." type="text" name="Search" style="border: 0;border-radius: 0;float: left" ng-model="nameCourse">
-        </div>
-        <div style="width: 100% ; height: 500px;overflow-y: auto;margin-top: 10px;border:none" >
-            <div class="card-student" style="margin: 5px 0 5px 0;cursor: pointer" ng-repeat="student in studentSubmit" ng-click="clickViewCode(student.id)">
-                <img src="{{student.student.image}}">
-                <div class="left-card-student">
-                    <p>{{student.student.student_id}}</p>
-                    <p>{{student.student.name}}</p>
-                </div>
-                <div class="right-card-student">
-                    <div class="num-submit">
-                        <p>submit_num : {{student.sub_num}}</p>
+        <div class="col-md-12">
+            <form>
+                <span ng-repeat="file in result.submission_files">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{file.filename}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <span ng-repeat="class in file.results">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-detail-class class">
+                                        <p class="type-card-detail-class">Class</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name">{{class.name_class}}</h4>
+                                            <h4 class="point">{{class.score.class}} Point</h4>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>{{class.access_modifier_class }}</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>non_access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>{{class.non_access_modifier_class}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-detail-class package">
+
+                                        <p class="type-card-detail-class">Package</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name" ng-show="class.package!==''">{{class.package}}</h4>
+                                            <h4 class="name" ng-show="class.package===''">-</h4>
+                                            <h4 class="point" ng-show="class.package!==''">{{class.score.package}} Point</h4>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-detail-class enclose">
+
+                                        <p class="type-card-detail-class">Enclose</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name" ng-show="class.enclose!=='null'">{{class.enclose}}</h4>
+                                            <h4 class="name" ng-show="class.enclose==='null'">-</h4>
+                                            <h4 class="point" ng-show="class.enclose!=='null'">{{class.score.enclose}} Point</h4>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-detail-class extend">
+                                        <p class="type-card-detail-class">Extend</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name" ng-show="class.extends!==''">{{class.extends}}</h4>
+                                            <h4 class="name" ng-show="class.extends===''">-</h4>
+                                            <h4 class="point" ng-show="class.extends!==''">{{class.score.extends}} Point</h4>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" ng-repeat="constructor in class.constructors">
+                                    <div class="card-detail-class constructor">
+                                        <p class="type-card-detail-class">Constructor</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name">{{constructor.name}}</h4>
+                                            <h4 class="point">{{constructor.score}} Point</h4>
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="constructor.access_modifier!==''">{{constructor.access_modifier}}</p>
+                                                <p ng-show="constructor.access_modifier===''">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>non_access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>data_type</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>parameter</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="constructor.parameter!==''">{{constructor.parameter}}</p>
+                                                <p ng-show="constructor.parameter===''">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>recursive</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>loop</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" ng-repeat="attribute in class.attributes">
+                                    <div class="card-detail-class attribute">
+                                        <p class="type-card-detail-class">Attribute</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name">{{attribute.name}}</h4>
+                                            <h4 class="point">{{attribute.score}} Point</h4>
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="attribute.access_modifier!==''">{{attribute.access_modifier}}</p>
+                                                <p ng-show="attribute.access_modifier===''">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>non_access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="attribute.non_access_modifier!=='null'">{{attribute.non_access_modifier}}</p>
+                                                <p ng-show="attribute.non_access_modifier==='null'">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>data_type</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="attribute.data_type!==''">{{attribute.data_type}}</p>
+                                                <p ng-show="attribute.data_type===''">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>parameter</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>recursive</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>loop</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>-</p>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4" ng-repeat="method in class.methods">
+                                    <div class="card-detail-class method">
+                                        <p class="type-card-detail-class">Method</p>
+                                        <div class="name-point-card">
+                                            <h4 class="name">{{method.name}}</h4>
+                                            <h4 class="point">{{method.score}} Point</h4>
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p>access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="method.access_modifier!==''">{{method.access_modifier}}</p>
+                                                <p ng-show="method.access_modifier===''">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>non_access_modifier</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="method.non_access_modifier!=='null'">{{method.non_access_modifier}}</p>
+                                                <p ng-show="method.non_access_modifier==='null'">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>return_type</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="method.return_type!==''">{{method.return_type}}</p>
+                                                <p ng-show="method.return_type===''">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>parameter</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p ng-show="method.parameter!==''">{{method.parameter}}</p>
+                                                <p ng-show="method.parameter===''">-</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>recursive</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>{{method.recursive}}</p>
+
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p>loop</p>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <p>{{method.recursive}}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
                     </div>
                 </div>
-
-            </div>
+            </span>
+            </form>
 
         </div>
-
     </div>
-    <div class="col-md-6">
-        <div style="width: 100%;background-color: #204060;height: 60px;margin-bottom: 20px">
-            <h3 style="margin:30px 0;color: white;line-height: 60px;padding-left: 15px">Code</h3>
-        </div>
-        <div class="list-file-problem" >
-            <button ng-repeat="file in allFiles" ng-click="clickChangeFile($index)">{{$index+1}}.{{file.filename}}</button>
-        </div>
-        <div ui-ace readonly style="width: 100%;height: 480px;margin: 0" ng-model="aceValue"></div>
-    </div>
-
 </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 style="color: #49176d;text-align: center">Students</h1>
+        </div>
+        <div class="col-md-6">
+            <h1 style="color: #49176d;text-align: center">Code</h1>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12" ng-repeat="student in studentSubmit">
+                <div class="card-user-student" ng-click="clickViewCode(student.id)">
+                    <div class="circle-img-card-user-student">
+                        <img src="{{student.student.image}}">
+                    </div>
+                    <div class="content-card-user-student">
+                        <h5>Student Code: {{student.student.student_id}}</h5>
+                        <h3>{{student.student.name}}</h3>
+                        <p>submit_num: {{student.sub_num}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="list-file-problem" >
+                <button ng-repeat="file in allFiles" ng-click="clickChangeFile($index)">{{$index+1}}.{{file.filename}}</button>
+            </div>
+            <div ui-ace readonly style="width: 100%;height: 480px;margin: 0" ng-model="aceValue"></div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 

@@ -32,6 +32,15 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
     };
 
 
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
+
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -442,6 +451,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         });
 
     }
+
 
 });
 

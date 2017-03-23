@@ -1,16 +1,29 @@
 
-app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$localStorage,$http,$routeParams,$location, $uibModal) {
+app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$localStorage,$http,$routeParams,$location, $uibModal,$log) {
     $scope.viewMember;
     $scope.cardUser = false;
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
     getData($localStorage.user.token,$localStorage.course_id);
 
+
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
+
+
     function getData(token,course_id) {
 
         viewMemberTeacher.getData(token,course_id).then(
             function(response){
-                $scope.viewMember = addPathimage(response.data);
+                var data = response.data;
+                $scope.checkTimeOut(data)
+                $scope.viewMember = addPathimage(data);
                 console.log($scope.viewMember);
 
             },
@@ -36,17 +49,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
 
 
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -73,6 +76,8 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
             }})
             .then(
                 function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
 
                     location.reload();
                 },
@@ -113,6 +118,70 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
 
     }
 
+    $scope.chackDisableStudent = function (size, parentSelector,student_id,student_name) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+
+            templateUrl: '../Coderoom2/js/views/teacher/model/disableStudent.html',
+            controller: function($scope,$uibModalInstance){
+                $scope.studentName = student_name;
+                $scope.confirmDisableStudent = function () {
+                    $uibModalInstance.close("DisableStudent");
+
+                };
+
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (massage) {
+            if(massage === "DisableStudent"){
+                $scope.disableStudent(student_id);
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
+
+    $scope.showCodeCourse = function (size, parentSelector,code_course) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+
+            templateUrl: '../Coderoom2/js/views/teacher/model/showCodeCourse.html',
+            controller: function($scope,$uibModalInstance){
+                $scope.codeCourse = code_course;
+
+
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (massage) {
+
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
 });
 
 /**

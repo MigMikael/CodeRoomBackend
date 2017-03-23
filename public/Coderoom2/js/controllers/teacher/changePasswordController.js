@@ -1,42 +1,20 @@
 
-app.controller('addStudentSortController',function($scope,$localStorage,$routeParams,$http,$location,addStudentteacher, $uibModal) {
-    $localStorage.course_id = $routeParams.course_id;
+app.controller('changePasswordTeacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal) {
     $scope.user = $localStorage.user;
-    getData($localStorage.user.token,$localStorage.course_id);
-    $scope.addStudentsort = {};
 
+    console.log($scope.user);
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
 
-
+    }
     $scope.go = function ( path ) {
         $location.path( path );
     };
 
-    function getData(token,course_id) {
-
-        addStudentteacher.getData(token,course_id).then(
-            function(response){
-                console.log(response.data);
-                $scope.addStudentsort = dupicateStudent(response.data);
-
-            },
-            function(response){
-                // failure call back
-            });
-
-    }
-    function dupicateStudent(data){
-        for(i=0 ; i<data.students_course.length ; i++){
-
-            for(j=0 ; j<data.students.length ;j++){
-                if(data.students_course.id===data.students.id){
-                    data.students.splice(j,1);
-
-
-                }
-            }
-        }
-        return data;
-    }
     $scope.logout = function () {
 
         $http.get('/logout', {headers:{
@@ -53,20 +31,45 @@ app.controller('addStudentSortController',function($scope,$localStorage,$routePa
             );
     }
 
-    $scope.addStudent = function(){
 
-        $http.post('/', $scope.addStudentsort,{headers:{
+    $scope.confirm_password = false;
+    $scope.comparePassword = function () {
+        if($scope.new_password === $scope.new_password_confirm){
+            $scope.confirm_password = true;
+
+        }else{
+            $scope.confirm_password = false;
+        }
+    };
+
+    $scope.submitChangepassword = function(){
+        var dataChangePassword = {
+            teacher_id: $localStorage.user.id,
+            old_password: $scope.old_password,
+            new_password: $scope.new_password_confirm,
+        };
+        $http.post('/api/teacher/change_password', dataChangePassword,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
                 function(response){
-                    $location.path('/viewMemberteacher/'+$localStorage.course_id);
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    if(data.msg === "password is incorrect"){
+                        $scope.massageError = "Old password incorrect";
+                    }else{
+                        $location.path('/profileteacher')
+                    }
+
                 },
                 function(response){
                     // failure callback
                 }
             );
+
+
     }
+
 
     $scope.timeOut = function (size, parentSelector) {
         var parentElem = parentSelector ?
@@ -98,7 +101,5 @@ app.controller('addStudentSortController',function($scope,$localStorage,$routePa
 
     }
 
+
 });
-
-
-

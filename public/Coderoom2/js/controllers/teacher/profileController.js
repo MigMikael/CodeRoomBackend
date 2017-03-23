@@ -1,20 +1,26 @@
 
 app.controller('profileTeacherController',function($scope,$localStorage,$location, $http,$routeParams,profileTeacher, $uibModal) {
     $scope.user = $localStorage.user;
-    $scope.profileView = true;
-    $scope.changePasswordView = false;
-    $scope.editProfileView = false;
 
-    $scope.dataEditProfile;
     getData($localStorage.user.token,$localStorage.user.id);
+
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
 
     function getData(token,user_id) {
 
         profileTeacher.getData(token,user_id).then(
             function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.dataProfile = addPathimg(data);
 
-                $scope.dataProfile = addPathimg(response.data);
-                $scope.dataEditProfile = $scope.dataProfile;
                 console.log($scope.dataProfile);
 
             },
@@ -27,37 +33,8 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
         data.image = "http://localhost:8000/api/image/"+data.image;
         return data;
     }
-    $scope.changeView = function(view){
-
-        if(view === "profile"){
-            $scope.profileView = true;
-            $scope.changePasswordView = false;
-            $scope.editProfileView = false;
-
-        }else if(view === "changePassword"){
-            $scope.profileView = false;
-            $scope.changePasswordView = true;
-            $scope.editProfileView = false;
 
 
-        }else if(view === "editProfile"){
-            $scope.editProfileView = true;
-            $scope.profileView = false;
-            $scope.changePasswordView = false;
-        }
-
-    };
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
-
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -78,52 +55,8 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
             );
     };
 
-    $scope.editProfile = function(){
-        $http.post('/api/teacher/profile/edit', $scope.dataEditProfile,{headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
-            .then(
-                function(response){
-                    location.reload();
-                },
-                function(response){
-                    // failure callback
-                }
-            );
-    };
-    $scope.massageChangePassword;
-    $scope.dataPassword = {
-        teacher_id:$localStorage.user.id,
-    };
-    this.comparePassword = function () {
-        if (angular.equals($scope.dataPassword.newPassword, $scope.dataPassword.confirmPassword)) {
-            $scope.changePassword.confirmpassword.$setValidity('matchValidate', true);
-        } else {
-            $scope.changePassword.confirmpassword.$setValidity('matchValidate', false);
-        }
-    };
-    $scope.submitChangepassword = function(){
-
-        $http.post('/api/teacher/change_password', $scope.dataPassword,{headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
-            .then(
-                function(response){
-                    if(response.data.msg === "password is incorrect"){
-                        $scope.massageChangePassword = "Old password incorrect";
-                    }else{
-
-                        location.reload();
-                    }
-
-                },
-                function(response){
-                    // failure callback
-                }
-            );
 
 
-    }
 
     $scope.timeOut = function (size, parentSelector) {
         var parentElem = parentSelector ?

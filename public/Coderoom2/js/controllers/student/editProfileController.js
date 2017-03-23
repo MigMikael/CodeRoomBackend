@@ -27,6 +27,22 @@ app.controller('editProfileController',function($scope,$localStorage,$location, 
         return data;
     }
 
+    $scope.editProfile = function(){
+        $http.post('/api/teacher/profile/edit', $scope.dataEditProfile,{headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    location.reload();
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    };
+
 
     $scope.go = function ( path ) {
         $location.path( path );
@@ -55,6 +71,7 @@ app.controller('editProfileController',function($scope,$localStorage,$location, 
             .then(
                 function(response){
                     var data = response.data;
+                    $scope.checkTimeOut(data);
                     console.log(response.data);
                     if(data.msg === "edit complete"){
                         $location.path('/profilestudent');
@@ -99,7 +116,14 @@ app.controller('editProfileController',function($scope,$localStorage,$location, 
 
     }
 
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
 
+    }
 
 
 

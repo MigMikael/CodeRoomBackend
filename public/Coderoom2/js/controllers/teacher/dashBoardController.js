@@ -4,13 +4,24 @@ app.controller('dashBoardteacherController',function($scope,$http,$localStorage,
     getData($localStorage.user.token);
     $scope.dataDashboard;
 
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
 
     function getData(token) {
 
         dashboardTeacher.getData(token).then(
             function(response){
-
-                $scope.dataDashboard = response.data;
+                var data = response.data;
+                if(data.status === "session expired"){
+                    $scope.timeOut();
+                }
+                $scope.dataDashboard = data;
                 console.log($scope.dataDashboard);
 
             },
@@ -37,17 +48,6 @@ app.controller('dashBoardteacherController',function($scope,$http,$localStorage,
                     // failure callback
                 }
             );
-    };
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
-
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
     };
 
     $scope.timeOut = function (size, parentSelector) {
@@ -79,6 +79,7 @@ app.controller('dashBoardteacherController',function($scope,$http,$localStorage,
         });
 
     }
+
 
 });
 

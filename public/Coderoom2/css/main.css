@@ -775,3 +775,41 @@ table tbody tr td .user-table .user-table-img{
     height: 100%;
 }
 /*end studypage*/
+
+/*Drag and Drow*/
+
+.simpleDemo ul[dnd-list] {
+    min-height: 40px;
+    padding-left: 0px;
+}
+
+
+.simpleDemo ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+
+.simpleDemo ul[dnd-list] .dndPlaceholder {
+    background-color: #ddd;
+    display: block;
+    min-height: 40px;
+}
+
+.simpleDemo ul[dnd-list] li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+
+    padding: 10px 15px 0px 15px;
+
+    margin: 5px;
+
+}
+
+
+.simpleDemo ul[dnd-list] li.selected {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+/*Drag and Drow*/

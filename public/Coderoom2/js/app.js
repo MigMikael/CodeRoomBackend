@@ -115,13 +115,21 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/teacher/readAnnouncement.html",
             controller: "readAnnouncementteacherController"
         })
-        .when("/editannouncementteacher", {
+        .when("/editannouncementteacher/:announcement_id", {
             templateUrl : "js/views/teacher/editAnnouncement.html",
             controller: "editAnnouncementteacherController"
         })
         .when("/uploadstudentlist/:course_id", {
             templateUrl : "js/views/teacher/uploadStudentlist.html",
             controller: "uploadStudentlistController"
+        })
+        .when("/editprofileteacher", {
+            templateUrl : "js/views/teacher/editProfile.html",
+            controller: "editProfileTeacherController"
+        })
+        .when("/changepasswordteacher", {
+            templateUrl : "js/views/teacher/changePassword.html",
+            controller: "changePasswordTeacherController"
         })
 
         //admin

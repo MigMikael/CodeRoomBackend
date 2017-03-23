@@ -4,13 +4,25 @@ app.controller('sortLessonController',function($scope,$localStorage,$routeParams
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
-    console.log($localStorage.course_id);
+
     getData($localStorage.user.token,$localStorage.course_id);
+
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
+
     function getData(token,course_id) {
 
         courseTeacher.getData(token,course_id).then(
             function(response){
-                $scope.course = response.data;
+                var data = response.data;
+                $scope.checkTimeOut(data)
+                $scope.course = data;
                 console.log($scope.course);
 
             },
@@ -26,7 +38,8 @@ app.controller('sortLessonController',function($scope,$localStorage,$routeParams
             })
             .then(
                 function(response){
-
+                    var data = response.data;
+                    $scope.checkTimeOut(data)
                     $location.path('/courseteacher/'+$scope.course.id);
 
                 },
@@ -37,17 +50,7 @@ app.controller('sortLessonController',function($scope,$localStorage,$routeParams
     }
 
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };

@@ -5,11 +5,23 @@ app.controller('sortProblemController',function($scope,$localStorage,$routeParam
     $localStorage.lesson_id = $routeParams.lesson_id;
 
     getData($localStorage.user.token,$localStorage.lesson_id);
+
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
+
+    }
+
     function getData(token,lesson_id) {
 
         lessonTeacher.getData(token,lesson_id).then(
             function(response){
-                $scope.lesson = response.data;
+                var data = response.data;
+                $scope.checkTimeOut(data)
+                $scope.lesson = data;
                 console.log($scope.lesson);
 
             },
@@ -26,6 +38,8 @@ app.controller('sortProblemController',function($scope,$localStorage,$routeParam
             })
             .then(
                 function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
 
                     $location.path('/listproblemteacher/'+$localStorage.lessons_id);
 
@@ -37,17 +51,6 @@ app.controller('sortProblemController',function($scope,$localStorage,$routeParam
     }
 
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
-
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };

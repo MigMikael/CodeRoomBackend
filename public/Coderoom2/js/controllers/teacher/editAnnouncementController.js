@@ -1,20 +1,12 @@
 
-app.controller('editAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location,announcementStudentTeacher, $uibModal) {
+app.controller('editAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location,announcementTeacher,$rootScope, $uibModal) {
     $scope.user = $localStorage.user;
+
+    $localStorage.announcement_id = $routeParams.announcement_id;
 
     getData($localStorage.user.token,$localStorage.announcement_id);
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -22,10 +14,14 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
     $scope.announcement;
     function getData(token,announcement_id) {
 
-        announcementStudentTeacher.getData(token,announcement_id).then(
+        announcementTeacher.getData(token,announcement_id).then(
             function(response){
-
+                var data = response.data;
+                if(data.status === "session expired"){
+                    $scope.timeOut();
+                }
                 $scope.announcement  = response.data;
+                $localStorage.announcement_content = $scope.announcement.content;
                 console.log($scope.announcement);
 
             },
@@ -41,7 +37,12 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
             }})
             .then(
                 function(response){
-                    $location.path('/readannouncementteacher/'+$localStorage.announcement_id);
+                    var data = response.data;
+                    if(data.status === "session expired"){
+                        $scope.timeOut();
+                    }else {
+                        $location.path('/readannouncementteacher/'+$localStorage.announcement_id);
+                    }
                 },
                 function(response){
                     // failure callback
@@ -63,6 +64,7 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
                 }
             );
     }
+
     $scope.timeOut = function (size, parentSelector) {
         var parentElem = parentSelector ?
             angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
@@ -92,7 +94,14 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
         });
 
     }
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
 
+    }
 });
 
 
