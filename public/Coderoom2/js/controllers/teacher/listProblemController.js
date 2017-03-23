@@ -1,5 +1,5 @@
 
-app.controller('listProblemteacherController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher, $uibModal) {
+app.controller('listProblemteacherController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher, $uibModal,$log) {
 
     $scope.user = $localStorage.user;
     $localStorage.lessons_id = $routeParams.lesson_id;
