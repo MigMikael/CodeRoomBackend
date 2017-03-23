@@ -55,22 +55,33 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
                 var data = response.data;
                 $scope.checkTimeOut(data);
                 $scope.problem = data;
-                $scope.evaluator.selectValue.value =  $scope.problem.evaluator;
-                $scope.evaluator.selectValue.name = $scope.problem.evaluator;
-                if($scope.problem.is_parse === "true"){
-                    $scope.is_parse.selectValue.value = "true";
-                    $scope.is_parse.selectValue.name = "Parse";
-                }else{
-                    $scope.is_parse.selectValue.value = "false";
-                    $scope.is_parse.selectValue.name = "Not Parse";
-                }
-
+                checkEvaluator($scope.problem.evaluator)
+                checkParse($scope.problem.is_parse);
                 console.log($scope.problem);
             },
             function(response){
                 // failure call back
             });
 
+    }
+    function checkEvaluator(evaluator){
+        for(i=0 ; i<$scope.evaluator.values.length ; i++){
+            if($scope.evaluator.values[i].value === evaluator){
+                $scope.evaluator.selectValue.value =  $scope.evaluator.values[i].value;
+                $scope.evaluator.selectValue.name = $scope.evaluator.values[i].name;
+                return;
+            }
+
+        }
+    }
+    function checkParse(is_parse){
+        if(is_parse === "true"){
+            $scope.is_parse.selectValue.value = "true";
+            $scope.is_parse.selectValue.name = "Parse";
+        }else{
+            $scope.is_parse.selectValue.value = "false";
+            $scope.is_parse.selectValue.name = "Not Parse";
+        }
     }
 
 
