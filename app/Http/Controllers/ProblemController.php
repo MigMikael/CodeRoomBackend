@@ -147,7 +147,18 @@ class ProblemController extends Controller
     public function showProblem($id)
     {
         $problem = Problem::findOrFail($id);
+        $problemFiles = $problem->problemFiles;
+        foreach ($problemFiles as $problemFile){
+            $problemAnalysis = $problemFile->problemAnalysis;
+            foreach ($problemAnalysis as $analysis){
+                $analysis->attributes;
+                $analysis->constructors;
+                $analysis->methods;
+            }
+        }
         $problem['question'] = url('problem/getQuestion/'.$problem->id);
+        $submission = Submission::where('problem_id', '=', $problem->id)->get()->last();
+        $problem['lastSubmission'] = $submission;
 
         return $problem;
     }

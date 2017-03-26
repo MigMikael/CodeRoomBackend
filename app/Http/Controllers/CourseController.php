@@ -277,9 +277,9 @@ class CourseController extends Controller
         foreach ($course['lessons'] as $lesson){
             $lesson['problems_count'] = $lesson->problems()->count();
         }
-        //foreach ($course->lessons as $lesson){
-            /*$student_course = StudentCourse::where([
-                ['student_id', '=', $student->id],
+        foreach ($course->lessons as $lesson){
+            $student_course = StudentCourse::where([
+                ['student_id', '=', $student_id],
                 ['course_id', '=', $course->id]
             ])->first();
 
@@ -292,10 +292,10 @@ class CourseController extends Controller
                 $lesson['progress'] = 0;
             }else{
                 $lesson['progress'] = $student_lesson->progress;
-            }*/
+            }
 
-            //$lesson['problems_count'] = $lesson->problems()->count();
-        //}
+            $lesson['problems_count'] = $lesson->problems()->count();
+        }
 
         $course->badges;
         $course->announcements;
@@ -326,6 +326,7 @@ class CourseController extends Controller
             $student->pivot;
         }
         foreach ($course->teachers as $teacher){
+            $teacher->courses;
             $teacher->pivot;
         }
 
