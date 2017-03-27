@@ -14,8 +14,8 @@
                 <div class="content-card-user-teacher">
                     <h3>{{teacher.name}}</h3>
                     <h4>Course</h4>
-                    <div class="col-md-6 col-xs-12" >
-
+                    <div class="col-md-6 col-xs-12" ng-repeat="course in teacher.courses">
+                        <p>{{course.name}}</p>
                     </div>
                 </div>
 

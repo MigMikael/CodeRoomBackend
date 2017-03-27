@@ -154,6 +154,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     }
 
     $scope.showCodeCourse = function (size, parentSelector,code_course) {
+        console.log(code_course);
         var parentElem = parentSelector ?
             angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
         var modalInstance = $uibModal.open({

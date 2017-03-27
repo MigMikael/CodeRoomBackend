@@ -4,7 +4,7 @@
     </div>
     <div class="modal-body" id="modal-body">
         <div class="form-group" ng-class="submitTokenCourse.token_course.$valid ? 'has-success':'has-error'">
-            <input type="text" class="form-control"  placeholder="Code" ng-model="token_course" name="token_course"  ng-minlength="5" required style="width: 70px;margin: auto;display: block">
+            <input type="text" class="form-control"  placeholder="Code" ng-model="token_course" name="token_course"  ng-maxlength="6" required style="width: 80px;margin: auto;display: block">
         </div>
 
     </div>

@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Expletus Sans';
+    src: url(ExpletusSans-Regular.ttf);
+}
+
+
 body{
     color: #204056;
     font-family: 'Expletus Sans', cursive;

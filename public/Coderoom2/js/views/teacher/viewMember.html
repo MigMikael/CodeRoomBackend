@@ -16,8 +16,8 @@
                 <div class="content-card-user-teacher">
                     <h3>{{teacher.name}}</h3>
                     <h4>Course</h4>
-                    <div class="col-md-6 col-xs-12" >
-
+                    <div class="col-md-6 col-xs-12" ng-repeat="course in teacher.courses">
+                        <p>{{course.name}}</p>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
             <div class="button-all-card">
                 <div class="row">
                     <div class="col-md-6">
-                        <button ng-click="showCodeCourse('sm',undefined,'รอapi ทีคืนtoken course')">Show Codecourse</button>
+                        <button ng-click="showCodeCourse('sm',undefined,viewMember.token)">Show Codecourse</button>
                     </div>
                     <div class="col-md-6">
                         <button ng-click="go('/uploadstudentlist/'+viewMember.id)">Add Students file</button>
