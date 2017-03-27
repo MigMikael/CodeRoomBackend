@@ -18,9 +18,7 @@ app.controller('dashBoardteacherController',function($scope,$http,$localStorage,
         dashboardTeacher.getData(token).then(
             function(response){
                 var data = response.data;
-                if(data.status === "session expired"){
-                    $scope.timeOut();
-                }
+                $scope.checkTimeOut(data);
                 $scope.dataDashboard = data;
                 console.log($scope.dataDashboard);
 
