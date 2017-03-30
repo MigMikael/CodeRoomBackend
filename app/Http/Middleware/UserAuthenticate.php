@@ -23,9 +23,9 @@ class UserAuthenticate
             return response()->json(['status' => 'session expired']);
         }
 
-        if(!($request->session()->has('userRole'))){
+        /*if(!($request->session()->has('userRole'))){
             return response()->json(['status' => 'session expired']);
-        }
+        }*/
 
         if($request->hasHeader('Authorization_Token')){
             $student = Student::where('token', '=', $request->header('Authorization_Token'))->first();

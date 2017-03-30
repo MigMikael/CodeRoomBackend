@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\TokenGenerate;
 use App\Announcement;
 use App\Course;
 use App\Lesson;
@@ -41,13 +42,18 @@ class CourseController extends Controller
         $color = Request::get('color');
         $status = Request::get('status');
         $file = Request::file('photo');
+        $token = (new TokenGenerate())->generate(6);
 
         Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
         $image_path = url('api/course/image/'). str_replace('.','_',$file->getClientOriginalName());
         //Log::info('#### '.$image_path);
 
         $course_data = [
-            'name' => $name , 'color' => $color, 'status' => $status, 'image' => $image_path
+            'name' => $name ,
+            'color' => $color,
+            'status' => $status,
+            'image' => $image_path,
+            'token' => $token
         ];
         Course::firstOrCreate($course_data);
         return redirect('course');
