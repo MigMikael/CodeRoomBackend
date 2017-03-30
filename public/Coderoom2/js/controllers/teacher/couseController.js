@@ -1,5 +1,5 @@
 
-app.controller('courseTeacherController',function($scope,$localStorage,$location, $http,courseTeacher,$routeParams, $uibModal,$log) {
+app.controller('courseTeacherController',function($scope,$localStorage,$location, $http,courseTeacher,$routeParams, $uibModal,$log,$rootScope) {
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
@@ -9,10 +9,9 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
             if(data.status === "session expired"){
-                $scope.timeOut()
+                $scope.timeOut();
             }
         }
-
     }
 
     function getData(token,course_id) {
@@ -30,8 +29,16 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
             });
 
     }
-
-
+    $scope.goAddannoucment = function (path) {
+        $rootScope.statusAnnouncement = "addAnnouncement";
+        $rootScope.announcement_content = null;
+        $location.path( path );
+    }
+    $scope.goEditAnnoucment = function (path,content) {
+        $rootScope.statusAnnouncement = "editAnnouncement";
+        $rootScope.announcement_content = content;
+        $location.path( path );
+    }
 
     $scope.go = function ( path ) {
         $location.path( path );

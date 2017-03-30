@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/background.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/logo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/css/main.css" afterPath="$PROJECT_DIR$/public/Coderoom2/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/couseController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/couseController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editAnnouncementController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editAnnouncementController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/home.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/navbar.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/navbar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/markdown_preview.js" afterPath="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/markdown_preview.js" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -15,7 +30,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="ComposerSettings">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <pharPath>1 C:\ProgramData\ComposerSetup\bin\composer.phar</pharPath>
@@ -61,11 +75,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/app.js">
+      <file leaf-file-name="addAnnouncement.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="121" column="15" selection-start-line="121" selection-start-column="15" selection-end-line="121" selection-end-column="44" />
+            <state relative-caret-position="240">
+              <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -74,48 +88,83 @@
       <file leaf-file-name="course.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.166667">
-              <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+            <state relative-caret-position="177">
+              <caret line="30" column="102" lean-forward="false" selection-start-line="30" selection-start-column="102" selection-end-line="30" selection-end-column="102" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="session.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/session.php">
+      <file leaf-file-name="addAnnouncement.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.6296296">
-              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="288">
+              <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+              <folding>
+                <marker date="1490798163000" expanded="true" signature="133:2799" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashBoardController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            <state relative-caret-position="252">
+              <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="couseController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="editAnnouncementController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editAnnouncementController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <marker date="1490797598000" expanded="true" signature="154:3314" ph="{...}" />
+                <marker date="1490797598000" expanded="true" signature="533:998" ph="{...}" />
+                <marker date="1490797598000" expanded="true" signature="631:905" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="couseController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/couseController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.627907">
-              <caret line="193" column="11" selection-start-line="193" selection-start-column="11" selection-end-line="193" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="214">
+              <caret line="31" column="46" lean-forward="false" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+              <folding>
+                <marker date="1490798007000" expanded="true" signature="144:7468" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Coderoom2/css/main.css">
+      <file leaf-file-name="markdown_preview.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/markdown_preview.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
-              <caret line="223" column="46" selection-start-line="223" selection-start-column="46" selection-end-line="223" selection-end-column="46" />
+            <state relative-caret-position="268">
+              <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+              <folding>
+                <marker date="1490797938000" expanded="true" signature="1209:1235" ph="..." />
+                <marker date="1490797938000" expanded="true" signature="1281:1357" ph="..." />
+                <marker date="1490797938000" expanded="true" signature="1470:1488" ph="..." />
+                <marker date="1490797938000" expanded="true" signature="2032:2058" ph="..." />
+                <marker date="1490797938000" expanded="true" signature="2104:2180" ph="..." />
+                <marker date="1490797938000" expanded="true" signature="2293:2311" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editAnnouncement.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -155,19 +204,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/markdown_preview.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/changePassword.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addLesson.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addStudentSort.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/dashBoard.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editLesson.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/listProblem.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/navbar.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/changePassword.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/editProfile.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/readAnnouncemnet.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/viewCourse.html" />
@@ -191,26 +230,36 @@
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/disableStudent.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/showCodeCourse.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/uploadStudentlist.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/couseController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/listProblemController.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editProblem.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editProblem.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/css/main.css" />
         <option value="$PROJECT_DIR$/public/Coderoom2/coderoom.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/model/joinCourse.html" />
         <option value="$PROJECT_DIR$/config/session.php" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/course.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/viewMember.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/home.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/navbar.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/css/main.css" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editAnnouncementController.js" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/markdown_preview.js" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/couseController.js" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true">
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
     <package-json value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="JsGulpfileManager">
@@ -220,9 +269,7 @@
         <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
       </GulpfileState>
     </gulpfiles>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/public/Coderoom2/lib/node_modules" />
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
     <servers />
@@ -307,7 +354,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="699" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -325,15 +372,8 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -350,14 +390,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="CodeRoomBackend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -367,6 +411,76 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="problem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,6 +513,84 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Coderoom2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coderoom2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coderoom2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeRoomBackend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coderoom2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular-markdown-preview" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -853,7 +1045,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CV" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -862,13 +1054,20 @@
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="SearchEverywhereHistoryKey" value="content-card-user-teacher&#9;null&#9;null&#10;card-lesson&#9;null&#9;null&#10;card-announcement&#9;null&#9;null&#10;cricle-user-dropdown&#9;null&#9;null&#10;changePass&#9;null&#9;null&#10;submit-card-all-add&#9;null&#9;null&#10;right-main-study-middle&#9;null&#9;null&#10;problem&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Problem.php&#10;rou&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/routes.php&#10;lessoncon&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/LessonController.php&#10;teachercon&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/TeacherController.php&#10;studentcon&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/StudentController.php&#10;studenttable&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/seeds/StudentTableSeeder.php&#10;create_tea&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_20_132949_create_teacher_table.php&#10;create_s&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_08_31_064405_create_student_table.php&#10;create_te&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_20_132949_create_teacher_table.php&#10;withCount&#9;null&#9;null&#10;lo&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/storage/logs/laravel.log&#10;log&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/storage/logs/laravel.log&#10;loh&#9;null&#9;null&#10;Problem&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/ProblemController.php&#10;da&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;lesson&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/LessonController.php&#10;course/s&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/resources/views/course/show.blade.php&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;datab&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;add_user&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_11_12_072732_add_user_and_pass_collum.php&#10;badge&#9;null&#9;null&#10;add_collum_type_&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_29_142355_add_collum_type_2.php&#10;imagec&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/ImageController.php&#10;add_coll&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_28_085439_add_collum_type.php&#10;annouc&#9;null&#9;null&#10;course&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/CourseController.php&#10;add_collum_type&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_28_085439_add_collum_type.php&#10;AddCollum&#9;null&#9;null&#10;studenttablesee&#9;null&#9;null&#10;Registeru&#9;null&#9;null&#10;AuthenticatesU&#9;null&#9;null&#10;AuthenticatesAndRe&#9;FILE&#9;file:///home/migmikael/Documents/LaravelProject/CodeRoomBackend/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php&#10;AuthenticatesA&#9;null&#9;null&#10;thr&#9;null&#9;null&#10;pro&#9;FILE&#9;file:///home/migmikael/Documents/LaravelProject/CodeRoomBackend/app/Problem.php" />
+    <property name="SearchEverywhereHistoryKey" value="background-circle-user&#9;null&#9;null&#10;content-card-user-teacher&#9;null&#9;null&#10;card-lesson&#9;null&#9;null&#10;card-announcement&#9;null&#9;null&#10;cricle-user-dropdown&#9;null&#9;null&#10;changePass&#9;null&#9;null&#10;submit-card-all-add&#9;null&#9;null&#10;right-main-study-middle&#9;null&#9;null&#10;problem&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Problem.php&#10;rou&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/routes.php&#10;lessoncon&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/LessonController.php&#10;teachercon&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/TeacherController.php&#10;studentcon&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/StudentController.php&#10;studenttable&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/seeds/StudentTableSeeder.php&#10;create_tea&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_20_132949_create_teacher_table.php&#10;create_s&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_08_31_064405_create_student_table.php&#10;create_te&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_20_132949_create_teacher_table.php&#10;withCount&#9;null&#9;null&#10;lo&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/storage/logs/laravel.log&#10;log&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/storage/logs/laravel.log&#10;loh&#9;null&#9;null&#10;Problem&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/ProblemController.php&#10;da&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;lesson&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/LessonController.php&#10;course/s&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/resources/views/course/show.blade.php&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;datab&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;add_user&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_11_12_072732_add_user_and_pass_collum.php&#10;badge&#9;null&#9;null&#10;add_collum_type_&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_29_142355_add_collum_type_2.php&#10;imagec&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/ImageController.php&#10;add_coll&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_28_085439_add_collum_type.php&#10;annouc&#9;null&#9;null&#10;course&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/app/Http/Controllers/CourseController.php&#10;add_collum_type&#9;FILE&#9;file://C:/Users/Mig/Documents/LaravelProject/CodeRoomBackend/database/migrations/2016_10_28_085439_add_collum_type.php&#10;AddCollum&#9;null&#9;null&#10;studenttablesee&#9;null&#9;null&#10;Registeru&#9;null&#9;null&#10;AuthenticatesU&#9;null&#9;null&#10;AuthenticatesAndRe&#9;FILE&#9;file:///home/migmikael/Documents/LaravelProject/CodeRoomBackend/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php&#10;AuthenticatesA&#9;null&#9;null&#10;thr&#9;null&#9;null&#10;pro&#9;FILE&#9;file:///home/migmikael/Documents/LaravelProject/CodeRoomBackend/app/Problem.php" />
     <property name="prop_add_unversioned_files" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/Coderoom2" />
+      <recent name="$PROJECT_DIR$/public/Coderoom2/lib" />
+      <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\storage\app\public\problem\5_PrimeNumber" />
+      <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\public\Coderoom2\lib\ngstorage" />
+      <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\storage\app\public\submission\1_Runners" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\public\Coderoom2\lib\ngstorage" />
       <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\public\font" />
@@ -876,128 +1075,18 @@
       <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\public\image" />
       <recent name="$PROJECT_DIR$/public/CodeRoom/image" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/Coderoom2/lib" />
-      <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\storage\app\public\problem\5_PrimeNumber" />
-      <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\public\Coderoom2\lib\ngstorage" />
-      <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\storage\app\public\submission\1_Runners" />
-      <recent name="C:\Users\Mig\Documents\LaravelProject\CodeRoomBackend\storage\app\public\problem\1_Runners" />
-    </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/CodeRoomBackend.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/CourseController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/ProblemController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/seeds/CourseTableSeeder.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/seeds/DatabaseSeeder.php</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -1006,7 +1095,22 @@
     <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -1023,6 +1127,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -1031,12 +1136,14 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
     <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter />
       <node-options />
       <working-directory />
       <pass-parent-env>true</pass-parent-env>
@@ -1049,7 +1156,9 @@
       <method />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -1058,6 +1167,7 @@
       <changelist id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="" />
       <created>1466148115730</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1466148115730</updated>
       <workItem from="1466148118294" duration="7249000" />
       <workItem from="1466158753092" duration="298000" />
@@ -1339,306 +1449,356 @@
       <workItem from="1486974656917" duration="692000" />
       <workItem from="1487072388933" duration="5930000" />
       <workItem from="1487219651006" duration="7477000" />
-    </task>
-    <task id="LOCAL-00106" summary="change some variable name">
-      <created>1486120450672</created>
-      <option name="number" value="00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1486120450673</updated>
+      <workItem from="1490689822154" duration="13069000" />
     </task>
     <task id="LOCAL-00107" summary="fix bug in student/teachet status">
       <created>1486122153954</created>
       <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
       <updated>1486122153954</updated>
     </task>
     <task id="LOCAL-00108" summary="fix bug in store api">
       <created>1486125896093</created>
       <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
       <updated>1486125896093</updated>
     </task>
     <task id="LOCAL-00109" summary="add more api">
       <created>1486385087871</created>
       <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
       <updated>1486385087871</updated>
     </task>
     <task id="LOCAL-00110" summary="api change user password">
       <created>1486476624437</created>
       <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
       <updated>1486476624440</updated>
     </task>
     <task id="LOCAL-00111" summary="api edit student profile">
       <created>1486625167437</created>
       <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
       <option name="project" value="LOCAL" />
       <updated>1486625167438</updated>
     </task>
     <task id="LOCAL-00112" summary="add fillable email">
       <created>1486627448305</created>
       <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
       <option name="project" value="LOCAL" />
       <updated>1486627448305</updated>
     </task>
     <task id="LOCAL-00113" summary="change middleware">
       <created>1486633815517</created>
       <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
       <option name="project" value="LOCAL" />
       <updated>1486633815517</updated>
     </task>
     <task id="LOCAL-00114" summary="create problem from web submission">
       <created>1486639522890</created>
       <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
       <option name="project" value="LOCAL" />
       <updated>1486639522890</updated>
     </task>
     <task id="LOCAL-00115" summary="add submission api for student">
       <created>1487078281976</created>
       <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
       <option name="project" value="LOCAL" />
       <updated>1487078281992</updated>
     </task>
     <task id="LOCAL-00116" summary="submission in non parse problem">
       <created>1487225527239</created>
       <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
       <option name="project" value="LOCAL" />
       <updated>1487225527240</updated>
     </task>
     <task id="LOCAL-00117" summary="show score testcase">
       <created>1487228915882</created>
       <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
       <option name="project" value="LOCAL" />
       <updated>1487228915882</updated>
     </task>
     <task id="LOCAL-00118" summary="show resulte">
       <created>1487230591539</created>
       <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
       <option name="project" value="LOCAL" />
       <updated>1487230591539</updated>
     </task>
     <task id="LOCAL-00119" summary="fix bug">
       <created>1487231919212</created>
       <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
       <option name="project" value="LOCAL" />
       <updated>1487231919212</updated>
     </task>
     <task id="LOCAL-00120" summary="fix bug">
       <created>1487232157051</created>
       <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
       <option name="project" value="LOCAL" />
       <updated>1487232157051</updated>
     </task>
     <task id="LOCAL-00121" summary="fix bug">
       <created>1487232260696</created>
       <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
       <option name="project" value="LOCAL" />
       <updated>1487232260696</updated>
     </task>
     <task id="LOCAL-00122" summary="fix bug">
       <created>1487232880965</created>
       <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
       <option name="project" value="LOCAL" />
       <updated>1487232880965</updated>
     </task>
     <task id="LOCAL-00123" summary="fix bug">
       <created>1487233381609</created>
       <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
       <option name="project" value="LOCAL" />
       <updated>1487233381609</updated>
     </task>
     <task id="LOCAL-00124" summary="update addProblem (notparse)">
       <created>1487235004107</created>
       <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
       <option name="project" value="LOCAL" />
       <updated>1487235004107</updated>
     </task>
     <task id="LOCAL-00125" summary="fix bug study">
       <created>1487235756608</created>
       <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
       <option name="project" value="LOCAL" />
       <updated>1487235756608</updated>
     </task>
     <task id="LOCAL-00126" summary="fix bug study">
       <created>1487236374499</created>
       <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
       <option name="project" value="LOCAL" />
       <updated>1487236374500</updated>
     </task>
     <task id="LOCAL-00127" summary="fix bug study">
       <created>1487236757986</created>
       <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
       <option name="project" value="LOCAL" />
       <updated>1487236757987</updated>
     </task>
     <task id="LOCAL-00128" summary="fix bug study">
       <created>1487236988717</created>
       <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
       <option name="project" value="LOCAL" />
       <updated>1487236988717</updated>
     </task>
     <task id="LOCAL-00129" summary="fix bug study">
       <created>1487237272457</created>
       <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
       <option name="project" value="LOCAL" />
       <updated>1487237272457</updated>
     </task>
     <task id="LOCAL-00130" summary="fix bug study">
       <created>1487238393301</created>
       <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
       <option name="project" value="LOCAL" />
       <updated>1487238393302</updated>
     </task>
     <task id="LOCAL-00131" summary="fix bug study">
       <created>1487238686357</created>
       <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
       <option name="project" value="LOCAL" />
       <updated>1487238686358</updated>
     </task>
     <task id="LOCAL-00132" summary="fix bug study">
       <created>1487242859137</created>
       <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
       <option name="project" value="LOCAL" />
       <updated>1487242859137</updated>
     </task>
     <task id="LOCAL-00133" summary="fix bug study allfiles and numberFile">
       <created>1487245757972</created>
       <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
       <option name="project" value="LOCAL" />
       <updated>1487245757972</updated>
     </task>
     <task id="LOCAL-00134" summary="addproblem parse">
       <created>1487253855596</created>
       <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
       <option name="project" value="LOCAL" />
       <updated>1487253855596</updated>
     </task>
     <task id="LOCAL-00135" summary="addproblem parse">
       <created>1487254518787</created>
       <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
       <option name="project" value="LOCAL" />
       <updated>1487254518787</updated>
     </task>
     <task id="LOCAL-00136" summary="addproblem parse">
       <created>1487254944062</created>
       <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
       <option name="project" value="LOCAL" />
       <updated>1487254944062</updated>
     </task>
     <task id="LOCAL-00137" summary="addproblem parse">
       <created>1487255155677</created>
       <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
       <option name="project" value="LOCAL" />
       <updated>1487255155677</updated>
     </task>
     <task id="LOCAL-00138" summary="addproblem parse">
       <created>1487255422159</created>
       <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
       <option name="project" value="LOCAL" />
       <updated>1487255422159</updated>
     </task>
     <task id="LOCAL-00139" summary="addproblem parse">
       <created>1487255720637</created>
       <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
       <option name="project" value="LOCAL" />
       <updated>1487255720637</updated>
     </task>
     <task id="LOCAL-00140" summary="addproblem parse">
       <created>1487255985118</created>
       <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
       <option name="project" value="LOCAL" />
       <updated>1487255985118</updated>
     </task>
     <task id="LOCAL-00141" summary="ไกท์ user study view">
       <created>1487283300561</created>
       <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
       <option name="project" value="LOCAL" />
       <updated>1487283300562</updated>
     </task>
     <task id="LOCAL-00142" summary="ไกท์ user study view">
       <created>1487297057512</created>
       <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
       <option name="project" value="LOCAL" />
       <updated>1487297057512</updated>
     </task>
     <task id="LOCAL-00143" summary="ไกท์ user study view">
       <created>1487297158468</created>
       <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
       <option name="project" value="LOCAL" />
       <updated>1487297158468</updated>
     </task>
     <task id="LOCAL-00144" summary="student success , doing teacher">
       <created>1490006970920</created>
       <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
       <option name="project" value="LOCAL" />
       <updated>1490006970925</updated>
     </task>
     <task id="LOCAL-00145" summary="student success , doing teacher">
       <created>1490255654546</created>
       <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
       <option name="project" value="LOCAL" />
       <updated>1490255654546</updated>
     </task>
     <task id="LOCAL-00146" summary="fix bug listproblem (deleteproblem)">
       <created>1490257875420</created>
       <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
       <option name="project" value="LOCAL" />
       <updated>1490257875420</updated>
     </task>
     <task id="LOCAL-00147" summary="fix bug listproblem and problem">
       <created>1490258821406</created>
       <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
       <option name="project" value="LOCAL" />
       <updated>1490258821406</updated>
     </task>
     <task id="LOCAL-00148" summary="fix bug problem">
       <created>1490259067030</created>
       <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
       <option name="project" value="LOCAL" />
       <updated>1490259067030</updated>
     </task>
     <task id="LOCAL-00149" summary="fix bug problem">
       <created>1490259183673</created>
       <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
       <option name="project" value="LOCAL" />
       <updated>1490259183673</updated>
     </task>
     <task id="LOCAL-00150" summary="fix bug editproblem">
       <created>1490259808665</created>
       <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
       <option name="project" value="LOCAL" />
       <updated>1490259808665</updated>
     </task>
     <task id="LOCAL-00151" summary="fix bug editproblem">
       <created>1490261492319</created>
       <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
       <option name="project" value="LOCAL" />
       <updated>1490261492319</updated>
     </task>
     <task id="LOCAL-00152" summary="fix bug editproblem">
       <created>1490262761364</created>
       <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
       <option name="project" value="LOCAL" />
       <updated>1490262761364</updated>
     </task>
     <task id="LOCAL-00153" summary="fix bug editproblem">
       <created>1490267877476</created>
       <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
       <option name="project" value="LOCAL" />
       <updated>1490267877476</updated>
     </task>
     <task id="LOCAL-00154" summary="update font and view teacher and student">
       <created>1490607585354</created>
       <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
       <option name="project" value="LOCAL" />
       <updated>1490607585354</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="fix bug dashboard">
+      <created>1490608523705</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1490608523705</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1362233000" />
+    <option name="totallyTimeSpent" value="1375302000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1650,22 +1810,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="699" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="724" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20468278" sideWeight="0.5088282" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2613185" sideWeight="0.49117175" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32467532" sideWeight="0.49722" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24837662" sideWeight="0.54249406" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2041096" sideWeight="0.45750597" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24546953" sideWeight="0.45750597" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29885057" sideWeight="0.45909452" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3449367" sideWeight="0.45909452" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20468278" sideWeight="0.5088282" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1715,7 +1875,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="change some variable name" />
     <MESSAGE value="fix bug in student/teachet status" />
     <MESSAGE value="fix bug in store api" />
     <MESSAGE value="add more api" />
@@ -1740,7 +1899,8 @@
     <MESSAGE value="fix bug problem" />
     <MESSAGE value="fix bug editproblem" />
     <MESSAGE value="update font and view teacher and student" />
-    <option name="LAST_COMMIT_MESSAGE" value="update font and view teacher and student" />
+    <MESSAGE value="fix bug dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1749,418 +1909,403 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/viewCourse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="55" selection-start-line="0" selection-start-column="55" selection-end-line="0" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3087886">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/dashBoard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="55" selection-start-line="0" selection-start-column="55" selection-end-line="0" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5011876">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1021378">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/editProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07125891">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/profileController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8988764">
-          <caret line="57" column="3" selection-start-line="57" selection-start-column="3" selection-end-line="57" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.5">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/editProfileController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13483146">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editProfileController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.033707865">
-          <caret line="1" column="141" selection-start-line="1" selection-start-column="141" selection-end-line="1" selection-end-column="141" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/changePassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.833333">
-          <caret line="0" column="55" selection-start-line="0" selection-start-column="55" selection-end-line="0" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/changePasswordController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="54" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/changePasswordController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13483146">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/readAnnouncementController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.033707865">
-          <caret line="58" column="11" selection-start-line="58" selection-start-column="11" selection-end-line="58" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/readAnnouncement.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10688836">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="62" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/sortLessonController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53932583">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/sortLesson.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.391924">
-          <caret line="11" column="83" selection-start-line="11" selection-start-column="83" selection-end-line="11" selection-end-column="83" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="11" column="83" lean-forward="false" selection-start-line="11" selection-start-column="83" selection-end-line="11" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/sortProblem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.49643704">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addLesson.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14251782">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="25" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addProblemController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20224719">
-          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="72" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="72" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/uploadStudentlistController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.101123594">
-          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16853933">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="12" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="55" column="42" lean-forward="false" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/viewMemberController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.101123594">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteProblem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/disableStudent.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/uploadStudentlist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.035629455">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/viewMember.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/student/viewMember.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1805227">
-          <caret line="49" column="81" selection-start-line="49" selection-start-column="81" selection-end-line="49" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#4;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h1#0;n#div#1;n#div#0;n#div#4;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20224719">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="7" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="49" column="81" lean-forward="false" selection-start-line="49" selection-start-column="81" selection-end-line="49" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editProblem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="113" selection-start-line="29" selection-start-column="113" selection-end-line="29" selection-end-column="113" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="29" column="113" lean-forward="false" selection-start-line="29" selection-start-column="113" selection-end-line="29" selection-end-column="113" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/listProblemController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37078652">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/problem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editProblem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/model/joinCourse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18072289">
-          <caret line="6" column="159" selection-start-line="6" selection-start-column="159" selection-end-line="6" selection-end-column="159" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/coderoom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44578314">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="6" column="159" lean-forward="false" selection-start-line="6" selection-start-column="159" selection-end-line="6" selection-end-column="159" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/readAnnouncemnet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5">
-          <caret line="4" column="92" selection-start-line="4" selection-start-column="92" selection-end-line="4" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/course.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6280788">
-          <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="223" column="46" selection-start-line="223" selection-start-column="46" selection-end-line="223" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/viewMember.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.591133">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="18" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="4" column="92" lean-forward="false" selection-start-line="4" selection-start-column="92" selection-end-line="4" selection-end-column="92" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/showCodeCourse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14778325">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/listProblem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5541872">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="0">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/study.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/background.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/coderoom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html">
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addLesson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33251232">
-          <caret line="38" column="83" selection-start-line="38" selection-start-column="83" selection-end-line="38" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.006976744">
-          <caret line="149" column="21" selection-start-line="149" selection-start-column="21" selection-end-line="149" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="121" column="15" selection-start-line="121" selection-start-column="15" selection-end-line="121" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.166667">
-          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.6296296">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        <state relative-caret-position="1200">
+          <caret line="80" column="32" lean-forward="false" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        <state relative-caret-position="15">
+          <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="95" lean-forward="false" selection-start-line="0" selection-start-column="95" selection-end-line="0" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/viewMember.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/viewCodeSubmit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/problem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/dashBoardcontroller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/studentSubmitProblem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="8" column="144" lean-forward="false" selection-start-line="8" selection-start-column="144" selection-end-line="8" selection-end-column="144" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/viewMember.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/uploadStudentlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-167">
+          <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="73" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2018">
+          <caret line="149" column="21" lean-forward="false" selection-start-line="149" selection-start-column="21" selection-end-line="149" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="348" column="61" lean-forward="true" selection-start-line="348" selection-start-column="61" selection-end-line="348" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="790">
+          <caret line="88" column="30" lean-forward="true" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/lib/bower_components/angular-markdown-preview/markdown_preview.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+          <folding>
+            <marker date="1490797938000" expanded="true" signature="1209:1235" ph="..." />
+            <marker date="1490797938000" expanded="true" signature="1281:1357" ph="..." />
+            <marker date="1490797938000" expanded="true" signature="1470:1488" ph="..." />
+            <marker date="1490797938000" expanded="true" signature="2032:2058" ph="..." />
+            <marker date="1490797938000" expanded="true" signature="2104:2180" ph="..." />
+            <marker date="1490797938000" expanded="true" signature="2293:2311" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/editAnnouncement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="30" column="102" lean-forward="false" selection-start-line="30" selection-start-column="102" selection-end-line="30" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/couseController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.627907">
-          <caret line="193" column="11" selection-start-line="193" selection-start-column="11" selection-end-line="193" selection-end-column="25" />
+        <state relative-caret-position="214">
+          <caret line="31" column="46" lean-forward="false" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding>
+            <marker date="1490798007000" expanded="true" signature="144:7468" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editAnnouncementController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1490797598000" expanded="true" signature="154:3314" ph="{...}" />
+            <marker date="1490797598000" expanded="true" signature="533:998" ph="{...}" />
+            <marker date="1490797598000" expanded="true" signature="631:905" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="40" column="41" lean-forward="false" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <folding>
+            <marker date="1490798163000" expanded="true" signature="133:2799" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="35" column="14" lean-forward="false" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
           <folding />
         </state>
       </provider>

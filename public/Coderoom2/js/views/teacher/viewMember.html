@@ -76,41 +76,6 @@
     </div>
 </div>
 
-<div class="container">
-    <div style="width: 100%;background-color:#204060;height: 60px;text-align: center;margin-bottom: 20px">
-        <h3 style="text-align: center;margin:30px 0;color: white;line-height: 60px">Students</h3>
-    </div>
-    <div class="col-md-12">
-        <div class="nav-add-student">
-            <div class="center-nav-add-student">
-                <a ng-click="go('/addstudentsortteacher/'+viewMember.id)">Add Student</a>
-                <a ng-click="go('/uploadstudentlist/'+viewMember.id)">Upload Student List</a>
-            </div>
-        </div>
 
-    </div>
-
-    <div class="col-md-12" style="margin-bottom: 15px">
-        <div class="input-group" style="border: 1px solid #204060">
-            <span class="input-group-addon transparent" style="background-color: white;border: 0;border-right: 1px solid #204060;color: #204060;"><span class="glyphicon glyphicon-search"></span></span>
-            <input class="form-control left-border-none" placeholder="Search Students..." type="text" name="Search" style="border: 0;border-radius: 0;float: left" ng-model="nameCourse">
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="student in viewMember.students" ng-show="student.pivot.status == 'enable'">
-        <div class="card-student" >
-            <img src="{{student.image}}">
-            <div class="left-card-student">
-                <p>{{student.student_id}}</p>
-                <p>{{student.name}}</p>
-            </div>
-            <div class="right-card-student">
-                <div class="button-right-card-student" ng-click="disableStudent(student.id)">
-                    <p>Disable</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
 
 

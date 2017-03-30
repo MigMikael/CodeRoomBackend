@@ -3,6 +3,7 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
+
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
             if(data.status === "session expired"){
@@ -37,7 +38,7 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
     };
     $scope.addAnnouncement = function(){
         $scope.announcement.content  = $rootScope.announcement_content;
-        console.log($rootScope.announcement_content);
+        console.log($scope.announcement);
         $http.post('/api/teacher/announcement/store', $scope.announcement,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
@@ -53,7 +54,7 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
 
                 },
                 function(response){
-                    // failure callback
+
                 }
             );
     }

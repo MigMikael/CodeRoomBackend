@@ -3,7 +3,7 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
     $scope.user = $localStorage.user;
 
     $localStorage.announcement_id = $routeParams.announcement_id;
-
+    $rootScope.statusAnnouncement = "editAnnouncement";
     getData($localStorage.user.token,$localStorage.announcement_id);
 
 
@@ -21,7 +21,7 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
                     $scope.timeOut();
                 }
                 $scope.announcement  = response.data;
-                $localStorage.announcement_content = $scope.announcement.content;
+
                 console.log($scope.announcement);
 
             },

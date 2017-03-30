@@ -2,7 +2,14 @@
     font-family: 'Expletus Sans';
     src: url(ExpletusSans-Regular.ttf);
 }
-
+.navbar-brand {
+    padding: 0px;
+}
+.navbar-brand>img {
+    height: 100%;
+    padding: 15px;
+    width: 150px;
+}
 
 body{
     color: #204056;
@@ -176,7 +183,7 @@ table tbody tr td .user-table .user-table-img{
 .card-square-user .background-circle-user{
     width: 100%;
     height: 150px;
-    background: url('../java.png') no-repeat ;
+    background: url('../logo.png') no-repeat ;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;

@@ -38,9 +38,9 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
                 var data = response.data;
                 $scope.checkTimeOut(data);
                 if(data.length >0){
-                    $scope.studentSubmit = addPathimage(response.data);
+                    $scope.studentSubmit = addPathimage(data);
                     console.log($scope.studentSubmit);
-                    $scope.clickViewCode($scope.studentSubmit[0].sub_num);
+                    $scope.clickViewCode($localStorage.user.token,$scope.studentSubmit[0].sub_num);
                 }
 
 
@@ -78,8 +78,8 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
 
         return data;
     }
-    $scope.clickViewCode = function(submit_id){
-        viewCodeSubmit.getData($localStorage.user.token,submit_id).then(
+    $scope.clickViewCode = function(token,submit_id){
+        viewCodeSubmit.getData(token,submit_id).then(
             function(response){
                 var data = response.data;
                 $scope.checkTimeOut(data);

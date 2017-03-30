@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="col-md-12">
-                                <button ng-click="go('/addannouncementteacher/'+course.id)">Add Announcment</button>
+                                <button ng-click="goAddannoucment('/addannouncementteacher/'+course.id)">Add Announcment</button>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -106,7 +106,7 @@
 ">
                     <div class="row">
                         <div class="col-md-6">
-                            <button ng-click="go('/editannouncementteacher/'+ announcement.id)">Edit</button>
+                            <button ng-click="goEditAnnoucment('/editannouncementteacher/'+ announcement.id,announcement.content)">Edit</button>
                         </div>
                         <div class="col-md-6">
                             <button ng-click="checkDeleteAnnouncement('lg',undefined,announcement.id,announcement.title)">Delete</button>
