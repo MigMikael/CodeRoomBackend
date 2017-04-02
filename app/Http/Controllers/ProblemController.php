@@ -8,6 +8,7 @@ use App\Problem;
 use App\ProblemAnalysis;
 use App\ProblemFile;
 use App\ProblemScore;
+use App\Student;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use GuzzleHttp\Client;
@@ -15,6 +16,7 @@ use Log;
 use App\Submission;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class ProblemController extends Controller
 {
@@ -157,8 +159,8 @@ class ProblemController extends Controller
             }
         }
         $problem['question'] = url('problem/getQuestion/'.$problem->id);
-        $submission = Submission::where('problem_id', '=', $problem->id)->get()->last();
-        $problem['lastSubmission'] = $submission;
+        /*$submission = Submission::where('problem_id', '=', $problem->id)->get()->last();
+        $problem['lastSubmission'] = $submission;*/
 
         return $problem;
     }
@@ -313,10 +315,14 @@ class ProblemController extends Controller
 
     public function getProblemSubmission($id)
     {
-        $submissions = Submission::where('problem_id', '=', $id)->get();
+        /*$submissions = Submission::where('problem_id', '=', $id)
+            ->groupBy('student_id', 'desc')
+            ->get();*/
+        $submissions = DB::select('select * from submission where id IN (select max(id) FROM submission WHERE problem_id = ? GROUP BY student_id)', [$id]);
+        //$submissions = DB::select('select max(id) FROM submission WHERE problem_id = ? GROUP BY student_id', [$id]);
+
         foreach ($submissions as $submission){
-            $submission->student;
-            $submission->problem;
+            $submission->student = Student::findOrFail($submission->student_id)->makeHidden('token');
         }
 
         return $submissions;

@@ -116,6 +116,8 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/student/course/{id}/member', 'CourseController@getMember');
 
+    Route::post('api/student/course/join', 'CourseController@joinCourse');
+
     Route::get('api/student/course/{student_id}/{course_id}', 'CourseController@showCourseStudent');
 
     Route::get('api/student/lesson/{id}', 'LessonController@showLesson');
@@ -132,7 +134,7 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
@@ -173,7 +175,7 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
     Route::post('api/teacher/student/add/member', 'StudentController@addStudentMember');
     Route::post('api/teacher/student/add/members', 'StudentController@addStudentMembers');
 
-});
+//});
 
 
 #--------------------------------------------------------------------------------------------------------

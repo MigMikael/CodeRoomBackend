@@ -338,4 +338,36 @@ class CourseController extends Controller
 
         return $course;
     }
+
+    public function joinCourse()
+    {
+        $course_id = Request::get('course_id');
+        $student_id = Request::get('student_id');
+        $token = Request::get('token');
+
+        $course = Course::findOrFail($course_id);
+
+        $student_course = StudentCourse::where([
+            ['student_id', '=', $student_id],
+            ['course_id', '=', $course_id]
+        ])->first();
+
+        if(sizeof($student_course) > 0){
+            return response()->json(['msg' => 'already join this course']);
+        }
+
+        if($course->token == $token){
+            $student_course = [
+                'student_id' => $student_id,
+                'course_id' => $course_id,
+                'status' => 'enable',
+                'progress' => 0
+            ];
+
+            StudentCourse::create($student_course);
+            return response()->json(['msg' => 'join course success']);
+        }else{
+            return response()->json(['msg' => 'token mismatch']);
+        }
+    }
 }
