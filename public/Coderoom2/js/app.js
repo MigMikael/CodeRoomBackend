@@ -141,7 +141,22 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/admin/dashBoard.html",
             controller: "dashboardAdminController"
         })
-
+        .when("/addcourseadmin", {
+            templateUrl : "js/views/admin/addCourse.html",
+            controller: "addCourseAdminController"
+        })
+        .when("/createteacheradmin", {
+            templateUrl : "js/views/admin/createTeacher.html",
+            controller: "createTeacherAdminController"
+        })
+        .when("/createadmin", {
+            templateUrl : "js/views/admin/createAdmin.html",
+            controller: "createAdminController"
+        })
+        .when("/addteachercourseAdmin/:course_id", {
+            templateUrl : "js/views/admin/addTeacherCourse.html",
+            controller: "addTeacherCourseAdminController"
+        })
 
         .otherwise({
         redirectTo: '/home',

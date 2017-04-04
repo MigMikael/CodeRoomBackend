@@ -5,8 +5,8 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-4 col-xs-12" ng-repeat="myCourse in dataDashboard.student.courses">
-            <div class="card-course">
+        <div class="col-md-4 col-xs-12" ng-repeat="myCourse in dataDashboard.student.courses" ng-show="myCourse.pivot.status === 'enable'">
+            <div class="card-course" >
                 <img  src="{{myCourse.image}}">
                 <div class="headder-card-course">
                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
@@ -29,7 +29,8 @@
     </div>
 
 </div>
-<div class="container">
+<span ng-show="dataDashboard.courses.length !== 0">
+    <div class="container">
     <h2 style="text-align: center;color: #fc6e51">Courses</h2>
 </div>
 <div class="container">
@@ -45,21 +46,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="course in dataDashboard.courses">
+                <tr ng-repeat="course in dataDashboard.courses" >
                     <td style="text-align: center">{{$index+1}}</td>
                     <td>
-                        <div class="list-card-course" style="background-color: inherit">
+                        <div class="list-card-course" style="background-color: inherit" >
                             <div class="square-img-card-course">
                                 <img src="{{course.image}}">
                             </div>
                             <div class="content-list-card-course">
-                                <h3>{{course.name}}</h3>
+                                <h3>{{course.name}} ({{course.status}})</h3>
                                 <h4>Teachers: <span>{{course.teachers_count}}</span> Students: <span>{{course.students_count}}</span> Lessons: <span>{{course.lessons_count}}</span></h4>
                             </div>
                         </div>
                     </td>
                     <td><button class="btn btn-default" style="margin: auto;display: block;margin-top: 25px" ng-click="go('/viewcoursestudent/'+course.id)">View Course</button></td>
-                    <td><button class="btn btn-success" style="margin: auto;display: block;margin-top: 25px" ng-click="joinCourse ('sm')">Join</button></td>
+                    <td><button class="btn btn-success" style="margin: auto;display: block;margin-top: 25px" ng-click="joinCourse ('sm',undefined,course.id)" ng-disabled="course.status === 'disable'">Join</button></td>
 
                 </tr>
                 </tbody>
@@ -67,4 +68,6 @@
         </div>
     </div>
 </div>
+</span>
+
 

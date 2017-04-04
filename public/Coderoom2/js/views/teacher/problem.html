@@ -352,24 +352,12 @@
                     </div>
 
                 </td>
-                <td><button class="btn btn-danger" style="margin: auto;display: block;margin-top: 25px" ng-click="clickViewCode(student.id)">Disable</button></td>
+                <td><button class="btn btn-primary" style="margin: auto;display: block;margin-top: 25px" ng-click="clickViewCode(student.id)">View Code</button></td>
 
             </tr>
 
             </tbody>
         </table>
-            <div class="col-md-12" ng-repeat="student in studentSubmit">
-                <div class="card-user-student" ng-click="clickViewCode(student.id)">
-                    <div class="circle-img-card-user-student">
-                        <img src="{{student.student.image}}">
-                    </div>
-                    <div class="content-card-user-student">
-                        <h5>Student Code: {{student.student.student_id}}</h5>
-                        <h3>{{student.student.name}}</h3>
-                        <p>submit_num: {{student.sub_num}}</p>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="col-md-6">
             <div class="list-file-problem" >

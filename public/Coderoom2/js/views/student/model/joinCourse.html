@@ -9,8 +9,10 @@
 
     </div>
     <div class="modal-footer">
-        <h5 style="color: red;float: left;" ng-show="massageSubmitToken.status">{{massageSubmitToken.msg}}</h5>
+        <h5 style="color: red;float: left;" ng-show="massageError.status">{{massageError.msg}}</h5>
         <button class="btn btn-primary" type="button" ng-click="submitToken()" ng-disabled="submitTokenCourse.$invalid">Join</button>
+        <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+
     </div>
 
 </form>

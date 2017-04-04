@@ -70,7 +70,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
             );
     }
 
-    $scope.disableStudent = function(student_id){
+    $scope.enableOrdisableStudent = function(student_id){
         $http.get('/api/teacher/student/disable/'+student_id+"/"+$localStorage.course_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
@@ -145,13 +145,18 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
         })
         modalInstance.result.then(function (massage) {
             if(massage === "DisableStudent"){
-                $scope.disableStudent(student_id);
+                $scope.enableOrdisableStudent(student_id);
             }
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
 
     }
+
+    $scope.enableStudent = function (student_id) {
+        $scope.enableOrdisableStudent(student_id);
+    }
+
 
     $scope.showCodeCourse = function (size, parentSelector,code_course) {
         console.log(code_course);

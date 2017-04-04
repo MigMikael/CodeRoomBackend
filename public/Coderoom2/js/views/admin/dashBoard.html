@@ -1,0 +1,76 @@
+<div ng-include="'js/views/admin/navbar.html'"></div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="container">
+                <h1 style="color:#e01563;text-align: center">Manage</h1>
+            </div>
+
+            <div class="button-all-card">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 >Courses</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <button ng-click="go('/addcourseadmin')">Add Course</button>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 >Teachers</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <button ng-click="go('/createteacheradmin')">Crate Teacher</button>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 >Admin</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <button ng-click="go('/createadmin')">Crate Admin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="container">
+                <h1 style="color: #00b4a2;text-align: center">Courses</h1>
+            </div>
+
+            <table class="table table-hover" style="margin-top: 0">
+                <thead class="thead-default">
+                <tr>
+                    <th style="text-align: center">#</th>
+                    <th>Courses</th>
+                    <th style="text-align: center">Add Teachers</th>
+                    <th style="text-align: center">Disable Course</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="">
+                    <td style="text-align: center">{{$index+1}}</td>
+                    <td>
+                        <div class="list-card-course" style="background-color: inherit" >
+                            <div class="square-img-card-course">
+                                <img src="{{course.image}}">
+                            </div>
+                            <div class="content-list-card-course">
+                                <h3>{{course.name}} ({{course.status}})</h3>
+                                <h4>Teachers: <span>{{course.teachers_count}}</span> Students: <span>{{course.students_count}}</span> Lessons: <span>{{course.lessons_count}}</span></h4>
+                            </div>
+                        </div>
+                    </td>
+                    <td><button class="btn btn-default" style="margin: auto;display: block;margin-top: 25px" ng-click="go('/addteachercourseAdmin/'+course.id)">Add Teachers</button></td>
+                    <td><button class="btn btn-danger" style="margin: auto;display: block;margin-top: 25px" ng-click="checkDisableCourse('lg',undefined,course.id,course.name)">Disable</button></td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

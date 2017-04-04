@@ -72,8 +72,8 @@ class ProblemFileController extends Controller
         $dirName = 'problem/'.$problem_id.'_'.$problem_name;
 
         Storage::disk('public')->deleteDirectory($dirName);
-        $permissions = intval( '0755', 8 );
-        Storage::disk('public')->makeDirectory($dirName, $permissions, true);
+        $permissions = intval( '0777', 8 );
+        Storage::disk('public')->makeDirectory($dirName ,$permissions , true );
 
         $folderPath = storage_path('\\app\\public\\' . $dirName .'\\');
         $filePath = storage_path('app\\public\\'.$problem_id.'_'.$problem_name.'.'.$extension);

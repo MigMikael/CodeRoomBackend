@@ -1,10 +1,10 @@
 
 app.controller('dashBoardstudentController',function($scope,$localStorage,dashBoardStudent,$http, $location,$rootScope,$uibModal, $log, $document) {
-    $scope.cardUser = false;
+
 
     getData($localStorage.user.token);
     $scope.dataDashboard;
-    $rootScope.user = $localStorage.user;
+    $scope.user = $localStorage.user;
 
     function getData(token) {
 
@@ -44,17 +44,14 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
         return data;
     }
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
-
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
         }
-        $scope.cardUser = !$scope.cardUser;
-    };
+
+    }
 
     $scope.go = function ( path ) {
         $location.path( path );
@@ -85,9 +82,10 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
     //model
     $scope.animationsEnabled = true;
 
-    $scope.joinCourse = function (size, parentSelector) {
+    $scope.joinCourse = function (size, parentSelector,courseId) {
         var parentElem = parentSelector ?
             angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             ariaLabelledBy: 'modal-title',
@@ -95,50 +93,71 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
             templateUrl: '../Coderoom2/js/views/student/model/joinCourse.html',
             controller: function($scope,$uibModalInstance){
                 $scope.token_course;
+                $scope.massageError = {
+
+                };
+
+                $scope.checkTimeOut = function(data){
+                    if(data.status !== undefined){
+                        if(data.status === "session expired"){
+                            $scope.timeOut()
+                        }
+                    }
+
+                }
+
+                $scope.postTokencourse = {
+                    student_id: $localStorage.user.id,
+                };
                 $scope.submitToken = function () {
-                    $uibModalInstance.close($scope.token_course);
+                    $scope.postTokencourse.course_id = courseId;
+
+                    $scope.postTokencourse.token = $scope.token_course;
+
+                    $http.post('/api/student/course/join', $scope.postTokencourse, {
+                        headers: {
+                            'Authorization_Token': $localStorage.user.token
+                        }
+                    })
+                        .then(
+                            function (response) {
+                                console.log(response.data);
+                                var data = response.data;
+                                $scope.checkTimeOut(data);
+                                if(data.msg==="join course success"){
+                                    $uibModalInstance.dismiss('cancel');
+                                    location.reload();
+                                }else if(data.msg === "token mismatch"){
+                                    $scope.massageError.msg = "Code Course is mismatch";
+                                    $scope.massageError.status = true;
+                                }
+                            },
+                            function (response) {
+                                // failure callback
+                            }
+                        );
+
                 };
 
                 $scope.cancel = function () {
                     $uibModalInstance.dismiss('cancel');
                 };
+
             },
             size: size,
             appendTo: parentElem,
 
         })
         modalInstance.result.then(function (token) {
-            $scope.submitTokenCourse(token);
+
+            $scope.submitTokenCourse(token,course_id);
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
 
     }
-    $scope.submitTokenCourse = function(){
-        $http.post('/api', $scope.token_course, {
-                headers: {
-                    'Authorization_Token': $localStorage.user.token
-                }
-            })
-            .then(
-                function (response) {
-                    console.log(response.data);
-                    var data = response.data;
-                    /*
-                     if(success){
-                     window.location.reload()
-                     //$location.path('/dashboardstudent');
-                     }else{
-                     $scope.massageSubmitToken.msg = data.msg;
-                     $scope.massageSubmitToken.status = true;
-                     }
-                     */
-                },
-                function (response) {
-                    // failure callback
-                }
-            );
-    }
+
+
 
 
 

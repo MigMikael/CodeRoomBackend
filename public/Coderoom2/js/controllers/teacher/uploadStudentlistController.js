@@ -46,7 +46,7 @@ app.controller('uploadStudentlistController',function($scope,$localStorage,$rout
 
 
         file.upload = Upload.upload({
-            url: '/',
+            url: '/api/teacher/students/store',
             data: {zip: $scope.zip,course_id: $localStorage.course_id},
         });
 

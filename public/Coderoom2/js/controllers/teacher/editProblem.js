@@ -121,7 +121,7 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
 
         $scope.loading = true;
         file.upload = Upload.upload({
-            url: '/api/teacher/problem/store',
+            url: '/api/teacher/problem/edit',
             data: {file: file,
                 problem_id:$scope.problem.id,
                 name:$scope.problem.name,
@@ -457,11 +457,11 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
         if(view === "problemView"){
             $scope.problemView = true;
             $scope.parseProblemView = false;
-            console.log("update view problemView");
+
         }else if(view === "parseProblemView"){
             $scope.problemView = false;
             $scope.parseProblemView = true;
-            console.log("update view parseProblemView");
+
         }
     }
 

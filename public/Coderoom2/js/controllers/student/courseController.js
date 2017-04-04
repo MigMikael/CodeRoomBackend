@@ -1,7 +1,7 @@
 
 app.controller('courseController',function($scope,$http,courseStudent,$localStorage,$routeParams,$location,$uibModal) {
     $scope.course;
-    $scope.cardUser = false;
+
     $localStorage.course_id = $routeParams.course_id;
     $scope.user = $localStorage.user;
     //console.log($scope.user);
