@@ -11,6 +11,7 @@ app.controller('dashBoardstudentController',function($scope,$localStorage,dashBo
         dashBoardStudent.getData(token).then(
             function(response){
                 var data = response.data;
+                console.log(data);
                 if(data.status === "session expired"){
                     $scope.timeOut();
                 }else{

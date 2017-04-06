@@ -4,6 +4,7 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
     $localStorage.prob_id = $routeParams.prob_id;
     $scope.parseView = false;
 
+
     getData($localStorage.user.token,$localStorage.prob_id);
 
     $scope.checkTimeOut = function(data){
@@ -15,13 +16,14 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
 
     }
 
+
     function getData(token,prob_id) {
 
         problemTeacher.getData(token,prob_id).then(
             function(response){
                 var data = response.data;
                 $scope.checkTimeOut(data);
-                $scope.problem = data;
+                $scope.problem = cutClass(data);
                 console.log($scope.problem);
                 getStudentsubmitProblem($localStorage.user.token,$localStorage.prob_id);
             },
@@ -51,6 +53,23 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
 
     }
 
+    function cutClass(data){
+        for(var i in data){
+            if(i === "problem_files"){
+                for(j=0 ; j<data[i].length ; j++){
+                    for(z=0 ; z<data[i][j].problem_analysis.length ; z++){
+                        var splitClass = data[i][j].problem_analysis[z].class.split(';');
+                        data[i][j].problem_analysis[z].access_modifier_class = splitClass[0];
+                        data[i][j].problem_analysis[z].non_access_modifier_class = splitClass[1];
+                        data[i][j].problem_analysis[z].name_class = splitClass[2];
+                    }
+
+                }
+            }
+        }
+        return data;
+    }
+
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -78,11 +97,12 @@ app.controller('problemTeacherController',function($scope,$localStorage,$routePa
 
         return data;
     }
-    $scope.clickViewCode = function(token,submit_id){
-        viewCodeSubmit.getData(token,submit_id).then(
+    $scope.clickViewCode = function(submit_id){
+        viewCodeSubmit.getData($localStorage.user.token,submit_id).then(
             function(response){
                 var data = response.data;
                 $scope.checkTimeOut(data);
+                console.log(data);
                 if(data.length > 0){
                     $scope.allFiles = response.data;
                     console.log($scope.allFiles);

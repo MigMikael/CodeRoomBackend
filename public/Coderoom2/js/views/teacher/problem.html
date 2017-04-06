@@ -1,91 +1,86 @@
 <div ng-include="'js/views/teacher/navbar.html'"></div>
 
 <div class="container">
-    <div style=" box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
-        <table class="table table-hover" style="margin-bottom: 0;box-shadow: none;margin: 10px 0 0 0">
-            <thead >
-            <tr style="background-color: #e6e9ed">
-                <td>Problem Name</td>
-                <td>{{problem.name}}</td>
-            </tr>
-            </thead>
-            <tbody>
 
-            <tr>
-                <td>Description</td>
-                <td>{{problem.description}}</td>
-            </tr>
-            <tr>
-                <td>Time Limit</td>
-                <td>{{problem.timelimit}} s</td>
-            </tr>
-            <tr>
-                <td>Memory Limit</td>
-                <td>{{problem.memorylimit}} KB</td>
-            </tr>
-            <tr>
-                <td>Structure</td>
-                <td ng-show="problem.is_parse==='true'">Parse</td>
-                <td ng-show="problem.is_parse==='false'">Not Parse</td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="button-all-card" style="margin-top: 0;margin-bottom: 10px;">
-            <div class="row">
-                <div class="col-md-6">
-                    <button ng-click="go('/editproblem/'+problem.id)">Edit</button>
-                </div>
-                <div class="col-md-6">
-                    <button ng-click="checkDeleteProblem('lg',undefined,problem.id,problem.name)">Delete</button>
+    <div style=" box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);" class="row">
+        <div class="col-md-12">
+            <table class="table table-hover" style="margin-bottom: 0;box-shadow: none;margin: 10px 0 0 0">
+                <thead >
+                <tr style="background-color: #e6e9ed">
+                    <td>Problem Name</td>
+                    <td>{{problem.name}}</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>Description</td>
+                    <td>{{problem.description}}</td>
+                </tr>
+                <tr>
+                    <td>Time Limit</td>
+                    <td>{{problem.timelimit}} s</td>
+                </tr>
+                <tr>
+                    <td>Memory Limit</td>
+                    <td>{{problem.memorylimit}} KB</td>
+                </tr>
+                <tr>
+                    <td>Structure</td>
+                    <td ng-show="problem.is_parse==='true'">Parse</td>
+                    <td ng-show="problem.is_parse==='false'">Not Parse</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="button-all-card" style="margin-top: 0;margin-bottom: 10px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button ng-click="go('/editproblem/'+problem.id)">Edit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button ng-click="checkDeleteProblem('lg',undefined,problem.id,problem.name)">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+
 
 
 
 </div>
+
+
 
 
 <div class="container">
-    <div class="col-md-12">
-        <div class="panel panel-default" style="border-radius: 0">
-            <div class="panel-heading" style="background-color: white;background-image: none">Panel heading without title</div>
-            <div class="panel-body">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>1</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>100</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-<div class="container" ng-show="parseView">
     <div class="row">
-        <div class="col-md-12">
-            <h1 style="text-align: center;color: #e01563">Structure</h1>
-        </div>
-        <div class="col-md-12">
-            <form>
-                <span ng-repeat="file in result.submission_files">
+        <div class="col-md-12" >
+            <uib-accordion close-others="oneAtATime" >
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">{{file.filename}}</h3>
-                    </div>
-                    <div class="panel-body">
-                        <span ng-repeat="class in file.results">
+                <div uib-accordion-group class="panel-default" is-open="status.open" ng-repeat="file in problem.problem_files" style="margin-top: 20px">
+                    <uib-accordion-heading>
+                        {{file.filename}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    <table class="table">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Inputs & Outputs</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Input</td>
+                            <td ng-repeat="input in file.inputs">{{input.filename}}</td>
+                        </tr>
+                        <tr>
+                            <td>Output</td>
+                            <td ng-repeat="output in file.outputs">{{output.filename}}</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                    <span ng-repeat="class in file.problem_analysis">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card-detail-class class">
@@ -93,6 +88,7 @@
                                         <div class="name-point-card">
                                             <h4 class="name">{{class.name_class}}</h4>
                                             <h4 class="point">{{class.score.class}} Point</h4>
+
 
                                         </div>
                                         <div class="row">
@@ -133,6 +129,7 @@
                                             <h4 class="name" ng-show="class.enclose==='null'">-</h4>
                                             <h4 class="point" ng-show="class.enclose!=='null'">{{class.score.enclose}} Point</h4>
 
+
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +150,6 @@
                                         <div class="name-point-card">
                                             <h4 class="name">{{constructor.name}}</h4>
                                             <h4 class="point">{{constructor.score}} Point</h4>
-
 
                                         </div>
                                         <div class="row">
@@ -204,7 +200,6 @@
                                         <div class="name-point-card">
                                             <h4 class="name">{{attribute.name}}</h4>
                                             <h4 class="point">{{attribute.score}} Point</h4>
-
 
                                         </div>
                                         <div class="row">
@@ -258,7 +253,7 @@
                                         <p class="type-card-detail-class">Method</p>
                                         <div class="name-point-card">
                                             <h4 class="name">{{method.name}}</h4>
-                                            <h4 class="point">{{method.score}} Point</h4>
+                                            <h4 class="point">{{method.score}}Point</h4>
 
 
                                         </div>
@@ -295,7 +290,8 @@
                                                 <p>recursive</p>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p>{{method.recursive}}</p>
+                                                <p ng-show="method.recursive !== ''">{{method.recursive}}</p>
+                                                <p ng-show="method.recursive === ''">-</p>
 
 
                                             </div>
@@ -303,7 +299,9 @@
                                                 <p>loop</p>
                                             </div>
                                             <div class="col-sm-5">
-                                                <p>{{method.recursive}}</p>
+                                                <p ng-show="method.loop !== ''">{{method.loop}}</p>
+                                                <p ng-show="method.loop === ''">-</p>
+
                                             </div>
                                         </div>
 
@@ -311,14 +309,14 @@
                                 </div>
                             </div>
                         </span>
-                    </div>
                 </div>
-            </span>
-            </form>
+            </uib-accordion>
+
+
+
 
         </div>
     </div>
-</div>
 
 <div class="container">
     <div class="row">

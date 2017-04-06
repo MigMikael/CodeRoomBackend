@@ -157,6 +157,8 @@ class ProblemController extends Controller
                 $analysis->constructors;
                 $analysis->methods;
             }
+            $problemFile->inputs;
+            $problemFile->outputs;
         }
         $problem['question'] = url('problem/getQuestion/'.$problem->id);
         /*$submission = Submission::where('problem_id', '=', $problem->id)->get()->last();
