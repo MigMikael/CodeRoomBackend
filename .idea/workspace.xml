@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addTeacherCourseAdminController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createAdminController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createTeacherAdminController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/addTeacherCourse.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/createAdmin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/createTeacher.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/model/disableCourse.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/navbar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProblemFileController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProblemFileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/coderoom.html" afterPath="$PROJECT_DIR$/public/Coderoom2/coderoom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/css/main.css" afterPath="$PROJECT_DIR$/public/Coderoom2/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/app.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/dashboardAdminController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/dashboardAdminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/courseController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/courseController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/dashBoardcontroller.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/dashBoardcontroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editProblem.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editProblem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/uploadStudentlistController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/uploadStudentlistController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/profile.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/dashBoard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/student/model/joinCourse.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/student/model/joinCourse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addAnnouncement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteAnnouncement.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteAnnouncement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteLesson.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteLesson.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteProblem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteProblem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/disableStudent.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/disableStudent.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/showCodeCourse.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/showCodeCourse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/problem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/viewMember.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,36 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboardAdminController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/dashboardAdminController.js">
+      <file leaf-file-name="problemController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-166">
-              <caret line="79" column="4" lean-forward="false" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashBoard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="32" />
-              <folding>
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="disableCourse.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/model/disableCourse.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state relative-caret-position="180">
+              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -220,8 +163,8 @@
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteLesson.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/deleteProblem.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/teacher/model/disableStudent.html" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/admin/model/disableCourse.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html" />
       </list>
     </option>
   </component>
@@ -843,6 +786,10 @@
               <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teacher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -867,10 +814,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1636,14 +1579,7 @@
       <workItem from="1487072388933" duration="5930000" />
       <workItem from="1487219651006" duration="7477000" />
       <workItem from="1490689822154" duration="17568000" />
-      <workItem from="1491308615864" duration="9946000" />
-    </task>
-    <task id="LOCAL-00108" summary="fix bug in store api">
-      <created>1486125896093</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1486125896093</updated>
+      <workItem from="1491308615864" duration="10919000" />
     </task>
     <task id="LOCAL-00109" summary="add more api">
       <created>1486385087871</created>
@@ -1981,11 +1917,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490858899531</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="update admin view controller">
+      <created>1491328359729</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1491328359730</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1389747000" />
+    <option name="totallyTimeSpent" value="1390720000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2062,7 +2005,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="fix bug in store api" />
     <MESSAGE value="add more api" />
     <MESSAGE value="api change user password" />
     <MESSAGE value="api edit student profile" />
@@ -2087,7 +2029,8 @@
     <MESSAGE value="update font and view teacher and student" />
     <MESSAGE value="fix bug dashboard" />
     <MESSAGE value="fix bug mackdown" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug mackdown" />
+    <MESSAGE value="update admin view controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="update admin view controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2096,14 +2039,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editAnnouncementController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/course.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -2212,14 +2147,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1207">
-          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -2376,14 +2303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="170" column="17" lean-forward="false" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/addAnnouncement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -2490,10 +2409,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/model/disableCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="32" />
+        <state relative-caret-position="330">
+          <caret line="22" column="51" lean-forward="true" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
@@ -2503,10 +2430,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/model/disableCourse.html">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        <state relative-caret-position="266">
+          <caret line="170" column="17" lean-forward="false" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/services/teacher/problem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/problemController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding />
         </state>
       </provider>
