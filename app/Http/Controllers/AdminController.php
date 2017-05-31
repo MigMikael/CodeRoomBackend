@@ -11,7 +11,9 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        $courses = Course::all();
+        $courses = $courses = Course::withCount([
+            'students', 'teachers', 'lessons'
+        ])->get();
         foreach ($courses as $c){
             $c->students;
             $c->teachers;

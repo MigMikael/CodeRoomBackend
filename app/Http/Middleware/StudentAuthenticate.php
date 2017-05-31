@@ -20,7 +20,7 @@ class StudentAuthenticate
             $token = $request->header('Authorization_Token');
             $student = Student::where('token', '=', $token)->first();
 
-            $student->ip = $request->ip();
+            $student->ip = $request->getClientIp();
             $student->save();
 
             if($student == null){
