@@ -1,1 +1,56 @@
 <div ng-include="'js/views/admin/navbar.html'"></div>
+
+<div class="container">
+
+    <div class="col-md-8 col-md-offset-2" ng-show="isCreateTeacher">
+        <form class="form-horizontal" ng-submit="createTeacher() && formCreateTeacher.$valid" name="formCreateTeacher" >
+            <h3 style="text-align: center;margin-bottom: 15px">Create Teacher</h3>
+
+            <div class="form-group" ng-class="formCreateTeacher.username.$valid ? 'has-success':'has-error'">
+                <label  class="col-xs-2 control-label">Username</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control"  placeholder="Username" ng-model="teacher.username" name="username"   required>
+                </div>
+            </div>
+            <div class="form-group" ng-class="formCreateTeacher.email.$valid ? 'has-success':'has-error'">
+                <label  class="col-xs-2 control-label">Email</label>
+                <div class="col-xs-10">
+                    <input type="email" class="form-control"  placeholder="Email" ng-model="teacher.email" name="email"   required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" style="float: right" ng-disabled="formAddTeacher.$invalid">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2" ng-show="isShowDetailTeacher">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label  class="col-xs-2 control-label">Username</label>
+                <div class="col-xs-10">
+                    <p>{{teacher.username}}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-xs-2 control-label">Password</label>
+                <div class="col-xs-10">
+                    <p>{{teacher.password}}</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" style="float: right"  ng-show="changeView('createTeacher')">Create Teacher</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+

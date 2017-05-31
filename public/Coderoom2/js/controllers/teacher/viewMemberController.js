@@ -4,8 +4,35 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     $scope.cardUser = false;
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
+    $scope.isDelfuteView = true;
+    $scope.isLessonView = false;
+    $scope.sortView = {
+        select: {
+            view:"delfute"
+        },
+        values:[
+            {
+                view:"delfute"
+            },
+            {
+                view:"lesson"
+            }
+        ]
+
+    }
     getData($localStorage.user.token,$localStorage.course_id);
 
+    $scope.$watch(function () { return $scope.sortView.select.view; }, function (newData, oldData) {
+        if(newData === "delfute"){
+            $scope.isDelfuteView = true;
+            $scope.isLessonView = false;
+
+        }else if(newData === "lesson"){
+            $scope.isDelfuteView = false;
+            $scope.isLessonView = true;
+        }
+
+    });
 
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
@@ -188,6 +215,66 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
         });
 
     }
+
+    $scope.chackDropIP = function (size, parentSelector,student_id,student_name,student_ip) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+
+            templateUrl: '../Coderoom2/js/views/teacher/model/dropIPStudent.html',
+            controller: function($scope,$uibModalInstance){
+                $scope.student = {
+                    name: student_name,
+                    ip: student_ip,
+                }
+
+                $scope.confirmDropIP = function () {
+                    $uibModalInstance.close("DropIP");
+
+                };
+
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (massage) {
+            if(massage === "DropIP"){
+                $scope.dropIP(student_id);
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
+
+    $scope.dropIP = function (student_id) {
+        $http.post('/', student_id,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    location.reload();
+
+                },
+                function(response){
+
+                }
+            );
+    }
+
+
+
+
 });
 
 /**

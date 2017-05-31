@@ -4,7 +4,6 @@ app.factory('profileStudent', function($http) {
     var profileStudent = {};
 
     profileStudent.getData = function (token,user_id) {
-
         return $http.get(urlBase+user_id,{
             headers:{'Authorization_Token': token}
         });

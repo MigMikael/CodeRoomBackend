@@ -1,8 +1,41 @@
 
 
-app.controller('createAdminController',function($scope,$http,$localStorage,$routeParams,$location) {
+app.controller('createAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,allAdmin) {
     $scope.user = $localStorage.user;
 
+    $scope.admin_teacher = {
+        Teachers: [],
+        Admins: [],
+
+    }
+
+    //getAllAdmin($localStorage.user.token);
+    function getAllAdmin(token) {
+
+        allAdmin.getData(token).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.admin_teacher.Admins = data;
+                getAllTeacher();
+            },
+            function(response){
+                // failure call back
+            });
+
+    }
+    function getAllTeacher() {
+        allTeacherAdmin.getData(token).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.admin_teacher.Teachers = data;
+
+            },
+            function(response){
+                // failure call back
+            });
+    }
 
 
     $scope.checkTimeOut = function(data){
@@ -58,6 +91,24 @@ app.controller('createAdminController',function($scope,$http,$localStorage,$rout
                 function(response){
                     delete $localStorage.user;
                     $location.path('/home');
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
+
+    $scope.addAdmin = function () {
+
+        $http.post('/', $scope.admin_teacher.Admins ,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    $scope.go('/dashboardadmin');
+
                 },
                 function(response){
                     // failure callback

@@ -2,6 +2,12 @@
 
 app.controller('createTeacherAdminController',function($scope,$http,$localStorage,$routeParams,$location) {
     $scope.user = $localStorage.user;
+    $scope.isCreateTeacher = true;
+    $scope.isShowDetailTeacher = false;
+
+    $scope.teacher = {};
+
+
 
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
@@ -63,6 +69,42 @@ app.controller('createTeacherAdminController',function($scope,$http,$localStorag
             );
     }
 
+    $scope.changeView = function (view) {
+        if(view === "createTeacher"){
+            $scope.isCreateTeacher = true;
+            $scope.isShowDetailTeacher = false;
+        }else if(view === "detailTeacher"){
+            $scope.isCreateTeacher = false;
+            $scope.isShowDetailTeacher = true;
+        }
+    }
+
+    $scope.createTeacher = function () {
+        $scope.teacher.password = generatePassword();
+        console.log($scope.teacher);
+        $http.post('/', $scope.teachers ,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    $scope.changeView("detailTeacher");
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
+    function generatePassword() {
+        var length = 8,
+            charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            retVal = "";
+        for (var i = 0, n = charset.length; i < length; ++i) {
+            retVal += charset.charAt(Math.floor(Math.random() * n));
+        }
+        return retVal;
+    }
 
 
 });

@@ -4,12 +4,56 @@
 
 
 
-app.controller('addTeacherCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location) {
+app.controller('addTeacherCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,teacherCourseAdmin,allTeacherAdmin) {
     $scope.user = $localStorage.user;
 
     $localStorage.course_id = $routeParams.course_id;
 
+    $scope.teachers = {
+        Teachers:[],
+        Teachers_Course:[],
+    }
 
+    //getAllTeacher($localStorage.user.token);
+    function getAllTeacher(token) {
+
+        allTeacherAdmin.getData(token).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.teachers.Teachers = data;
+                getTeacherCourse(token);
+            },
+            function(response){
+                // failure call back
+            });
+
+
+
+    }
+
+    function getTeacherCourse(token) {
+        teacherCourseAdmin.getData(token).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.teachers.Teachers_Course = data;
+                manageTeachers();
+            },
+            function(response){
+                // failure call back
+            });
+    }
+
+    function manageTeachers() {
+        for(i=0 ; i<$scope.teachers.Teachers_Course.length ; i++){
+            for(j=0 ; j< $scope.teachers.Teachers.length ; j++){
+                if($scope.teachers.Teachers_Course[i].id === $scope.teachers.Teachers[j].id){
+                    $scope.teachers.Teachers.splice(j,1);
+                }
+            }
+        }
+    }
 
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
@@ -71,6 +115,23 @@ app.controller('addTeacherCourseAdminController',function($scope,$http,$localSto
             );
     }
 
+    $scope.addTeacherCourse = function(){
+
+        $http.post('/', $scope.teachers.Teachers_Course ,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    $scope.go('/dashboardadmin');
+
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
 
 
 });

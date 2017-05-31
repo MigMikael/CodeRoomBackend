@@ -28,26 +28,36 @@
 </div>
 
 <div class="container">
-    <h1 style="color: #49176d;text-align: center">Students</h1>
+    <h1 style="color: #49176d;text-align: center;">Students</h1>
+
+
+
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="button-all-card">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <button ng-click="showCodeCourse('sm',undefined,viewMember.token)">Show Codecourse</button>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <button ng-click="go('/uploadstudentlist/'+viewMember.id)">Add Students file</button>
+                    </div>
+                    <div class="col-md-4">
+                        <select  ng-model="sortView.select.view" style="width: 100%;margin-top: 4px;height: 45px;background-color: white;">
+                            <option ng-repeat="value in sortView.values" value="{{value.view}}">{{value.view}}</option>
+                        </select>
                     </div>
                 </div>
             </div>
-            <table class="table table-hover" style="margin-top: 0">
+            <table class="table table-hover" style="margin-top: 0" ng-show="isDelfuteView">
                 <thead class="thead-default">
                 <tr>
                     <th style="text-align: center">#</th>
                     <th>Students</th>
+                    <th style="text-align: center">Progress Course</th>
+                    <th style="text-align: center">IP</th>
                     <th style="text-align: center">Disable</th>
                 </tr>
                 </thead>
@@ -66,13 +76,129 @@
                         </div>
 
                     </td>
-                    <td ng-show="student.pivot.status=== 'enable'"><button class="btn btn-danger" style="margin: auto;display: block;margin-top: 25px" ng-click="chackDisableStudent('lg',undefined,student.id,student.name)">Disable</button></td>
-                    <td ng-show="student.pivot.status=== 'disable'"><button class="btn btn-primary" style="margin: auto;display: block;margin-top: 25px" ng-click="enableStudent(student.id)">Enable</button></td>
+                    <td style="text-align: center;padding-top: 50px;color: #00b4a2">
+                        {{50}}%
+                    </td>
+                    <td style="text-align: center;padding-top: 19px">
+                        {{student.ip}}192.168.1.1
+                        <button class="btn btn-warning" style="margin: auto;display: block" ng-click="chackDropIP('lg',undefined,student.id,student.name,student.ip)">Drop IP</button>
+
+                    </td>
+
+                    <td ng-show="student.pivot.status=== 'enable'"><button class="btn btn-danger" style="margin: auto;display: block;margin-top: 30px" ng-click="chackDisableStudent('lg',undefined,student.id,student.name)">Disable</button></td>
+                    <td ng-show="student.pivot.status=== 'disable'"><button class="btn btn-primary" style="margin: auto;display: block;margin-top: 30px" ng-click="enableStudent(student.id)">Enable</button></td>
 
                 </tr>
 
                 </tbody>
             </table>
+            <div style="overflow-x: scroll;margin-bottom: 20px">
+                <table class="table table-hover" style="margin-top: 0;box-shadow: none;margin-bottom: 0" ng-show="isLessonView" >
+                    <thead class="thead-default">
+                    <tr>
+                        <th  rowspan="2" style="text-align: center;">#</th>
+                        <th rowspan="2" >Students</th>
+                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
+                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
+                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
+                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
+                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="1" style="text-align: center">1</th>
+                        <th rowspan="1" style="text-align: center">2</th>
+                        <th rowspan="1" style="text-align: center">3</th>
+                        <th rowspan="1" style="text-align: center">4</th>
+                        <th rowspan="1" style="text-align: center">5</th>
+                        <th rowspan="1" style="text-align: center">6</th>
+                        <th rowspan="1" style="text-align: center">7</th>
+                        <th rowspan="1" style="text-align: center">1</th>
+                        <th rowspan="1" style="text-align: center">2</th>
+                        <th rowspan="1" style="text-align: center">3</th>
+                        <th rowspan="1" style="text-align: center">4</th>
+                        <th rowspan="1" style="text-align: center">5</th>
+                        <th rowspan="1" style="text-align: center">6</th>
+                        <th rowspan="1" style="text-align: center">7</th>
+                        <th rowspan="1" style="text-align: center">1</th>
+                        <th rowspan="1" style="text-align: center">2</th>
+                        <th rowspan="1" style="text-align: center">3</th>
+                        <th rowspan="1" style="text-align: center">4</th>
+                        <th rowspan="1" style="text-align: center">5</th>
+                        <th rowspan="1" style="text-align: center">6</th>
+                        <th rowspan="1" style="text-align: center">7</th>
+                        <th rowspan="1" style="text-align: center">1</th>
+                        <th rowspan="1" style="text-align: center">2</th>
+                        <th rowspan="1" style="text-align: center">3</th>
+                        <th rowspan="1" style="text-align: center">4</th>
+                        <th rowspan="1" style="text-align: center">5</th>
+                        <th rowspan="1" style="text-align: center">6</th>
+                        <th rowspan="1" style="text-align: center">7</th>
+                        <th rowspan="1" style="text-align: center">1</th>
+                        <th rowspan="1" style="text-align: center">2</th>
+                        <th rowspan="1" style="text-align: center">3</th>
+                        <th rowspan="1" style="text-align: center">4</th>
+                        <th rowspan="1" style="text-align: center">5</th>
+                        <th rowspan="1" style="text-align: center">6</th>
+                        <th rowspan="1" style="text-align: center">7</th>
+
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="student in viewMember.students">
+                        <td style="text-align: center">{{$index+1}}</td>
+                        <td>
+                            <div class="card-user-student" style="box-shadow: none;margin: 0;background-color: inherit">
+                                <div class="circle-img-card-user-student">
+                                    <img src="{{student.image}}">
+                                </div>
+                                <div class="content-card-user-student">
+                                    <h5>Student Code: {{student.student_id}}</h5>
+                                    <h6>{{student.name}}</h6>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td style="padding-top: 50px;color: #00b4a2">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+                        <td style="padding-top: 50px">1%</td>
+
+
+
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
         </div>
     </div>
 </div>

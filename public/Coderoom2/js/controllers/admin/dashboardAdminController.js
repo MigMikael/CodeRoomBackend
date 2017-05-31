@@ -2,22 +2,7 @@
 app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$localStorage,$routeParams,$location,$uibModal,$log) {
     $scope.user = $localStorage.user;
     $scope.dashBorad;
-    getData($localStorage.user.token);
-    function getData(token) {
 
-        dashBoardAdmin.getData(token).then(
-            function(response){
-                var data = response.data;
-                $scope.checkTimeOut(data);
-                $scope.dashBorad = response.data;
-                console.log($scope.dashBorad);
-
-            },
-            function(response){
-                // failure call back
-            });
-
-    }
 
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){

@@ -1,7 +1,37 @@
 
 
-app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location) {
+app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin) {
     $scope.user = $localStorage.user;
+
+    $scope.teachers = {
+        All_Teacher:[
+            {
+                name:"Thanadej Phadtong"
+            }
+        ],
+        Add_Teacher:[
+            {
+                name:"Thanadej Phadtong"
+            }
+
+        ],
+
+    }
+    //getData($localStorage.user.token);
+    function getData(token) {
+
+        allTeacherAdmin.getData(token).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.teachers.teacher_all = data;
+
+            },
+            function(response){
+                // failure call back
+            });
+
+    }
 
 
     $scope.checkTimeOut = function(data){
@@ -57,6 +87,22 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 function(response){
                     delete $localStorage.user;
                     $location.path('/home');
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
+    $scope.addCourse = function () {
+
+        $http.get('/', {headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data)
+                    console.log(data);
                 },
                 function(response){
                     // failure callback

@@ -153,7 +153,7 @@ app.config(function($routeProvider) {
             templateUrl : "js/views/admin/createAdmin.html",
             controller: "createAdminController"
         })
-        .when("/addteachercourseAdmin/:course_id", {
+        .when("/addteachercourseadmin/:course_id", {
             templateUrl : "js/views/admin/addTeacherCourse.html",
             controller: "addTeacherCourseAdminController"
         })
