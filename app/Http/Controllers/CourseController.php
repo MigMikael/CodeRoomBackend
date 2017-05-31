@@ -317,6 +317,10 @@ class CourseController extends Controller
         $course = Course::findOrFail($id);
         foreach ($course->students as $student){
             $student->pivot;
+            $student_course = StudentCourse::where([
+                ['student_id', $student->id],
+                ['course_id', $course->id]
+            ])->firstOrFail();
         }
         foreach ($course->teachers as $teacher){
             $teacher->courses;

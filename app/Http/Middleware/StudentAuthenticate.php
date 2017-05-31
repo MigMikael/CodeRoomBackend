@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Student;
 use Closure;
+use Log;
 
 class StudentAuthenticate
 {
@@ -19,6 +20,8 @@ class StudentAuthenticate
         if ($request->hasHeader('Authorization_Token')){
             $token = $request->header('Authorization_Token');
             $student = Student::where('token', '=', $token)->first();
+
+            Log::info($_SERVER['REMOTE_ADDR']);
 
             $student->ip = $request->getClientIp();
             $student->save();
