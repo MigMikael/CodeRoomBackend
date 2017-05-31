@@ -40,7 +40,6 @@ class CourseController extends Controller
     {
         $name = Request::get('name');
         $color = Request::get('color');
-        $status = Request::get('status');
         $file = Request::file('photo');
         $token = (new TokenGenerate())->generate(6);
 
@@ -51,7 +50,7 @@ class CourseController extends Controller
         $course_data = [
             'name' => $name ,
             'color' => $color,
-            'status' => $status,
+            'status' => 'enable',
             'image' => $image_path,
             'token' => $token
         ];
@@ -249,19 +248,6 @@ class CourseController extends Controller
         return $teachers;
     }
 
-    public function changeStatus($course_id)
-    {
-        $course = Course::findOrFail($course_id);
-        if($course->status == 'active'){
-            $course->status = 'inactive';
-        }else{
-            $course->status = 'active';
-        }
-        $course->save();
-
-        return back();
-    }
-
     #--------------------------------------------------------------------------------------------------------
 
     public function showCourseUser()
@@ -369,5 +355,18 @@ class CourseController extends Controller
         }else{
             return response()->json(['msg' => 'token mismatch']);
         }
+    }
+
+    public function changeStatus($course_id)
+    {
+        $course = Course::findOrFail($course_id);
+        if($course->status == 'enable'){
+            $course->status = 'disable';
+        }else{
+            $course->status = 'enable';
+        }
+        $course->save();
+
+        return back();
     }
 }

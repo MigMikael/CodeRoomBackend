@@ -6,7 +6,7 @@
             <h1>Add Student Member</h1>
         </div>
         <br>
-        {!! Form::open(['url' => 'api/student/add_one_student_member']) !!}
+        {!! Form::open(['url' => 'api/teacher/student/add/member']) !!}
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::label('course_id', 'CourseID :', ['class' => 'mdl-textfield__label']) !!}
                 {!! Form::text('course_id', null, ['class' => 'mdl-textfield__input']) !!}
@@ -29,7 +29,7 @@
             <h1>Add Student Member</h1>
         </div>
         <br>
-        {!! Form::open(['url' => 'api/student/add_many_student_member', 'files' => true]) !!}
+        {!! Form::open(['url' => 'api/teacher/student/add/members', 'files' => true]) !!}
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 {!! Form::label('course_id', 'CourseID :', ['class' => 'mdl-textfield__label']) !!}
                 {!! Form::text('course_id', null, ['class' => 'mdl-textfield__input']) !!}

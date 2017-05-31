@@ -53,6 +53,13 @@ class UserAuthController extends Controller
 
     public function logout(Request $request)
     {
+        $userRole = $request->session()->get('userRole');
+        if ($userRole == 'student'){
+            $userID = $request->session()->get('userID');
+            $student = Student::findOrFail($userID);
+            $student->ip = '';
+            $student->save();
+        }
         //remove all data from this session with flush
         $request->session()->flush();
         return response()->json(['msg' => 'logout complete']);

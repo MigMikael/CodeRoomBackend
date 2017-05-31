@@ -108,4 +108,9 @@ class TestController extends Controller
         return $problem;
     }
 
+    public function testGetIP(Request $request)
+    {
+        return \response()->json(['msg' => $request->ip()]);
+    }
+
 }

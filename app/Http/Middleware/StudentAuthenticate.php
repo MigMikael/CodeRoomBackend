@@ -20,6 +20,9 @@ class StudentAuthenticate
             $token = $request->header('Authorization_Token');
             $student = Student::where('token', '=', $token)->first();
 
+            $student->ip = $request->ip();
+            $student->save();
+
             if($student == null){
                 return response()->json(['status' => 'user unauthorized']);
             }

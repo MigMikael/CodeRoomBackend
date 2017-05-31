@@ -153,6 +153,7 @@ class ProblemController extends Controller
         foreach ($problemFiles as $problemFile){
             $problemAnalysis = $problemFile->problemAnalysis;
             foreach ($problemAnalysis as $analysis){
+                $analysis->score;
                 $analysis->attributes;
                 $analysis->constructors;
                 $analysis->methods;

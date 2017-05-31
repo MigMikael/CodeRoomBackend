@@ -242,10 +242,10 @@ class StudentController extends Controller
         return response()->json(['msg' => 'success']);
     }
 
-    public function addStudentMembers()
+    public function addStudentMembers(Request $request)
     {
-        $course_id = Request::get('course_id');
-        $studentListFile = Request::file('studentList');
+        $course_id = $request->get('course_id');
+        $studentListFile = $request->file('studentList');
 
         $fileName = $studentListFile->getClientOriginalName();
         Storage::disk('public')->put($fileName, File::get($studentListFile));
@@ -264,12 +264,14 @@ class StudentController extends Controller
             }
         }
 
+        $token = new TokenGenerate();
         foreach ($students as $student){
             $student = Student::firstOrCreate($student);
             if($student->image == ''){
                 $student->image = self::getAvatarImage();
                 $student->username = $student->student_id;
                 $student->password = bcrypt($student->student_id);
+                $student->token = $token->generate(10);
                 $student->save();
             }
 
@@ -379,5 +381,13 @@ class StudentController extends Controller
         }else{
             return response()->json(['msg' => 'password is incorrect']);
         }
+    }
+
+    public function removeIP($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->ip = '';
+        $student->save;
+        return response()->json(['msg' => 'remove ip complete']);
     }
 }

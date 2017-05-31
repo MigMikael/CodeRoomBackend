@@ -31,9 +31,9 @@
                 </a>
                 <a href="{{ url('course/'.$course->id.'/status') }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     @if($course->status == 'enable')
-                        inactive
+                        disable
                     @else
-                        active
+                        enable
                     @endif
                 </a>
             </div>

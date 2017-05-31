@@ -22,7 +22,8 @@ class Student extends Model
         'image',
         'username',
         'password',
-        'token'
+        'token',
+        'ip'
     ];
 
     public function badges()

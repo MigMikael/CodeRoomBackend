@@ -73,6 +73,7 @@ Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 #Route::get('test/getQuestion', 'TestController@testGetQuestion');
 #Route::get('test/count', 'TestController@testCount');
 #Route::get('test/order_problem', 'TestController@testProblemOrder');
+Route::get('test/getip', 'TestController@testGetIP');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
@@ -109,7 +110,7 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
     Route::get('api/student/dashboard', 'StudentController@dashboard');
 
     Route::get('api/student/profile/{id}', 'StudentController@getProfile');
-    // new
+
     Route::post('api/student/profile/edit', 'StudentController@updateProfile');
 
     Route::post('api/student/change_password', 'StudentController@changePassword');
@@ -175,7 +176,24 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
     Route::post('api/teacher/student/add/member', 'StudentController@addStudentMember');
     Route::post('api/teacher/student/add/members', 'StudentController@addStudentMembers');
 
+    Route::get('api/teacher/remove/ip/{id}', 'StudentController@removeIP');
+
 //});
+#--------------------------------------------------------------------------------------------------------
+#                               Teacher API
+#--------------------------------------------------------------------------------------------------------
+//Route::group(['middleware' => ['userAuth', 'adminAuth']], function (){
+
+    Route::get('api/admin/dashboard', 'AdminController@dashboard');
+    Route::post('api/admin/course', 'CourseController@store');
+    Route::get('api/admin/course/status', 'CourseController@changeStatus');
+    Route::post('api/admin/teacher', 'TeacherController@store');
+    Route::get('api/admin/teacher', 'TeacherController@getAll');
+
+//});
+
+
+
 
 
 #--------------------------------------------------------------------------------------------------------
