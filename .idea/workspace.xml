@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/StudentAuthenticate.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/StudentAuthenticate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
@@ -84,8 +83,38 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="188" column="51" lean-forward="false" selection-start-line="188" selection-start-column="51" selection-end-line="188" selection-end-column="51" />
+            <state relative-caret-position="116">
+              <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="309" column="26" lean-forward="false" selection-start-line="309" selection-start-column="26" selection-end-line="309" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Course.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Course.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeacherController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TeacherController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="150" column="19" lean-forward="false" selection-start-line="150" selection-start-column="19" selection-end-line="150" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -96,26 +125,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
               <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserAuthenticate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/UserAuthenticate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -136,16 +145,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
               <caret line="184" column="8" lean-forward="false" selection-start-line="184" selection-start-column="8" selection-end-line="186" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CourseController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="359" column="35" lean-forward="false" selection-start-line="359" selection-start-column="35" selection-end-line="359" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -233,10 +232,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/TestController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserAuthController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProblemController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/StudentAuthenticate.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
@@ -1224,14 +1223,7 @@
       <workItem from="1491464811527" duration="8801000" />
       <workItem from="1495693797820" duration="3459000" />
       <workItem from="1496141480453" duration="14598000" />
-      <workItem from="1496214226849" duration="3146000" />
-    </task>
-    <task id="LOCAL-00083" summary="rewrite Keep Problem Process">
-      <created>1479670608878</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1479670608882</updated>
+      <workItem from="1496214226849" duration="4072000" />
     </task>
     <task id="LOCAL-00084" summary="rewrite Keep Submission Process">
       <created>1479757366965</created>
@@ -1569,11 +1561,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496214485614</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="more api for admin">
+      <created>1496217436466</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1496217436466</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1464817000" />
+    <option name="totallyTimeSpent" value="1465743000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1627,7 +1626,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="fix bug in student/teachet status" />
     <MESSAGE value="fix bug in store api" />
     <MESSAGE value="add more api" />
     <MESSAGE value="api change user password" />
@@ -1652,7 +1650,8 @@
     <MESSAGE value="join course by token" />
     <MESSAGE value="upload problem and test add Problem" />
     <MESSAGE value="api for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="api for admin" />
+    <MESSAGE value="more api for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="more api for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1938,14 +1937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TeacherController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="116" column="27" lean-forward="false" selection-start-line="116" selection-start-column="27" selection-end-line="116" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/4077e0be/a64485c3-8611-4f84-94b5-728bbe99a8cb/seniorproject.student">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1981,14 +1972,6 @@
           <folding>
             <element signature="e#40#69#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2094,18 +2077,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TeacherController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="150" column="19" lean-forward="false" selection-start-line="150" selection-start-column="19" selection-end-line="150" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="359" column="35" lean-forward="false" selection-start-line="359" selection-start-column="35" selection-end-line="359" selection-end-column="35" />
+        <state relative-caret-position="353">
+          <caret line="309" column="26" lean-forward="false" selection-start-line="309" selection-start-column="26" selection-end-line="309" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="188" column="51" lean-forward="false" selection-start-line="188" selection-start-column="51" selection-end-line="188" selection-end-column="51" />
+        <state relative-caret-position="116">
+          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding />
         </state>
       </provider>

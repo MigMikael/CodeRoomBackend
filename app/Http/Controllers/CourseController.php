@@ -307,6 +307,7 @@ class CourseController extends Controller
         }
         $course->badges;
         $course->announcements;
+        $course->students;
 
         return $course;
     }
