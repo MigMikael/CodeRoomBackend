@@ -102,7 +102,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             function(response){
 
                 $scope.result = response.data;
-                console.log(result);
+                console.log($scope.result);
                 $scope.allFiles = $scope.result.submission_files;
                 $scope.changeFiles(0);
 
@@ -123,7 +123,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         $scope.aceValue = "";
 
         getResult($localStorage.user.token,$localStorage.user.id,$scope.problem.id);
-        openNav();
+        $scope.openHover();
     };
 
     //uploadZip
@@ -379,6 +379,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
             problem_id:$scope.problem.id,
             student_id:$localStorage.user.id,
         };
+        $scope.loading = true;
         console.log(dataSubmit);
         $http.post('/api/student/submission', dataSubmit,{headers:{
                 'Authorization_Token' : $localStorage.user.token
@@ -387,8 +388,16 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
                 function(response){
                     //console.log(response.data);
                     //console.log($scope.result);
+                    $scope.loading = false;
+                    var data = response.data;
+
+                    console.log(data);
+                    console.log($scope.result);
                     $scope.massageCompare = {};
-                    $scope.result.submission_files = response.data.submission_files;
+
+                        $scope.result.submission_files = data.submission_files;
+
+
                     console.log($scope.result);
                     if($scope.result.submission_files[0].results.length >0){
 
@@ -438,7 +447,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
     }
 
     $scope.openHover = function(){
-        console.log("hello");
+
         if($scope.isNav){
 
             document.getElementById("hover").style.width = "0";

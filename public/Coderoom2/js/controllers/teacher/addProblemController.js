@@ -382,7 +382,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
     $scope.addScoreProblem = function(){
         $scope.loading = true;
         console.log($scope.resultAnalyze);
-        $http.post('/api/teacher/problem/store_score', $scope.resultAnalyze, {headers:{
+        $http.post('/api/teacher/problem/store_score', $scope.resultAnalysis, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -396,7 +396,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
                 }
            );
     }
-    cutClass($scope.resultAnalysis);
+    //cutClass($scope.resultAnalysis);
     $scope.changeView = function(view){
         if(view === "problemView"){
             $scope.problemView = true;
