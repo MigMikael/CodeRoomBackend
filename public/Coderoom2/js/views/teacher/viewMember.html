@@ -58,7 +58,7 @@
                     <th>Students</th>
                     <th style="text-align: center">Progress Course</th>
                     <th style="text-align: center">IP</th>
-                    <th style="text-align: center">Disable</th>
+                    <th style="text-align: center">Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -77,10 +77,11 @@
 
                     </td>
                     <td style="text-align: center;padding-top: 50px;color: #00b4a2">
-                        {{50}}%
+                        {{student.pivot.progress}}%
                     </td>
                     <td style="text-align: center;padding-top: 19px">
-                        {{student.ip}}192.168.1.1
+                        <span ng-show="student.ip !== ''">{{student.ip}}</span>
+                        <span ng-show="student.ip === ''">-</span>
                         <button class="btn btn-warning" style="margin: auto;display: block" ng-click="chackDropIP('lg',undefined,student.id,student.name,student.ip)">Drop IP</button>
 
                     </td>
@@ -96,52 +97,12 @@
                 <table class="table table-hover" style="margin-top: 0;box-shadow: none;margin-bottom: 0" ng-show="isLessonView" >
                     <thead class="thead-default">
                     <tr>
-                        <th  rowspan="2" style="text-align: center;">#</th>
-                        <th rowspan="2" >Students</th>
-                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
-                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
-                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
-                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
-                        <th colspan="7" rowspan="1" style="text-align: center">Lesson name</th>
-                    </tr>
-                    <tr>
-                        <th rowspan="1" style="text-align: center">1</th>
-                        <th rowspan="1" style="text-align: center">2</th>
-                        <th rowspan="1" style="text-align: center">3</th>
-                        <th rowspan="1" style="text-align: center">4</th>
-                        <th rowspan="1" style="text-align: center">5</th>
-                        <th rowspan="1" style="text-align: center">6</th>
-                        <th rowspan="1" style="text-align: center">7</th>
-                        <th rowspan="1" style="text-align: center">1</th>
-                        <th rowspan="1" style="text-align: center">2</th>
-                        <th rowspan="1" style="text-align: center">3</th>
-                        <th rowspan="1" style="text-align: center">4</th>
-                        <th rowspan="1" style="text-align: center">5</th>
-                        <th rowspan="1" style="text-align: center">6</th>
-                        <th rowspan="1" style="text-align: center">7</th>
-                        <th rowspan="1" style="text-align: center">1</th>
-                        <th rowspan="1" style="text-align: center">2</th>
-                        <th rowspan="1" style="text-align: center">3</th>
-                        <th rowspan="1" style="text-align: center">4</th>
-                        <th rowspan="1" style="text-align: center">5</th>
-                        <th rowspan="1" style="text-align: center">6</th>
-                        <th rowspan="1" style="text-align: center">7</th>
-                        <th rowspan="1" style="text-align: center">1</th>
-                        <th rowspan="1" style="text-align: center">2</th>
-                        <th rowspan="1" style="text-align: center">3</th>
-                        <th rowspan="1" style="text-align: center">4</th>
-                        <th rowspan="1" style="text-align: center">5</th>
-                        <th rowspan="1" style="text-align: center">6</th>
-                        <th rowspan="1" style="text-align: center">7</th>
-                        <th rowspan="1" style="text-align: center">1</th>
-                        <th rowspan="1" style="text-align: center">2</th>
-                        <th rowspan="1" style="text-align: center">3</th>
-                        <th rowspan="1" style="text-align: center">4</th>
-                        <th rowspan="1" style="text-align: center">5</th>
-                        <th rowspan="1" style="text-align: center">6</th>
-                        <th rowspan="1" style="text-align: center">7</th>
+                        <th   style="text-align: center;">#</th>
+                        <th >Students</th>
+                        <th  style="text-align: center">Lesson name</th>
 
                     </tr>
+
 
                     </thead>
                     <tbody>
@@ -159,34 +120,10 @@
                             </div>
 
                         </td>
-                        <td style="padding-top: 50px;color: #00b4a2">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
-                        <td style="padding-top: 50px">1%</td>
+                        <td style="color: #00b4a2;text-align: center;padding-top: 50px">
+                            {{50}}%
+                        </td>
+
 
 
 

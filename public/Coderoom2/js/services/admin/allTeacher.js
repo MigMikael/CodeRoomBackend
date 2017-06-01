@@ -1,5 +1,5 @@
 app.factory('allTeacherAdmin', function($http) {
-    var urlBase = "/";
+    var urlBase = "/api/admin/teacher";
     var allTeacherAdmin = {};
 
     allTeacherAdmin.getData = function (token) {

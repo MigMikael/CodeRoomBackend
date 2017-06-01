@@ -1,33 +1,5 @@
-<nav class="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <a ng-click="go('/dashboardstudent')">CODEROOM</a>
-        </div>
-        <div class="navbar-user">
-            <div class="circle-user" ng-click="openCarduser()">
-                <img src="{{user.image}}">
-            </div>
-            <div class="navber-user-content" id="showCarduser">
-                <div class="card-navbar-content">
-                    <img src="{{user.image}}">
-                    <p>{{user.student_id}}</p>
-                    <h4>{{user.name}}</h4>
-                </div>
-                <div class="zone-button-navbar-user-content" >
-                    <div class="button-navbar-user-content-profile">
-                        Profile
-                    </div>
-                    <div class="button-navbar-user-content-profile" ng-click="logout()" style="border-right: 0;color: #00b4a2">
-                        Logout
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-</nav>
-
-<div class="container">
+<div class="container" style="margin-top: 40px">
 
     <div class="col-md-6" style="height: 100%">
         <div style="width: 100%;background-color: white;height: 500px;background-color: #204056;text-align: center

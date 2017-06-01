@@ -2,29 +2,25 @@
 
 app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin) {
     $scope.user = $localStorage.user;
-
+    $scope.massage = "";
     $scope.teachers = {
         All_Teacher:[
-            {
-                name:"Thanadej Phadtong"
-            }
+
         ],
         Add_Teacher:[
-            {
-                name:"Thanadej Phadtong"
-            }
+
 
         ],
 
     }
-    //getData($localStorage.user.token);
+    getData($localStorage.user.token);
     function getData(token) {
 
         allTeacherAdmin.getData(token).then(
             function(response){
                 var data = response.data;
                 $scope.checkTimeOut(data);
-                $scope.teachers.teacher_all = data;
+                $scope.teachers.All_Teacher = data;
 
             },
             function(response){
@@ -94,20 +90,24 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
             );
     }
     $scope.addCourse = function () {
+        if($scope.teachers.Add_Teacher.length > 0){
+            $http.get('/api/', {headers:{
+                'Authorization_Token' : $localStorage.user.token
+            }})
+                .then(
+                    function(response){
+                        var data = response.data;
+                        $scope.checkTimeOut(data)
+                        console.log(data);
+                    },
+                    function(response){
+                        // failure callback
+                    }
+                );
+        }else{
+            $scope.massage = "Drag teacher into Add_Teacher !";
+        }
 
-        $http.get('/', {headers:{
-            'Authorization_Token' : $localStorage.user.token
-        }})
-            .then(
-                function(response){
-                    var data = response.data;
-                    $scope.checkTimeOut(data)
-                    console.log(data);
-                },
-                function(response){
-                    // failure callback
-                }
-            );
     }
 
 
