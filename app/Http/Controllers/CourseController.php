@@ -314,16 +314,11 @@ class CourseController extends Controller
 
     public function getMember($id)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::findOrFail($id)->makeHidden('token');
         foreach ($course->students as $student){
+            $student->makeHidden('token');
             $student->pivot;
-            $student_course = StudentCourse::where([
-                ['student_id', $student->id],
-                ['course_id', $course->id]
-            ])->firstOrFail();
-
-            $student_lesson = StudentLesson::where('student_course_id', $student_course->id)->firstOrFail();
-            $student['lesson_progress'] = $student_lesson->progress;
+            $student->lessons;
         }
         foreach ($course->teachers as $teacher){
             //$teacher->courses;

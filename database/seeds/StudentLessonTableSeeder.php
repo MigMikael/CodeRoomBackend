@@ -13,7 +13,7 @@ class StudentLessonTableSeeder extends Seeder
     public function run()
     {
         DB::table('student_lesson')->insert([
-            'student_course_id' => '1',
+            'student_id' => 1,
             'lesson_id' => 1,
             'progress' => 28,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -21,7 +21,7 @@ class StudentLessonTableSeeder extends Seeder
         ]);
 
         DB::table('student_lesson')->insert([
-            'student_course_id' => '1',
+            'student_id' => 1,
             'lesson_id' => 2,
             'progress' => 99,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -29,7 +29,7 @@ class StudentLessonTableSeeder extends Seeder
         ]);
 
         DB::table('student_lesson')->insert([
-            'student_course_id' => '1',
+            'student_id' => 1,
             'lesson_id' => 3,
             'progress' => 22,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -37,7 +37,7 @@ class StudentLessonTableSeeder extends Seeder
         ]);
 
         DB::table('student_lesson')->insert([
-            'student_course_id' => '2',
+            'student_id' => 2,
             'lesson_id' => 1,
             'progress' => 55,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -45,7 +45,7 @@ class StudentLessonTableSeeder extends Seeder
         ]);
 
         DB::table('student_lesson')->insert([
-            'student_course_id' => '3',
+            'student_id' => 3,
             'lesson_id' => 10,
             'progress' => 45,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -53,7 +53,7 @@ class StudentLessonTableSeeder extends Seeder
         ]);
 
         DB::table('student_lesson')->insert([
-            'student_course_id' => '4',
+            'student_id' => 3,
             'lesson_id' => 12,
             'progress' => 90,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

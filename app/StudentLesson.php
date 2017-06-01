@@ -10,7 +10,7 @@ class StudentLesson extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'student_course_id',
+        'student_id',
         'lesson_id',
         'progress'
     ];

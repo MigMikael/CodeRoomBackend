@@ -21,6 +21,7 @@ class CreateStudentTable extends Migration
             $table->integer('image')->unsigned();
             $table->string('token')->unique();
             $table->ipAddress('ip');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreateStudentLessonTable extends Migration
         Schema::create('student_lesson', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->string('student_course_id');
+            $table->integer('student_id');
             $table->integer('lesson_id');
             $table->float('progress');
             $table->timestamps();

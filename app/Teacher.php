@@ -22,6 +22,7 @@ class Teacher extends Model
         'password',
         'token',
         'role',
+        'status'
     ];
 
     public function courses()

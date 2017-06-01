@@ -23,7 +23,8 @@ class Student extends Model
         'username',
         'password',
         'token',
-        'ip'
+        'ip',
+        'status'
     ];
 
     public function badges()
@@ -35,6 +36,12 @@ class Student extends Model
     {
         return $this->belongsToMany('App\Course', 'student_course', 'student_id', 'course_id')
             ->withPivot('status', 'progress');
+    }
+
+    public function lessons()
+    {
+        return $this->belongsToMany('App\Lesson', 'student_lesson', 'student_id', 'lesson_id')
+            ->withPivot('progress');
     }
 
     public function submissions()
