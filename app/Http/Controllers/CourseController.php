@@ -321,9 +321,12 @@ class CourseController extends Controller
                 ['student_id', $student->id],
                 ['course_id', $course->id]
             ])->firstOrFail();
+
+            $student_lesson = StudentLesson::where('student_course_id', $student_course->id)->firstOrFail();
+            $student['lesson_progress'] = $student_lesson->progress;
         }
         foreach ($course->teachers as $teacher){
-            $teacher->courses;
+            //$teacher->courses;
             $teacher->pivot;
         }
 
