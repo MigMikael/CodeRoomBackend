@@ -1,5 +1,5 @@
 
-app.controller('dashBoardstudentController',function($scope,$localStorage,dashBoardStudent,$http, $location,$rootScope,$uibModal, $log, $document) {
+    app.controller('dashBoardstudentController',function($scope,$localStorage,dashBoardStudent,$http, $location,$rootScope,$uibModal, $log, $document) {
 
 
     getData($localStorage.user.token);

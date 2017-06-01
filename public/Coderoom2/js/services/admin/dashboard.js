@@ -1,6 +1,6 @@
 
 app.factory('dashBoardAdmin', function($http) {
-    var urlBase = "/";
+    var urlBase = "/api/admin/dashboard";
     var dashBoardAdmin = {};
 
     dashBoardAdmin.getData = function (token) {

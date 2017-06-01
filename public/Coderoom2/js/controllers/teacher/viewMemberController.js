@@ -8,11 +8,11 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     $scope.isLessonView = false;
     $scope.sortView = {
         select: {
-            view:"delfute"
+            view:"default"
         },
         values:[
             {
-                view:"delfute"
+                view:"default"
             },
             {
                 view:"lesson"
@@ -23,7 +23,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     getData($localStorage.user.token,$localStorage.course_id);
 
     $scope.$watch(function () { return $scope.sortView.select.view; }, function (newData, oldData) {
-        if(newData === "delfute"){
+        if(newData === "default"){
             $scope.isDelfuteView = true;
             $scope.isLessonView = false;
 
@@ -256,7 +256,8 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     }
 
     $scope.dropIP = function (student_id) {
-        $http.post('/', student_id,{headers:{
+        var path = "/api/teacher/remove/ip/"+student_id;
+        $http.get(path,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(

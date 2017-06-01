@@ -6,12 +6,17 @@ app.controller('loginController',function($scope,$http,$localStorage,$location) 
         usernameError:false,
         passwordError:false
     }
+    $scope.ip;
+    getIP();
+
+
     $scope. loginForm = function () {
         var dataLogin = {
             username: $scope.username,
-            password: $scope.password
+            password: $scope.password,
+            ip: $scope.ip,
         };
-
+        console.log(dataLogin);
         $http.post('/login', dataLogin)
             .then(
                 function(response){
@@ -36,6 +41,15 @@ app.controller('loginController',function($scope,$http,$localStorage,$location) 
             );
     };
 
+    function getIP() {
+
+        $.getJSON('//freegeoip.net/json/?callback=?', function(data){
+            $scope.ip = data.ip;
+            console.log($scope.ip);
+        });
+
+
+    }
     $scope.go = function ( path ) {
         $location.path( path );
     };

@@ -1,7 +1,44 @@
 
-app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$localStorage,$routeParams,$location,$uibModal,$log) {
+app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$localStorage,$routeParams,$location,$uibModal,$log,dashBoardAdmin) {
     $scope.user = $localStorage.user;
     $scope.dashBorad;
+
+    $scope.isViewCourse = true;
+    $scope.isViewTeacher = false;
+    $scope.isViewAdmin = false;
+
+    getDeashBoard($localStorage.user.token);
+    function getDeashBoard(token) {
+
+        dashBoardAdmin.getData(token).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.dashBorad = data;
+                console.log($scope.dashBorad);
+
+            },
+            function(response){
+                // failure call back
+            });
+
+    }
+
+    $scope.changeView = function (view) {
+        if(view === "course"){
+            $scope.isViewCourse = true;
+            $scope.isViewTeacher = false;
+            $scope.isViewAdmin = false;
+        }else if(view === "teacher"){
+            $scope.isViewCourse = false;
+            $scope.isViewTeacher = true;
+            $scope.isViewAdmin = false;
+        }else if(view === "admin"){
+            $scope.isViewCourse = false;
+            $scope.isViewTeacher = false;
+            $scope.isViewAdmin = true;
+        }
+    }
 
 
     $scope.checkTimeOut = function(data){
@@ -63,7 +100,8 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
             );
     }
     $scope.disableCourse = function (course_id) {
-        $http.post('/', course_id,{headers:{
+        var path = "/api/admin/course/status/"+course_id;
+        $http.get(path,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(
@@ -111,6 +149,97 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
         });
 
     }
+
+    $scope.enableCourse = function (course_id) {
+        var path = "/api/admin/course/status/"+course_id;
+        $http.get(path,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    location.reload();
+
+                },
+                function(response){
+
+                }
+            );
+    }
+
+
+    $scope.checkInActiveTeacher = function (size, parentSelector,teacher_id,teacher_name) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: '../Coderoom2/js/views/admin/model/inActiveTeacher.html',
+            controller: function($scope,$uibModalInstance){
+                $scope.teacherName = teacher_name;
+                $scope.confirmInActiveTeacher = function () {
+                    $uibModalInstance.close("inactiveteacher");
+
+                };
+
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (massage) {
+            if(massage === "inactiveteacher"){
+                $scope.inActiveTeacher(teacher_id);
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
+
+
+    $scope.inActiveTeacher = function (teacher_id) {
+        var path = "/api/"+teacher_id;
+        $http.get(path,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    location.reload();
+                    $scope.changeView('teacher');
+
+                },
+                function(response){
+
+                }
+            );
+    }
+    $scope.activeTeacher = function (teacher_id) {
+        var path = "/api/"+teacher_id;
+        $http.get(path,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    location.reload();
+                    $scope.changeView('teacher');
+
+                },
+                function(response){
+
+                }
+            );
+    }
+
 
 
 });
