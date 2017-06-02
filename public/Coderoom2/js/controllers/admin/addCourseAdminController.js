@@ -97,7 +97,6 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
 
 
     $scope.createCourse = function(file) {
-        
         if($scope.teachers.Add_Teacher.length > 0){
             $scope.loading = true;
             file.upload = Upload.upload({
@@ -114,8 +113,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 $scope.loading = false;
                 var data = response.data;
                 $scope.checkTimeOut(data);
-                console.log(data);
-                console.log("success");
+                $location.path('/dashboardadmin');
 
 
             }, function (response) {
