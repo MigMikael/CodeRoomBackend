@@ -97,7 +97,10 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
 
 
     $scope.createCourse = function(file) {
-
+        console.log(file);
+        console.log($scope.courseName);
+        console.log($scope.codeColor);
+        console.log($scope.teachers.All_Teacher);
         if($scope.teachers.Add_Teacher > 0){
             $scope.loading = true;
             file.upload = Upload.upload({
@@ -105,7 +108,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 data: {image: file,
                     name : $scope.courseName,
                     color : $scope.codeColor,
-                    teachers : $scope.teachers.All_Teacher
+                    teachers : $scope.teachers.Add_Teacher
                 },
                 headers:{'Authorization_Token' : $localStorage.user.token},
             });

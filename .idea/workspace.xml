@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/index.html" afterPath="$PROJECT_DIR$/public/Coderoom2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/app.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/dashboardAdminController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/dashboardAdminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html" afterPath="$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,7 +60,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3108">
@@ -90,7 +83,7 @@
       <file leaf-file-name="addCourse.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="975">
               <caret line="65" column="100" lean-forward="false" selection-start-line="65" selection-start-column="100" selection-end-line="65" selection-end-column="100" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -99,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addCourseAdminController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addCourseAdminController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="128" column="60" lean-forward="false" selection-start-line="128" selection-start-column="60" selection-end-line="128" selection-end-column="60" />
+            <state relative-caret-position="141">
+              <caret line="99" column="8" lean-forward="false" selection-start-line="99" selection-start-column="8" selection-end-line="102" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -202,8 +195,8 @@
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/dashboardAdminController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/index.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/app.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" />
       </list>
     </option>
   </component>
@@ -1341,14 +1334,7 @@
       <workItem from="1494387581748" duration="724000" />
       <workItem from="1494403344419" duration="1332000" />
       <workItem from="1496047977511" duration="1245000" />
-      <workItem from="1496059009335" duration="39974000" />
-    </task>
-    <task id="LOCAL-00115" summary="add submission api for student">
-      <created>1487078281976</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1487078281992</updated>
+      <workItem from="1496059009335" duration="40109000" />
     </task>
     <task id="LOCAL-00116" summary="submission in non parse problem">
       <created>1487225527239</created>
@@ -1686,11 +1672,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496386979905</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="create course admin">
+      <created>1496392591644</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1496392591644</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1445604000" />
+    <option name="totallyTimeSpent" value="1445739000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1767,7 +1760,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="api edit student profile" />
     <MESSAGE value="add fillable email" />
     <MESSAGE value="change middleware" />
     <MESSAGE value="create problem from web submission" />
@@ -1792,7 +1784,8 @@
     <MESSAGE value="update admin view controller" />
     <MESSAGE value="create admin" />
     <MESSAGE value="getip loginController , view DashboardAdmin updata" />
-    <option name="LAST_COMMIT_MESSAGE" value="getip loginController , view DashboardAdmin updata" />
+    <MESSAGE value="create course admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="create course admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2177,24 +2170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="65" column="100" lean-forward="false" selection-start-line="65" selection-start-column="100" selection-end-line="65" selection-end-column="100" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="128" column="60" lean-forward="false" selection-start-line="128" selection-start-column="60" selection-end-line="128" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
@@ -2207,6 +2182,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3108">
           <caret line="0" column="190" lean-forward="false" selection-start-line="0" selection-start-column="190" selection-end-line="0" selection-end-column="190" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="65" column="100" lean-forward="false" selection-start-line="65" selection-start-column="100" selection-end-line="65" selection-end-column="100" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="99" column="8" lean-forward="false" selection-start-line="99" selection-start-column="8" selection-end-line="102" selection-end-column="49" />
           <folding />
         </state>
       </provider>
