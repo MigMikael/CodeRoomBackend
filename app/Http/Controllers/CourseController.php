@@ -390,17 +390,7 @@ class CourseController extends Controller
             'image' => $image_path,
             'token' => $token
         ];
-        $course = Course::firstOrCreate($course_data);
-
-        $teachers = Request::get('teachers');
-        foreach ($teachers as $teacher){
-            $teacher_course = [
-                'teacher_id' => $teacher['id'],
-                'course_id' => $course->id,
-                'status' => 'enable'
-            ];
-            TeacherCourse::firstOrCreate($teacher_course);
-        }
+        Course::firstOrCreate($course_data);
 
         return \response()->json(['msg' => 'create course complete']);
     }
@@ -426,5 +416,21 @@ class CourseController extends Controller
             $teacher->makeHidden(['token', 'role']);
         }
         return $teachers;
+    }
+
+    public function addTeacher($course_id)
+    {
+        $course = Course::findOrFail($course_id);
+        $teachers = Request::get('teachers');
+        foreach ($teachers as $teacher){
+            $teacher_course = [
+                'teacher_id' => $teacher['id'],
+                'course_id' => $course->id,
+                'status' => 'enable'
+            ];
+            TeacherCourse::firstOrCreate($teacher_course);
+        }
+
+        return \response()->json(['msg' => 'add Teacher Complete']);
     }
 }

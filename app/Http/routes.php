@@ -183,17 +183,18 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 #--------------------------------------------------------------------------------------------------------
 #                               Admin API
 #--------------------------------------------------------------------------------------------------------
-//Route::group(['middleware' => ['userAuth', 'adminAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'adminAuth']], function (){
 
     Route::get('api/admin/dashboard', 'AdminController@dashboard');
     Route::post('api/admin/course', 'CourseController@adminStore');
     Route::get('api/admin/course/status/{course_id}', 'CourseController@changeStatus');
+    Route::post('api/admin/course/add/teacher/{course_id}', 'CourseController@addTeacher');
     Route::post('api/admin/teacher', 'TeacherController@store');
     Route::get('api/admin/teacher/status/{teacher_id}', 'TeacherController@changeState');
     Route::get('api/admin/teacher', 'TeacherController@getAll');
     Route::get('api/admin/teacher/course/{course_id}', 'CourseController@getTeacherCourse');
 
-//});
+});
 
 
 
