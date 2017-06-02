@@ -1,5 +1,5 @@
 
-app.controller('sortProblemController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher, $uibModal) {
+app.controller('sortProblemController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher, $uibModal,Path_Api) {
 
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lesson_id;
@@ -33,7 +33,7 @@ app.controller('sortProblemController',function($scope,$localStorage,$routeParam
     $scope.sortProblem = function(){
 
         var problems = $scope.lesson.problems;
-        $http.post('/api/teacher/problem/change_order', problems,{
+        $http.post(Path_Api.api_post_teacher_sortProblem, problems,{
                 headers:{'Authorization_Token': $localStorage.user.token}
             })
             .then(
@@ -57,7 +57,7 @@ app.controller('sortProblemController',function($scope,$localStorage,$routeParam
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

@@ -1,5 +1,5 @@
 
-app.controller('uploadStudentlistController',function($scope,$localStorage,$routeParams,$http,$location, $uibModal) {
+app.controller('uploadStudentlistController',function($scope,$localStorage,$routeParams,$http,$location, $uibModal,Path_Api) {
     $localStorage.course_id = $routeParams.course_id;
     $scope.user = $localStorage.user;
     $scope.statusFile = false;
@@ -28,7 +28,7 @@ app.controller('uploadStudentlistController',function($scope,$localStorage,$rout
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -46,7 +46,7 @@ app.controller('uploadStudentlistController',function($scope,$localStorage,$rout
 
 
         file.upload = Upload.upload({
-            url: '/api/teacher/students/store',
+            url: Path_Api.api_post_teacher_uploadFileStudent,
             data: {zip: $scope.zip,course_id: $localStorage.course_id},
         });
 

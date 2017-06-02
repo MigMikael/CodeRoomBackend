@@ -1,5 +1,5 @@
 
-app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$localStorage,$http,$routeParams,$location, $uibModal,$log) {
+app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$localStorage,$http,$routeParams,$location, $uibModal,$log,Path_Api) {
     $scope.viewMember;
     $scope.cardUser = false;
     $scope.user = $localStorage.user;
@@ -83,7 +83,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -98,7 +98,7 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     }
 
     $scope.enableOrdisableStudent = function(student_id){
-        $http.get('/api/teacher/student/disable/'+student_id+"/"+$localStorage.course_id,{headers:{
+        $http.get(Path_Api.api_get_teacher_disableStudent+student_id+"/"+$localStorage.course_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -256,8 +256,8 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     }
 
     $scope.dropIP = function (student_id) {
-        var path = "/api/teacher/remove/ip/"+student_id;
-        $http.get(path,{headers:{
+
+        $http.get(Path_Api.api_get_teacher_dropIpStudent+student_id,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(

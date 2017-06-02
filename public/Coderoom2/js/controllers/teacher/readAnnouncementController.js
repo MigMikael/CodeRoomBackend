@@ -1,5 +1,5 @@
 
-app.controller('readAnnouncementteacherController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementTeacher, $uibModal) {
+app.controller('readAnnouncementteacherController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementTeacher, $uibModal,Path_Api) {
 
 
     $scope.announcement;
@@ -37,7 +37,7 @@ app.controller('readAnnouncementteacherController',function($scope,$localStorage
     }
     $scope.deleteAnnouncement = function(announcement_id){
 
-        $http.delete('/api/teacher/announcement/delete/'+announcement_id,{headers:{
+        $http.delete(Path_Api.api_delete_teacher_announcement+announcement_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -96,7 +96,7 @@ app.controller('readAnnouncementteacherController',function($scope,$localStorage
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

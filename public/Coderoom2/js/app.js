@@ -191,6 +191,8 @@ app.factory('Path_Api', function() {
         api_get_teacher_studentSubmit : "/api/teacher/problem/",
         api_get_teacher_viewCodeSubmit : "/api/teacher/submission/",
         api_get_teacher_viewMember : "/api/teacher/course/",
+        api_get_teacher_disableStudent : '/api/teacher/student/disable/',
+        api_get_teacher_dropIpStudent : "/api/teacher/remove/ip/",
 
         api_post_teacher_addAnnouncement : '/api/teacher/announcement/store',
         api_post_teacher_addLesson : '/api/teacher/lesson/store',
@@ -201,6 +203,9 @@ app.factory('Path_Api', function() {
         api_post_teacher_editLesson : '/api/teacher/lesson/edit',
         api_post_teacher_editProblem : '/api/teacher/problem/edit',
         api_post_teacher_editProfile : '/api/teacher/profile/edit',
+        api_post_teacher_sortLesson : '/api/teacher/lesson/change_order',
+        api_post_teacher_sortProblem : '/api/teacher/problem/change_order',
+        api_post_teacher_uploadFileStudent : '/api/teacher/students/store',
 
 
 
