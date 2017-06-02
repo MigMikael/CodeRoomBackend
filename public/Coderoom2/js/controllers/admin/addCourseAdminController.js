@@ -117,7 +117,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 $scope.loading = false;
                 var data = response.data;
                 $scope.checkTimeOut(data);
-                addTeacher();
+                addTeacher(data.course_id);
 
 
             }, function (response) {
@@ -133,7 +133,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
 
     };
 
-    function addTeacher() {
+    function addTeacher(course_id) {
         $http.post(Path_Api.api_post_admin_addTeacherCourse,$scope.teachers.Add_Teacher, {headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
