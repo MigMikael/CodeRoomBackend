@@ -97,8 +97,8 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
 
 
     $scope.createCourse = function(file) {
-
-        if($scope.teachers.Add_Teacher > 0){
+        
+        if($scope.teachers.Add_Teacher.length > 0){
             $scope.loading = true;
             file.upload = Upload.upload({
                 url: Path_Api.api_post_admin_createCourse,
