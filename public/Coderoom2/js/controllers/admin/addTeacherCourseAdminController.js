@@ -4,7 +4,7 @@
 
 
 
-app.controller('addTeacherCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,teacherCourseAdmin,allTeacherAdmin,Path_Api) {
+app.controller('addTeacherCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,teacherCourseAdmin,allTeacherAdmin,Path_Api, $uibModal) {
     $scope.user = $localStorage.user;
 
     $localStorage.course_id = $routeParams.course_id;
@@ -121,7 +121,7 @@ app.controller('addTeacherCourseAdminController',function($scope,$http,$localSto
 
     $scope.addTeacherCourse = function(){
 
-        $http.post(Path_Api.api_post_admin_addTeacherCourse, $scope.teachers.Teachers_Course ,{headers:{
+        $http.post(Path_Api.api_post_admin_addTeacherCourse+$localStorage.course_id, $scope.teachers.Teachers_Course ,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(

@@ -1,6 +1,6 @@
 
 
-app.controller('createAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,allAdmin,Path_Api) {
+app.controller('createAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,allAdmin,Path_Api, $uibModal) {
     $scope.user = $localStorage.user;
 
     $scope.admin_teacher = {

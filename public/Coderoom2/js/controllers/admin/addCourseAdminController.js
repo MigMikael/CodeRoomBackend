@@ -1,6 +1,6 @@
 
 
-app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,Path_Api,Upload) {
+app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,Path_Api,Upload, $uibModal) {
     $scope.user = $localStorage.user;
     $scope.massage = "";
     $scope.teachers = {

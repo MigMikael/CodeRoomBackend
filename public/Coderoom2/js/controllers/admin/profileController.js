@@ -1,5 +1,5 @@
 
-app.controller('profileAdminController',function($scope,$localStorage,$location, $http,$routeParams) {
+app.controller('profileAdminController',function($scope,$localStorage,$location, $http,$routeParams, $uibModal,Path_Api) {
     $scope.user = $localStorage.user;
     $scope.profile = true;
     $scope.changePassword = false;
