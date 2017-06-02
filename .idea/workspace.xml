@@ -4,6 +4,9 @@
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createTeacherAdminController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createTeacherAdminController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/viewMemberController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/viewMemberController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js" afterPath="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,18 +86,18 @@
       <file leaf-file-name="addCourseAdminController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="119" column="43" lean-forward="true" selection-start-line="119" selection-start-column="43" selection-end-line="119" selection-end-column="43" />
+            <state relative-caret-position="190">
+              <caret line="138" column="20" lean-forward="true" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addTeacherCourseAdminController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addTeacherCourseAdminController.js">
+      <file leaf-file-name="dashBoardController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+            <state relative-caret-position="27">
+              <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -103,8 +106,8 @@
       <file leaf-file-name="createTeacherAdminController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createTeacherAdminController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="84" column="72" lean-forward="false" selection-start-line="84" selection-start-column="72" selection-end-line="84" selection-end-column="72" />
+            <state relative-caret-position="30">
+              <caret line="2" column="124" lean-forward="false" selection-start-line="2" selection-start-column="124" selection-end-line="2" selection-end-column="124" />
               <folding />
             </state>
           </provider>
@@ -177,7 +180,6 @@
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/readAnnouncementController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/studyController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/viewCourseController.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/viewMemberController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/registerController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/selectRoleController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/student/profile.html" />
@@ -209,7 +211,6 @@
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/sortLessonController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/sortProblemController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/uploadStudentlistController.js" />
-        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/admin/dashBoard.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/admin/addCourse.html" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/services/admin/teacherCourse.js" />
@@ -223,6 +224,8 @@
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addTeacherCourseAdminController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/app.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/views/admin/createTeacher.html" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/student/viewMemberController.js" />
+        <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createTeacherAdminController.js" />
         <option value="$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js" />
       </list>
@@ -1273,35 +1276,7 @@
       <workItem from="1494387581748" duration="724000" />
       <workItem from="1494403344419" duration="1332000" />
       <workItem from="1496047977511" duration="1245000" />
-      <workItem from="1496059009335" duration="46282000" />
-    </task>
-    <task id="LOCAL-00125" summary="fix bug study">
-      <created>1487235756608</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1487235756608</updated>
-    </task>
-    <task id="LOCAL-00126" summary="fix bug study">
-      <created>1487236374499</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1487236374500</updated>
-    </task>
-    <task id="LOCAL-00127" summary="fix bug study">
-      <created>1487236757986</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1487236757987</updated>
-    </task>
-    <task id="LOCAL-00128" summary="fix bug study">
-      <created>1487236988717</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1487236988717</updated>
+      <workItem from="1496059009335" duration="47621000" />
     </task>
     <task id="LOCAL-00129" summary="fix bug study">
       <created>1487237272457</created>
@@ -1618,11 +1593,39 @@
       <option name="project" value="LOCAL" />
       <updated>1496400083694</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="fix bug crate course">
+      <created>1496400267201</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1496400267201</updated>
+    </task>
+    <task id="LOCAL-00175" summary="fix bug crate course">
+      <created>1496400449438</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1496400449438</updated>
+    </task>
+    <task id="LOCAL-00176" summary="fix bug crate course">
+      <created>1496400545229</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1496400545229</updated>
+    </task>
+    <task id="LOCAL-00177" summary="fix bug crate course">
+      <created>1496400803812</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1496400803812</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1451912000" />
+    <option name="totallyTimeSpent" value="1453251000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1699,7 +1702,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="add submission api for student" />
     <MESSAGE value="submission in non parse problem" />
     <MESSAGE value="show score testcase" />
     <MESSAGE value="show resulte" />
@@ -1724,7 +1726,8 @@
     <MESSAGE value="add Lib" />
     <MESSAGE value="fix bug createcourse view" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="fix bug crate course" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug crate course" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1733,14 +1736,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/student/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/selectRoleController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1869,14 +1864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/editAnnouncementController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -1989,14 +1976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="61" column="4" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="74" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/teacher/addProblem.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -2103,26 +2082,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addTeacherCourseAdminController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/views/admin/createTeacher.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createTeacherAdminController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="84" column="72" lean-forward="false" selection-start-line="84" selection-start-column="72" selection-end-line="84" selection-end-column="72" />
           <folding />
         </state>
       </provider>
@@ -2135,10 +2098,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/student/viewMemberController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="58" lean-forward="false" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/viewMemberController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="69" column="58" lean-forward="false" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addTeacherCourseAdminController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1580">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/createTeacherAdminController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="124" lean-forward="false" selection-start-line="2" selection-start-column="124" selection-end-line="2" selection-end-column="124" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/teacher/dashBoardController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/Coderoom2/js/controllers/admin/addCourseAdminController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="119" column="43" lean-forward="true" selection-start-line="119" selection-start-column="43" selection-end-line="119" selection-end-column="43" />
+        <state relative-caret-position="190">
+          <caret line="138" column="20" lean-forward="true" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="20" />
           <folding />
         </state>
       </provider>

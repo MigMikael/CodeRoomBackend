@@ -1,6 +1,6 @@
 
 
-app.controller('createTeacherAdminController',function($scope,$http,$localStorage,$routeParams,$location,Path_Api) {
+app.controller('createTeacherAdminController',function($scope,$http,$localStorage,$routeParams,$location,Path_Api, $uibModal) {
     $scope.user = $localStorage.user;
     $scope.isCreateTeacher = true;
     $scope.isShowDetailTeacher = false;

@@ -25,11 +25,11 @@ app.controller('viewMemberController',function($scope,viewMember,$localStorage,$
         for(var i in data){
             if(i=="students"){
                 for(j=0 ; j<data[i].length;j++){
-                    data[i][j].image = "http://localhost:8000/api/image/"+data[i][j].image;
+                    data[i][j].image = Path_Api.path_image+data[i][j].image;
                 }
             }else if(i=="teachers"){
                 for(j=0 ; j<data[i].length;j++){
-                    data[i][j].image = "http://localhost:8000/api/image/"+data[i][j].image;
+                    data[i][j].image = Path_Api.path_image+data[i][j].image;
                 }
             }
         }
