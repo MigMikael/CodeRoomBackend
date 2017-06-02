@@ -135,7 +135,7 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 #--------------------------------------------------------------------------------------------------------
 #                               Teacher API
 #--------------------------------------------------------------------------------------------------------
-//Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 
     Route::get('api/teacher/dashboard', 'TeacherController@dashboard');
     Route::get('api/teacher/profile/{id}', 'TeacherController@getProfile');
@@ -178,7 +178,7 @@ Route::group(['middleware' => ['userAuth', 'studentAuth']], function (){
 
     Route::get('api/teacher/remove/ip/{id}', 'StudentController@removeIP');
 
-//});
+});
 #--------------------------------------------------------------------------------------------------------
 #                               Admin API
 #--------------------------------------------------------------------------------------------------------
