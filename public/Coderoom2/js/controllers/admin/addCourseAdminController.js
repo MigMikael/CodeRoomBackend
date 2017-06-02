@@ -117,6 +117,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 $scope.loading = false;
                 var data = response.data;
                 $scope.checkTimeOut(data);
+                console.log(data);
                 addTeacher(data.course_id);
 
 
