@@ -1,6 +1,6 @@
 
 
-app.controller('createTeacherAdminController',function($scope,$http,$localStorage,$routeParams,$location) {
+app.controller('createTeacherAdminController',function($scope,$http,$localStorage,$routeParams,$location,Path_Api) {
     $scope.user = $localStorage.user;
     $scope.isCreateTeacher = true;
     $scope.isShowDetailTeacher = false;
@@ -55,7 +55,7 @@ app.controller('createTeacherAdminController',function($scope,$http,$localStorag
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(
@@ -82,7 +82,7 @@ app.controller('createTeacherAdminController',function($scope,$http,$localStorag
     $scope.createTeacher = function () {
         $scope.teacher.password = generatePassword();
         console.log($scope.teacher);
-        $http.post('/', $scope.teachers ,{headers:{
+        $http.post(Path_Api.api_post_admin_createTeacher, $scope.teachers ,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(

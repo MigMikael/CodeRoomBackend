@@ -4,7 +4,7 @@
 
 
 
-app.controller('addTeacherCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,teacherCourseAdmin,allTeacherAdmin) {
+app.controller('addTeacherCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,teacherCourseAdmin,allTeacherAdmin,Path_Api) {
     $scope.user = $localStorage.user;
 
     $localStorage.course_id = $routeParams.course_id;
@@ -14,7 +14,7 @@ app.controller('addTeacherCourseAdminController',function($scope,$http,$localSto
         Teachers_Course:[],
     }
 
-    //getAllTeacher($localStorage.user.token);
+    getAllTeacher($localStorage.user.token);
     function getAllTeacher(token) {
 
         allTeacherAdmin.getData(token).then(
@@ -22,7 +22,9 @@ app.controller('addTeacherCourseAdminController',function($scope,$http,$localSto
                 var data = response.data;
                 $scope.checkTimeOut(data);
                 $scope.teachers.Teachers = data;
-                getTeacherCourse(token);
+                console.log("allTeacher");
+                console.log(data);
+                getTeacherCourse(token,$location.course_id);
             },
             function(response){
                 // failure call back
@@ -32,12 +34,14 @@ app.controller('addTeacherCourseAdminController',function($scope,$http,$localSto
 
     }
 
-    function getTeacherCourse(token) {
-        teacherCourseAdmin.getData(token).then(
+    function getTeacherCourse(token,cousre_id) {
+        teacherCourseAdmin.getData(token,cousre_id).then(
             function(response){
                 var data = response.data;
                 $scope.checkTimeOut(data);
                 $scope.teachers.Teachers_Course = data;
+                console.log("TeacherCourse");
+                console.log(data);
                 manageTeachers();
             },
             function(response){

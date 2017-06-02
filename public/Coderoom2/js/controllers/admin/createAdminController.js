@@ -1,6 +1,6 @@
 
 
-app.controller('createAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,allAdmin) {
+app.controller('createAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,allAdmin,Path_Api) {
     $scope.user = $localStorage.user;
 
     $scope.admin_teacher = {
@@ -84,7 +84,7 @@ app.controller('createAdminController',function($scope,$http,$localStorage,$rout
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(
@@ -100,7 +100,7 @@ app.controller('createAdminController',function($scope,$http,$localStorage,$rout
 
     $scope.addAdmin = function () {
 
-        $http.post('/', $scope.admin_teacher.Admins ,{headers:{
+        $http.post(Path_Api.api_post_admin_addAdmin, $scope.admin_teacher.Admins ,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(

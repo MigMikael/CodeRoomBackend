@@ -36,24 +36,14 @@ app.controller('profileAdminController',function($scope,$localStorage,$location,
             $scope.changePassword = false;
         }
     };
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -68,18 +58,7 @@ app.controller('profileAdminController',function($scope,$localStorage,$location,
     }
 
 
-    $scope.oneAtATime = true;
 
-    $scope.groups = [
-        {
-            title: 'Comprogramming I',
-            content: 'Dynamic Group Body - 1'
-        },
-        {
-            title: 'Comprogramming II',
-            content: 'Dynamic Group Body - 2'
-        }
-    ];
 
 
 });

@@ -218,9 +218,15 @@ app.factory('Path_Api', function() {
 
         //admin
         api_get_admin_disableEnableCourse : "/api/admin/course/status/",
-
+        api_get_admin_teacherCourse : "/api/admin/teacher/cousre/",
+        api_get_admin_allTeacher : "/api/admin/teacher",
+        api_get_admin_dashboard : "/api/admin/dashboard",
+        api_get_admin_disableEnableTeacher : "",
 
         api_post_admin_createCourse : '/api/admin/course',
+        api_post_admin_addAdmin : '',
+        api_post_admin_createTeacher : "/api/admin/teacher",
+
 
 
     };

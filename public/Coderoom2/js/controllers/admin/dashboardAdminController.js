@@ -205,7 +205,7 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
 
 
     $scope.inActiveTeacher = function (teacher_id) {
-        var path = "/api/"+teacher_id;
+        var path = Path_Api.api_get_admin_disableEnableTeacher+teacher_id;
         $http.get(path,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
@@ -223,7 +223,7 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
             );
     }
     $scope.activeTeacher = function (teacher_id) {
-        var path = "/api/"+teacher_id;
+        var path = Path_Api.api_get_admin_disableEnableTeacher+teacher_id;
         $http.get(path,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
