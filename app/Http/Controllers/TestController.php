@@ -113,4 +113,10 @@ class TestController extends Controller
         return \response()->json(['msg' => $request->ip()]);
     }
 
+    public function testSession(Request $request)
+    {
+        $userID = $request->session()->get('userID');
+        return $userID;
+    }
+
 }

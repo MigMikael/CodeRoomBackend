@@ -74,6 +74,7 @@ Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 #Route::get('test/count', 'TestController@testCount');
 #Route::get('test/order_problem', 'TestController@testProblemOrder');
 Route::get('test/getip', 'TestController@testGetIP');
+Route::get('test/session', 'TestController@testSession');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
@@ -185,10 +186,12 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 //Route::group(['middleware' => ['userAuth', 'adminAuth']], function (){
 
     Route::get('api/admin/dashboard', 'AdminController@dashboard');
-    Route::post('api/admin/course', 'CourseController@store');
+    Route::post('api/admin/course', 'CourseController@adminStore');
     Route::get('api/admin/course/status/{course_id}', 'CourseController@changeStatus');
     Route::post('api/admin/teacher', 'TeacherController@store');
+    Route::get('api/admin/teacher/status/{teacher_id}', 'TeacherController@changeState');
     Route::get('api/admin/teacher', 'TeacherController@getAll');
+    Route::get('api/admin/teacher/course/{course_id}', 'CourseController@getTeacherCourse');
 
 //});
 

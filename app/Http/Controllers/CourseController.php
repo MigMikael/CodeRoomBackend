@@ -372,4 +372,59 @@ class CourseController extends Controller
 
         return back();
     }
+
+    public function adminStore()
+    {
+        $name = Request::get('name');
+        $color = Request::get('color');
+        $file = Request::file('image');
+        $token = (new TokenGenerate())->generate(6);
+
+        Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
+        $image_path = url('api/course/image/'). str_replace('.','_',$file->getClientOriginalName());
+
+        $course_data = [
+            'name' => $name ,
+            'color' => $color,
+            'status' => 'enable',
+            'image' => $image_path,
+            'token' => $token
+        ];
+        $course = Course::firstOrCreate($course_data);
+
+        $teachers = Request::get('teachers');
+        foreach ($teachers as $teacher){
+            $teacher_course = [
+                'teacher_id' => $teacher['id'],
+                'course_id' => $course->id,
+                'status' => 'enable'
+            ];
+            TeacherCourse::firstOrCreate($teacher_course);
+        }
+
+        return \response()->json(['msg' => 'create course complete']);
+    }
+
+    public function storeFile($file)
+    {
+        $ex = $file->getClientOriginalExtension();
+        Storage::disk('local')->put($file->getFilename(). '.' . $ex, File::get($file));
+        $fileRecord = [
+            'name' => $file->getFilename(). '.' . $ex,
+            'mime' => $file->getClientMimeType(),
+            'original_name' => $file->getClientOriginalName(),
+        ];
+        $file = \App\Image::create($fileRecord);
+        return $file;
+    }
+
+    public function getTeacherCourse($course_id)
+    {
+        $course = Course::findOrFail($course_id);
+        $teachers = $course->teachers;
+        foreach ($teachers as $teacher){
+            $teacher->makeHidden(['token', 'role']);
+        }
+        return $teachers;
+    }
 }

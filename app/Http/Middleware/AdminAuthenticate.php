@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use App\Teacher;
 use Closure;
 
 class AdminAuthenticate
@@ -14,13 +14,16 @@ class AdminAuthenticate
      * @return mixed
      */
 
-    //Todo change admin middleware
     public function handle($request, Closure $next)
     {
-        if(!($request->session()->has('adminID'))){
-            return redirect('login');
-        }
+        if ($request->hasHeader('Authorization_Token')){
+            $token = $request->header('Authorization_Token');
+            $teacher = Teacher::where('token', '=', $token)->first();
 
+            if($teacher == null || $teacher->role != 'admin'){
+                return response()->json(['status' => 'user unauthorized']);
+            }
+        }
         return $next($request);
     }
 }

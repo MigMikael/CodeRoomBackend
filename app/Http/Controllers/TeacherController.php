@@ -38,7 +38,10 @@ class TeacherController extends Controller
         $teacher = [
             'name' => $request->get('name'),
             'username' => $request->get('username'),
+            'email' => $request->get('email'),
             'password' => bcrypt($password),
+            'status' => 'enable',
+            'role' => 'teacher'
         ];
         $teacher = Teacher::firstOrCreate($teacher);
         if($teacher->image == ''){
@@ -199,5 +202,18 @@ class TeacherController extends Controller
         }else{
             return response()->json(['msg' => 'password is incorrect']);
         }
+    }
+
+    public function changeState($teacher_id)
+    {
+        $teacher = Teacher::findOrFail($teacher_id);
+        if($teacher->status == 'enable'){
+            $teacher->status = 'disable';
+        }else{
+            $teacher->status = 'enable';
+        }
+        $teacher->save();
+
+        return back();
     }
 }
