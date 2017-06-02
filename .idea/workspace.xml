@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f865b68d-3d10-4f23-aaf9-ae753085497a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
     <ignored path="CodeRoomBackend.iws" />
@@ -80,21 +79,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="192" column="2" lean-forward="false" selection-start-line="192" selection-start-column="2" selection-end-line="192" selection-end-column="2" />
+              <caret line="192" column="3" lean-forward="true" selection-start-line="192" selection-start-column="3" selection-end-line="192" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="494">
+              <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
               <folding>
                 <element signature="e#40#55#0#PHP" expanded="true" />
               </folding>
@@ -207,8 +206,8 @@
         <option value="$PROJECT_DIR$/app/StudentLesson.php" />
         <option value="$PROJECT_DIR$/app/Student.php" />
         <option value="$PROJECT_DIR$/app/Teacher.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -1106,14 +1105,7 @@
       <workItem from="1496214226849" duration="12199000" />
       <workItem from="1496305820005" duration="2250000" />
       <workItem from="1496329146888" duration="1393000" />
-      <workItem from="1496385514827" duration="1107000" />
-    </task>
-    <task id="LOCAL-00088" summary="check in and sol version with Evaluator">
-      <created>1480185042035</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1480185042036</updated>
+      <workItem from="1496385514827" duration="1169000" />
     </task>
     <task id="LOCAL-00089" summary="success check student code">
       <created>1480260502115</created>
@@ -1451,11 +1443,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496330504683</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="add more data to admin dashboard">
+      <created>1496386649204</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1496386649219</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1478620000" />
+    <option name="totallyTimeSpent" value="1478682000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1479,7 +1478,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27061856" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3864542" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="343" y="265" width="844" height="253" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3864542" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="343" y="265" width="844" height="253" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20468278" sideWeight="0.5088282" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1509,7 +1508,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="add fillable email" />
     <MESSAGE value="change middleware" />
     <MESSAGE value="create problem from web submission" />
     <MESSAGE value="add submission api for student" />
@@ -1534,7 +1532,8 @@
     <MESSAGE value="add env.example" />
     <MESSAGE value="add lesson progress" />
     <MESSAGE value="fix bug in api course member" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug in api course member" />
+    <MESSAGE value="add more data to admin dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more data to admin dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1947,21 +1946,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="192" column="2" lean-forward="false" selection-start-line="192" selection-start-column="2" selection-end-line="192" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        <state relative-caret-position="494">
+          <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding>
             <element signature="e#40#55#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="192" column="3" lean-forward="true" selection-start-line="192" selection-start-column="3" selection-end-line="192" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>

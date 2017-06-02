@@ -182,7 +182,7 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
 #--------------------------------------------------------------------------------------------------------
 #                               Admin API
 #--------------------------------------------------------------------------------------------------------
-//Route::group(['middleware' => ['userAuth', 'adminAuth']], function (){
+Route::group(['middleware' => ['userAuth', 'adminAuth']], function (){
 
     Route::get('api/admin/dashboard', 'AdminController@dashboard');
     Route::post('api/admin/course', 'CourseController@store');
@@ -190,7 +190,7 @@ Route::group(['middleware' => ['userAuth', 'teacherAuth']], function (){
     Route::post('api/admin/teacher', 'TeacherController@store');
     Route::get('api/admin/teacher', 'TeacherController@getAll');
 
-//});
+});
 
 
 
