@@ -1,6 +1,6 @@
 
 
-app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,Path_Api) {
+app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,Path_Api,Upload) {
     $scope.user = $localStorage.user;
     $scope.massage = "";
     $scope.teachers = {
@@ -97,10 +97,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
 
 
     $scope.createCourse = function(file) {
-        console.log(file);
-        console.log($scope.courseName);
-        console.log($scope.codeColor);
-        console.log($scope.teachers.All_Teacher);
+
         if($scope.teachers.Add_Teacher > 0){
             $scope.loading = true;
             file.upload = Upload.upload({
