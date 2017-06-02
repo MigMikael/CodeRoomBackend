@@ -135,7 +135,10 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
     };
 
     function addTeacher(course_id) {
-        $http.post(Path_Api.api_post_admin_addTeacherCourse+course_id,$scope.teachers.Add_Teacher, {headers:{
+        var data = {
+            teachers : $scope.teachers.Add_Teacher,
+        }
+        $http.post(Path_Api.api_post_admin_addTeacherCourse+course_id,data, {headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(
