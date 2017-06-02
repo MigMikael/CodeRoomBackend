@@ -97,13 +97,18 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
 
 
     $scope.createCourse = function(file) {
+
         if($scope.teachers.Add_Teacher.length > 0){
             $scope.loading = true;
+            var arraySplit = $scope.codeColor.split('(');
+
+            var rgb = arraySplit[1].replace(')','');
+            rgb = rgb.replace(/,/g,':');
             file.upload = Upload.upload({
                 url: Path_Api.api_post_admin_createCourse,
                 data: {image: file,
                     name : $scope.courseName,
-                    color : $scope.codeColor,
+                    color : rgb,
                     teachers : $scope.teachers.Add_Teacher
                 },
                 headers:{'Authorization_Token' : $localStorage.user.token},
