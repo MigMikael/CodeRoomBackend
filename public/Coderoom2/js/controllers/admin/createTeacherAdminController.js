@@ -82,7 +82,7 @@ app.controller('createTeacherAdminController',function($scope,$http,$localStorag
     $scope.createTeacher = function () {
         $scope.teacher.password = generatePassword();
         console.log($scope.teacher);
-        $http.post(Path_Api.api_post_admin_createTeacher, $scope.teachers ,{headers:{
+        $http.post(Path_Api.api_post_admin_createTeacher, $scope.teacher ,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(
