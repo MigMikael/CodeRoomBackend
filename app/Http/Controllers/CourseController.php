@@ -276,7 +276,7 @@ class CourseController extends Controller
             ])->first();
 
             $student_lesson = StudentLesson::where([
-                ['student_course_id', '=', $student_course->id],
+                ['student_id', '=', $student_id],
                 ['lesson_id', '=', $lesson->id]
             ])->first();
 
@@ -390,9 +390,9 @@ class CourseController extends Controller
             'image' => $image_path,
             'token' => $token
         ];
-        Course::firstOrCreate($course_data);
+        $course = Course::firstOrCreate($course_data);
 
-        return \response()->json(['msg' => 'create course complete']);
+        return \response()->json(['course_id' => $course->id]);
     }
 
     public function storeFile($file)

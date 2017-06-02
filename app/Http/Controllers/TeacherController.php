@@ -6,8 +6,6 @@ use App\TeacherCourse;
 use App\Teacher;
 use Illuminate\Http\Request;
 use Log;
-use App\Http\Requests;
-use App\Course;
 
 class TeacherController extends Controller
 {

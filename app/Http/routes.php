@@ -73,8 +73,8 @@ Route::get('problem/getQuestion/{problem_id}', 'ProblemController@getQuestion');
 #Route::get('test/getQuestion', 'TestController@testGetQuestion');
 #Route::get('test/count', 'TestController@testCount');
 #Route::get('test/order_problem', 'TestController@testProblemOrder');
-Route::get('test/getip', 'TestController@testGetIP');
-Route::get('test/session', 'TestController@testSession');
+#Route::get('test/getip', 'TestController@testGetIP');
+#Route::get('test/session', 'TestController@testSession');
 
 #--------------------------------------------------------------------------------------------------------
 #                              Image API
