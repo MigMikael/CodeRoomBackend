@@ -109,7 +109,6 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 data: {image: file,
                     name : $scope.courseName,
                     color : rgb,
-                    teachers : $scope.teachers.Add_Teacher
                 },
                 headers:{'Authorization_Token' : $localStorage.user.token},
             });
@@ -118,7 +117,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 $scope.loading = false;
                 var data = response.data;
                 $scope.checkTimeOut(data);
-                $location.path('/dashboardadmin');
+                addTeacher();
 
 
             }, function (response) {
@@ -133,6 +132,26 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
         }
 
     };
+
+    function addTeacher() {
+        $http.post(Path_Api.api_post_admin_addTeacherCourse,$scope.teachers.Add_Teacher, {headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    if(data.msg === "add Teacher Complete"){
+                        $location.path('/dashboardadmin');
+                    }
+
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
+
     $scope.checkImage = function (image) {
 
         if(image !== null){

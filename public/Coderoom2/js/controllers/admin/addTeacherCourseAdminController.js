@@ -24,7 +24,7 @@ app.controller('addTeacherCourseAdminController',function($scope,$http,$localSto
                 $scope.teachers.Teachers = data;
                 console.log("allTeacher");
                 console.log(data);
-                getTeacherCourse(token,$location.course_id);
+                getTeacherCourse(token,$localStorage.course_id);
             },
             function(response){
                 // failure call back
@@ -121,14 +121,17 @@ app.controller('addTeacherCourseAdminController',function($scope,$http,$localSto
 
     $scope.addTeacherCourse = function(){
 
-        $http.post('/', $scope.teachers.Teachers_Course ,{headers:{
+        $http.post(Path_Api.api_post_admin_addTeacherCourse, $scope.teachers.Teachers_Course ,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(
                 function(response){
                     var data = response.data;
                     $scope.checkTimeOut(data);
-                    $scope.go('/dashboardadmin');
+                    if(data.msg === "add Teacher Complete"){
+                        $location.path('/dashboardadmin');
+                    }
+
 
                 },
                 function(response){
