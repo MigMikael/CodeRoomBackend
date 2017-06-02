@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use Illuminate\Http\Request;
-
+use App\Teacher;
 use App\Http\Requests;
 
 class AdminController extends Controller
@@ -15,12 +15,22 @@ class AdminController extends Controller
             'students', 'teachers', 'lessons'
         ])->get();
         foreach ($courses as $c){
-            $c->students;
-            $c->teachers;
+            $c->makeHidden('token');
+            foreach ($c->students as $student){
+                $student->makeHidden('token');
+            }
+
+            foreach ($c->teachers as $teacher){
+                $teacher->makeHidden('token');
+            }
             $c->lessons;
             $c->announcement;
             $c->badges;
         }
-        return $courses;
+        $teachers = Teacher::all()->makeHidden('token');
+
+        $data['courses'] = $courses;
+        $data['teacher'] = $teachers;
+        return $data;
     }
 }
