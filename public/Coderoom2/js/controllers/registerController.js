@@ -1,11 +1,11 @@
 
-app.controller('registerController',function($scope,$http,$localStorage,$location) {
+app.controller('registerController',function($scope,$http,$localStorage,$location,Path_Api) {
 
     $localStorage.user;
 
 
     $scope.login = function () {
-        $http.post('/login', $scope.postUser)
+        $http.post(Path_Api.api_login, $scope.postUser)
             .then(
                 function(response){
                     // success
@@ -29,7 +29,7 @@ app.controller('registerController',function($scope,$http,$localStorage,$locatio
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_login, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

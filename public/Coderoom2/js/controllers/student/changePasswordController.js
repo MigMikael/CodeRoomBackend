@@ -1,5 +1,5 @@
 
-app.controller('changePasswordController',function($scope,$localStorage,$location, $http,$routeParams,$uibModal) {
+app.controller('changePasswordController',function($scope,$localStorage,$location, $http,$routeParams,$uibModal,Path_Api) {
     $scope.user = $localStorage.user;
     $scope.massageError;
 
@@ -27,7 +27,7 @@ app.controller('changePasswordController',function($scope,$localStorage,$locatio
 
     $scope.logout = function () {
 
-        $http.get('/logout', {
+        $http.get(Path_Api.api_logout, {
                 headers: {
                     'Authorization_Token': $localStorage.user.token
                 }
@@ -53,7 +53,7 @@ app.controller('changePasswordController',function($scope,$localStorage,$locatio
             new_password: $scope.new_password_confirm,
         };
         console.log(dataChangePassword)
-        $http.post('/api/student/change_password', dataChangePassword, {
+        $http.post(Path_Api.api_post_student_changePassword, dataChangePassword, {
                 headers: {
                     'Authorization_Token': $localStorage.user.token
                 }

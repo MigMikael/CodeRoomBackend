@@ -1,7 +1,7 @@
 
 
-app.factory('announcementStudent', function($http) {
-    var urlBase = "/api/student/announcement/";
+app.factory('announcementStudent', function($http,Path_Api) {
+    var urlBase = Path_Api.api_get_student_announcement;
     var announcementStudent = {};
 
     announcementStudent.getData = function (token,announcement_id) {

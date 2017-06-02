@@ -164,6 +164,55 @@ app.config(function($routeProvider) {
         controller: 'homeController'
     });
 });
+app.factory('Path_Api', function() {
+    return {
+        api_login: "/login",
+        api_logout: "/logout",
+        //student
+        api_get_student_announcement: "/api/student/announcement/",
+        api_get_student_course: "/api/student/course/",
+        api_get_student_dashboard: "/api/student/dashboard",
+        api_get_student_profile: "/api/student/profile/",
+        api_get_student_submission: "/api/student/submission/",
+        api_get_student_study : "/api/student/lesson/",
+        api_get_student_viewMember : "/api/student/course/",
+
+        api_post_student_changePassword : "/api/student/change_password",
+        api_post_student_editProfile : "/api/student/profile/edit",
+        api_post_student_submission : "/api/student/submission",
+        //teacher
+        api_get_teacher_addStudent : "/api/teacher/student/all/",
+        api_get_teacher_announcement : "/api/teacher/announcement/",
+        api_get_teacher_course : "/api/teacher/course/",
+        api_get_teacher_dashboard : "/api/teacher/dashboard",
+        api_get_teacher_lesson : "/api/teacher/lesson/",
+        api_get_teacher_problem : "/api/teacher/problem/",
+        api_get_teacher_profile : "/api/teacher/profile/",
+        api_get_teacher_studentSubmit : "/api/teacher/problem/",
+        api_get_teacher_viewCodeSubmit : "/api/teacher/submission/",
+        api_get_teacher_viewMember : "/api/teacher/course/",
+
+        api_post_teacher_addAnnouncement : '/api/teacher/announcement/store',
+        api_post_teacher_addLesson : '/api/teacher/lesson/store',
+        api_post_teacher_addProblem : '/api/teacher/problem/store',
+        api_post_teacher_addScoreProblem : '/api/teacher/problem/store_score',
+        api_post_teacher_changePassword : '/api/teacher/change_password',
+        api_post_teacher_editAnnoucement : '/api/teacher/announcement/edit',
+        api_post_teacher_editLesson : '/api/teacher/lesson/edit',
+        api_post_teacher_editProblem : '/api/teacher/problem/edit',
+        api_post_teacher_editProfile : '/api/teacher/profile/edit',
+
+
+
+        api_delete_teacher_deleteLesson : '/api/teacher/lesson/delete/',
+        api_delete_teacher_announcement : '/api/teacher/announcement/delete/',
+        api_delete_teacher_deleteProblem : '/api/teacher/problem/delete/',
+
+
+
+
+    };
+});
 
 
 

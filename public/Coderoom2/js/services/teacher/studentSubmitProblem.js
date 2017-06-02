@@ -1,7 +1,7 @@
 
 
-app.factory('studentSubmitProblem', function($http) {
-    var urlBase = "/api/teacher/problem/";
+app.factory('studentSubmitProblem', function($http,Path_Api) {
+    var urlBase = Path_Api.api_get_teacher_studentSubmit;
     var studentSubmitProblem = {};
 
     studentSubmitProblem.getData = function (token,prob_id) {

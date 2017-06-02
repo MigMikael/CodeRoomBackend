@@ -1,5 +1,5 @@
 
-app.controller('addStudentSortController',function($scope,$localStorage,$routeParams,$http,$location,addStudentteacher, $uibModal) {
+app.controller('addStudentSortController',function($scope,$localStorage,$routeParams,$http,$location,addStudentteacher, $uibModal,Path_Api) {
     $localStorage.course_id = $routeParams.course_id;
     $scope.user = $localStorage.user;
     getData($localStorage.user.token,$localStorage.course_id);
@@ -39,7 +39,7 @@ app.controller('addStudentSortController',function($scope,$localStorage,$routePa
     }
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

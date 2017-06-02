@@ -1,6 +1,6 @@
 
-app.factory('addStudentteacher', function($http) {
-    var urlBase = "/api/teacher/student/all/";
+app.factory('addStudentteacher', function($http,Path_Api) {
+    var urlBase = Path_Api.api_get_teacher_addStudent;
     var addStudentteacher = {};
 
     addStudentteacher.getData = function (token,course_id) {

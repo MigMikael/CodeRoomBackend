@@ -1,7 +1,7 @@
 
 
 
-app.controller('editProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal,$log,problemTeacher) {
+app.controller('editProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal,$log,problemTeacher,Path_Api) {
 
     $scope.user = $localStorage.user;
     $localStorage.prob_id = $routeParams.prob_id;
@@ -93,7 +93,7 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get(Path_Api.api_logout, {headders:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -121,7 +121,7 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
 
         $scope.loading = true;
         file.upload = Upload.upload({
-            url: '/api/teacher/problem/edit',
+            url: Path_Api.api_post_teacher_editProblem,
             data: {file: file,
                 problem_id:$scope.problem.id,
                 name:$scope.problem.name,
@@ -425,7 +425,7 @@ app.controller('editProblemteacherController',function($scope,Upload,$localStora
     $scope.addScoreProblem = function(){
         $scope.loading = true;
         console.log($scope.resultAnalyze);
-        $http.post('/api/teacher/problem/store_score', $scope.resultAnalysis, {headers:{
+        $http.post(Path_Api.api_post_teacher_addScoreProblem, $scope.resultAnalysis, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

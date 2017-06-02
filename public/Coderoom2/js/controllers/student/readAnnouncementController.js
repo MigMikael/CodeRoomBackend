@@ -1,5 +1,5 @@
 
-app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementStudent,$routeParams,$uibModal) {
+app.controller('readAnnouncementstudentController',function($scope,$localStorage,$http,$sce, $location,$rootScope,$routeParams,announcementStudent,$routeParams,$uibModal,Path_Api) {
 
 
     $scope.announcement;
@@ -29,17 +29,7 @@ app.controller('readAnnouncementstudentController',function($scope,$localStorage
         return data;
     }
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
 
     $scope.go = function ( path ) {
         $location.path( path );
@@ -47,7 +37,7 @@ app.controller('readAnnouncementstudentController',function($scope,$localStorage
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

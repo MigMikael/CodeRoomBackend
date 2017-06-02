@@ -1,5 +1,5 @@
 
-app.controller('loginController',function($scope,$http,$localStorage,$location) {
+app.controller('loginController',function($scope,$http,$localStorage,$location,Path_Api) {
     $localStorage.user;
     $scope.massageError;
     $scope.formLoginView ={
@@ -17,7 +17,7 @@ app.controller('loginController',function($scope,$http,$localStorage,$location) 
             ip: $scope.ip,
         };
         console.log(dataLogin);
-        $http.post('/login', dataLogin)
+        $http.post(Path_Api.api_login, dataLogin)
             .then(
                 function(response){
                     // success

@@ -1,5 +1,5 @@
 
-app.controller('dashBoardteacherController',function($scope,$http,$localStorage,$location,$rootScope,dashboardTeacher, $uibModal) {
+app.controller('dashBoardteacherController',function($scope,$http,$localStorage,$location,$rootScope,dashboardTeacher, $uibModal ,Path_Api) {
     $scope.user = $localStorage.user;
     getData($localStorage.user.token);
     $scope.dataDashboard;
@@ -34,7 +34,7 @@ app.controller('dashBoardteacherController',function($scope,$http,$localStorage,
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

@@ -1,5 +1,5 @@
 
-app.controller('editAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location,announcementTeacher,$rootScope, $uibModal) {
+app.controller('editAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location,announcementTeacher,$rootScope, $uibModal, Path_Api) {
     $scope.user = $localStorage.user;
 
     $localStorage.announcement_id = $routeParams.announcement_id;
@@ -32,7 +32,7 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
     }
 
     $scope.editAnnouncement = function(){
-        $http.post('/api/teacher/announcement/edit', $scope.announcement,{headers:{
+        $http.post(Path_Api.api_post_teacher_editAnnoucement, $scope.announcement,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -51,7 +51,7 @@ app.controller('editAnnouncementteacherController',function($scope,$localStorage
     };
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

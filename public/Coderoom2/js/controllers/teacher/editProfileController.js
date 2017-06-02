@@ -1,5 +1,5 @@
 
-app.controller('editProfileTeacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal,profileTeacher) {
+app.controller('editProfileTeacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal,profileTeacher,Path_Api) {
     $scope.user = $localStorage.user;
 
 
@@ -43,7 +43,7 @@ app.controller('editProfileTeacherController',function($scope,$localStorage,$rou
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -88,7 +88,7 @@ app.controller('editProfileTeacherController',function($scope,$localStorage,$rou
 
     }
     $scope.editProfile = function(){
-        $http.post('/api/teacher/profile/edit', $scope.dataEditProfile,{headers:{
+        $http.post(Path_Api.api_post_teacher_editProfile, $scope.dataEditProfile,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

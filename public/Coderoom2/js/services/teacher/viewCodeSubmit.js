@@ -1,7 +1,7 @@
 
 
-app.factory('viewCodeSubmit', function($http) {
-    var urlBase = "/api/teacher/submission/";
+app.factory('viewCodeSubmit', function($http,Path_Api) {
+    var urlBase = Path_Api.api_get_teacher_viewCodeSubmit;
     var viewCodeSubmit = {};
 
     viewCodeSubmit.getData = function (token,submit_id) {

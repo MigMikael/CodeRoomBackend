@@ -1,8 +1,8 @@
 
-app.controller('changePasswordTeacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal) {
+app.controller('changePasswordTeacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal,Path_Api) {
     $scope.user = $localStorage.user;
 
-    console.log($scope.user);
+
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
             if(data.status === "session expired"){
@@ -17,7 +17,7 @@ app.controller('changePasswordTeacherController',function($scope,$localStorage,$
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -48,7 +48,7 @@ app.controller('changePasswordTeacherController',function($scope,$localStorage,$
             old_password: $scope.old_password,
             new_password: $scope.new_password_confirm,
         };
-        $http.post('/api/teacher/change_password', dataChangePassword,{headers:{
+        $http.post(Path_Api.api_post_teacher_changePassword, dataChangePassword,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

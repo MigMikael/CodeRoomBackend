@@ -1,5 +1,5 @@
 
-app.controller('courseTeacherController',function($scope,$localStorage,$location, $http,courseTeacher,$routeParams, $uibModal,$log,$rootScope) {
+app.controller('courseTeacherController',function($scope,$localStorage,$location, $http,courseTeacher,$routeParams, $uibModal,$log,$rootScope,Path_Api) {
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
@@ -46,7 +46,7 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -61,7 +61,7 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
     }
     $scope.deleteLesson = function(lesson_id){
 
-        $http.delete('/api/teacher/lesson/delete/'+lesson_id,{headers:{
+        $http.delete(Path_Api.api_delete_teacher_deleteLesson+lesson_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
         }})
             .then(
@@ -146,7 +146,7 @@ app.controller('courseTeacherController',function($scope,$localStorage,$location
 
     $scope.deleteAnnouncement = function(announcement_id){
 
-        $http.delete('/api/teacher/announcement/delete/'+announcement_id,{headers:{
+        $http.delete(Path_Api.api_delete_teacher_announcement+announcement_id,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

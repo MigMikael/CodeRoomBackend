@@ -1,5 +1,5 @@
 
-app.controller('editLessonteacherController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher, $uibModal) {
+app.controller('editLessonteacherController',function($scope,$localStorage,$routeParams,$http,$location,lessonTeacher, $uibModal,Path_Api) {
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lesson_id;
     $scope.lesson;
@@ -38,7 +38,7 @@ app.controller('editLessonteacherController',function($scope,$localStorage,$rout
     }
 
     $scope.editLesson = function(){
-        $http.post('/api/teacher/lesson/edit', $scope.lesson,{headers:{
+        $http.post(Path_Api.api_post_teacher_editLesson, $scope.lesson,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -54,7 +54,7 @@ app.controller('editLessonteacherController',function($scope,$localStorage,$rout
     };
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

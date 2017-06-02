@@ -1,6 +1,6 @@
 
-app.factory('dashboardTeacher', function($http) {
-    var urlBase = "/api/teacher/dashboard";
+app.factory('dashboardTeacher', function($http,Path_Api) {
+    var urlBase = Path_Api.api_get_teacher_dashboard;
     var dashboardTeacher = {};
 
     dashboardTeacher.getData = function (token) {

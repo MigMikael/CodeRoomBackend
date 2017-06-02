@@ -1,5 +1,5 @@
 
-app.controller('editProfileController',function($scope,$localStorage,$location, $http,$routeParams,profileStudent,$uibModal) {
+app.controller('editProfileController',function($scope,$localStorage,$location, $http,$routeParams,profileStudent,$uibModal,Path_Api) {
     $scope.user = $localStorage.user;
     $scope.dataEditProfile;
     $scope.massageError;
@@ -28,7 +28,7 @@ app.controller('editProfileController',function($scope,$localStorage,$location, 
     }
 
     $scope.editProfile = function(){
-        $http.post('/api/teacher/profile/edit', $scope.dataEditProfile,{headers:{
+        $http.post(Path_Api.api_post_student_editProfile, $scope.dataEditProfile,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -50,7 +50,7 @@ app.controller('editProfileController',function($scope,$localStorage,$location, 
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -64,27 +64,7 @@ app.controller('editProfileController',function($scope,$localStorage,$location, 
             );
     };
 
-    $scope.editProfile = function(){
-        $http.post('/api/student/profile/edit', $scope.dataEditProfile,{headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
-            .then(
-                function(response){
-                    var data = response.data;
-                    $scope.checkTimeOut(data);
-                    console.log(response.data);
-                    if(data.msg === "edit complete"){
-                        $location.path('/profilestudent');
-                    }else{
-                        $scope.massageError = "Error";
-                    }
 
-                },
-                function(response){
-                    // failure callback
-                }
-            );
-    };
 
     $scope.timeOut = function (size, parentSelector) {
         var parentElem = parentSelector ?

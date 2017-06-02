@@ -1,7 +1,7 @@
 
 
-app.factory('profileTeacher', function($http) {
-    var urlBase = "/api/teacher/profile/";
+app.factory('profileTeacher', function($http,Path_Api) {
+    var urlBase = Path_Api.api_get_teacher_profile;
     var profileTeacher = {};
 
     profileTeacher.getData = function (token,user_id) {

@@ -1,5 +1,5 @@
 
-app.controller('viewCourseController',function($scope,$http,courseStudent,$localStorage,$routeParams,$location,$uibModal) {
+app.controller('viewCourseController',function($scope,$http,courseStudent,$localStorage,$routeParams,$location,$uibModal,Path_Api) {
     $scope.course;
     $scope.cardUser = false;
     $localStorage.course_id = $routeParams.course_id;
@@ -27,24 +27,14 @@ app.controller('viewCourseController',function($scope,$http,courseStudent,$local
 
     }
 
-    $scope.openCarduser  = function(){
-        if($scope.cardUser){
-            document.getElementById("showCarduser").style.display = "none";
 
-
-        }else {
-            document.getElementById("showCarduser").style.display = "block";
-
-        }
-        $scope.cardUser = !$scope.cardUser;
-    };
     $scope.go = function ( path ) {
         $location.path( path );
     };
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

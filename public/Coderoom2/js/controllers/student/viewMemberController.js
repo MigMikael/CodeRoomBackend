@@ -1,5 +1,5 @@
 
-app.controller('viewMemberController',function($scope,viewMember,$localStorage,$http,$routeParams,$location,$uibModal) {
+app.controller('viewMemberController',function($scope,viewMember,$localStorage,$http,$routeParams,$location,$uibModal,Path_Api) {
     $scope.viewMember;
 
     $scope.user = $localStorage.user;
@@ -52,7 +52,7 @@ app.controller('viewMemberController',function($scope,viewMember,$localStorage,$
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

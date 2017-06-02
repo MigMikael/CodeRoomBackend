@@ -1,5 +1,5 @@
 
-app.controller('addAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal) {
+app.controller('addAnnouncementteacherController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal,Path_Api) {
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
 
@@ -18,7 +18,7 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -40,7 +40,7 @@ app.controller('addAnnouncementteacherController',function($scope,$localStorage,
         $scope.announcement.content  = $rootScope.announcement_content;
 
 
-        $http.post('/api/teacher/announcement/store', $scope.announcement,{headers:{
+        $http.post(Path_Api.api_post_teacher_addAnnouncement, $scope.announcement,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(

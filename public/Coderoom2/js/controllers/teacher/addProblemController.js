@@ -1,5 +1,5 @@
 
-app.controller('addProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal) {
+app.controller('addProblemteacherController',function($scope,Upload,$localStorage,$routeParams,$http,$location, $uibModal,Path_Api) {
 
     $scope.user = $localStorage.user;
     $localStorage.lesson_id = $routeParams.lessons_id;
@@ -49,7 +49,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get(Path_Api.api_logout, {headders:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -77,7 +77,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
 
         $scope.loading = true;
         file.upload = Upload.upload({
-            url: '/api/teacher/problem/store',
+            url: Path_Api.api_post_teacher_addProblem,
             data: {file: file,
                 lesson_id:$localStorage.lessons_id,
                 name:$scope.name,
@@ -98,7 +98,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
             }else{
 
                 if($scope.is_parse.selectValue.value){
-                    changeViewCard("parseProblemView");
+                    $scope.changeViewCard("parseProblemView");
                     $scope.resultAnalysis = cutClass(data);
                     console.log($scope.resultAnalysis);
                 }else{
@@ -133,256 +133,11 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         return data;
     }
 
-   /* $scope.resultAnalysis = {
-        "lesson_id": "2",
-        "name": "Runners",
-        "description": "ฝึกการใช้ method",
-        "evaluator": "java",
-        "order": 1,
-        "timelimit": "1",
-        "memorylimit": "32000",
-        "is_parse": "true",
-        "updated_at": "2017-02-16 13:06:58",
-        "created_at": "2017-02-16 13:06:58",
-        "id": 2,
-        "problem_files": [
-            {
-                "id": 2,
-                "problem_id": 2,
-                "package": "default package",
-                "filename": "Runners.java",
-                "mime": "java",
-                "code": "",
-                "problem_analysis": [
-                    {
-                        "id": 3,
-                        "problemfile_id": 2,
-                        "class": "public;null;Runners",
-                        "package": "",
-                        "enclose": "null",
-                        "extends": "",
-                        "implements": "",
-                        "created_at": "2017-02-16 13:07:04",
-                        "updated_at": "2017-02-16 13:07:04",
-                        "score": {
-                            "id": 3,
-                            "analysis_id": 3,
-                            "class": 0,
-                            "package": 0,
-                            "enclose": 0,
-                            "extends": 0,
-                            "implements": 0
-                        },
-                        "attributes": [
-                            {
-                                "id": 7,
-                                "analysis_id": 3,
-                                "access_modifier": "default",
-                                "non_access_modifier": "null",
-                                "data_type": "int",
-                                "name": "round",
-                                "score": 0
-                            },
-                            {
-                                "id": 8,
-                                "analysis_id": 3,
-                                "access_modifier": "default",
-                                "non_access_modifier": "null",
-                                "data_type": "float",
-                                "name": "time",
-                                "score": 0
-                            }
-                        ],
-                        "constructors": [],
-                        "methods": [
-                            {
-                                "id": 10,
-                                "analysis_id": 3,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "void",
-                                "name": "printTest",
-                                "parameter": "",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            }
-                        ]
-                    },
-                    {
-                        "id": 4,
-                        "problemfile_id": 2,
-                        "class": "default;null;Runner",
-                        "package": "",
-                        "enclose": "Runners",
-                        "extends": "",
-                        "implements": "",
-                        "created_at": "2017-02-16 13:07:04",
-                        "updated_at": "2017-02-16 13:07:04",
-                        "score": {
-                            "id": 4,
-                            "analysis_id": 4,
-                            "class": 0,
-                            "package": 0,
-                            "enclose": 0,
-                            "extends": 0,
-                            "implements": 0
-                        },
-                        "attributes": [
-                            {
-                                "id": 9,
-                                "analysis_id": 4,
-                                "access_modifier": "default",
-                                "non_access_modifier": "null",
-                                "data_type": "int",
-                                "name": "no",
-                                "score": 0
-                            },
-                            {
-                                "id": 10,
-                                "analysis_id": 4,
-                                "access_modifier": "default",
-                                "non_access_modifier": "null",
-                                "data_type": "int",
-                                "name": "speed",
-                                "score": 0
-                            },
-                            {
-                                "id": 11,
-                                "analysis_id": 4,
-                                "access_modifier": "default",
-                                "non_access_modifier": "null",
-                                "data_type": "float",
-                                "name": "wasteTime",
-                                "score": 0
-                            },
-                            {
-                                "id": 12,
-                                "analysis_id": 4,
-                                "access_modifier": "default",
-                                "non_access_modifier": "null",
-                                "data_type": "float",
-                                "name": "totalTime",
-                                "score": 0
-                            }
-                        ],
-                        "constructors": [
-                            {
-                                "id": 2,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "name": "Runner",
-                                "parameter": "int;no|int;speed|float;wasteTime|",
-                                "score": 0
-                            }
-                        ],
-                        "methods": [
-                            {
-                                "id": 11,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "int",
-                                "name": "getNo",
-                                "parameter": "",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            },
-                            {
-                                "id": 12,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "void",
-                                "name": "setNo",
-                                "parameter": "int;no|",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            },
-                            {
-                                "id": 13,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "int",
-                                "name": "getSpeed",
-                                "parameter": "",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            },
-                            {
-                                "id": 14,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "void",
-                                "name": "setSpeed",
-                                "parameter": "int;speed|",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            },
-                            {
-                                "id": 15,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "float",
-                                "name": "getWasteTime",
-                                "parameter": "",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            },
-                            {
-                                "id": 16,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "void",
-                                "name": "setWasteTime",
-                                "parameter": "float;wasteTime|",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            },
-                            {
-                                "id": 17,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "float",
-                                "name": "getTotalTime",
-                                "parameter": "",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            },
-                            {
-                                "id": 18,
-                                "analysis_id": 4,
-                                "access_modifier": "public",
-                                "non_access_modifier": "null",
-                                "return_type": "void",
-                                "name": "setTotalTime",
-                                "parameter": "float;totalTime|",
-                                "recursive": "",
-                                "loop": "",
-                                "score": 0
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    };*/
+
     $scope.addScoreProblem = function(){
         $scope.loading = true;
         console.log($scope.resultAnalyze);
-        $http.post('/api/teacher/problem/store_score', $scope.resultAnalysis, {headers:{
+        $http.post(Path_Api.api_post_teacher_addScoreProblem, $scope.resultAnalysis, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -409,18 +164,7 @@ app.controller('addProblemteacherController',function($scope,Upload,$localStorag
         }
 
     };
-    function changeViewCard(view){
-        console.log(view);
-        if(view === "problemView"){
-            $scope.problemView = true;
-            $scope.parseProblemView = false;
-            console.log("update view problemView");
-        }else if(view === "parseProblemView"){
-            $scope.problemView = false;
-            $scope.parseProblemView = true;
-            console.log("update view parseProblemView");
-        }
-    }
+
 
     $scope.timeOut = function (size, parentSelector) {
         var parentElem = parentSelector ?

@@ -1,5 +1,5 @@
 
-app.controller('studyController',function($scope,studyStudent,$localStorage,$http,$routeParams,$location,resultProblem,$uibModal) {
+app.controller('studyController',function($scope,studyStudent,$localStorage,$http,$routeParams,$location,resultProblem,$uibModal,Path_Api) {
     $scope.isNav = false;
 
     $scope.user = $localStorage.user;
@@ -24,7 +24,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headders:{
+        $http.get(Path_Api.api_logout, {headders:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -381,7 +381,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
         };
         $scope.loading = true;
         console.log(dataSubmit);
-        $http.post('/api/student/submission', dataSubmit,{headers:{
+        $http.post(Path_Api.api_post_student_submission, dataSubmit,{headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -446,17 +446,7 @@ app.controller('studyController',function($scope,studyStudent,$localStorage,$htt
 
     }
 
-    $scope.openHover = function(){
 
-        if($scope.isNav){
-
-            document.getElementById("hover").style.width = "0";
-        }else{
-
-            document.getElementById("hover").style.width = "100%";
-        }
-        $scope.isNav = !$scope.isNav;
-    }
 
 
 
