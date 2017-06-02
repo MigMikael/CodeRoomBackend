@@ -1,6 +1,6 @@
 
 
-app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin) {
+app.controller('addCourseAdminController',function($scope,$http,$localStorage,$routeParams,$location,allTeacherAdmin,Path_Api) {
     $scope.user = $localStorage.user;
     $scope.massage = "";
     $scope.teachers = {
@@ -13,6 +13,11 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
         ],
 
     }
+    $scope.courseNmae;
+    $scope.image;
+    $scope.isImage = false;
+    $scope.codeColor;
+    $scope.isColor = false
     getData($localStorage.user.token);
     function getData(token) {
 
@@ -76,7 +81,7 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
             .then(
@@ -89,27 +94,65 @@ app.controller('addCourseAdminController',function($scope,$http,$localStorage,$r
                 }
             );
     }
-    $scope.addCourse = function () {
-        if($scope.teachers.Add_Teacher.length > 0){
-            $http.get('/api/', {headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
-                .then(
-                    function(response){
-                        var data = response.data;
-                        $scope.checkTimeOut(data)
-                        console.log(data);
-                    },
-                    function(response){
-                        // failure callback
-                    }
-                );
+
+
+    $scope.createCourse = function(file) {
+
+        if($scope.teachers.Add_Teacher > 0){
+            $scope.loading = true;
+            file.upload = Upload.upload({
+                url: Path_Api.api_post_admin_createCourse,
+                data: {image: file,
+                    name : $scope.courseName,
+                    color : $scope.codeColor,
+                    teachers : $scope.teachers.All_Teacher
+                },
+                headers:{'Authorization_Token' : $localStorage.user.token},
+            });
+
+            file.upload.then(function (response) {
+                $scope.loading = false;
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                console.log(data);
+                console.log("success");
+
+
+            }, function (response) {
+                if (response.status > 0)
+                    $scope.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+                // Math.min is to fix IE which reports 200% sometimes
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
         }else{
-            $scope.massage = "Drag teacher into Add_Teacher !";
+            $scope.massage = "Drag Teacher into Add_Teachers"
+        }
+
+    };
+    $scope.checkImage = function (image) {
+
+        if(image !== null){
+            var type = image.type
+            var arraySplit = type.split('/');
+            if(arraySplit[0] === "image"){
+                $scope.isImage = true;
+            }else{
+                $scope.isImage = false;
+            }
+        }else{
+            $scope.isImage = false;
         }
 
     }
 
+    $scope.checkColor = function (color) {
+        if(color !== ""){
+            $scope.isColor = true;
+        }else {
+            $scope.isColor = false;
+        }
+    }
 
 
 });

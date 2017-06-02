@@ -1,4 +1,4 @@
-var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists','ui.bootstrap','evgenyneu.markdown-preview','angular-svg-round-progressbar']);
+var app = angular.module("CodeRoom", ["ngRoute","ngStorage","ngFileUpload","ui.ace",'dndLists','ui.bootstrap','evgenyneu.markdown-preview','angular-svg-round-progressbar','colorpicker.module']);
 app.config(function($routeProvider) {
     $routeProvider
 
@@ -166,6 +166,9 @@ app.config(function($routeProvider) {
 });
 app.factory('Path_Api', function() {
     return {
+        //image
+        path_image : "http://localhost:8000/api/image/",
+
         api_login: "/login",
         api_logout: "/logout",
         //student
@@ -213,7 +216,11 @@ app.factory('Path_Api', function() {
         api_delete_teacher_announcement : '/api/teacher/announcement/delete/',
         api_delete_teacher_deleteProblem : '/api/teacher/problem/delete/',
 
+        //admin
+        api_get_admin_disableEnableCourse : "/api/admin/course/status/",
 
+
+        api_post_admin_createCourse : '/api/admin/course',
 
 
     };

@@ -1,5 +1,5 @@
 
-app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$localStorage,$routeParams,$location,$uibModal,$log,dashBoardAdmin) {
+app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$localStorage,$routeParams,$location,$uibModal,$log,Path_Api) {
     $scope.user = $localStorage.user;
     $scope.dashBorad;
 
@@ -13,8 +13,9 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
         dashBoardAdmin.getData(token).then(
             function(response){
                 var data = response.data;
+
                 $scope.checkTimeOut(data);
-                $scope.dashBorad = data;
+                $scope.dashBorad = addPathimage(data);
                 console.log($scope.dashBorad);
 
             },
@@ -86,7 +87,7 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
 
     $scope.logout = function () {
 
-        $http.get('/logout', {headers:{
+        $http.get(Path_Api.api_logout, {headers:{
                 'Authorization_Token' : $localStorage.user.token
             }})
             .then(
@@ -100,7 +101,7 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
             );
     }
     $scope.disableCourse = function (course_id) {
-        var path = "/api/admin/course/status/"+course_id;
+        var path = Path_Api.api_get_admin_disableEnableCourse+course_id;
         $http.get(path,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
@@ -151,7 +152,7 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
     }
 
     $scope.enableCourse = function (course_id) {
-        var path = "/api/admin/course/status/"+course_id;
+        var path = Path_Api.api_get_admin_disableEnableCourse+course_id;
         $http.get(path,{headers:{
             'Authorization_Token' : $localStorage.user.token
         }})
@@ -240,6 +241,17 @@ app.controller('dashboardAdminController',function($scope,$http,dashBoardAdmin,$
             );
     }
 
+
+    function addPathimage(data){
+        for(var i in data){
+            if(i=="teacher"){
+                for(j=0 ; j<data[i].length;j++){
+                    data[i][j].image = Path_Api.path_image+data[i][j].image;
+                }
+            }
+        }
+        return data;
+    }
 
 
 });

@@ -7,15 +7,13 @@
 
             <div class="button-all-card">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <button ng-click="changeView('course')">View Courses</button>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <button ng-click="changeView('teacher')">View Teachers</button>
                     </div>
-                    <div class="col-md-4">
-                        <button ng-click="changeView('admin')">View Admins</button>
-                    </div>
+
                 </div>
             </div>
 
@@ -45,7 +43,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="course in dashBorad">
+                <tr ng-repeat="course in dashBorad.courses">
                     <td style="text-align: center">{{$index+1}}</td>
                     <td>
                         <div class="list-card-course" style="background-color: inherit" >
@@ -93,61 +91,23 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="teacher in dashBoard.teacher_all">
+                <tr ng-repeat="teache in dashBorad.teacher">
                     <td style="text-align: center">{{$index+1}}</td>
                     <td>
                         <div class="card-user-student" style="box-shadow: none;margin: 0;background-color: inherit">
                             <div class="circle-img-card-user-student">
-                                <img src="{{teacher.image}}">
+                                <img src="{{teache.image}}">
                             </div>
                             <div class="content-card-user-student">
-                                <h3>{{teacher.name}}</h3>
+                                <h3>{{teache.name}}</h3>
                             </div>
                         </div>
                     </td>
-                    <td ng-show="teacher.status === 'enable'">
-                        <button class="btn btn-primary" style="margin: auto;display: block;margin-top: 25px" ng-click="activeTeacher(teacher.id)">Active</button>
+                    <td ng-show="teache.status === 'enable'">
+                        <button class="btn btn-primary" style="margin: auto;display: block;margin-top: 25px" ng-click="activeTeacher(teache.id)">Active</button>
                     </td>
-                    <td ng-show="teacher.status === 'disable'">
-                        <button class="btn btn-primary" style="margin: auto;display: block;margin-top: 25px" ng-click="checkInActiveTeacher('lg',undefined,teacher.id,teacher.name)">Inactive</button>
-                    </td>
-
-                </tr>
-
-                </tbody>
-            </table>
-        </div>
-
-
-        <div class="col-md-12" ng-show="isViewAdmin">
-            <h1 style="color: #00b4a2;text-align: center">Admins</h1>
-            <div class="button-all-card">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button ng-click="go('/createadmin')">Create Admin</button>
-                    </div>
-
-                </div>
-            </div>
-            <table class="table table-hover" style="margin-top: 0">
-                <thead class="thead-default">
-                <tr>
-                    <th style="text-align: center">#</th>
-                    <th>Admins</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="admin in dashBoard.admin_all">
-                    <td style="text-align: center">{{$index+1}}</td>
-                    <td>
-                        <div class="card-user-student" style="box-shadow: none;margin: 0;background-color: inherit">
-                            <div class="circle-img-card-user-student">
-                                <img src="{{admin.image}}">
-                            </div>
-                            <div class="content-card-user-student">
-                                <h3>{{admin.name}}</h3>
-                            </div>
-                        </div>
+                    <td ng-show="teache.status === 'disable'">
+                        <button class="btn btn-primary" style="margin: auto;display: block;margin-top: 25px" ng-click="checkInActiveTeacher('lg',undefined,teache.id,teache.name)">Inactive</button>
                     </td>
 
                 </tr>
