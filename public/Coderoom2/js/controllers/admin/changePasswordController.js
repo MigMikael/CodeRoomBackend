@@ -1,8 +1,7 @@
 
-app.controller('profileTeacherController',function($scope,$localStorage,$location, $http,$routeParams,profileTeacher, $uibModal,Path_Api) {
+app.controller('changePasswordAdminController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal,Path_Api) {
     $scope.user = $localStorage.user;
 
-    getData($localStorage.user.token,$localStorage.user.id);
 
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
@@ -12,29 +11,6 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
         }
 
     }
-
-    function getData(token,user_id) {
-
-        profileTeacher.getData(token,user_id).then(
-            function(response){
-                var data = response.data;
-                $scope.checkTimeOut(data);
-                $scope.dataProfile = addPathimg(data);
-
-                console.log($scope.dataProfile);
-
-            },
-            function(response){
-                // failure call back
-            });
-
-    }
-    function addPathimg(data){
-        data.image = Path_Api.path_image+data.image;
-        return data;
-    }
-
-
     $scope.go = function ( path ) {
         $location.path( path );
     };
@@ -42,8 +18,8 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
     $scope.logout = function () {
 
         $http.get(Path_Api.api_logout, {headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
+            'Authorization_Token' : $localStorage.user.token
+        }})
             .then(
                 function(response){
                     delete $localStorage.user;
@@ -53,9 +29,46 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
                     // failure callback
                 }
             );
+    }
+
+
+    $scope.confirm_password = false;
+    $scope.comparePassword = function () {
+        if($scope.new_password === $scope.new_password_confirm){
+            $scope.confirm_password = true;
+
+        }else{
+            $scope.confirm_password = false;
+        }
     };
 
+    $scope.submitChangepassword = function(){
+        var dataChangePassword = {
+            teacher_id: $localStorage.user.id,
+            old_password: $scope.old_password,
+            new_password: $scope.new_password_confirm,
+        };
+        $http.post(Path_Api.api_post_teacher_changePassword, dataChangePassword,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    if(data.msg === "password is incorrect"){
+                        $scope.massageError = "Old password incorrect";
+                    }else{
+                        $location.path('/profileteacher')
+                    }
 
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+
+
+    }
 
 
     $scope.timeOut = function (size, parentSelector) {
@@ -89,8 +102,4 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
     }
 
 
-
 });
-
-
-

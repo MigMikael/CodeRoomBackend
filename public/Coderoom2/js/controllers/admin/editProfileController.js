@@ -1,8 +1,10 @@
 
-app.controller('profileTeacherController',function($scope,$localStorage,$location, $http,$routeParams,profileTeacher, $uibModal,Path_Api) {
+app.controller('editProfileAdminController',function($scope,$localStorage,$routeParams,$http,$location,$rootScope, $uibModal,profileTeacher,Path_Api) {
     $scope.user = $localStorage.user;
 
-    getData($localStorage.user.token,$localStorage.user.id);
+
+
+
 
     $scope.checkTimeOut = function(data){
         if(data.status !== undefined){
@@ -13,15 +15,16 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
 
     }
 
+    getData($localStorage.user.token,$localStorage.user.id);
+
     function getData(token,user_id) {
 
         profileTeacher.getData(token,user_id).then(
             function(response){
                 var data = response.data;
                 $scope.checkTimeOut(data);
-                $scope.dataProfile = addPathimg(data);
-
-                console.log($scope.dataProfile);
+                $scope.dataEditProfile = addPathimg(data);
+                console.log($scope.dataEditProfile);
 
             },
             function(response){
@@ -30,10 +33,9 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
 
     }
     function addPathimg(data){
-        data.image = Path_Api.path_image+data.image;
+        data.image = "http://localhost:8000/api/image/"+data.image;
         return data;
     }
-
 
     $scope.go = function ( path ) {
         $location.path( path );
@@ -42,8 +44,8 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
     $scope.logout = function () {
 
         $http.get(Path_Api.api_logout, {headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
+            'Authorization_Token' : $localStorage.user.token
+        }})
             .then(
                 function(response){
                     delete $localStorage.user;
@@ -53,9 +55,7 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
                     // failure callback
                 }
             );
-    };
-
-
+    }
 
 
     $scope.timeOut = function (size, parentSelector) {
@@ -87,10 +87,25 @@ app.controller('profileTeacherController',function($scope,$localStorage,$locatio
         });
 
     }
-
+    $scope.editProfile = function(){
+        $http.post(Path_Api.api_post_teacher_editProfile, $scope.dataEditProfile,{headers:{
+            'Authorization_Token' : $localStorage.user.token
+        }})
+            .then(
+                function(response){
+                    var data = response.data;
+                    $scope.checkTimeOut(data);
+                    if(data.msg === "edit complete"){
+                        $location.path('/profileteacher');
+                    }else{
+                        $scope.massageError = "Error";
+                    }
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    };
 
 
 });
-
-
-

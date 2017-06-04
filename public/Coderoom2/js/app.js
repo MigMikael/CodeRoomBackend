@@ -135,7 +135,15 @@ app.config(function($routeProvider) {
         //admin
         .when("/profileadmin", {
             templateUrl : "js/views/admin/profile.html",
-            controller: "profileStudentController"
+            controller: "profileAdminController"
+        })
+        .when("/editprofileadmin", {
+            templateUrl : "js/views/admin/editProfile.html",
+            controller: "editProfileAdminController"
+        })
+        .when("/changepasswordadmin", {
+            templateUrl : "js/views/admin/changePassword.html",
+            controller: "changePasswordAdminController"
         })
         .when("/dashboardadmin", {
             templateUrl : "js/views/admin/dashBoard.html",

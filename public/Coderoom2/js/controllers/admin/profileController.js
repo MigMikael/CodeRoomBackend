@@ -1,19 +1,27 @@
 
-app.controller('profileAdminController',function($scope,$localStorage,$location, $http,$routeParams, $uibModal,Path_Api) {
+app.controller('profileAdminController',function($scope,$localStorage,$location, $http,$routeParams,profileTeacher, $uibModal,Path_Api) {
     $scope.user = $localStorage.user;
-    $scope.profile = true;
-    $scope.changePassword = false;
-    $scope.editProfile = false;
 
+    getData($localStorage.user.token,$localStorage.user.id);
 
-    //getData($localStorage.user.token,$localStorage.course_id);
+    $scope.checkTimeOut = function(data){
+        if(data.status !== undefined){
+            if(data.status === "session expired"){
+                $scope.timeOut()
+            }
+        }
 
-    function getData(token,course_id) {
+    }
 
-        courseTeacher.getData(token,course_id).then(
+    function getData(token,user_id) {
+
+        profileTeacher.getData(token,user_id).then(
             function(response){
-                $scope.course = response.data;
-                console.log($scope.course);
+                var data = response.data;
+                $scope.checkTimeOut(data);
+                $scope.dataProfile = addPathimg(data);
+
+                console.log($scope.dataProfile);
 
             },
             function(response){
@@ -21,21 +29,11 @@ app.controller('profileAdminController',function($scope,$localStorage,$location,
             });
 
     }
-    $scope.changeView = function(view){
-        if(view === "profile"){
-            $scope.profile = true;
-            $scope.changePassword = false;
-            $scope.editProfile = false;
-        }else if(view === "changePassword"){
-            $scope.profile = false;
-            $scope.changePassword = true;
-            $scope.editProfile = false;
-        }else if(view === "editProfile"){
-            $scope.editProfile = true;
-            $scope.profile = false;
-            $scope.changePassword = false;
-        }
-    };
+    function addPathimg(data){
+        data.image = Path_Api.path_image+data.image;
+        return data;
+    }
+
 
     $scope.go = function ( path ) {
         $location.path( path );
@@ -44,8 +42,8 @@ app.controller('profileAdminController',function($scope,$localStorage,$location,
     $scope.logout = function () {
 
         $http.get(Path_Api.api_logout, {headers:{
-                'Authorization_Token' : $localStorage.user.token
-            }})
+            'Authorization_Token' : $localStorage.user.token
+        }})
             .then(
                 function(response){
                     delete $localStorage.user;
@@ -55,9 +53,40 @@ app.controller('profileAdminController',function($scope,$localStorage,$location,
                     // failure callback
                 }
             );
+    };
+
+
+
+
+    $scope.timeOut = function (size, parentSelector) {
+        var parentElem = parentSelector ?
+            angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            backdrop:'static',
+            templateUrl: '../Coderoom2/js/views/model/tokenExpired.html',
+            controller: function($scope,$uibModalInstance){
+
+                $scope.Login = function () {
+                    $uibModalInstance.close("login");
+                };
+
+            },
+            size: size,
+            appendTo: parentElem,
+
+        })
+        modalInstance.result.then(function (login) {
+            if(login==="login"){
+                $scope.logout();
+            }
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
     }
-
-
 
 
 
