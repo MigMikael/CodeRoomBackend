@@ -99,7 +99,8 @@
                     <tr>
                         <th   style="text-align: center;">#</th>
                         <th >Students</th>
-                        <th  style="text-align: center">Lesson name</th>
+
+                        <th  style="text-align: center" ng-repeat="lesson in course.lessons">{{lesson.name}}</th>
 
                     </tr>
 
@@ -120,8 +121,8 @@
                             </div>
 
                         </td>
-                        <td style="color: #00b4a2;text-align: center;padding-top: 50px">
-                            {{50}}%
+                        <td style="color: #00b4a2;text-align: center;padding-top: 50px" ng-repeat="lesson in student.lessons">
+                            {{lesson.pivot.progress}}%
                         </td>
 
 

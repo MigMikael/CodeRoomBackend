@@ -89,7 +89,7 @@ app.controller('createTeacherAdminController',function($scope,$http,$localStorag
                 function(response){
                     var data = response.data;
                     $scope.checkTimeOut(data);
-                    $scope.changeView("detailTeacher");
+                    $location.path('/dashboardadmin');
                 },
                 function(response){
                     // failure callback

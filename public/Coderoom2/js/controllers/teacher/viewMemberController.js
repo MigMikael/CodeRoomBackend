@@ -1,6 +1,7 @@
 
-app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$localStorage,$http,$routeParams,$location, $uibModal,$log,Path_Api) {
+app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$localStorage,$http,$routeParams,$location, $uibModal,$log,Path_Api,courseTeacher) {
     $scope.viewMember;
+    $scope.course;
     $scope.cardUser = false;
     $scope.user = $localStorage.user;
     $localStorage.course_id = $routeParams.course_id;
@@ -52,6 +53,22 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
                 $scope.checkTimeOut(data)
                 $scope.viewMember = addPathimage(data);
                 console.log($scope.viewMember);
+                getCourse(token,course_id)
+            },
+            function(response){
+                // failure call back
+            });
+
+    }
+    function getCourse(token,course_id) {
+
+        courseTeacher.getData(token,course_id).then(
+            function(response){
+                var data = response.data;
+                $scope.checkTimeOut(data)
+                $scope.course = data;
+                console.log($scope.course);
+                managePrograss();
 
             },
             function(response){
@@ -274,7 +291,20 @@ app.controller('viewMemberteacherController',function($scope,viewMemberTeacher,$
     }
 
 
-
+    function managePrograss() {
+        for(student = 0 ; student < $scope.viewMember.students.length ; student++){
+            var min = $scope.viewMember.students[student].lessons.length;
+            var max = $scope.course.lessons.length;
+            for(j=min ; j< max ; j++){
+                var lesson = {
+                    pivot: {
+                        progress: 0,
+                    }
+                }
+                $scope.viewMember.students[student].lessons.push(lesson);
+            }
+        }
+    }
 
 });
 
